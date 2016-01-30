@@ -34,20 +34,12 @@ data = [ y x ];
 b = mc_ols(y,x, "", 1);
 e = y - x*b;
 m = x .*e;
-momentcov = m'*m/n;
+q = rows(x)^ 0.25;
+q = floor(q); % round down
+momentcov = NeweyWest(m, q);
 weight = inv(momentcov);
 
 # note that weights don't matter for results - exactly identified
 gmm_results(b, data, 1, "nm", "", names, "Nerlove model estimated using GMM - Identity weight matrix", "", "", 0, momentcov);
-gmm_results(b, data, weight, "nm", "", names, "Nerlove model estimated using GMM - Efficient weight matrix", "", "", 0, momentcov);
+gmm_results(b, data, weight, "nm", "", names, "Nerlove model estimated using GMM - NW efficient weight matrix", "", "", 0, momentcov);
 
-# now try an overidentified estimator
-m = nm2(b, data);
-momentcov = m'*m/n;
-weight = inv(momentcov);
-gmm_results(b, data, weight, "nm2", "", names, "Nerlove model estimated using GMM - Efficient weight matrix", "", "", 0, momentcov);
-
-
-# OLS result for comparison
-printf("OLS results for comparison\n");
-mc_ols(y,x,names, 0, 1);

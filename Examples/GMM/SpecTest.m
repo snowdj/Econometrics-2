@@ -54,7 +54,7 @@ function contrib = wrapper(args)
 	for t = 2:n
 	  ystar(t,:) = 0 + 0.9*ystar(t-1,:) + 1*x(t,:) + e(t,:);
 	endfor
-    	# add measurement error
+    # add measurement error
 	y = ystar + sig*randn(n,1);
 	ylag = lag(y,1);
 	data = [y ylag x];
@@ -85,7 +85,7 @@ function contrib = wrapper(args)
 	objvalue = n*objvalue;
 	df = columns(m) - rows(theta);
 	reject = objvalue > chi2inv([0.9 0.95 0.99], df); # does the test reject at these signif levels?
-	contrib = [objvalue reject];
+	contrib = [reject];
 endfunction
 
 # do the Monte Carlo
@@ -102,12 +102,11 @@ montecarlo('wrapper', args, reps, outfile, n_pooled, true);
 
 # analyze results
 load SpecTest.out;
-results = SpecTest(:,3:6); # drop the timing and node info added by montecarlo.m
+results = SpecTest(:,3:end); # drop the timing and node info added by montecarlo.m
 clear SpecTest;
 close all;
 
-hist(results(:,1),30);
-dstats(results);
-		
+printf("mean rejection rates, 10%%, 5%% and 1%% significance levels:\n");
+disp(mean(results));
 
 

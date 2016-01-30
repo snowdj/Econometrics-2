@@ -71,7 +71,7 @@ theorems-ams-extended
 \output_sync 0
 \bibtex_command default
 \index_command default
-\paperfontsize 12
+\paperfontsize 17
 \spacing onehalf
 \use_hyperref true
 \pdf_bookmarks true
@@ -83,7 +83,7 @@ theorems-ams-extended
 \pdf_colorlinks true
 \pdf_backref false
 \pdf_pdfusetitle true
-\papersize default
+\papersize a4paper
 \use_geometry true
 \use_package amsmath 2
 \use_package amssymb 2
@@ -100,7 +100,7 @@ theorems-ams-extended
 \biblio_style plain
 \use_bibtopic false
 \use_indices false
-\paperorientation portrait
+\paperorientation landscape
 \suppress_date false
 \justification true
 \use_refstyle 0
@@ -781,8 +781,7 @@ status open
 
 
 \backslash
-htmladdnormallink{econometrics.iso}{https://github.com/mcreel/Econometrics/blob/ma
-ster/econometrics.iso}
+htmladdnormallink{econometrics.iso}{https://pareto.uab.cat/mcreel/econometrics.iso}
 \end_layout
 
 \end_inset
@@ -23190,13 +23189,17 @@ Grid search, one dimension
 \begin_inset Graphics
 	filename Examples/NonlinearOptimization/gridsearch.svg
 	lyxscale 25
-	width 10cm
+	width 15cm
 
 \end_inset
 
 
 \end_layout
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -23208,6 +23211,17 @@ Derivative-based methods
 
 \begin_layout Subsection
 Introduction
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+In the following, 
+\begin_inset Formula $k$
+\end_inset
+
+ is used as the index of the iterations of a given method.
+ It is not an exponent, and it is not the dimension of the parameter vector.
 \end_layout
 
 \begin_layout Standard
@@ -23227,8 +23241,12 @@ the iteration method for choosing
 \begin_inset Formula $\theta^{k+1}$
 \end_inset
 
- given 
+ given that we're at 
 \begin_inset Formula $\theta^{k}$
+\end_inset
+
+ at iteration 
+\begin_inset Formula $k$
 \end_inset
 
  (based upon derivatives)
@@ -23267,6 +23285,9 @@ The iteration method can be broken into two problems: choosing the stepsize
 \begin_layout Standard
 
 \emph on
+\begin_inset Newpage newpage
+\end_inset
+
 A locally increasing direction of search
 \emph default
  
@@ -23299,7 +23320,7 @@ As long as the gradient at
 \begin_inset Formula $\theta$
 \end_inset
 
- is not zero there exist increasing directions, and they can all be represented
+ is not zero, there exist increasing directions, and they can all be represented
  as 
 \begin_inset Formula $Q^{k}g(\theta^{k})$
 \end_inset
@@ -23386,6 +23407,9 @@ reference "Increasing directions"
 \end_inset
 
 .
+\begin_inset Newpage newpage
+\end_inset
+
  
 \begin_inset Float figure
 wide false
@@ -23420,6 +23444,10 @@ Increasing directions of search
 
 \end_layout
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -23484,6 +23512,10 @@ The remaining problem is how to choose
 \begin_layout Itemize
 Note also that this gives no guarantees to find a global maximum.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -23538,6 +23570,10 @@ http://en.wikipedia.org/wiki/Rosenbrock_function
 \end_inset
 
 .
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -23705,6 +23741,10 @@ However, it's good to include a stepsize, since the approximation to
 \end_inset
 
 
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -23800,6 +23840,10 @@ and BFGS are two well-known examples.
 
 \begin_layout Itemize
 show bfgsmin_example.m to optimize Rosenbrock function
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -23880,6 +23924,9 @@ Also, if we're maximizing, it's good to check that the last round (real,
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 
 \series bold
 Starting values
@@ -23940,7 +23987,15 @@ IMPORTANT in practice.
  More on this later.
 \end_layout
 
+\begin_layout Itemize
+an alternative is to use a global optimization algorithm, e.g., simulated
+ annealing or others, which may or may not be gradient based.
+\end_layout
+
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 
 \series bold
 Calculating derivatives
@@ -24000,6 +24055,10 @@ http://aleph.sagemath.org/
 \end_inset
 
 .
+\begin_inset Newpage newpage
+\end_inset
+
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -24036,6 +24095,10 @@ Using Sage to get analytic derivatives
 \end_inset
 
 
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -24052,6 +24115,20 @@ One advantage of numeric derivatives is that you don't have to worry about
  When programming analytic derivatives it's a good idea to check that they
  are correct by using numeric derivatives.
  This is a lesson I learned the hard way when writing my thesis.
+\end_layout
+
+\begin_layout Itemize
+there are also methods for 
+\emph on
+automatic differentiation
+\emph default
+.
+ This will probably become important in the future, but existing econometric
+ software makes little use of it.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -24164,6 +24241,10 @@ This is important in practice.
 \emph default
 In the future, if you start to do empirical work and get results that seem
  meaningless or crazy, try to remember this point.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -24178,6 +24259,10 @@ There are algorithms (such as BFGS and DFP) that use the sequential gradient
 \begin_layout Itemize
 Switching between algorithms during iterations is sometimes useful.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Example
@@ -24206,6 +24291,10 @@ reference "simple nerlove model"
 \end_inset
 
 ) with and without parameter restrictions.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -24227,20 +24316,12 @@ Simulated annealing is an algorithm which can find an optimum in the presence
  focuses in on promising areas, which reduces function evaluations with
  respect to the search method.
  It does not require derivatives to be evaluated.
- I
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
- 
-\end_layout
-
+ Run samin_example.m if you're using the live CD image, or enter Octave and
+ type edit samin.cc to see the code.
+\begin_inset Newpage newpage
 \end_inset
 
-have a program to do this if you're interested.
+
 \end_layout
 
 \begin_layout Section
@@ -24962,6 +25043,10 @@ Suppose we have an
  You must define your criterion function and explain how to implement the
  grid search.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -25017,6 +25102,10 @@ target "http://www.sciencedirect.com/science/handbooks/15734412"
 \emph default
 , Ch.
  36.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -25074,6 +25163,10 @@ extremum estimators
 \end_inset
 
 .
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Definition
@@ -25152,6 +25245,19 @@ Because the data
 
 .
  I'll be loose with notation and interchange when convenient.
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Example
@@ -25196,10 +25302,10 @@ s_{n}(\mathbf{Z}_{n},\theta)=1/n\sum_{t=1}^{n}\left(y_{t}-\mathbf{x}_{t}^{\prime
 \end_inset
 
 
-\end_layout
+\begin_inset Newpage newpage
+\end_inset
 
-\begin_layout Standard
-.
+
 \end_layout
 
 \begin_layout Example
@@ -25288,7 +25394,7 @@ Solution of the f.o.c.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\,$
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -25337,6 +25443,13 @@ where
  These concepts are explained later, for now the point is that Bayesian
  estimators can be thought of as extremum estimators, and the theory for
  extremum estimators will apply.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -25412,6 +25525,10 @@ We'll often write the objective function suppressing the dependence on
  However, the data is still in there, and because the data is randomly sampled,
  the objective function is random, too.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -25445,6 +25562,10 @@ If
 \end_inset
 
  is continuous.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -25573,6 +25694,13 @@ i.e.,
 \begin_layout Theorem
 Then 
 \begin_inset Formula $\hat{\theta}_{n}\stackrel{a.s.}{\rightarrow}\theta^{0}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -25968,6 +26096,13 @@ Note that
  is.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 
 \series bold
@@ -26046,6 +26181,10 @@ These are reasonable conditions in many cases, and henceforth when dealing
  convergence can be extended to uniform almost sure convergence in this
  way.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -26183,6 +26322,13 @@ s_{\infty}(\beta)=\left(\beta^{0}-\beta\right)^{2}E\left(X^{2}\right)+\sigma_{\v
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Exercise
 \begin_inset CommandInset label
 LatexCommand label
@@ -26223,6 +26369,10 @@ estimator.
  There are easier ways to show this, of course - this is only an example
  of application of the theorem.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -26280,13 +26430,17 @@ Consistency of OLS
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename Examples/Figures/OLSextremum.png
-	width 12cm
+	width 15cm
 
 \end_inset
 
 
 \end_layout
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -26471,7 +26625,11 @@ case 2: If knowledge of
 \begin_inset Formula $\rho^{0},$
 \end_inset
 
- we have a correctly specified semiparametric model.
+ we have a correctly specified 
+\emph on
+semiparametric
+\emph default
+ model.
  
 \begin_inset Formula $\theta^{0}$
 \end_inset
@@ -26500,7 +26658,11 @@ case 3: If knowledge of
 \begin_inset Formula $\rho^{0},$
 \end_inset
 
- our model is misspecified.
+ our model is 
+\emph on
+misspecified
+\emph default
+.
  
 \begin_inset Formula $\theta^{0}$
 \end_inset
@@ -26511,6 +26673,13 @@ pseudo-true parameter value
 \emph default
 .
  The next section provides an example.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -26637,6 +26806,10 @@ The theorem for consistency is really quite intuitive.
  Because the objective function may or may not make sense, depending on
  how good or poor is the model, we may or may not be estimating parameters
  of the DGP.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -26979,6 +27152,13 @@ given
  
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Asymptotic Normality
 \end_layout
@@ -27064,6 +27244,9 @@ Then
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 
 \series bold
 Proof:
@@ -27200,10 +27383,23 @@ And
 \end_inset
 
 by the Slutsky Theorem (see Gallant, Theorem 4.6).
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Effects-of-"
+
+\end_inset
+
+ shows the effects of the two components, the variability of the gradient,
+ and the slope of the gradient.
+ 
 \begin_inset Float figure
 wide false
 sideways false
@@ -27217,6 +27413,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Effects-of-"
+
+\end_inset
+
 Effects of 
 \begin_inset Formula $I_{\mbox{\infty}}$
 \end_inset
@@ -27342,6 +27544,10 @@ is
 \end_inset
 
  to avoid convergence to zero.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -27657,6 +27863,10 @@ The maximum likelihood estimator is important because it uses all of the
  concerned about the possible misspecification of the statistical model.
  If this is the case, the ML estimator will not have the nice properties
  that it has under correct specification.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -27759,6 +27969,10 @@ maximum likelihood estimator
 \end_inset
 
  that maximizes the likelihood function.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -27856,6 +28070,14 @@ With exogeneity of
 
 .
  We'll suppose this framework in what follows.
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+A convenient factorization of the likelihood function
 \end_layout
 
 \begin_layout Itemize
@@ -27912,6 +28134,10 @@ do the same thing for
 
  in the last term, and keep iterating.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -27921,7 +28147,7 @@ Then, in the end, we have
 \begin_layout Standard
 \begin_inset Formula 
 \[
-L(Y,\theta)=f(y_{1}|Z,\theta)f(y_{2}|y_{1},Z,\theta)f(y_{3}|y_{1},y_{2},Z,\theta)\cdots f(y_{n}|y_{1,}y_{2},\ldots y_{t-n},Z,\theta)
+L(Y,\theta)=f(y_{n}|y_{1,}y_{2},\ldots y_{t-n},Z,\theta)f(y_{n-1}|y_{1,}y_{2},\ldots y_{n-2},Z,\theta)\cdots f(y_{2}|y_{1},Z,\theta)f(y_{1}|Z,\theta)
 \]
 
 \end_inset
@@ -27976,6 +28202,10 @@ L(Y|X;\theta)=\prod_{t=1}^{n}f(y_{t}|x_{t},\theta)
 
 \end_inset
 
+
+\begin_inset Newpage newpage
+\end_inset
+
 The criterion function can be defined as the average log-likelihood function:
  
 \begin_inset Formula 
@@ -28016,6 +28246,10 @@ s_{n}(\theta)=\frac{1}{n}\ln L(Y|X;\theta)=\frac{1}{n}\sum_{t=1}^{n}\ln f(y_{t}|
 
  has no effect on 
 \begin_inset Formula $\hat{\theta}.$
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -28277,6 +28511,10 @@ reference "cha:Numeric-optimization-methods"
 \end_inset
 
  for more information on how to do this.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Example
@@ -28387,6 +28625,10 @@ xamples/MLE/NormalLF.m}
 \end_inset
 
 .
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -28554,6 +28796,10 @@ reference "Consistency of ee"
 \end_inset
 
  So, the ML estimator is consistent for the true parameter value.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -28724,6 +28970,10 @@ This hold for all
 
  so it implies that 
 \begin_inset Formula $\mathcal{E}_{\theta}g_{n}(Y,\theta)=0.$
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -29099,6 +29349,10 @@ estimator is asymptotically normally distributed.
 The form of this expression is the same as what we saw for extremum estimators
  in general.
  This is no surprise, as the MLE is an extremum estimator.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -29291,6 +29545,10 @@ reference "eq:outerproductsocrecontribs"
 
 to estimate the information matrix.
  Why not?
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -29325,6 +29583,10 @@ quasi-
 \emph default
 ML estimator.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -29370,7 +29632,7 @@ or the inverse of the outer product of the gradient (since the middle and
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 \begin_inset Formula 
 \[
 \widehat{V_{\infty}}=\left\{ 1/n\sum_{t=1}^{n}\left[D_{\theta}\ln f(y_{t}|Y_{t-1},\hat{\theta})\right]\left[D_{\theta}\ln f(y_{t}|Y_{t-1},\hat{\theta})\right]^{\prime}\right\} ^{-1}.
@@ -29378,6 +29640,14 @@ or the inverse of the outer product of the gradient (since the middle and
 
 \end_inset
 
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
 This simplification is a special result for the MLE estimator - it doesn't
  apply to GMM estimators in general.
 \end_layout
@@ -29402,6 +29672,10 @@ Information matrix test
  information matrix: outer product of gradient or negative of the Hessian.
  If they differ by too much, this is evidence of misspecification of the
  model.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -29517,6 +29791,10 @@ For this example, find
 \end_inset
 
 .
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -29854,6 +30132,12 @@ A direct proof of asymptotic efficiency of an estimator is infeasible, but
  In particular, 
 \emph on
 the MLE is asymptotically efficient with respect to any other CAN estimator.
+\emph default
+
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -30086,6 +30370,10 @@ change the value of
 
 \begin_layout Itemize
 explore how power depends on the sample size
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*
@@ -30117,6 +30405,10 @@ LR test is available for testing hypothesis
 \begin_layout Itemize
 The presentation is for general MLE: we haven't specified the distribution
  or the linearity/nonlinearity of the estimator
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -30201,6 +30493,12 @@ amples/OLS/Nerlove.m}
  routing 
 \family typewriter
 mle_results.m
+\family default
+
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -30642,6 +30940,10 @@ On a final note, the logit and standard normal CDF's are very similar -
 \end_inset
 
  will be virtually identical for the two models.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -30802,6 +31104,10 @@ The estimation program is calling
 mle_results()
 \family default
 , which in turn calls a number of other routines.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -31400,6 +31706,10 @@ reference "sub:MEPS data"
  You should examine the scripts and run them to see how MLE is actually
  done, and how parameter standard errors are estimated.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -32275,90 +32585,58 @@ target "http://www.sciencedirect.com/science/handbooks/15734412"
 \end_layout
 
 \begin_layout Section
-Motivation
-\end_layout
-
-\begin_layout Standard
-The principle of the method of moments is to set the population moment to
- the sample moment, then invert to solve for the estimator of the parameter.
- This is illustrated in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Method-of-Moments"
-
-\end_inset
-
-.
- The sample moment 
-\begin_inset Formula $z$
-\end_inset
-
- will converge to the true moment 
-\begin_inset Formula $E_{\theta^{0}}(Z),$
-\end_inset
-
- so the estimator will converge to the true parameter value, as long as
- the function 
-\begin_inset Formula $E_{\theta}(Z)$
-\end_inset
-
- is continuous and invertible.
- 
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Method-of-Moments"
-
-\end_inset
-
-Method of Moments
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Examples/Figures/MethodMoments.pdf
-	lyxscale 25
-	width 12cm
-	rotateAngle 90
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
+Moment conditions
 \end_layout
 
 \begin_layout Definition
-Moment condition: Define a moment condition as a realization of statistic,
- minus the expectation, under the model, of the statistic:
+Moment condition: a moment condition 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $m_{n}(\theta)=m_{n}(Z_{n},\theta)$
+\end_inset
+
+ is a vector-valued function of the data 
+\begin_inset Formula $Z_{n}$
+\end_inset
+
+ and the parameter 
+\begin_inset Formula $\theta$
+\end_inset
+
+ that has mean zero, under the model, when evaluated at the true parameter
+ value 
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+, and expectation different from zero when evaluated at other parameter
+ values:
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
 \begin_inset Formula 
-\[
-m(\theta)=z-E_{\theta}(Z)
-\]
+\begin{align*}
+Em_{n}(Z_{n},\theta_{0}) & =0\\
+Em_{n}(Z_{n},\theta) & \ne0,\,\theta\ne\theta_{0}
+\end{align*}
 
 \end_inset
 
@@ -32366,104 +32644,245 @@ m(\theta)=z-E_{\theta}(Z)
 \end_layout
 
 \begin_layout Itemize
-Note that 
-\begin_inset Formula $E_{\theta}m(\theta)=0$
+The expectation operator 
+\begin_inset Formula $E$
 \end_inset
 
- when the two thetas are the same.
+ means that expectations are taken with respect to the true density of the
+ data.
+ This may depend on more parameters than appear in 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
 \end_layout
 
-\begin_layout Subsection
-Sampling from 
-\begin_inset Formula $\chi^{2}(\theta^{0})$
+\begin_layout Itemize
+The statistic may be vector-valued, with dimension 
+\begin_inset Formula $G,$
 \end_inset
 
-
+ say.
 \end_layout
 
-\begin_layout Example
-(Method of moments, v1) Suppose we draw a random sample of 
-\begin_inset Formula $y_{t}$
+\begin_layout Definition
+Moment contribution: we will be dealing with moment conditions that are
+ defined as averages: 
+\begin_inset Formula $m_{n}(\theta)=\frac{1}{n}\sum_{t}m(Z_{t},\theta)=\frac{1}{n}\sum_{t}m_{t}(\theta)$
 \end_inset
 
- from the 
-\begin_inset Formula $\chi^{2}(\theta^{0})$
+.
+ The functions 
+\begin_inset Formula $m_{t}(\theta)$
 \end_inset
 
- distribution.
- Here, 
-\begin_inset Formula $\theta^{0}$
+ are the 
+\emph on
+moment contributions.
+
+\emph default
+ The 
+\begin_inset Formula $t$
 \end_inset
 
- is the parameter of interest.
+th moment contribution 
+\begin_inset Formula $m_{t}$
+\end_inset
+
+ is a function the same observation's data.
+ I'm casually using 
+\begin_inset Formula $m(Z_{t},\theta),$
+\end_inset
+
+ 
+\begin_inset Formula $m_{t}(\theta)$
+\end_inset
+
+ and 
+\begin_inset Formula $m_{t}$
+\end_inset
+
+ to all refer to the same thing.
+ This first of these is the full expression, but I will suppress arguments
+ when the context makes things clear enough, to reduce the notational burden.
+ The main thing is that 
+\begin_inset Formula $m_{n}$
+\end_inset
+
+ refers to the average over the 
+\begin_inset Formula $n$
+\end_inset
+
+ observations, and 
+\begin_inset Formula $m_{t}$
+\end_inset
+
+ refers to the terms that are averaged.
  
 \end_layout
 
 \begin_layout Example
-In this example, if 
-\begin_inset Formula $Y\sim\chi^{2}(\theta^{0})$
+OLS.
+ The classical linear model.
+ Let 
+\begin_inset Formula $m_{n}(\beta)=\frac{1}{n}\sum_{t}x_{t}(y_{t}-x_{t}^{\prime}\beta).$
 \end_inset
 
-, then the mean 
-\begin_inset Formula $E(Y)=\theta^{0}$
+ So the moment contributions are 
+\begin_inset Formula $m_{t}(\beta)=x_{t}(y_{t}-x_{t}^{\prime}\beta)$
 \end_inset
 
 .
- Let the statistic 
-\begin_inset Formula $Z$
+ When 
+\begin_inset Formula $\beta=\beta_{0},$
 \end_inset
 
- be the sample mean, with realization : 
-\begin_inset Formula 
-\[
-z=\sum_{t=1}^{n}y_{t}/n=\bar{y}
-\]
-
+ 
+\begin_inset Formula $y_{t}-x_{t}^{\prime}\beta_{0}=\epsilon_{t},$
 \end_inset
 
-The expectation of the sample mean, under the 
-\begin_inset Formula $\chi^{2}$
+ and 
+\begin_inset Formula $m_{t}=x_{t}\epsilon_{t}$
 \end_inset
 
- model, is the population mean: 
-\begin_inset Formula $E_{\theta}(Z)=\theta$
+.
+ We know that 
+\begin_inset Formula $E(x_{t}\epsilon_{t})=0,$
 \end_inset
 
- .
- Thus, the moment condition is
+ by the weak exogeneity assumption.
+ Thus, the moment contributions, and the moment condition, which is their
+ average, have expectation zero when evaluated at the true parameter value.
 \end_layout
 
-\begin_layout Example
-\begin_inset Formula 
-\[
-m(\theta)=\bar{y}-\theta.
-\]
-
+\begin_layout Standard
+\begin_inset Formula $\,$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Example
-Incidentally, we can see that the moment condition is the average of the
- contributions:
+ML.
+ We have seen (see eqn.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ExpectationScore"
+
+\end_inset
+
+) that the score contributions of the ML estimator have mean zero: 
+\begin_inset Formula $E\left(D_{\theta}\ln f(y_{t}|x_{x},\theta_{0})\right)=0$
+\end_inset
+
+.
+ So, we could set 
+\begin_inset Formula $m_{t}(\theta)=D_{\theta}\ln f(y_{t}|x_{x},\theta)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\,$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Sampling from 
+\begin_inset Formula $\chi^{2}.$
+\end_inset
+
+ Suppose we draw a random sample of 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+ from the 
+\begin_inset Formula $\chi^{2}(\theta_{0})$
+\end_inset
+
+ distribution.
+ Here, 
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+ is the parameter of interest.
+ If 
+\begin_inset Formula $Y\sim\chi^{2}(\theta_{0})$
+\end_inset
+
+, then the mean 
+\begin_inset Formula $E(Y)=\theta_{0}$
+\end_inset
+
+.
+ Let the moment contribution be 
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+m_{t}(\theta)=y_{t}-\theta
+\]
+
+\end_inset
+
+Then 
 \begin_inset Formula 
 \begin{align*}
-m_{t}(\theta) & =y_{t}-\theta\\
-m(\theta) & =\frac{1}{n}\sum_{t=1}^{n}m_{t}(\theta)
+m_{n}(\theta) & =\frac{1}{n}\sum_{t=1}^{n}m_{t}(\theta)=\bar{y}-\theta
 \end{align*}
 
 \end_inset
 
-The method of moments principle is to choose the estimator of the parameter
- to set the estimate of the population moment equal to the sample moment,
- or equivalently to make the moment condition equal to zero: 
-\begin_inset Formula $m(\hat{\theta})\equiv0$
+We know that the 
+\begin_inset Formula $E(\bar{y})=\theta_{0}.$
+\end_inset
+
+ Thus, 
+\begin_inset Formula $Em_{n}(\theta_{0})=0.$
+\end_inset
+
+ However, 
+\begin_inset Formula $Em_{n}(\theta)=\theta_{0}-\theta\ne$
+\end_inset
+
+0 if 
+\begin_inset Formula $\theta\ne\theta_{0}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+When the dimension of the moment conditions is the same as the dimension
+ of the parameter vector 
+\begin_inset Formula $\theta$
+\end_inset
+
+, the 
+\emph on
+method of moments principle
+\emph default
+ is to choose the estimator of the parameter to 
+\emph on
+set the moment condition equal to zero
+\emph default
+: 
+\begin_inset Formula $m_{n}(\hat{\theta})\equiv0$
 \end_inset
 
 .
  Then the equation is solved for the estimator.
- In this case, 
+ In this case of OLS, this gives 
+\begin_inset Formula $\sum_{t}x_{t}(y_{t}-x_{t}^{\prime}\hat{\beta})=0,$
+\end_inset
+
+ which gives a solution that you should already know.
+ For the chi-squared example, 
 \begin_inset Formula 
 \[
 m(\hat{\theta})=\bar{y}-\hat{\theta}=0
@@ -32483,15 +32902,12 @@ is solved by
  by the LLN, the estimator is consistent.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Formula $\,$
+\begin_layout Example
+\begin_inset Formula $\chi^{2},$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Example
-(Method of moments, v2) The variance of a 
+ version 2.
+ The variance of a 
 \begin_inset Formula $\chi^{2}(\theta^{0})$
 \end_inset
 
@@ -32508,34 +32924,10 @@ V\left(Y\right)=E_{\theta^{0}}\left(Y-\theta^{0}\right)^{2}=2\theta^{0}.
 \end_layout
 
 \begin_layout Example
-Let the statistic 
-\begin_inset Formula $Z$
-\end_inset
-
- be the sample variance, with realization 
-\begin_inset Formula 
-\[
-z=\hat{V}\left(Y\right)=\frac{\sum_{t=1}^{n}\left(y_{t}-\bar{y}\right)^{2}}{n-1}.
-\]
-
-\end_inset
-
- Define the an alternative moment condition as the sample variance minus
- its expectation under the model:
+Let 
 \begin_inset Formula 
 \begin{align*}
-m(\theta) & =\hat{V}\left(Y\right)-2\theta\\
- & =\frac{\sum_{t=1}^{n}\left(y_{t}-\bar{y}\right)^{2}}{n-1}-2\theta
-\end{align*}
-
-\end_inset
-
-Incidentally, we can see that the moment condition is the average of the
- contributions:
-\begin_inset Formula 
-\begin{align*}
-m_{t}(\theta) & =\frac{n}{n-1}\left(y_{t}-\bar{y}\right)^{2}-2\theta\\
-m(\theta) & =\frac{1}{n}\sum_{t=1}^{n}m_{t}(\theta)
+m_{t}(\theta) & =\left(y_{t}-\bar{y}\right)^{2}-2\theta
 \end{align*}
 
 \end_inset
@@ -32547,16 +32939,23 @@ m(\theta) & =\frac{1}{n}\sum_{t=1}^{n}m_{t}(\theta)
 The MM estimator using the variance would set 
 \begin_inset Formula 
 \[
-m(\hat{\theta})=\frac{\sum_{t=1}^{n}\left(y_{t}-\bar{y}\right)^{2}}{n-1}-2\hat{\theta}\equiv0.
+m_{n}(\hat{\theta})=\frac{\sum_{t=1}^{n}\left(y_{t}-\bar{y}\right)^{2}}{n}-2\hat{\theta}\equiv0.
 \]
 
 \end_inset
 
- So, invertint to solve for the estimator, the estimator is half the sample
- variance: 
+Solving for the estimator, it is half the sample variance (dividing by 
+\begin_inset Formula $n$
+\end_inset
+
+ rather than the bias correcting 
+\begin_inset Formula $n-1)$
+\end_inset
+
+: 
 \begin_inset Formula 
 \[
-\hat{\theta}=\frac{1}{2}\frac{\sum_{t=1}^{n}\left(y_{t}-\bar{y}\right)^{2}}{n-1}.
+\hat{\theta}=\frac{1}{2}\frac{\sum_{t=1}^{n}\left(y_{t}-\bar{y}\right)^{2}}{n}.
 \]
 
 \end_inset
@@ -32565,7 +32964,7 @@ Again, by the LLN, the sample variance is consistent for the true variance,
  that is, 
 \begin_inset Formula 
 \[
-\frac{\sum_{t=1}^{n}\left(y_{t}-\bar{y}\right)^{2}}{n-1}\stackrel{p}{\rightarrow}2\theta^{0}.
+\frac{\sum_{t=1}^{n}\left(y_{t}-\bar{y}\right)^{2}}{n}\stackrel{p}{\rightarrow}2\theta^{0}.
 \]
 
 \end_inset
@@ -32610,17 +33009,19 @@ htmladdnormallink{GMM/chi2mm.m}{https://github.com/mcreel/Econometrics/blob/mast
 
 \end_layout
 
-\begin_layout Example
+\begin_layout Standard
 Note that when you run the script, the two estimators give different results.
  Each of the two estimators is consistent.
- Note that the fact that the data has a chi-squared distribution is not
- used in estimation, it just as easily could have been normally distributed.
- As long as the assumptions regarding the mean or variance are correct,
- the MM estimators are consistent.
+ 
 \end_layout
 
 \begin_layout Itemize
-With two moment-parameter equations and only one parameter, we have 
+For the 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+ example, we have two alternative moment conditions and only one parameter:
+ we have 
 \emph on
 overidentification,
 \emph default
@@ -32629,8 +33030,8 @@ overidentification,
 \end_layout
 
 \begin_layout Itemize
-The idea behind GMM is to combine information from the two moment-parameter
- equations to form a new estimator which will be
+The idea behind GMM is to combine information from the two moment conditions
+ to form a new estimator which will be
 \emph on
 
 \begin_inset ERT
@@ -32648,104 +33049,38 @@ status collapsed
 more efficient,
 \emph default
  in general (proof of this below).
- 
 \end_layout
 
-\begin_layout Definition
-Moment contribution: we will be working with moment conditions 
-\begin_inset Formula $m(\theta)$
+\begin_layout Itemize
+Note that the fact that the data has a chi-squared distribution is not used
+ in estimation, it just as easily could have been normally distributed,
+ sampling from a 
+\begin_inset Formula $N(\theta_{0},2\theta_{0})$
 \end_inset
 
- which are averages of moment contributions 
-\begin_inset Formula $m_{t}(\theta).$
-\end_inset
-
- Moment contributions are 
-\begin_inset Formula $g$
-\end_inset
-
--vector valued functions of the parameters which have expectation zero:
- 
-\begin_inset Formula $E_{\theta}m_{t}(\theta)=0.$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Example: OLS
+ distribution.
+ As long as the assumptions regarding the mean or variance are correct,
+ the MM estimators are consistent.
+ So, we don't make use of distributional assumptions when doing method of
+ moment estimation, we only rely on certain moments being correctly specified.
+ In this way, method of moments estimation is 
+\emph on
+more robust
+\emph default
+ than is maximum likelihood estimation: we obtain a consistent estimator
+ with fewer assumptions.
+ There being no free lunch, we should expect to pay something for this,
+ of course.
+ The cost will be a loss of efficiency, in general.
 \end_layout
 
 \begin_layout Standard
-Consider the classical linear regression model with true parameter value
- 
-\begin_inset Formula $\beta_{0}$
-\end_inset
-
-, and the moment contribution 
-\begin_inset Formula $m_{t}(\beta)=x_{t}(y_{t}-x_{t}^{\prime}\beta$
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Itemize
-note that 
-\begin_inset Formula $E_{\beta_{0}}m_{t}(\beta_{0})=0$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-define 
-\begin_inset Formula $m(\beta)=\frac{1}{n}\sum_{t}m_{t}(\beta)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-In this case 
-\begin_inset Formula $Z=\frac{1}{n}\sum_{t=1}^{n}x_{t}y_{t}$
-\end_inset
-
- and 
-\begin_inset Formula $E_{\beta}Z=\frac{1}{n}\sum_{t=1}^{n}x_{t}x_{t}^{\prime}\beta$
-\end_inset
-
-, so 
-\begin_inset Formula $m(\beta)=\frac{1}{n}\sum_{t=1}^{n}x_{t}y_{t}-\frac{1}{n}\sum_{t=1}^{n}x_{t}x_{t}^{\prime}\beta$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $E_{\beta_{0}}m(\beta_{0})=0$
-\end_inset
-
-: the expectation of the average moment condition under the model is also
- equal to zero.
-\end_layout
-
-\begin_layout Itemize
-the MM principle says make the sample moment at the estimate equal to it's
- expectation under the model.
- This means set 
-\begin_inset Formula $m(\hat{\beta})=0.$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Then you need to invert the sample moment to solve for the estimate: Setting
- to zero and solving gives the OLS formula 
-\begin_inset Formula $\hat{\beta}=\left(X^{\prime}X\right)^{-1}X^{\prime}Y$
-\end_inset
-
-
+To summarize, a moment condition is a vector valued function which has expectati
+on zero at the true parameter value.
+ We have seen some examples of where we might get such functions, and more
+ will follow.
+ For now, let's take moment conditions as given, and work out the properties
+ of the estimator.
 \end_layout
 
 \begin_layout Section
@@ -32769,7 +33104,7 @@ The GMM estimator of the
 \end_inset
 
  -dimensional parameter vector 
-\begin_inset Formula $\theta^{0},$
+\begin_inset Formula $\theta_{0},$
 \end_inset
 
  
@@ -32777,19 +33112,19 @@ The GMM estimator of the
 \end_inset
 
  where 
-\begin_inset Formula $m_{n}(\theta)=\frac{1}{n}\sum_{t=1}^{n}m_{t}(\theta)$
+\begin_inset Formula $m_{n}(\theta)=\frac{1}{n}\sum_{t=1}^{n}m(Z_{t},\theta)$
 \end_inset
 
  is a 
 \begin_inset Formula $g$
 \end_inset
 
--vector, 
+-vector valued function of the , 
 \begin_inset Formula $g\geq k,$
 \end_inset
 
  with 
-\begin_inset Formula $\mathcal{E}_{\theta}m(\theta)=0,$
+\begin_inset Formula $\mathcal{E}m(\theta_{0})=0,$
 \end_inset
 
  and 
@@ -34716,8 +35051,8 @@ Suppose that a random variable
 \end_layout
 
 \begin_layout Standard
-This is important econometrically, since models often imply restrictions
- on conditional moments.
+This is important from the point of view of constructing an econometric
+ model, since economic models often imply restrictions on conditional moments.
 \end_layout
 
 \begin_layout Itemize
@@ -34958,416 +35293,23 @@ where
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:A-specification-test"
-
-\end_inset
-
-The Hansen-Sargan (or J) test
-\end_layout
-
-\begin_layout Standard
-The first order conditions for minimization, using the an estimate of the
- optimal weighting matrix, are 
-\begin_inset Formula 
-\[
-\frac{\partial}{\partial\theta}s(\hat{\theta})=2\left[\frac{\partial}{\partial\theta}m_{n}^{^{\prime}}\left(\hat{\theta}\right)\right]\hat{\Omega}^{-1}m_{n}\left(\hat{\theta}\right)\equiv0
-\]
-
-\end_inset
-
- or
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-D(\hat{\theta})\hat{\Omega}^{-1}m_{n}(\hat{\theta})\equiv0
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Consider a Taylor expansion of 
-\begin_inset Formula $m(\hat{\theta})$
-\end_inset
-
- about the true parameter value:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-m(\hat{\theta})=m_{n}(\theta^{0})+D_{n}^{\prime}(\theta^{*})\left(\hat{\theta}-\theta^{0}\right)\label{TS expansion of moments}
-\end{equation}
-
-\end_inset
-
-where 
-\begin_inset Formula $\theta^{*}$
-\end_inset
-
- is between 
-\begin_inset Formula $\hat{\theta}$
-\end_inset
-
- and 
-\begin_inset Formula $\theta^{0}$
-\end_inset
-
-.
- Multiplying by 
-\begin_inset Formula $D(\hat{\theta})\hat{\Omega}^{-1}$
-\end_inset
-
- we obtain 
-\begin_inset Formula 
-\[
-D(\hat{\theta})\hat{\Omega}^{-1}m(\hat{\theta})=D(\hat{\theta})\hat{\Omega}^{-1}m_{n}(\theta^{0})+D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\left(\hat{\theta}-\theta^{0}\right)
-\]
-
-\end_inset
-
- The lhs is zero, so 
-\begin_inset Formula 
-\[
-D(\hat{\theta})\hat{\Omega}^{-1}m_{n}(\theta^{0})=-\left[D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right]\left(\hat{\theta}-\theta^{0}\right)
-\]
-
-\end_inset
-
- or
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\left(\hat{\theta}-\theta^{0}\right)=-\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1}m_{n}(\theta^{0})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-With this, and taking into account the original expansion (equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "TS expansion of moments"
-
-\end_inset
-
-), we get 
-\begin_inset Formula 
-\[
-\sqrt{n}m(\hat{\theta})=\sqrt{n}m_{n}(\theta^{0})-\sqrt{n}D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1}m_{n}(\theta^{0}).
-\]
-
-\end_inset
-
- With some factoring, this last can be written as
-\begin_inset Formula 
-\begin{align*}
-\sqrt{n}m(\hat{\theta}) & =\left(\hat{\Omega}^{1/2}-D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1/2}\right)\left(\sqrt{n}\hat{\Omega}^{-1/2}m_{n}(\theta^{0})\right)
-\end{align*}
-
-\end_inset
-
-(verify it by multiplying out the last expression.
- Also, a note: the matrix square root of a matrix 
-\begin_inset Formula $A$
-\end_inset
-
- is any matrix 
-\begin_inset Formula $A^{1/2}$
-\end_inset
-
- such that 
-\begin_inset Formula $A=A^{1/2}A^{1/2}$
-\end_inset
-
-.
- Any positive definite matrix has an invertible matrix square root.)
-\end_layout
-
-\begin_layout Standard
-Next, multiply by 
-\begin_inset Formula $\hat{\Omega}^{-1/2}$
-\end_inset
-
- to get
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\sqrt{n}\hat{\Omega}^{-1/2}m(\hat{\theta}) & =\left(I_{g}-\hat{\Omega}^{-1/2}D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1/2}\right)\left(\sqrt{n}\hat{\Omega}^{-1/2}m_{n}(\theta^{0})\right)\equiv PX
-\end{align*}
-
-\end_inset
-
- Now, from 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:CLT applied to moment conditions"
-
-\end_inset
-
- we have 
-\begin_inset Formula 
-\[
-X\equiv\sqrt{n}\hat{\Omega}^{-1/2}m_{n}(\theta^{0})\stackrel{d}{\rightarrow}N(0,I_{g})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-the big matrix 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $P=I_{g}-\hat{\Omega}^{-1/2}D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1/2}$
-\end_inset
-
- converges in probability to 
-\begin_inset Formula $P_{\infty}=I_{g}-\Omega_{\infty}^{-1/2}D_{\infty}^{\prime}\left(D_{\infty}\Omega_{\infty}^{-1}D_{\infty}^{\prime}\right)^{-1}D_{\infty}\Omega_{\infty}^{-1/2}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Itemize
-One can easily verify that 
-\begin_inset Formula $P_{\infty}$
-\end_inset
-
- is idempotent and has rank 
-\begin_inset Formula $g-K,$
-\end_inset
-
- (recall that the rank of an idempotent matrix is equal to its trace)
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-.
- 
-\end_layout
-
-\begin_layout Itemize
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-We know as a basic result from statistics that 
-\begin_inset Formula $X^{\prime}PX\stackrel{d}{\rightarrow}\chi^{2}(d)$
-\end_inset
-
-, because it is a quadratic form of standard normal variables, weighted
- by an idempotent matrix.
-\end_layout
-
-\begin_layout Itemize
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-S
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-o, a quadratic form on the r.h.s.
- has an asymptotic chi-square distribution.
- The quadratic form made using the l.h.s.
- must also have the same distribution, so we finally get 
-\begin_inset Formula 
-\[
-\left(\sqrt{n}\hat{\Omega}^{-1/2}m(\hat{\theta})\right)^{\prime}\left(\sqrt{n}\hat{\Omega}^{-1/2}m(\hat{\theta})\right)=nm(\hat{\theta})^{\prime}\hat{\Omega}^{-1}m(\hat{\theta})\stackrel{d}{\rightarrow}\chi^{2}(g-K)
-\]
-
-\end_inset
-
- or 
-\begin_inset Formula 
-\[
-n\cdot s_{n}(\hat{\theta})\stackrel{d}{\rightarrow}\chi^{2}(g-K)
-\]
-
-\end_inset
-
-supposing the model is correctly specified.
- 
-\end_layout
-
-\begin_layout Standard
-This is a convenient test since we just multiply the optimized value of
- the objective function by 
-\begin_inset Formula $n,$
-\end_inset
-
- and compare with a 
-\begin_inset Formula $\chi^{2}(g-K)$
-\end_inset
-
- critical value.
- The test is a general test of whether or not the moments used to estimate
- are correctly specified.
-\end_layout
-
-\begin_layout Standard
-This won't work when the estimator is just identified.
- The f.o.c.
- are 
-\begin_inset Formula 
-\[
-D_{\theta}s_{n}(\theta)=D\hat{\Omega}^{-1}m(\hat{\theta})\equiv0.
-\]
-
-\end_inset
-
-But with exact identification, both 
-\begin_inset Formula $D$
-\end_inset
-
- and 
-\begin_inset Formula $\hat{\Omega}$
-\end_inset
-
- are square and invertible (at least asymptotically, assuming that asymptotic
- normality hold), so
-\begin_inset Formula 
-\[
-m(\hat{\theta})\equiv0.
-\]
-
-\end_inset
-
-So the moment conditions are zero 
-\emph on
-regardless
-\emph default
- of the weighting matrix used.
- As such, we might as well use an identity matrix and save trouble.
- Also 
-\begin_inset Formula $s_{n}(\hat{\theta})=0$
-\end_inset
-
-, so the test breaks down.
-\end_layout
-
-\begin_layout Standard
-A note:
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
- 
-\end_layout
-
-\end_inset
-
-this sort of test often over-rejects in finite samples.
- One should be cautious in rejecting a model when this test rejects.
-\end_layout
-
-\begin_layout Standard
-This test goes by several names: Hansen test, Sargan test, Hansen-Sargan
- test, J test.
- I call it the GMM criterion test.
- An old name for GMM estimation is 
-\begin_inset Quotes sld
-\end_inset
-
-minimum chi-square
-\begin_inset Quotes srd
-\end_inset
-
- estimation.
- This makes sense: the criterion function at the estimate (which makes the
- criterion as small as possible), scaled by 
-\begin_inset Formula $n$
-\end_inset
-
-, has a 
-\begin_inset Formula $\chi^{2}$
-\end_inset
-
- distribution.
-\end_layout
-
-\begin_layout Section
-\begin_inset CommandInset label
-LatexCommand label
 name "sec:Example:-Generalized-instrumental"
 
 \end_inset
 
-Example: Generalized instrumental variables estimator
+Generalized instrumental variables estimator
 \end_layout
 
 \begin_layout Standard
 The IV estimator may appear a bit unusual at first, but it will grow on
  you over time.
- We have in fact already seen the IV estimator above, in the discussion
- of conditional moments.
- That presentation allows the function 
-\begin_inset Formula $k(x_{t},\theta)$
-\end_inset
+ 
+\end_layout
 
- to be nonlinear.
- Let's look in more detail at the commonly encountered special case of a
- linear model with iid errors, but with correlation between regressors and
- errors: 
+\begin_layout Standard
+Let's look at the previous section's results in more detail, for the commonly
+ encountered special case of a linear model with iid errors, but with correlatio
+n between regressors and errors: 
 \begin_inset Formula 
 \begin{eqnarray*}
 y_{t} & = & x_{t}^{\prime}\theta+\varepsilon_{t}\\
@@ -36477,6 +36419,396 @@ ster/Examples/Simeq/KleinGMM.m}
 
 .
  This script shows the use of the Newey-West covariance estimator.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:A-specification-test"
+
+\end_inset
+
+The Hansen-Sargan (or J) test
+\end_layout
+
+\begin_layout Standard
+The first order conditions for minimization, using the an estimate of the
+ optimal weighting matrix, are 
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial\theta}s(\hat{\theta})=2\left[\frac{\partial}{\partial\theta}m_{n}^{^{\prime}}\left(\hat{\theta}\right)\right]\hat{\Omega}^{-1}m_{n}\left(\hat{\theta}\right)\equiv0
+\]
+
+\end_inset
+
+ or
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D(\hat{\theta})\hat{\Omega}^{-1}m_{n}(\hat{\theta})\equiv0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider a Taylor expansion of 
+\begin_inset Formula $m(\hat{\theta})$
+\end_inset
+
+ about the true parameter value:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+m(\hat{\theta})=m_{n}(\theta^{0})+D_{n}^{\prime}(\theta^{*})\left(\hat{\theta}-\theta^{0}\right)\label{TS expansion of moments}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\theta^{*}$
+\end_inset
+
+ is between 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta^{0}$
+\end_inset
+
+.
+ Multiplying by 
+\begin_inset Formula $D(\hat{\theta})\hat{\Omega}^{-1}$
+\end_inset
+
+ we obtain 
+\begin_inset Formula 
+\[
+D(\hat{\theta})\hat{\Omega}^{-1}m(\hat{\theta})=D(\hat{\theta})\hat{\Omega}^{-1}m_{n}(\theta^{0})+D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\left(\hat{\theta}-\theta^{0}\right)
+\]
+
+\end_inset
+
+ The lhs is zero, so 
+\begin_inset Formula 
+\[
+D(\hat{\theta})\hat{\Omega}^{-1}m_{n}(\theta^{0})=-\left[D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right]\left(\hat{\theta}-\theta^{0}\right)
+\]
+
+\end_inset
+
+ or
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\hat{\theta}-\theta^{0}\right)=-\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1}m_{n}(\theta^{0})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With this, and taking into account the original expansion (equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "TS expansion of moments"
+
+\end_inset
+
+), we get 
+\begin_inset Formula 
+\[
+\sqrt{n}m(\hat{\theta})=\sqrt{n}m_{n}(\theta^{0})-\sqrt{n}D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1}m_{n}(\theta^{0}).
+\]
+
+\end_inset
+
+ With some factoring, this last can be written as
+\begin_inset Formula 
+\begin{align*}
+\sqrt{n}m(\hat{\theta}) & =\left(\hat{\Omega}^{1/2}-D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1/2}\right)\left(\sqrt{n}\hat{\Omega}^{-1/2}m_{n}(\theta^{0})\right)
+\end{align*}
+
+\end_inset
+
+(verify it by multiplying out the last expression.
+ Also, a note: the matrix square root of a matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ is any matrix 
+\begin_inset Formula $A^{1/2}$
+\end_inset
+
+ such that 
+\begin_inset Formula $A=A^{1/2}A^{1/2}$
+\end_inset
+
+.
+ Any positive definite matrix has an invertible matrix square root.)
+\end_layout
+
+\begin_layout Standard
+Next, multiply by 
+\begin_inset Formula $\hat{\Omega}^{-1/2}$
+\end_inset
+
+ to get
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\sqrt{n}\hat{\Omega}^{-1/2}m(\hat{\theta}) & =\left(I_{g}-\hat{\Omega}^{-1/2}D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1/2}\right)\left(\sqrt{n}\hat{\Omega}^{-1/2}m_{n}(\theta^{0})\right)\equiv PX
+\end{align*}
+
+\end_inset
+
+ Now, from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:CLT applied to moment conditions"
+
+\end_inset
+
+ we have 
+\begin_inset Formula 
+\[
+X\equiv\sqrt{n}\hat{\Omega}^{-1/2}m_{n}(\theta^{0})\stackrel{d}{\rightarrow}N(0,I_{g})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+the big matrix 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $P=I_{g}-\hat{\Omega}^{-1/2}D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1/2}$
+\end_inset
+
+ converges in probability to 
+\begin_inset Formula $P_{\infty}=I_{g}-\Omega_{\infty}^{-1/2}D_{\infty}^{\prime}\left(D_{\infty}\Omega_{\infty}^{-1}D_{\infty}^{\prime}\right)^{-1}D_{\infty}\Omega_{\infty}^{-1/2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+One can easily verify that 
+\begin_inset Formula $P_{\infty}$
+\end_inset
+
+ is idempotent and has rank 
+\begin_inset Formula $g-K,$
+\end_inset
+
+ (recall that the rank of an idempotent matrix is equal to its trace)
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+We know as a basic result from statistics that 
+\begin_inset Formula $X^{\prime}PX\stackrel{d}{\rightarrow}\chi^{2}(d)$
+\end_inset
+
+, because it is a quadratic form of standard normal variables, weighted
+ by an idempotent matrix.
+\end_layout
+
+\begin_layout Itemize
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+S
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+o, a quadratic form on the r.h.s.
+ has an asymptotic chi-square distribution.
+ The quadratic form made using the l.h.s.
+ must also have the same distribution, so we finally get 
+\begin_inset Formula 
+\[
+\left(\sqrt{n}\hat{\Omega}^{-1/2}m(\hat{\theta})\right)^{\prime}\left(\sqrt{n}\hat{\Omega}^{-1/2}m(\hat{\theta})\right)=nm(\hat{\theta})^{\prime}\hat{\Omega}^{-1}m(\hat{\theta})\stackrel{d}{\rightarrow}\chi^{2}(g-K)
+\]
+
+\end_inset
+
+ or 
+\begin_inset Formula 
+\[
+n\cdot s_{n}(\hat{\theta})\stackrel{d}{\rightarrow}\chi^{2}(g-K)
+\]
+
+\end_inset
+
+supposing the model is correctly specified.
+ 
+\end_layout
+
+\begin_layout Standard
+This is a convenient test since we just multiply the optimized value of
+ the objective function by 
+\begin_inset Formula $n,$
+\end_inset
+
+ and compare with a 
+\begin_inset Formula $\chi^{2}(g-K)$
+\end_inset
+
+ critical value.
+ The test is a general test of whether or not the moments used to estimate
+ are correctly specified.
+\end_layout
+
+\begin_layout Standard
+This won't work when the estimator is just identified.
+ The f.o.c.
+ are 
+\begin_inset Formula 
+\[
+D_{\theta}s_{n}(\theta)=D\hat{\Omega}^{-1}m(\hat{\theta})\equiv0.
+\]
+
+\end_inset
+
+But with exact identification, both 
+\begin_inset Formula $D$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\Omega}$
+\end_inset
+
+ are square and invertible (at least asymptotically, assuming that asymptotic
+ normality hold), so
+\begin_inset Formula 
+\[
+m(\hat{\theta})\equiv0.
+\]
+
+\end_inset
+
+So the moment conditions are zero 
+\emph on
+regardless
+\emph default
+ of the weighting matrix used.
+ As such, we might as well use an identity matrix and save trouble.
+ Also 
+\begin_inset Formula $s_{n}(\hat{\theta})=0$
+\end_inset
+
+, so the test breaks down.
+\end_layout
+
+\begin_layout Standard
+A note:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+ 
+\end_layout
+
+\end_inset
+
+this sort of test often over-rejects in finite samples.
+ One should be cautious in rejecting a model when this test rejects.
+\end_layout
+
+\begin_layout Standard
+This test goes by several names: Hansen test, Sargan test, Hansen-Sargan
+ test, J test.
+ I call it the GMM criterion test.
+ An old name for GMM estimation is 
+\begin_inset Quotes sld
+\end_inset
+
+minimum chi-square
+\begin_inset Quotes srd
+\end_inset
+
+ estimation.
+ This makes sense: the criterion function at the estimate (which makes the
+ criterion as small as possible), scaled by 
+\begin_inset Formula $n$
+\end_inset
+
+, has a 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+ distribution.
 \end_layout
 
 \begin_layout Section

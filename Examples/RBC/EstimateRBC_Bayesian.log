@@ -1,0 +1,57 @@
+Starting Dynare (version 4.4.3).
+Starting preprocessing of the model file ...
+Found 6 equation(s).
+Evaluating expressions...done
+Computing static model derivatives:
+ - order 1
+Computing dynamic model derivatives:
+ - order 1
+ - order 2
+Processing outputs ...done
+Preprocessing completed.
+Starting MATLAB/Octave computing.
+warning: delete: no such file: EstimateRBC_Bayesian_static.mex
+warning: called from
+    delete at line 47 column 9
+    erase_compiled_function at line 23 column 5
+    EstimateRBC_Bayesian at line 77 column 1
+    dynare at line 188 column 1
+warning: delete: no such file: EstimateRBC_Bayesian_dynamic.mex
+
+STEADY-STATE RESULTS:
+
+y 		 1.03458
+c 		 0.797349
+k 		 10.3142
+i 		 0.237226
+n 		 0.333333
+z 		 0
+
+Estimation using a non linear filter!
+
+You are using a gradient-based mode-finder. Particle filtering introduces discontinuities in the
+objective function w.r.t the parameters. Thus, should use a non-gradient based optimizer.
+
+Please choose a mode-finder:
+	 0 - Continue using gradient-based method (it is most likely that you will no get any sensible result).
+	 6 - Monte Carlo based algorithm
+	 7 - Nelder-Mead simplex based optimization routine (Matlab optimization toolbox required)
+	 8 - Nelder-Mead simplex based optimization routine (Dynare's implementation)
+	 9 - CMA-ES (Covariance Matrix Adaptation Evolution Strategy) algorithm
+Please enter your choice: 8
+Loading 400 observations from c.m
+
+Restricting the sample to observations 1 to 160. Using in total 160 observations. 
+
+SOLVE: maxit has been reached
+
+ESTIMATION_CHECKS: There was an error in computing the likelihood for initial parameter values.
+ESTIMATION_CHECKS: You should try using the calibrated version of the model as starting values. To do
+ESTIMATION_CHECKS: this, add an empty estimated_params_init-block with use_calibration option immediately before the estimation
+ESTIMATION_CHECKS: command (and after the estimated_params-block so that it does not get overwritten):
+
+
+'trans_A' undefined near line 103 column 7
+error: called from 'linsolve' in file /usr/share/octave/4.0.0/m/linear-algebra/linsolve.m near line 103, column 3
+octave:1> exit
+
