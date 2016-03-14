@@ -62,18 +62,19 @@ function [theta, obj_value, convergence, iters] = gmm_estimate(theta, data, weig
 
 	if strcmp(method, "bfgs")
 	  % to use bfgsmin
-		%[theta, obj_value, convergence, iters] = bfgsmin("gmm_obj", {theta, data, weight, moments, momentargs, compute_nodes}, control);
+		[theta, obj_value, convergence, iters] = bfgsmin("gmm_obj", {theta, data, weight, moments, momentargs, compute_nodes}, control);
 		% to use fminunc
-		%options = optimset('TolFun', 1e-8);
-		%options = optimset(options, 'TolX', 1e-5);
+		%options = optimset('TolFun', 1e-10);
+		%options = optimset(options, 'TolX', 1e-6);
 		%options = optimset(options, 'AutoScaling', 'on');
+		%options = optimset(options, 'Display', 'iter');
 		%[theta, obj_value, convergence, output] = fminunc(@(theta) gmm_obj(theta, data, weight, moments, momentargs, compute_nodes), theta, options);
 		% to use lbfgs 	  
-		opt_fun = @(t) gmm_obj (t, data, weight, moments, momentargs, compute_nodes);
-		opts = lbfgs_options('iprint', -1, 'maxits', 1000, 'cb', @gmm_callback);
-		[theta, obj_value, convergence, userdata] = lbfgs(opt_fun, theta, opts);	
-		iters = userdata.its;
-		if (convergence == 0) convergence = 1; endif
+		%opt_fun = @(t) gmm_obj (t, data, weight, moments, momentargs, compute_nodes);
+		%opts = lbfgs_options('iprint', -1, 'maxits', 1000, 'cb', @gmm_callback);
+		%[theta, obj_value, convergence, userdata] = lbfgs(opt_fun, theta, opts);	
+		%iters = userdata.its;
+		%if (convergence == 0) convergence = 1; endif
 	elseif strcmp(method, "sa")
 	  	[theta, obj_value, convergence] = samin("gmm_obj", {theta, data, weight, moments, momentargs, compute_nodes}, control);
 	endif
@@ -81,3 +82,4 @@ function [theta, obj_value, convergence, iters] = gmm_estimate(theta, data, weig
 	if compute_nodes > 0 LAM_Finalize; endif # clean up
 
 endfunction
+b   

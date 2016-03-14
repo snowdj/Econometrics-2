@@ -69,7 +69,7 @@ theorems-ams-extended
 \graphics default
 \default_output_format default
 \output_sync 0
-\bibtex_command default
+\bibtex_command bibtex
 \index_command default
 \paperfontsize 17
 \spacing onehalf
@@ -213,7 +213,7 @@ Universitat Autònoma de Barcelona
 
 
 \size small
-November 2015
+March 2016
 \end_layout
 
 \begin_layout Standard
@@ -320,11 +320,43 @@ Econometrics
 \end_layout
 
 \begin_layout Standard
-A more introductory-level reference is 
+Some more advanced books:
+\end_layout
+
+\begin_layout Itemize
+Davidson, R.
+ and J.G.
+ MacKinnon (1993) 
+\emph on
+Estimation and Inference in Econometrics
+\emph default
+, Oxford Univ.
+ Press.
+ 
+\end_layout
+
+\begin_layout Itemize
+Gallant, A.R.
+ (1985) 
+\emph on
+Nonlinear Statistical Models
+\emph default
+, Wiley.
+ 
+\end_layout
+
+\begin_layout Standard
+An undergraduate level text, if you need to catch up with some concepts
+ 
+\end_layout
+
+\begin_layout Itemize
+Wooldridge (2003), 
 \emph on
 Introductory Econometrics: A Modern Approach
 \emph default
- by Jeffrey Wooldridge.
+ (undergraduate level, for supplementary use only.
+ Be sure to see the appendices, which give good coverage of foundations).
 \end_layout
 
 \begin_layout Section
@@ -28847,11 +28879,11 @@ reference "Normality of ee"
 \begin_layout Standard
 To maximize the log-likelihood function, take derivatives: 
 \begin_inset Formula 
-\begin{eqnarray*}
-g_{n}(Y,\theta) & \equiv & D_{\theta}s_{n}(\theta)\\
- & = & \frac{1}{n}\sum_{t=1}^{n}D_{\theta}\ln f(y_{t}|x_{x},\theta)\\
- & \equiv & \frac{1}{n}\sum_{t=1}^{n}g_{t}(\theta).
-\end{eqnarray*}
+\begin{eqnarray}
+g_{n}(Y,\theta) & \equiv & D_{\theta}s_{n}(\theta)\nonumber \\
+ & = & \frac{1}{n}\sum_{t=1}^{n}D_{\theta}\ln f(y_{t}|x_{x},\theta)\label{eq:MLscore}\\
+ & \equiv & \frac{1}{n}\sum_{t=1}^{n}g_{t}(\theta).\nonumber 
+\end{eqnarray}
 
 \end_inset
 
@@ -31723,13 +31755,25 @@ Estimation of a simple DSGE model
 \end_layout
 
 \begin_layout Standard
-Dynamic stochastic general equilibrium model are widely used tools in macroecono
-mics.
+Dynamic stochastic general equilibrium (DSGE) models are widely used tools
+ in macroeconomics.
  These are models in which current decisions depend upon expectations of
  future events.
- An example is the simple real business cycle model discussed in the file
- rbc.pdf, by Fernández-Villaverde, which is available on the Dynare web page
- 
+ An example is the simple real business cycle model discussed in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink{Fernández-Villaverde's RBC example}{http://www.dynare.org/docume
+ntation-and-support/examples/rbc.pdf}
+\end_layout
+
+\end_inset
+
+, which is available on the Dynare web page 
 \begin_inset Flex URL
 status collapsed
 
@@ -31743,7 +31787,7 @@ www.dynare.org
 .
  The file 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -31785,13 +31829,44 @@ reference "sec:State-space-models"
 .
  Once the likelihood function is available, the methods studied in this
  Chapter may be applied.
- The intention at the moment is simple to show that ML is an estimation
- method that may be applied to complicated and more or less realistic economic
- models.
- If you play around with the estimation program, you will see that difficulties
- are encountered with estimating certain parameters.
- This may be due to an excessive information loss due to the linearization.
  
+\end_layout
+
+\begin_layout Itemize
+The linearization of the model, combined with the fact that it has only
+ one shock, leads to a problem of 
+\begin_inset Quotes sld
+\end_inset
+
+stochastic singularity
+\begin_inset Quotes srd
+\end_inset
+
+, which means that only a single observed variable may be used to compute
+ the likelihood function.
+ If interested, do a Google search for this term, along with DSGE, and you'll
+ find more information.
+\end_layout
+
+\begin_layout Itemize
+Not using all of the observed variables for estimation is very likely to
+ cause problems of lack of identification and inefficiency.
+ This can be confirmed if you experiment with the estimation script.
+ This is not a problem of the ML method, it is a problem due to the fact
+ that we are not really estimating the true model, we're working with a
+ linear approximation.
+ 
+\end_layout
+
+\begin_layout Itemize
+The intention of presenting this example is to show that ML may be used
+ for estimation of complex models.
+ The problem here is that the model is not complex enough: the linearization
+ throws away so much information so that estimation becomes impossible.
+ A better solution is to try to actually to ML estimation for the true nonlinear
+ model: see papers by Fernandez-Villaverde and Rubio-Ramirez which use particle
+ filtering for that.
+ You can also modify the script to do this, as Dynare supports this option.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -32559,7 +32634,21 @@ Readings
 ; Davidson and MacKinnon, Ch.
  17 (see pg.
  587 for refs.
- to applications); Newey and McFadden (1994), 
+ to applications); 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "hansen1982"
+
+\end_inset
+
+; 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "newey_mcfadden"
+
+\end_inset
+
+ ( 
 \begin_inset CommandInset href
 LatexCommand href
 name "\"Large Sample Estimation and Hypothesis Testing\""
@@ -32567,21 +32656,7 @@ target "http://www.sciencedirect.com/science?_ob=ArticleURL&_udi=B7GX7-4FPWV09-5
 
 \end_inset
 
-, in 
-\emph on
-
-\begin_inset CommandInset href
-LatexCommand href
-name "Handbook of Econometrics"
-target "http://www.sciencedirect.com/science/handbooks/15734412"
-
-\end_inset
-
-, Vol.
- 4
-\emph default
-, Ch.
- 36.
+)
 \end_layout
 
 \begin_layout Section
@@ -34915,11 +34990,13 @@ Newey-West covariance estimator
 
 \begin_layout Standard
 The Newey-West estimator (
-\shape italic
-Econometrica
-\shape default
-, 1987) solves the problem of possible nonpositive definiteness of the above
- estimator.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NeweyWest1987"
+
+\end_inset
+
+) solves the problem of possible nonpositive definiteness of the above estimator.
  Their estimator is 
 \begin_inset Formula 
 \[
@@ -35297,7 +35374,7 @@ name "sec:Example:-Generalized-instrumental"
 
 \end_inset
 
-Generalized instrumental variables estimator
+Generalized instrumental variables estimator for linear models
 \end_layout
 
 \begin_layout Standard
@@ -36812,112 +36889,10 @@ minimum chi-square
 \end_layout
 
 \begin_layout Section
-Nonlinear simultaneous equations
+Other estimators interpreted as GMM estimators
 \end_layout
 
-\begin_layout Standard
-GMM provides a convenient way to estimate nonlinear systems of simultaneous
- equations.
- We have a system of equations of the form 
-\begin_inset Formula 
-\begin{eqnarray*}
-y_{1t} & = & f_{1}(\mathbf{z}_{t},\theta_{1}^{0})+\varepsilon_{1t}\\
-y_{2t} & = & f_{2}(\mathbf{z}_{t},\theta_{2}^{0})+\varepsilon_{2t}\\
- &  & \vdots\\
-y_{Gt} & = & f_{G}(\mathbf{z}_{t},\theta_{G}^{0})+\varepsilon_{Gt},
-\end{eqnarray*}
-
-\end_inset
-
- or in compact notation 
-\begin_inset Formula 
-\[
-y_{t}=f(\mathbf{z}_{t},\theta^{0})+\varepsilon_{t},
-\]
-
-\end_inset
-
- where 
-\begin_inset Formula $f(\cdot)$
-\end_inset
-
- is a 
-\begin_inset Formula $G$
-\end_inset
-
- -vector valued function, and 
-\begin_inset Formula $\theta^{0}=(\theta_{1}^{0\prime},\theta_{2}^{0\prime},\cdots,\theta_{G}^{0\prime})^{\prime}.$
-\end_inset
-
- We assume that 
-\begin_inset Formula $\mathbf{z}_{t}$
-\end_inset
-
- contains the current period endogenous variables, so we have a simultaneity
- problem.
-\end_layout
-
-\begin_layout Standard
-We need to find an 
-\begin_inset Formula $A_{i}\times1$
-\end_inset
-
- vector of instruments 
-\begin_inset Formula $\mathbf{x}_{it},$
-\end_inset
-
- for each equation, that are uncorrelated with 
-\begin_inset Formula $\varepsilon_{it}.$
-\end_inset
-
- Typical instruments would be low order monomials in the exogenous variables
- in 
-\begin_inset Formula $\mathbf{z}_{t},$
-\end_inset
-
- with their lagged values.
- Then we can define the 
-\begin_inset Formula $\left(\sum_{i=1}^{G}A_{i}\right)\times1$
-\end_inset
-
- orthogonality conditions 
-\begin_inset Formula 
-\[
-m_{t}(\theta)=\left[\begin{array}{c}
-\left(y_{1t}-f_{1}(\mathbf{z}_{t},\theta_{1})\right)\mathbf{x}_{1t}\\
-\left(y_{2t}-f_{2}(\mathbf{z}_{t},\theta_{2})\right)\mathbf{x}_{2t}\\
-\vdots\\
-\left(y_{Gt}-f_{G}(\mathbf{z}_{t},\theta_{G})\right)\mathbf{x}_{Gt}
-\end{array}\right].
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-once we have gotten this far, we can just proceed with GMM estimation, one-step,
- two-step, CUE, or whatever.
-\end_layout
-
-\begin_layout Itemize
-A note on identification: selection of instruments that ensure identification
- is a non-trivial problem.
- Identification in nonlinear models is not as easy to check as it is with
- linear models, where counting zero restrictions works.
-\end_layout
-
-\begin_layout Itemize
-A note on efficiency: the selected set of instruments has important effects
- on the efficiency of estimation.
- There are some papers that study this problem, but the results are fairly
- complicated and difficult to implement.
- I think it's safe to say that the great majority of applied work does not
- attempt to use optimal instruments.
-\end_layout
-
-\begin_layout Section
+\begin_layout Subsection
 Maximum likelihood
 \end_layout
 
@@ -36958,8 +36933,7 @@ estimator that chose an optimal set of
 \end_inset
 
  moment conditions would be fully efficient.
- Here we'll see that the optimal moment conditions are simply the scores
- of the ML
+ The optimal moment conditions are simply the scores of the ML
 \begin_inset ERT
 status collapsed
 
@@ -36976,209 +36950,65 @@ estimator.
 \end_layout
 
 \begin_layout Standard
-Let 
-\begin_inset Formula $y_{t}$
-\end_inset
-
- be a 
-\begin_inset Formula $G$
-\end_inset
-
- -vector of variables, and let 
-\begin_inset Formula $Y_{t}=(y_{1}^{\prime},y_{2}^{\prime},...,y_{t}^{\prime})^{\prime}.$
-\end_inset
-
- Then at time 
-\begin_inset Formula $t,$
-\end_inset
-
+In the chapter on maximum likelihood, we saw in eqn.
  
-\begin_inset Formula $Y_{t-1}$
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:MLscore"
+
 \end_inset
 
- has been observed (refer to it as the information set, since we assume
- the conditioning variables have been selected to take advantage of all
- useful information).
- The likelihood function is the joint density of the sample: 
+ that the first derivative of the average log likelihood function is 
 \begin_inset Formula 
 \[
-\mathcal{L}(\theta)=f(y_{1},y_{2},...,y_{n},\theta)
+\frac{1}{n}\sum_{t=1}^{n}D_{\theta}\ln f(y_{t}|x_{x},\theta)
 \]
 
 \end_inset
 
- which can be factored as 
-\begin_inset Formula 
-\[
-\mathcal{L}(\theta)=f(y_{n}|Y_{n-1},\theta)\cdot f(Y_{n-1},\theta)
-\]
-
-\end_inset
-
- and we can repeat this to get 
-\begin_inset Formula 
-\[
-\mathcal{L}(\theta)=f(y_{n}|Y_{n-1},\theta)\cdot f(y_{n-1}|Y_{n-2},\theta)\cdot...\cdot f(y_{1}).
-\]
-
-\end_inset
-
- The log-likelihood function is therefore 
-\begin_inset Formula 
-\[
-\ln\mathcal{L}(\theta)=\sum_{t=1}^{n}\ln f(y_{t}|Y_{t-1},\theta).
-\]
-
-\end_inset
-
- Define 
-\begin_inset Formula 
-\[
-m_{t}(Y_{t},\theta)\equiv D_{\theta}\ln f(y_{t}|Y_{t-1},\theta)
-\]
-
-\end_inset
-
- as the 
-\emph on
-score
-\emph default
- of the 
-\begin_inset Formula $t^{th}$
-\end_inset
-
- observation.
- It can be shown that, under the regularity conditions, that the scores
- have conditional mean zero when evaluated at 
-\begin_inset Formula $\theta^{0}$
-\end_inset
-
- (see 
+and that the ML estimator is obtained by setting this to zero, and solving.
+ We also saw in eqn.
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:ExpectationScore"
 
 \end_inset
 
-): 
+ that the expectation of the score vector is zero, when evaluated at the
+ true parameter values.
+ Thus, the score vector satisfies the requirement to serve as moment conditions.
+ Set 
 \begin_inset Formula 
 \[
-\mathcal{E}\left(m_{t}(Y_{t},\theta^{0})|Y_{t-1}\right)=0
+m_{t}(\theta)\equiv D_{\theta}\ln f(y_{t}|x_{t},\theta)
 \]
 
 \end_inset
 
- so one could interpret these as moment conditions to use to define a just-ident
-ified GMM
-\begin_inset ERT
-status collapsed
 
-\begin_layout Plain Layout
-
-
-\backslash
- 
-\end_layout
-
-\end_inset
-
-estimator ( if there are 
-\begin_inset Formula $K$
-\end_inset
-
- parameters there are 
-\begin_inset Formula $K$
-\end_inset
-
- score equations).
- The GMM estimator sets 
-\begin_inset Formula 
-\[
-1/n\sum_{t=1}^{n}m_{t}(Y_{t},\hat{\theta})=1/n\sum_{t=1}^{n}D_{\theta}\ln f(y_{t}|Y_{t-1},\hat{\theta})=0,
-\]
-
-\end_inset
-
- which are precisely the first order conditions of MLE.
- Therefore, MLE can be interpreted as a GMM
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
- 
-\end_layout
-
-\end_inset
-
-estimator.
- The GMM varcov formula is 
-\begin_inset Formula $V_{\infty}=\left(D_{\infty}\Omega^{-1}D_{\infty}^{\prime}\right)^{-1}$
-\end_inset
-
-.
- 
 \end_layout
 
 \begin_layout Standard
-Consistent estimates of variance components are as follows
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $D_{\infty}$
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\widehat{D_{\infty}}=\frac{\partial}{\partial\theta^{\prime}}m(Y_{t},\hat{\theta})=1/n\sum_{t=1}^{n}D_{\theta}^{2}\ln f(y_{t}|Y_{t-1},\hat{\theta})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $\Omega$
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-It is important to note that 
-\begin_inset Formula $m_{t}$
-\end_inset
-
- and 
-\begin_inset Formula $m_{t-s},$
-\end_inset
-
- 
-\begin_inset Formula $s>0$
-\end_inset
-
- are both conditionally and unconditionally uncorrelated.
+Recall that the score contributions are both conditionally and unconditionally
+ uncorrelated.
  Conditional uncorrelation follows from the fact that 
 \begin_inset Formula $m_{t-s}$
 \end_inset
 
- is a function of 
-\begin_inset Formula $Y_{t-s},$
+ if is a function of lagged endogenous variables, then they are included
+ in 
+\begin_inset Formula $x_{t}$
 \end_inset
 
- which is in the information set at time 
+, which is what we are conditioning on at time 
 \begin_inset Formula $t$
 \end_inset
 
 .
  Unconditional uncorrelation follows from the fact that conditional uncorrelatio
 n hold regardless of the realization of 
-\begin_inset Formula $Y_{t-1},$
+\begin_inset Formula $y_{t-1},$
 \end_inset
 
  so marginalizing with respect to 
@@ -37197,7 +37027,7 @@ n hold regardless of the realization of
  autocovariance of the moment conditions: 
 \begin_inset Formula 
 \[
-\widehat{\Omega}=1/n\sum_{t=1}^{n}m_{t}(Y_{t},\hat{\theta})m_{t}(Y_{t},\hat{\theta})^{\prime}=1/n\sum_{t=1}^{n}\left[D_{\theta}\ln f(y_{t}|Y_{t-1},\hat{\theta})\right]\left[D_{\theta}\ln f(y_{t}|Y_{t-1},\hat{\theta})\right]^{\prime}
+\widehat{\Omega}=1/n\sum_{t=1}^{n}m_{t}(\hat{\theta})m_{t}(\hat{\theta})^{\prime}=1/n\sum_{t=1}^{n}\left[D_{\theta}\ln f(y_{t}|x_{t},\hat{\theta})\right]\left[D_{\theta}\ln f(y_{t}|x_{t},\hat{\theta})\right]^{\prime}
 \]
 
 \end_inset
@@ -37216,9 +37046,8 @@ t estimator of White is sufficient.
  
 \end_layout
 
-\end_deeper
-\begin_layout Section
-Example: OLS as a GMM estimator - the Nerlove model again
+\begin_layout Subsection
+OLS as a GMM estimator - the Nerlove model again
 \end_layout
 
 \begin_layout Standard
@@ -37244,165 +37073,18 @@ htmladdnormallink{NerloveGMM.m}{https://github.com/mcreel/Econometrics/blob/mast
 \end_layout
 
 \begin_layout Section
-Example: The MEPS data
+The Hausman Test
 \end_layout
 
 \begin_layout Standard
-The MEPS data on health care usage discussed in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:MEPS data"
-
-\end_inset
-
- estimated a Poisson model by 
-\begin_inset Quotes sld
-\end_inset
-
-maximum likelihood
-\begin_inset Quotes srd
-\end_inset
-
- (probably misspecified).
- Perhaps the same latent factors (e.g., chronic illness) that induce one to
- make doctor visits also influence the decision of whether or not to purchase
- insurance.
- If this is the case, the PRIV variable could well be endogenous, in which
- case, the Poisson 
-\begin_inset Quotes sld
-\end_inset
-
-ML
-\begin_inset Quotes srd
-\end_inset
-
- estimator would be inconsistent, even if the conditional mean were correctly
- specified.
- Suppose that 
-\begin_inset Formula 
-\[
-y=\exp(X\beta+Z\gamma)v
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula $E(v|X)=1$
-\end_inset
-
- but 
-\begin_inset Formula $v$
-\end_inset
-
- may be related to 
-\begin_inset Formula $Z,$
-\end_inset
-
- so 
-\begin_inset Formula $Z$
-\end_inset
-
- is endogenous.
- Then 
-\begin_inset Formula $E(y/\exp(X\beta+Z\gamma)-1|X)=0.$
-\end_inset
-
- This expression can be used to define moment conditions.
- The Octave script 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{meps.m}{https://github.com/mcreel/Econometrics/blob/master/Examp
-les/GMM/MEPS/meps.m} 
-\end_layout
-
-\end_inset
-
- estimates the parameters of the model presented in equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:Poisson model OBDV"
-
-\end_inset
-
-, using Poisson 
-\begin_inset Quotes sld
-\end_inset
-
-ML
-\begin_inset Quotes srd
-\end_inset
-
- (better thought of as quasi-ML), and IV estimation
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-The validity of the instruments used may be debatable, but real data sets
- often don't contain ideal instruments.
-\end_layout
-
-\end_inset
-
-.
- Both estimation methods are implemented using a GMM form.
- Running that script gives the output 
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "Examples/GMM/MEPS/meps.out"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Note how the Poisson QML results, estimated here using a GMM routine, are
- the same as were obtained using the ML estimation routine (see subsection
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "PoissonOBDV_results"
+This section discusses the Hausman test (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hausman_1978"
 
 \end_inset
 
 ).
- This is an example of how (Q)ML may be represented as a GMM estimator.
- Also note that the IV and QML results are considerably different.
- Treating PRIV as potentially endogenous causes the sign of its coefficient
- to change.
- Perhaps it is logical that people who own private insurance make fewer
- visits, if they have to make a co-payment.
- Note that income becomes positive and significant when PRIV is treated
- as endogenous.
-\end_layout
-
-\begin_layout Standard
-Perhaps the difference in the results depending upon whether or not PRIV
- is treated as endogenous can suggest a method for testing exogeneity....
-\end_layout
-
-\begin_layout Section
-Example: The Hausman Test
-\end_layout
-
-\begin_layout Standard
-This section discusses the Hausman test, which was originally presented
- in Hausman, J.A.
- (1978), Specification tests in econometrics, 
-\emph on
-Econometrica
-\emph default
-, 
-\series bold
-46
-\series default
-, 1251-71.
- 
 \end_layout
 
 \begin_layout Standard
@@ -38148,7 +37830,7 @@ name "sec:Application:-Nonlinear-rational"
 
 \end_inset
 
-Application: Nonlinear rational expectations
+Application: Hansen-Singleton, 1982
 \end_layout
 
 \begin_layout Standard
@@ -38156,21 +37838,28 @@ Application: Nonlinear rational expectations
 \series bold
 Readings:
 \series default
- Hansen and Singleton, 
-\emph on
-Econometrics, 
-\emph default
-1982
-\begin_inset Formula $;$
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hansen_1982"
+
 \end_inset
 
- Tauchen, 
-\emph on
-Journal of Business and Economic Statistics
-\emph default
-, 1986
-\emph on
-.
+; 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Tauchen_1986"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Tauchen_1986"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -38632,7 +38321,7 @@ Empirical papers that use this approach often have serious problems in obtaining
  is simply not informative enough.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Empirical-example:-a"
@@ -38657,7 +38346,8 @@ Examples/GMM/portfolio.m}
 
 \end_inset
 
- performs GMM estimation of a portfolio model, using the data file 
+ performs GMM estimation of a portfolio model of the sort presented in this
+ section, using the data file 
 \begin_inset ERT
 status collapsed
 
@@ -38685,11 +38375,14 @@ htmladdnormallink{tauchen.data}{https://github.com/mcreel/Econometrics/blob/mast
 \end_inset
 
  in that order.
- There are 95 observations (source: Tauchen, 
-\begin_inset Formula $JBES,$
+ There are 95 observations (source: 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Tauchen_1986"
+
 \end_inset
 
- 1986).
+).
  As instruments we use lags of 
 \begin_inset Formula $c$
 \end_inset
@@ -38718,57 +38411,3055 @@ Pretty clearly, the results are sensitive to the choice of instruments.
  moment that is not very informative.
  Moment conditions formed from Euler conditions sometimes do not identify
  the parameter of a model.
- See Hansen, Heaton and Yarron, (1996) 
-\emph on
-JBES
-\emph default
- V14, N3.
+ See 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HansenHeatonYaron1996"
+
+\end_inset
+
+.
  I believe that this is the case here, though I haven't checked it carefully.
 \end_layout
 
-\begin_layout Paragraph
-Aside on ML estimation of RBC model.
+\begin_layout Section
+Application: Simple DSGE model
+\end_layout
+
+\begin_layout Standard
+This section presents a simple DSGE model, which will be used to illustrate
+ several estimators: GMM, MSM, ABC.
+ It is to be expected that the difficulties we encounter with this simple
+ model will probably affect econometric estimation of larger models.
+\end_layout
+
+\begin_layout Subsection
+The model
+\end_layout
+
+\begin_layout Standard
+The model is as follows: The consumer chooses consumption, hours of work,
+ and investment to maximize expected discounted utility.
+ Using capital and labor provided by the consumer, a competitive firm produces
+ an output to maximize profits, and pays the consumer according to the marginal
+ productivity of the inputs.
+ The price of the consumption good is normalized to one.
  
 \end_layout
 
 \begin_layout Standard
-A similar model is the RBC model discussed by Fernández-Villaverde: 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{Fernández-Villaverde's RBC example}{http://www.dynare.org/docume
-ntation-and-support/examples/rbc.pdf}
-\end_layout
+There are 9 endogenous variables, listed in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Variables"
 
 \end_inset
 
 .
- Files to estimate this model by maximum likelihood are provided 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{here}{https://github.com/mcreel/Econometrics/blob/master/Exampl
-es/RBC/EstimateRBC
-\backslash
-_ML.mod}
-\end_layout
-
-\end_inset
-
-.
- The main point for the purposes of this course is that methods other than
- GMM based on the Euler equation do exist, and work better.
- For those of you who go on to do empirical macro work, this example may
- be useful in the future.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Variables"
+
+\end_inset
+
+Variables
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+output
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+consumption
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+capital
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $i$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+investment
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+hours
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $w$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+return to labor
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+return to capital
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+preference shock
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $z$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+technology shock
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+There are 9 parameters, listed in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Parameters"
+
+\end_inset
+
+
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Parameters"
+
+\end_inset
+
+Parameters
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+production
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\beta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+discount
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+depreciation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\gamma$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+risk aversion
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\psi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MRS
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rho_{z}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+persistence technology shock
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma_{z}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+variability technology shock
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rho_{\eta}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+persistence preference shock
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma_{\eta}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+variability preference shock
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+At the beginning of period 
+\begin_inset Formula $t$
+\end_inset
+
+, the household owns a given amount of capital, 
+\begin_inset Formula $k_{t-1}$
+\end_inset
+
+, and chooses 
+\begin_inset Formula $c_{t}$
+\end_inset
+
+, 
+\begin_inset Formula $i_{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{t}$
+\end_inset
+
+ to maximize expected discounted utility
+\begin_inset Formula 
+\[
+E_{t}\sum_{s=0}^{\infty}\beta^{s}\left(\frac{c_{t+s}^{1-\gamma}}{1-\gamma}+(1-n_{t+s})\eta_{t}\psi\right)
+\]
+
+\end_inset
+
+subject to the budget constraint 
+\begin_inset Formula $c_{t}+i_{t}=r_{t}k_{t-1}+w_{t}n_{t}$
+\end_inset
+
+, available time 
+\begin_inset Formula $0\le n_{t}\le$
+\end_inset
+
+1, and the accumulation of capital 
+\begin_inset Formula $k_{t}=i_{t}+(1-\delta k_{t-1}).$
+\end_inset
+
+ There is a shock, 
+\begin_inset Formula $\eta_{t}$
+\end_inset
+
+, that affects the desirability of leisure.
+ The shock evolves according to 
+\begin_inset Formula $\ln\eta_{t}=\rho_{\eta}\ln\eta_{t-1}+\sigma_{\eta}\epsilon_{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The competitive firm mazimizes profits 
+\begin_inset Formula $y_{t}-w_{t}n_{t}-r_{t}k_{t-1}$
+\end_inset
+
+ from production of the good 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+, taking 
+\begin_inset Formula $w_{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $r_{t}$
+\end_inset
+
+ as given, using the constant returns to scale technology
+\begin_inset Formula 
+\begin{equation}
+y_{t}=k_{t-1}^{\alpha}n_{t}^{1-\alpha}z_{t}\label{eq:DSGE production}
+\end{equation}
+
+\end_inset
+
+Technology shocks 
+\begin_inset Formula $z_{t}$
+\end_inset
+
+ also follow an AR(1) process in logarithms: 
+\begin_inset Formula $\ln z_{t}=\rho_{z}\ln z_{t-1}+\sigma_{z}u_{t}$
+\end_inset
+
+.
+ The innovations to the preference and technology shocks, 
+\begin_inset Formula $\epsilon_{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $u_{t}$
+\end_inset
+
+, are both i.i.d.
+ standard normal random variables, and are independent of one another.
+ The good 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+ can be allocated by the consumer to consumption or investment: 
+\begin_inset Formula $y_{t}=c_{t}+i_{t}$
+\end_inset
+
+.
+ The consumer provides capital and labor to the firm, and is paid at the
+ rates 
+\begin_inset Formula $r_{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $w_{t}$
+\end_inset
+
+, respectively.
+ The representative agent chooses actions in period 
+\begin_inset Formula $t$
+\end_inset
+
+ using rational expectations, with full information about all variables
+ indexed 
+\begin_inset Formula $t-1$
+\end_inset
+
+ and earlier.
+\end_layout
+
+\begin_layout Subsection
+First order conditions
+\end_layout
+
+\begin_layout Standard
+Four definitions are 
+\begin_inset Formula 
+\begin{eqnarray*}
+\textrm{marginal utility of consumption: }MUC_{t} & := & c_{t}^{-\gamma}\\
+\textrm{marginal utility of leisure: }MUL_{t} & := & \psi\eta_{t}\\
+\textrm{marginal rate of substitution: }MRS_{t} & := & MUC_{t}/MUL_{t}\\
+\textrm{marginal product of labor: }MPL_{t} & := & \left(1-\alpha\right)z_{t}k_{t-1}^{\alpha}n_{t}^{-\alpha}\\
+\textrm{marginal product of capital: }MPK_{t} & := & \alpha z_{t}k_{t-1}^{\alpha-1}n_{t}^{1-\alpha}
+\end{eqnarray*}
+
+\end_inset
+
+With these definitions, the 9 equations that characterize the solution for
+ the 9 endogenous variables are:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+MUC_{t} & = & E\left(\beta\cdot MUC_{t+1}\left[1+MPK_{t+1}-\delta\right]\right)\label{eq:Euler}\\
+\textrm{ }1/MRS_{t} & = & w_{t}\label{eq:MRS-wage}\\
+w_{t} & = & MPL_{t}\label{MPL-wage}\\
+r_{t} & = & MPK_{t}\label{eq:-3}\\
+\ln\eta_{t} & = & \rho_{\eta}\ln\eta_{t-1}+\sigma_{\eta}\epsilon_{t}\label{eq:}\\
+\ln z_{t} & = & \rho_{z}\ln z_{t-1}+\sigma_{z}u_{t}\label{eq:-1}\\
+y_{t} & = & z_{t}k_{t-1}^{\alpha}n_{t}^{(1-\alpha)}\label{eq:output}\\
+i_{t} & = & y_{t}-c_{t}\label{eq:investment}\\
+k_{t} & = & i_{t}+(1-\delta)k_{t-1}\label{eq:capital}
+\end{eqnarray}
+
+\end_inset
+
+where the first two are from utility maximization, the second two are from
+ profit maximization, and the remaining 5 are directly from the model.
+\end_layout
+
+\begin_layout Subsection
+The steady state
+\end_layout
+
+\begin_layout Standard
+Because successful nonparametric fitting requires a large number of simulations,
+ we use a third-order perturbation solution, which combines good accuracy
+ with moderate computational demands 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Aruoba_2006"
+
+\end_inset
+
+.
+ This is done using Dynare (Juillard, 1996).
+ A first step for solving the model using Dynare is to find the deterministic
+ steady state.
+ Let variables without the 
+\begin_inset Formula $t$
+\end_inset
+
+ subscript indicate the deterministic steady state level of the variable.
+ The deterministic steady state values of the two shocks 
+\begin_inset Formula $\eta$
+\end_inset
+
+ and 
+\begin_inset Formula $z$
+\end_inset
+
+ are both 1.
+ Using equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:MRS-wage"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "MPL-wage"
+
+\end_inset
+
+, dropping 
+\begin_inset Formula $t$
+\end_inset
+
+ subscripts, and setting the two shocks to 1, we obtain 
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{\psi}{c^{-\gamma}} & = & \left(1-\alpha\right)k^{\alpha}n^{-\alpha}\label{eq:MRS-MPL}\\
+n & = & \left(\frac{1-\alpha}{\psi}\right)^{1/\alpha}kc^{-\gamma/\alpha}\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+Define 
+\begin_inset Formula 
+\begin{equation}
+\theta:=\left(\frac{1-\alpha}{\psi}\right)^{1/\alpha}\label{theta}
+\end{equation}
+
+\end_inset
+
+so
+\begin_inset Formula 
+\begin{equation}
+n=\theta kc^{-\gamma/\alpha}\label{eq:steadystate1}
+\end{equation}
+
+\end_inset
+
+From the Euler equation (equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Euler"
+
+\end_inset
+
+)
+\begin_inset Formula 
+\begin{eqnarray*}
+c & = & \beta c\left(1+\alpha k^{\alpha-1}n^{1-\alpha}\right)\\
+n^{1-\alpha} & = & k^{1-\alpha}\left[\frac{1}{\alpha}\left(\frac{1}{\beta}-1+\delta\right)\right]\\
+n & = & k\left[\frac{1}{\alpha}\left(\frac{1}{\beta}-1+\delta\right)\right]^{\frac{\text{1}}{1-\alpha}}
+\end{eqnarray*}
+
+\end_inset
+
+Define
+\begin_inset Formula 
+\begin{equation}
+\varphi:=\left[\frac{1}{\alpha}\left(\frac{1}{\beta}-1+\delta\right)\right]^{\frac{\text{1}}{1-\alpha}}\label{eq:phi}
+\end{equation}
+
+\end_inset
+
+so
+\begin_inset Formula 
+\begin{equation}
+n=\varphi k\label{steadystate2}
+\end{equation}
+
+\end_inset
+
+Now set equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:steadystate1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "steadystate2"
+
+\end_inset
+
+ equal, and solve for steady state level of consumption:
+\begin_inset Formula 
+\begin{eqnarray*}
+\theta kc^{-\gamma/\alpha} & = & \varphi k\\
+c^{-\gamma/\alpha} & = & \frac{\varphi}{\theta}\\
+c & = & \left(\frac{\theta}{\varphi}\right)^{\frac{\alpha}{\gamma}}
+\end{eqnarray*}
+
+\end_inset
+
+From equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:capital"
+
+\end_inset
+
+, steady state investment satisfies 
+\begin_inset Formula 
+\[
+i=\delta k
+\]
+
+\end_inset
+
+and combining this with equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:output"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:investment"
+
+\end_inset
+
+, we obtain (using equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "steadystate2"
+
+\end_inset
+
+)
+\begin_inset Formula 
+\[
+c+\delta k=k^{\alpha}(\varphi k)^{1-\alpha}
+\]
+
+\end_inset
+
+which solves as
+\begin_inset Formula 
+\[
+k=\frac{c}{\varphi^{1-\alpha}-\delta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To summarize, the steady state values for the 9 endogenous variables are
+ given in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Deterministic-steady-state"
+
+\end_inset
+
+, and given the 9 parameters of the model, these can be solved for in the
+ order 
+\begin_inset Formula $c,\,k,\,n,\,y,\,i,\,w,r$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Deterministic-steady-state"
+
+\end_inset
+
+Deterministic steady state
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="3">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Variable
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Description
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Steady state
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+output
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $k^{\alpha}n^{1-\alpha}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+consumption
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $c=\left(\frac{\theta}{\varphi}\right)^{\frac{\alpha}{\gamma}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+capital
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $k=\frac{c}{\varphi^{1-\alpha}-\delta}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $i$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+investment
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y-c$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+hours
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $n=\varphi k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $w$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+return to labor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(1-\alpha\right)k^{\alpha}n^{-\alpha}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+return to capital
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha k^{\alpha-1}n^{1-\alpha}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+preference shock
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $z$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+technology shock
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+True parameter values and priors 
+\end_layout
+
+\begin_layout Standard
+Estimation by GMM does not require specifying a prior distribution for the
+ parameters, but Bayesian methods do, so here, I discuss the true parameter
+ values used for the simulations, as well as priors.
+ Economic intuition can guide choice of priors for most parameters.
+ However, we may be less confident specifying a prior for the marginal rate
+ of substitution, 
+\begin_inset Formula $\psi.$
+\end_inset
+
+ Instead, following Ruge-Murcia (2012), we may place a prior on steady state
+ hours, 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Given that hours 
+\begin_inset Formula $n_{t}$
+\end_inset
+
+ must satisfy the constraint 
+\begin_inset Formula $0\le n_{t}\le1$
+\end_inset
+
+, and we know that normally around 8 hours per day is dedicated to work,
+ it is relatively straightforward to place a prior on 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ If steady state hours, 
+\begin_inset Formula $n$
+\end_inset
+
+ is given, say as a draw from it's prior, then this, along with the parameters,
+ excepting 
+\begin_inset Formula $\psi$
+\end_inset
+
+, allows us to solve for the steady state values of the other variables
+ and for 
+\begin_inset Formula $\psi$
+\end_inset
+
+, as follows: Given 
+\begin_inset Formula $n,$
+\end_inset
+
+ we can compute 
+\begin_inset Formula $k=n/\varphi,$
+\end_inset
+
+ then 
+\begin_inset Formula $i=\delta k,$
+\end_inset
+
+ then 
+\begin_inset Formula $y=k^{\alpha}n^{1-\alpha}$
+\end_inset
+
+, then 
+\begin_inset Formula $c=y-i$
+\end_inset
+
+, and finally, using equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:MRS-MPL"
+
+\end_inset
+
+, we can compute the 
+\begin_inset Formula $\psi$
+\end_inset
+
+ that is consistent with the given steady state 
+\begin_inset Formula $n$
+\end_inset
+
+ and the other parameters of the model as 
+\begin_inset Formula 
+\begin{eqnarray*}
+\psi & = & c^{-\gamma}\left(1-\alpha\right)k^{\alpha}n^{-\alpha}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We use independent uniform priors for all parameters except 
+\begin_inset Formula $\psi,$
+\end_inset
+
+ and a uniform prior for steady state hours, 
+\begin_inset Formula $n.$
+\end_inset
+
+ The true values of the parameters and the supports of the uniform priors
+ are given in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:True-parameters-and"
+
+\end_inset
+
+.
+ We believe that most economists will find these priors to be quite loose,
+ and the parameter values to be reasonable.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:True-parameters-and"
+
+\end_inset
+
+True parameters and support of uniform priors.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="6">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Parameter 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Lower bound 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Upper bound 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+True value 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Prior bias 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Prior RMSE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.4 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.330 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.030 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.065
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\beta$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.95 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.990 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.015 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.021
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\delta$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.01 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.025 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.030 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.040
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\gamma$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.000 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.500 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.527
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rho_{z}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.900 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.400 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.493
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma_{z}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.010 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.030 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.042
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rho_{\eta}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.700 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.200 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.351
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma_{\eta}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.01 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.040 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.049
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\bar{n}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6/24 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9/24 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1/3 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.021 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.042
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Solution of the model and generation of simulated data
+\end_layout
+
+\begin_layout Standard
+Given a draw of the parameters other than 
+\begin_inset Formula $\psi$
+\end_inset
+
+, 
+\begin_inset Formula $\psi$
+\end_inset
+
+ is computed as above, and we can form the full parameter vector, 
+\begin_inset Formula $\theta^{s}$
+\end_inset
+
+, where 
+\begin_inset Formula $s$
+\end_inset
+
+ indexes the simulations.
+ The model is solved using Dynare, using a third order perturbation about
+ the steady state.
+ Once the model is solved, a simulation of length 260 is done, initialized
+ at the steady state.
+ We drop 100 observations, retaining the last 160 observations, which mimic
+ 40 years of quarterly data.
+ The observable variables are 
+\begin_inset Formula $y,\,c,\,n,\,w,$
+\end_inset
+
+ and 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ The capital stock 
+\begin_inset Formula $k$
+\end_inset
+
+ is not observed.
+ The selection of observable variables is in line with much empirical work
+ (e.g., 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Smets_2007"
+
+\end_inset
+
+,
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Guerron2010"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+The Dynare mod file that is used to solve and simulate data follows (note
+ that the Dynare timing regarding when 
+\begin_inset Formula $k$
+\end_inset
+
+ is available for use is the same as the timing used above):
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// The two shock model of the paper
+\end_layout
+
+\begin_layout Plain Layout
+
+// This takes steady state of hours as given, and computes the psi
+\end_layout
+
+\begin_layout Plain Layout
+
+// parameter that corresponds.
+\end_layout
+
+\begin_layout Plain Layout
+
+close all;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Define variables
+\end_layout
+
+\begin_layout Plain Layout
+
+var y c k n i z1 z2 MUC MUL MPK MPL;
+\end_layout
+
+\begin_layout Plain Layout
+
+varexo e1 e2;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Parameters
+\end_layout
+
+\begin_layout Plain Layout
+
+parameters alpha beta delta gam  nss rho1 sigma1 rho2 sigma2 psi c1 iss
+ yss kss css;
+\end_layout
+
+\begin_layout Plain Layout
+
+load parameterfile1;
+\end_layout
+
+\begin_layout Plain Layout
+
+set_param_value('alpha',alpha)
+\end_layout
+
+\begin_layout Plain Layout
+
+set_param_value('beta',beta)
+\end_layout
+
+\begin_layout Plain Layout
+
+set_param_value('delta',delta)
+\end_layout
+
+\begin_layout Plain Layout
+
+set_param_value('gam',gam)
+\end_layout
+
+\begin_layout Plain Layout
+
+set_param_value('rho1',rho1)
+\end_layout
+
+\begin_layout Plain Layout
+
+set_param_value('sigma1',sigma1)
+\end_layout
+
+\begin_layout Plain Layout
+
+set_param_value('rho2',rho2)
+\end_layout
+
+\begin_layout Plain Layout
+
+set_param_value('sigma2',sigma2)
+\end_layout
+
+\begin_layout Plain Layout
+
+set_param_value('nss',nss)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// find the psi that makes steady state labor (nss) equal to the specified
+ value
+\end_layout
+
+\begin_layout Plain Layout
+
+c1 = ((1/beta + delta - 1)/alpha)^(1/(1-alpha));
+\end_layout
+
+\begin_layout Plain Layout
+
+kss = nss/c1;
+\end_layout
+
+\begin_layout Plain Layout
+
+iss = delta*kss;
+\end_layout
+
+\begin_layout Plain Layout
+
+yss = kss^alpha * nss^(1-alpha);
+\end_layout
+
+\begin_layout Plain Layout
+
+css = yss - iss;
+\end_layout
+
+\begin_layout Plain Layout
+
+psi =  (css^(-gam)) * (1-alpha) * (kss^alpha) * (nss^(-alpha));
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Model
+\end_layout
+
+\begin_layout Plain Layout
+
+model(use_dll);
+\end_layout
+
+\begin_layout Plain Layout
+
+  MUC = (c)^(-gam);
+\end_layout
+
+\begin_layout Plain Layout
+
+  MUL = psi*exp(z2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  MPK = alpha * exp(z1) * (k(-1))^(alpha-1) * n^(1-alpha);
+\end_layout
+
+\begin_layout Plain Layout
+
+  MPL = (1-alpha)*exp(z1)* (k(-1))^alpha * n^(-alpha);
+\end_layout
+
+\begin_layout Plain Layout
+
+  MUC = beta*MUC(+1) * (1 + MPK(+1) - delta);
+\end_layout
+
+\begin_layout Plain Layout
+
+  MUL/MUC = MPL;
+\end_layout
+
+\begin_layout Plain Layout
+
+  z1 = rho1*z1(-1) + sigma1*e1;
+\end_layout
+
+\begin_layout Plain Layout
+
+  z2 = rho2*z2(-1) + sigma2*e2;
+\end_layout
+
+\begin_layout Plain Layout
+
+  y = exp(z1) * ((k(-1))^alpha) * (n^(1-alpha));
+\end_layout
+
+\begin_layout Plain Layout
+
+  i = y - c;
+\end_layout
+
+\begin_layout Plain Layout
+
+  k = i + (1-delta)*k(-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+end;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Initial values
+\end_layout
+
+\begin_layout Plain Layout
+
+initval;
+\end_layout
+
+\begin_layout Plain Layout
+
+k = kss;
+\end_layout
+
+\begin_layout Plain Layout
+
+n = nss;
+\end_layout
+
+\begin_layout Plain Layout
+
+c = css;
+\end_layout
+
+\begin_layout Plain Layout
+
+y = yss;
+\end_layout
+
+\begin_layout Plain Layout
+
+i = iss;
+\end_layout
+
+\begin_layout Plain Layout
+
+MUC = c^(-gam);
+\end_layout
+
+\begin_layout Plain Layout
+
+MPK = alpha  * k^(alpha-1) * n^(1-alpha);
+\end_layout
+
+\begin_layout Plain Layout
+
+MPL = (1-alpha)* (k)^alpha * n^(-alpha);
+\end_layout
+
+\begin_layout Plain Layout
+
+MUL = MPL*MUC;
+\end_layout
+
+\begin_layout Plain Layout
+
+z1 = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+z2 = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+end;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Shocks
+\end_layout
+
+\begin_layout Plain Layout
+
+shocks;
+\end_layout
+
+\begin_layout Plain Layout
+
+var e1 = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+var e2 = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+end;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+steady(maxit=1000, solve_algo=0);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// keep rng sequences in order on each node
+\end_layout
+
+\begin_layout Plain Layout
+
+load state1;
+\end_layout
+
+\begin_layout Plain Layout
+
+ss = round(s(1)/s(2)*sum(s));
+\end_layout
+
+\begin_layout Plain Layout
+
+set_dynare_seed(ss);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// generate data
+\end_layout
+
+\begin_layout Plain Layout
+
+stoch_simul(nograph, noprint, order=3, drop=100, periods=260) y c n MPK
+ MPL;
+\end_layout
+
+\end_inset
+
+With this file, we can generate samples at the chosen parameter values.
+\end_layout
+
+\begin_layout Subsection
+GMM estimation of the model
+\end_layout
+
+\begin_layout Standard
+Given the above model, we can derive some moment conditions for estimation
+ directly from the structure of the model.
+\end_layout
+
+\begin_layout Subsubsection
+MRS and wage
+\end_layout
+
+\begin_layout Standard
+We have 
+\begin_inset Formula 
+\begin{eqnarray*}
+w_{t} & = & \psi\eta_{t}c_{t}^{\gamma}\\
+\eta_{t} & = & \frac{w_{t}}{\psi c_{t}^{\gamma}}\\
+\ln\eta_{t} & = & \ln w_{t}-\ln\psi-\gamma\ln c_{t}\\
+\ln\eta_{t}-\rho_{\eta}\ln\eta_{t-1} & = & \sigma_{\eta}\epsilon_{t}=\ln w_{t}-\rho_{\eta}\ln w_{t-1}-\ln\psi(1-\rho_{\eta})-\gamma\left(\ln c_{t}-\rho_{\eta}\ln c_{t-1}\right).
+\end{eqnarray*}
+
+\end_inset
+
+So finally, we have
+\begin_inset Formula 
+\begin{equation}
+\epsilon_{t}=\frac{\ln w_{t}-\rho_{\eta}\ln w_{t-1}-\ln\psi(1-\rho_{\eta})-\gamma\left(\ln c_{t}-\rho_{\eta}\ln c_{t-1}\right)}{\sigma_{\eta}}\label{eq:MRSError}
+\end{equation}
+
+\end_inset
+
+The LHS is IID standard normal, according to the model.
+ The RHS depends only on parameters and observed variables.
+ Some possible moment conditions: mean zero, variance 1, skew 0, excess
+ kurtosis zero.
+ Simple averages of 
+\begin_inset Formula $\epsilon_{t}$
+\end_inset
+
+ or 
+\begin_inset Formula $\epsilon_{t}^{2}-1$
+\end_inset
+
+ would work.
+ The error could also be crossed with lagged observable variables.
+ Moment conditions that use this error should be informative for 
+\begin_inset Formula $\gamma,\rho_{\eta},\sigma_{\eta}$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha$
+\end_inset
+
+,
+\begin_inset Formula $\beta,$
+\end_inset
+
+
+\begin_inset Formula $\delta$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{n}$
+\end_inset
+
+ (because 
+\begin_inset Formula $\psi$
+\end_inset
+
+ depends on them, see above).
+ We're only missing 
+\begin_inset Formula $\rho_{z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{z}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Euler equation
+\end_layout
+
+\begin_layout Standard
+The Euler equation is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+c_{t}^{-\gamma}=E\left(\beta\cdot c_{t+1}^{-\gamma}\left[1+MPK_{t+1}-\delta\right]\right),
+\]
+
+\end_inset
+
+where the expectation is taken conditional on the information available
+ in period 
+\begin_inset Formula $t$
+\end_inset
+
+ (which include variables indexed 
+\begin_inset Formula $t$
+\end_inset
+
+ and before).
+ But 
+\begin_inset Formula $r=MPK,$
+\end_inset
+
+ so
+\begin_inset Formula 
+\[
+E\left(\beta\cdot c_{t+1}^{-\gamma}\left[1+r_{t+1}-\delta\right]\right)-c_{t}^{-\gamma}=0
+\]
+
+\end_inset
+
+Thus,
+\begin_inset Formula 
+\begin{equation}
+v_{t}=\beta\cdot c_{t+1}^{-\gamma}\left[1+r_{t+1}-\delta\right]-c_{t}^{-\gamma}\label{eq:EulerError}
+\end{equation}
+
+\end_inset
+
+has mean zero, conditional on information available in period 
+\begin_inset Formula $t.$
+\end_inset
+
+ Moment conditions that use this error should be informative for 
+\begin_inset Formula $\gamma,$
+\end_inset
+
+
+\begin_inset Formula $\delta$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Production function
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{w}{r} & = & \frac{\left(1-\alpha\right)z_{t}k_{t-1}^{\alpha}n_{t}^{-\alpha}}{\alpha z_{t}k_{t-1}^{\alpha-1}n_{t}^{1-\alpha}}\\
+ & = & \frac{\left(1-\alpha\right)k_{t-1}}{\alpha n_{t}}
+\end{eqnarray*}
+
+\end_inset
+
+so
+\begin_inset Formula 
+\[
+k_{t-1}=\frac{\alpha n_{t}w_{t}}{(1-\alpha)r_{t}}
+\]
+
+\end_inset
+
+Next, from the production function, use the above expression for 
+\begin_inset Formula $k$
+\end_inset
+
+ (dropping subscripts for a moment)
+\begin_inset Formula 
+\begin{eqnarray*}
+z & = & \frac{y}{k^{\alpha}n^{(1-\alpha)}}\\
+\ln z & = & \ln y-\alpha\ln k-(1-\alpha)\ln n\\
+\ln z_{t}-\rho_{z}\ln z_{t-1} & = & \ln y_{t}-\rho_{z}\ln y_{t-1}-\alpha\left(\ln k_{t-1}-\rho_{z}\ln k_{t-2}\right)-(1-\alpha)\left(\ln n_{t}-\rho_{z}\ln n_{t-1}\right)
+\end{eqnarray*}
+
+\end_inset
+
+so
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+u_{t}=\frac{\ln y_{t}-\rho_{z}\ln y_{t-1}-\alpha\left(\ln k_{t}-\rho_{z}\ln k_{t-1}\right)-(1-\alpha)\left(\ln n_{t}-\rho_{z}\ln n_{t-1}\right)}{\sigma_{z}}\label{eq:ProductionError}
+\end{equation}
+
+\end_inset
+
+is IID standard normal, and we can create moments as in the case of eqn
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:MRSError"
+
+\end_inset
+
+.
+ Moment conditions using this error should be informative for 
+\begin_inset Formula $\alpha,\rho_{z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{z}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Law of motion for 
+\begin_inset Formula $k$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Given the expression for 
+\begin_inset Formula $k$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+k_{t-1}=\frac{\alpha n_{t}w_{t}}{(1-\alpha)r_{t}}
+\]
+
+\end_inset
+
+we can put this into the law of motion for capital, to get 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+k_{t}=i_{t}+(1-\delta)k_{t-i}
+\]
+
+\end_inset
+
+so
+\begin_inset Formula 
+\begin{equation}
+q_{t}=y_{t}-c_{t}+(1-\delta)k_{t-1}-k_{t}\label{eq:LawMotionError}
+\end{equation}
+
+\end_inset
+
+is an error that is equal to zero at the true parameter values.
+ Remember that the actual 
+\begin_inset Formula $k$
+\end_inset
+
+ is not observed, we're using a 
+\begin_inset Formula $k$
+\end_inset
+
+ that depends on other observed variables, and on the guess of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ So, this equation will not hold exactly except at the true parameter values.
+ Thus, it should be informative for both 
+\begin_inset Formula $\delta$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ (the value of 
+\begin_inset Formula $k$
+\end_inset
+
+ that is in the expression depends on 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ and on observed variables).
+ 
+\end_layout
+
+\begin_layout Subsubsection
+MPL
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+w & = & \left(1-\alpha\right)z_{t}k_{t-1}^{\alpha}n_{t}^{-\alpha}\nonumber \\
+z & = & \frac{wk_{t-1}^{-\alpha}n_{t}^{\alpha}}{1-\alpha}\nonumber \\
+\ln z_{t} & = & \ln w_{t}+\alpha(\ln n_{t}-\ln k_{t-1})-\ln(1-\alpha)\nonumber \\
+u_{t} & = & \frac{\ln z_{t}-\rho_{z}\ln z_{t-1}}{\sigma_{z}}\label{eq:MPL_error}
+\end{eqnarray}
+
+\end_inset
+
+This last expression is an IIN shock, when evaluated at the true parameter
+ values.
+ Moment conditions using this error should be informative for 
+\begin_inset Formula $\alpha,\rho_{z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{z}$
+\end_inset
+
+.
+ At the true parameter values, the error in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:MPL_error"
+
+\end_inset
+
+ will be identical to the error in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ProductionError"
+
+\end_inset
+
+.
+ However, at different parameter values, they will be different, so they
+ carry different information for the estimation of the parameters, and using
+ both of them may be beneficial.
+\end_layout
+
+\begin_layout Subsubsection
+MPK
+\end_layout
+
+\begin_layout Standard
+The result is the same as for MPL, because both use the same expression
+ for 
+\begin_inset Formula $k,$
+\end_inset
+
+ which was derived from the ratio of the two eqns.
+ So, MPK adds nothing to what MPL already gives.
+\end_layout
+
+\begin_layout Subsubsection
+Collecting the moment conditions
+\end_layout
+
+\begin_layout Standard
+We have 5 different error functions: two expressions for the iid technology
+ shock, 
+\begin_inset Formula $u,$
+\end_inset
+
+ one expression for the iid preference shock, 
+\begin_inset Formula $\epsilon.$
+\end_inset
+
+ plus the Euler error and the law of motion error.
+ The 3 iid shocks give at least two moments each: the mean are zero, and
+ the variances are 1.
+ We could also work with skew=0 and kurtosis=3, due to the normality of
+ the shocks.
+ We can cross any of the errors with variables known in period 
+\begin_inset Formula $t,$
+\end_inset
+
+ which include all observed variables indexed 
+\begin_inset Formula $t$
+\end_inset
+
+ or before.
+ Thus, we can generate quite a few moment conditions.
+ The question is, Which Moments to Match? (nod to Gallant and Tauchen, 1993).
+\end_layout
+
+\begin_layout Subsubsection
+Estimation by GMM
+\end_layout
+
+\begin_layout Standard
+A sample of size 160, generated from the model at the true parameter values,
+ above, is at 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink{dsgedata}{https://github.com/mcreel/Econometrics/blob/master/Ex
+amples/DSGE/GenData/dsgedata}
+\end_layout
+
+\end_inset
+
+.
+ The columns are y, c, n, r, w.
+ 
+\end_layout
+
+\begin_layout Standard
+An Octave function to compute the errors discussed above is at 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink{GetErrors.m}{https://github.com/mcreel/Econometrics/blob/master/
+Examples/DSGE/GMM/GetErrors.m}
+\end_layout
+
+\end_inset
+
+.
+ This should be useful to Matlab users who would like to try some estimation.
+ 
+\end_layout
+
+\begin_layout Standard
+The script 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink{EstimateDSGE
+\backslash
+_GMM.m}{https://github.com/mcreel/Econometrics/blob/master/Examples/DSGE/GMM/Estim
+ateDSGE
+\backslash
+_GMM.m}
+\end_layout
+
+\end_inset
+
+ can be used to discover several facts about GMM estimation of nonlinear
+ models.
+ If you work with the script, you will discover that
+\end_layout
+
+\begin_layout Itemize
+it is very difficult to obtain convergence to a global minimum.
+ To see this, choose moments that give exact identification, and try to
+ obtain a solution that has the objective function equal to zero.
+ Can you do this without use of the true parameter values, which are not
+ known when we do estimation?
+\end_layout
+
+\begin_layout Itemize
+for advanced users, you can change the minimizer that is used by setting
+ 
+\begin_inset Quotes sld
+\end_inset
+
+control
+\begin_inset Quotes srd
+\end_inset
+
+.
+ You can try BFGS or SA.
+ Even with SA, it's hard to obtain a global minimum.
+ Also, if you really want to explore the details, from Octave, type 
+\begin_inset Quotes sld
+\end_inset
+
+edit gmm_estimate
+\begin_inset Quotes srd
+\end_inset
+
+ and you can try out 3 different BFGS implementations, bfgsmin, fminunc,
+ and lbfgsb.
+\end_layout
+
+\begin_layout Itemize
+when the model is overidentified, the numerical problems become worse.
+ 
+\end_layout
+
+\begin_layout Itemize
+the parameter estimates are sensitive to the moments that are chosen.
+ Play around with the function that selects the moment conditions, and see
+ what happens.
+\end_layout
+
+\begin_layout Itemize
+the take home conclusion here is that multiple local minima and irregular
+ objective functions really can be a problem, even with simple models like
+ this one.
+ Imagine what would happen with a large scale DSGE model! For similar problems
+ with a model that is much more simple, see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HansenHeatonYaron1996"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+the difficulties with extremum estimation motivate other computational methods,
+ such as using a Bayesian approach to classical estimators: 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ChernozhukovHong2003"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -66115,9 +68806,260 @@ The attic
 
 \begin_layout Standard
 This holds material that is not really ready to be incorporated into the
- main body, but that I don't want to lose.
- Basically, ignore it, unless you'd like to help get it ready for inclusion.
+ main body, or that I believe distracts from the flow, but that I don't
+ want to lose.
+ Basically, ignore it.
+\end_layout
+
+\begin_layout Section
+Nonlinear simultaneous equations
+\end_layout
+
+\begin_layout Standard
+Taken out of GMM chapter.
+ GMM provides a convenient way to estimate nonlinear systems of simultaneous
+ equations.
+ We have a system of equations of the form 
+\begin_inset Formula 
+\begin{eqnarray*}
+y_{1t} & = & f_{1}(\mathbf{z}_{t},\theta_{1}^{0})+\varepsilon_{1t}\\
+y_{2t} & = & f_{2}(\mathbf{z}_{t},\theta_{2}^{0})+\varepsilon_{2t}\\
+ &  & \vdots\\
+y_{Gt} & = & f_{G}(\mathbf{z}_{t},\theta_{G}^{0})+\varepsilon_{Gt},
+\end{eqnarray*}
+
+\end_inset
+
+ or in compact notation 
+\begin_inset Formula 
+\[
+y_{t}=f(\mathbf{z}_{t},\theta^{0})+\varepsilon_{t},
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $f(\cdot)$
+\end_inset
+
+ is a 
+\begin_inset Formula $G$
+\end_inset
+
+ -vector valued function, and 
+\begin_inset Formula $\theta^{0}=(\theta_{1}^{0\prime},\theta_{2}^{0\prime},\cdots,\theta_{G}^{0\prime})^{\prime}.$
+\end_inset
+
+ We assume that 
+\begin_inset Formula $\mathbf{z}_{t}$
+\end_inset
+
+ contains the current period endogenous variables, so we have a simultaneity
+ problem.
+\end_layout
+
+\begin_layout Standard
+We need to find an 
+\begin_inset Formula $A_{i}\times1$
+\end_inset
+
+ vector of instruments 
+\begin_inset Formula $\mathbf{x}_{it},$
+\end_inset
+
+ for each equation, that are uncorrelated with 
+\begin_inset Formula $\varepsilon_{it}.$
+\end_inset
+
+ Typical instruments would be low order monomials in the exogenous variables
+ in 
+\begin_inset Formula $\mathbf{z}_{t},$
+\end_inset
+
+ with their lagged values.
+ Then we can define the 
+\begin_inset Formula $\left(\sum_{i=1}^{G}A_{i}\right)\times1$
+\end_inset
+
+ orthogonality conditions 
+\begin_inset Formula 
+\[
+m_{t}(\theta)=\left[\begin{array}{c}
+\left(y_{1t}-f_{1}(\mathbf{z}_{t},\theta_{1})\right)\mathbf{x}_{1t}\\
+\left(y_{2t}-f_{2}(\mathbf{z}_{t},\theta_{2})\right)\mathbf{x}_{2t}\\
+\vdots\\
+\left(y_{Gt}-f_{G}(\mathbf{z}_{t},\theta_{G})\right)\mathbf{x}_{Gt}
+\end{array}\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+once we have gotten this far, we can just proceed with GMM estimation, one-step,
+ two-step, CUE, or whatever.
+\end_layout
+
+\begin_layout Itemize
+A note on identification: selection of instruments that ensure identification
+ is a non-trivial problem.
+ Identification in nonlinear models is not as easy to check as it is with
+ linear models, where counting zero restrictions works.
+\end_layout
+
+\begin_layout Itemize
+A note on efficiency: the selected set of instruments has important effects
+ on the efficiency of estimation.
+ There are some papers that study this problem, but the results are fairly
+ complicated and difficult to implement.
+ I think it's safe to say that the great majority of applied work does not
+ attempt to use optimal instruments.
+\end_layout
+
+\begin_layout Section
+Example: The MEPS data
+\end_layout
+
+\begin_layout Standard
+Taken out of the GMM chapter, distracting, and not a great example.
+ The MEPS data on health care usage discussed in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:MEPS data"
+
+\end_inset
+
+ estimated a Poisson model by 
+\begin_inset Quotes sld
+\end_inset
+
+maximum likelihood
+\begin_inset Quotes srd
+\end_inset
+
+ (probably misspecified).
+ Perhaps the same latent factors (e.g., chronic illness) that induce one to
+ make doctor visits also influence the decision of whether or not to purchase
+ insurance.
+ If this is the case, the PRIV variable could well be endogenous, in which
+ case, the Poisson 
+\begin_inset Quotes sld
+\end_inset
+
+ML
+\begin_inset Quotes srd
+\end_inset
+
+ estimator would be inconsistent, even if the conditional mean were correctly
+ specified.
+ Suppose that 
+\begin_inset Formula 
+\[
+y=\exp(X\beta+Z\gamma)v
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $E(v|X)=1$
+\end_inset
+
+ but 
+\begin_inset Formula $v$
+\end_inset
+
+ may be related to 
+\begin_inset Formula $Z,$
+\end_inset
+
+ so 
+\begin_inset Formula $Z$
+\end_inset
+
+ is endogenous.
+ Then 
+\begin_inset Formula $E(y/\exp(X\beta+Z\gamma)-1|X)=0.$
+\end_inset
+
+ This expression can be used to define moment conditions.
+ The Octave script 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
  
+\backslash
+htmladdnormallink{meps.m}{https://github.com/mcreel/Econometrics/blob/master/Examp
+les/GMM/MEPS/meps.m} 
+\end_layout
+
+\end_inset
+
+ estimates the parameters of the model presented in equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Poisson model OBDV"
+
+\end_inset
+
+, using Poisson 
+\begin_inset Quotes sld
+\end_inset
+
+ML
+\begin_inset Quotes srd
+\end_inset
+
+ (better thought of as quasi-ML), and IV estimation
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The validity of the instruments used may be debatable, but real data sets
+ often don't contain ideal instruments.
+\end_layout
+
+\end_inset
+
+.
+ Both estimation methods are implemented using a GMM form.
+ Running that script gives the output 
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "Examples/GMM/MEPS/meps.out"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note how the Poisson QML results, estimated here using a GMM routine, are
+ the same as were obtained using the ML estimation routine (see subsection
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "PoissonOBDV_results"
+
+\end_inset
+
+).
+ This is an example of how (Q)ML may be represented as a GMM estimator.
+ Also note that the IV and QML results are considerably different.
+ Treating PRIV as potentially endogenous causes the sign of its coefficient
+ to change.
+ Perhaps it is logical that people who own private insurance make fewer
+ visits, if they have to make a co-payment.
+ Note that income becomes positive and significant when PRIV is treated
+ as endogenous.
+\end_layout
+
+\begin_layout Standard
+Perhaps the difference in the results depending upon whether or not PRIV
+ is treated as endogenous can suggest a method for testing exogeneity....
 \end_layout
 
 \begin_layout Subsubsection
@@ -75003,127 +77945,15 @@ The slope parameter estimates are pretty close to what we got with the NB-I
  model.
 \end_layout
 
-\begin_layout Bibliography
-\labelwidthstring Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "DM"
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "econometrics"
+options "plainnat"
 
 \end_inset
 
-Davidson, R.
- and J.G.
- MacKinnon (1993) 
-\emph on
-Estimation and Inference in Econometrics
-\emph default
-, Oxford Univ.
- Press.
- 
-\end_layout
 
-\begin_layout Bibliography
-\labelwidthstring Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-3"
-
-\end_inset
-
-Davidson, R.
- and J.G.
- MacKinnon (2004) 
-\emph on
-Econometric Theory and Methods
-\emph default
-, Oxford Univ.
- Press.
- 
-\end_layout
-
-\begin_layout Bibliography
-\labelwidthstring Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "Gallant Nonlinear S. Models"
-
-\end_inset
-
-Gallant, A.R.
- (1985) 
-\emph on
-Nonlinear Statistical Models
-\emph default
-, Wiley.
- 
-\end_layout
-
-\begin_layout Bibliography
-\labelwidthstring Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "Gallant Intro"
-
-\end_inset
-
-Gallant, A.R.
- (1997) 
-\emph on
-An Introduction to Econometric Theory
-\emph default
-, Princeton Univ.
- Press.
- 
-\end_layout
-
-\begin_layout Bibliography
-\labelwidthstring Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "Hamilton"
-
-\end_inset
-
-Hamilton, J.
- (1994) 
-\emph on
-Time Series Analysis
-\emph default
-, Princeton Univ.
- Press
-\end_layout
-
-\begin_layout Bibliography
-\labelwidthstring Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "Hayashi"
-
-\end_inset
-
-Hayashi, F.
- (2000) 
-\emph on
-Econometrics
-\emph default
-, Princeton Univ.
- Press.
-\end_layout
-
-\begin_layout Bibliography
-\labelwidthstring Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-4"
-
-\end_inset
-
-Wooldridge (2003), 
-\emph on
-Introductory Econometrics,
-\emph default
- Thomson.
- (undergraduate level, for supplementary use only).
 \end_layout
 
 \begin_layout Standard
