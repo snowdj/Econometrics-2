@@ -2,6 +2,7 @@
 Michael Creel's graduate level econometrics notes, example code, and support programs
 - to get the notes, click on econometrics.pdf, and then on RAW, which will download only the pdf. Links in the pdf point to files here on github, and will open in your browser.
 - to run the examples, see Setup, below.
+- all of the materials are available on the econometrics.iso operating system image. This can be run using virtualization, and gives quick access to running all of the examples using Octave, R, Julia, etc., without the need to install anything. econometrics.iso is available at http://pareto.uab.es/mcreel/Econometrics/econometrics.iso
 
 ## There are a couple of unusual thing about these notes:
 - they are available in editable form (econometrics.lyx), so that you can modify them to suit your needs: see www.lyx.org. They are however copyrighted, so you should learn about the GPL before modifying and distributing them.
