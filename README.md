@@ -20,7 +20,8 @@ Michael Creel's graduate level econometrics notes, example code, and support pro
 -You may be wondering why the notes are available in this form. It's simply because I use a lot of free software, and this is a means of contributing back to the community. Also, I'm hoping to receive error corrections and contributions from users of the notes.
 
 - To run the examples, you need to have Octave installed. To edit the notes, you need to install LyX.
-- econometrics.iso (about 1.3GB) contains the notes and all the examples, ready to run. You don't need to install anything to use it (except a virtualization platform, if you don't have one installed). I test the image using Virtualbox, which is a free download for Windows, MacOS, and Linux. There is an appliance econometrics.ova. To use the ISO image in a virtual machine, import the .ova appliance file into Virtualbox, then in Settings, make the Storage->IDE controller point to the location where you have save the econometrics.iso file. If you would like the scripts used to build this image, they are here
+- econometrics.iso (about 1.3GB) contains the notes and all the examples, ready to run. You don't need to install anything to use it (except a virtualization platform, if you don't have one installed). I test the image using Virtualbox, which is a free download for Windows, MacOS, and Linux. There is an appliance econometrics.ova. To use the ISO image in a virtual machine, import the .ova appliance file into Virtualbox, then in Settings, make the Storage->IDE controller point to the location where you have save the econometrics.iso file.
+Fixes for the live CD image: It seems I forgot to do a few things when preparing the image. To make everything work properly, do the following: open a terminal and type `cd ~; mkdir backup; cd Econometrics/MyOctaveFiles/OctFiles; make clean; make all`
 
 # Setup
 - to be able to run the examples, download the whole repo
