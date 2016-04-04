@@ -813,7 +813,7 @@ status open
 
 
 \backslash
-htmladdnormallink{econometrics.iso}{https://pareto.uab.cat/mcreel/econometrics.iso}
+htmladdnormallink{econometrics.iso}{http://pareto.uab.cat/mcreel/econometrics.iso}
 \end_layout
 
 \end_inset
@@ -25437,7 +25437,15 @@ Bayesian estimator
 \end_layout
 
 \begin_layout Example
-Bayesian point estimators such as the posterior mode, median or mean can
+(reminder to self in lectures: that squiggle is a 
+\begin_inset Quotes sld
+\end_inset
+
+zeta
+\begin_inset Quotes srd
+\end_inset
+
+) Bayesian point estimators such as the posterior mode, median or mean can
  be expressed as extremum estimators.
  For example, the posterior mean 
 \begin_inset Formula $E(\theta|Z_{n})$
@@ -26536,6 +26544,10 @@ s_{\infty}(\theta)=\lim_{n\rightarrow\infty}\mathcal{E}s_{n}(Z_{n},\theta)=\lim_
 
 \end_inset
 
+
+\begin_inset Newpage newpage
+\end_inset
+
 Now suppose that the density 
 \begin_inset Formula $f_{Z_{n}}(z)$
 \end_inset
@@ -26617,6 +26629,10 @@ and we can write the limiting objective function as
 
  For example, fitting a polynomial to an unknown nonlinear function.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -26794,7 +26810,8 @@ The sample objective function for a sample size
 \begin_inset Formula 
 \begin{eqnarray*}
 s_{n}(\gamma) & = & 1/n\sum_{t=1}^{n}\left(y_{t}-\gamma w_{t}\right)^{2}=1/n\sum_{i=1}^{n}\left(\beta_{0}x_{t}+\varepsilon_{t}-\gamma w_{t}\right)^{2}\\
- & = & 1/n\sum_{t=1}^{n}\left(\beta_{0}x_{t}\right)^{2}+1/n\sum_{t=1}^{n}\left(\gamma w_{t}\right)^{2}+1/n\sum_{t=1}^{n}\varepsilon_{t}^{2}+2/n\sum_{t=1}^{n}\beta_{0}x_{t}\varepsilon_{t}-2/n\sum_{t=1}^{n}\beta_{0}\gamma x_{t}w_{t}-2/n\sum_{t=1}^{n}\varepsilon_{t}x_{t}w_{t}
+ & = & 1/n\sum_{t=1}^{n}\left(\beta_{0}x_{t}\right)^{2}+1/n\sum_{t=1}^{n}\left(\gamma w_{t}\right)^{2}+1/n\sum_{t=1}^{n}\varepsilon_{t}^{2}\\
+ &  & +2/n\sum_{t=1}^{n}\beta_{0}x_{t}\varepsilon_{t}-2/n\sum_{t=1}^{n}\beta_{0}\gamma x_{t}w_{t}-2/n\sum_{t=1}^{n}\varepsilon_{t}x_{t}w_{t}
 \end{eqnarray*}
 
 \end_inset
@@ -26833,8 +26850,9 @@ Summary
 
 \begin_layout Standard
 The theorem for consistency is really quite intuitive.
- It says that with probability one, an extremum estimator converges to the
- value that maximizes the limit of the expectation of the objective function.
+ It says that, with probability one, an extremum estimator converges to
+ the value that maximizes the limit of the expectation of the objective
+ function.
  Because the objective function may or may not make sense, depending on
  how good or poor is the model, we may or may not be estimating parameters
  of the DGP.
@@ -26889,8 +26907,12 @@ nonlinear least squares
 
 \end_inset
 
- We'll study this more later, but for now it is clear that the foc for minimizat
-ion will require solving a set of nonlinear equations.
+ 
+\begin_inset Newpage newpage
+\end_inset
+
+We'll study this more later, but for now it is clear that the foc for minimizati
+on will require solving a set of nonlinear equations.
  A common approach to the problem seeks to avoid this difficulty by 
 \emph on
 linearizing
@@ -26953,6 +26975,10 @@ Given this, one might try to estimate
 y_{i}=\alpha+\beta x_{i}+\nu_{i}
 \]
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -27076,13 +27102,17 @@ reference "fig:Linear-Approximation"
 \end_inset
 
 .
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -27120,6 +27150,10 @@ Linear Approximation
 
 \end_layout
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -27171,13 +27205,16 @@ e.g.,
 
 \begin_layout Itemize
 This sort of linearization about a long run equilibrium is a common practice
- in dynamic macroeconomic models.
+ in working with dynamic macroeconomic models.
  It is justified for the purposes of theoretical analysis of a model 
 \emph on
 given
 \emph default
- the model's parameters, but it is not justifiable for the estimation of
- the parameters of the model using data.
+ the model's parameters, but it will lead to
+\emph on
+ bias and inconsistency
+\emph default
+ if it is done before estimation of the parameters of the model using data.
  The section on simulation-based methods offers a means of obtaining consistent
  estimators of the parameters of dynamic macro models that are too complex
  for standard methods of analysis.
@@ -28007,7 +28044,93 @@ maximum likelihood estimator
 
 \end_layout
 
+\begin_layout Example
+Count data.
+ Suppose we have a sample 
+\begin_inset Formula $Y=\{y_{1},...,y_{n}\}$
+\end_inset
+
+ where the data are counts: the number of times some event occurs in a given
+ interval of time, e.g., number of visits to the doctor in a year.
+ The simplest count data density is the Poisson:
+\begin_inset Formula 
+\[
+f_{Y}(y;\lambda)=\frac{e^{-\lambda}\lambda^{y}}{y!}
+\]
+
+\end_inset
+
+If the observations are i.i.d.
+ distributed according to this density, then the joint density of the sample
+ is
+\begin_inset Formula 
+\[
+L(\lambda)=\prod_{i=1}^{n}\frac{e^{-\lambda}\lambda^{y_{i}}}{y_{i}!}=\frac{e^{-n\lambda}\lambda^{\sum y_{i}}}{\prod_{i}y_{i}!}
+\]
+
+\end_inset
+
+A little algebra shows us that the value that maximizes this is 
+\begin_inset Formula $\hat{\lambda}=\bar{y}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+we can compute the ML estimator without much trouble, and we have asymptotic
+ theory that will allow us to test hypotheses about 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+however, now suppose that each observation has its own 
+\begin_inset Formula $\lambda_{i}=\exp(x_{i}^{\prime}\beta)$
+\end_inset
+
+ which depends on conditioning variables and a new parameter vector.
+ We can now write the likelihood function in terms of 
+\begin_inset Formula $\beta$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The problem is, we can't find an analytic solution for the ML estimator
+ of 
+\begin_inset Formula $\beta.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Even if we could, 
+\begin_inset Formula $\hat{\beta}$
+\end_inset
+
+ which solves the f.o.c.
+ is a nonlinear function of the data.
+ How could we test hypotheses?
+\end_layout
+
+\begin_layout Itemize
+To solve these two problems, we need the methods from Ch.
+ 11 and the theory from Ch.
+ 12.
+\end_layout
+
+\end_deeper
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 The likelihood function can be factored as 
 \begin_inset Formula 
 \[
@@ -77943,17 +78066,6 @@ Now the mixture parameter is even closer to 1.
 \begin_layout Itemize
 The slope parameter estimates are pretty close to what we got with the NB-I
  model.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset bibtex
-LatexCommand bibtex
-bibfiles "econometrics"
-options "plainnat"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard

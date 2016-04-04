@@ -2,6 +2,8 @@
 # run this when Octave switches versions
 LOCATION=`pwd`
 
+mkdir ~/backup
+
 cd $LOCATION/MyOctaveFiles/OctFiles
 echo "making my .cc files"
 make clean
