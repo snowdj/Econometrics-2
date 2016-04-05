@@ -97,7 +97,7 @@ theorems-ams-extended
 \use_package undertilde 1
 \cite_engine basic
 \cite_engine_type default
-\biblio_style plain
+\biblio_style 
 \use_bibtopic false
 \use_indices false
 \paperorientation landscape
@@ -67768,7 +67768,7 @@ In other words,
 \end_inset
 
  or 
-\begin_inset Formula $X_{n}\rightarrow X,a.s.$
+\begin_inset Formula $X_{n}\rightarrow X,\,a.s.$
 \end_inset
 
  One can show that 
@@ -68262,7 +68262,7 @@ Consider a random sample of iid r.v.'s with mean 0 and variance
 \end_inset
 
  now we have have the stronger result that relates the rate of convergence
- to the sample size.
+ to the sample size..
  
 \end_layout
 
@@ -78066,6 +78066,17 @@ Now the mixture parameter is even closer to 1.
 \begin_layout Itemize
 The slope parameter estimates are pretty close to what we got with the NB-I
  model.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "econometrics"
+options "elsarticle-harv"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
