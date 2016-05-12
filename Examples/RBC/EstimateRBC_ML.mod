@@ -103,7 +103,7 @@ alpha, 0.35;
 beta, 0.99; 
 rho, 0.95;
 sigma, 0.01;
-%delta, 0.02;
+delta, 0.02;
 %nss, 1/3;
 %psi,  1.73;
 end;

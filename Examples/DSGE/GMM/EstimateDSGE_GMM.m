@@ -11,7 +11,7 @@ function = 0, when exactly identified, so
 there is a solution
 #}
 
-load dsgedata;
+load dsgedata.txt;
 parameters; % load true parameter values
 theta0 = lb_param_ub(:,2); 
 
@@ -53,7 +53,7 @@ ub = lb_param_ub(:,3);
 %thetastart = (ub+lb)/2; % prior mean as start
 thetastart = theta0;    % true values as start
 % options for simulated annealing
-#{
+
 nt = 5;
 ns = 3;
 rt = 0.75; # careful - this is too low for many problems
@@ -64,8 +64,8 @@ paramtol = 1e-3;
 verbosity = 2; # only final results. Inc
 minarg = 1;
 control = { lb, ub, nt, ns, rt, maxevals, neps, functol, paramtol, verbosity, 1};
-#}
+
 % options for bfgs
-control = {Inf, 2};
+%control = {Inf, 2};
 [thetahat, obj_value, convergence] = gmm_estimate(thetastart, dsgedata, weight, "dsgemoments", {}, control);
 thetahat 

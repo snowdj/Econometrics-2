@@ -122,8 +122,8 @@ function fit = kernel_local_linear(eval_points, depvars, condvars, bandwidth, ke
 					myendblock = limits(2,:);
 					if verbose
 						if not(node)
-							printf("kernel_local_linear: received fits for points %d though %d out of %d\n", \
-						 mystartblock, myendblock, nn);
+							printf("kernel_local_linear: received points %d though %d out of %d\n",...
+                            mystartblock, myendblock, nn);
 						endif
 					endif
 					fit(mystartblock:myendblock,:) = contrib;

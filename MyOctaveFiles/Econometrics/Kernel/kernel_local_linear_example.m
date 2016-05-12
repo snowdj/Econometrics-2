@@ -17,19 +17,20 @@
 # estimation. The default window widths are much too large for a good fit. Note
 # how the local linear approach fits the edges much better.
 #
-# usage: kernel_local_linear_example(n, use_mpi, show_plot);
+# usage: kernel_local_linear_example(bw, n, use_mpi, show_plot);
 # INPUTS:
+# bw: the bandwidth to use
 # n: sample size (default n = 1000)
 # use_mpi: (default false) Use MPI or not. To use MPI, you should execute
-#	mpirun -np X octave --eval "kernel_example(1000, true);"
+#	mpirun -np X octave --eval "kernel_example(0.1, 1000, true);"
 #	where X is an integer number of ranks to use.
 #	requires open_mpi extensions from Octave Forge
 # show_plot (default true) display plot?
-function kernel_local_linear_example(n, use_mpi, show_plot)
+function kernel_local_linear_example(bw, n, use_mpi, show_plot)
 
-	if (nargin < 1) n = 1000; endif
-	if (nargin < 2) use_mpi = false; endif
-	if (nargin < 3) show_plot = true; endif
+	if (nargin < 2) n = 1000; endif
+	if (nargin < 3) use_mpi = false; endif
+	if (nargin < 4) show_plot = true; endif
 
 
 	if ((use_mpi) && not(MPI_Initialized)) MPI_Init; endif
@@ -54,8 +55,8 @@ function kernel_local_linear_example(n, use_mpi, show_plot)
 		endif
 	endif
 	tic; # timing only the kernel regression
-	fit  = kernel_local_linear(x, y, x, "", "__kernel_epanechnikov", true, use_mpi); # use the default bandwidth
-	fit2 = kernel_regression(x, y, x, "", "__kernel_epanechnikov", true, use_mpi); # use the default bandwidth
+	fit  = kernel_local_linear(x, y, x, bw, "__kernel_epanechnikov", true, use_mpi); # use the default bandwidth
+	fit2 = kernel_regression(x, y, x, bw, "__kernel_epanechnikov", true, use_mpi); # use the default bandwidth
 	t = toc;
 
 	if (use_mpi)

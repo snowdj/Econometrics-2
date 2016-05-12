@@ -48,13 +48,13 @@ x = data(:,g+1:end);
 n = rows(y);
 % now Minnesota priors
 PP = 1;   
-y = [y; PP*eye(g)];     % first the restriction on first lag coefficients
+y = [y; PP*eye(G)];     % first the restriction on first lag coefficients
 if maxlag > 1           % now the higher order lags restricted to zero
         for j=2:maxlag
                 y = [y; zeros(g,g)];
         endfor
 endif
-x = [x; PP*eye(g*maxlag)];
+x = [x; PP*eye(G*maxlag)];
 b = ols(y,x);
 printf("BVAR\n");
 printf("matrix norm of A1-A1hat\n");

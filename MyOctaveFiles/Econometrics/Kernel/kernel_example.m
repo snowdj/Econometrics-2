@@ -67,7 +67,7 @@ function kernel_example(n, use_mpi, show_plot)
 	############################################################
 	# kernel density example: x (from above) is uniform (0,1)
 	# evaluation point are on a grid for plotting
-	bandwidth = 0.55;
+	bandwidth = 0.2;
 	# get optimal bandwidth (time consuming, uncomment if you want to try it)
 	# bandwidth = kernel_optimal_bandwidth(data);
 	# get the fitted density and do a plot

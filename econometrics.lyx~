@@ -97,7 +97,7 @@ theorems-ams-extended
 \use_package undertilde 1
 \cite_engine basic
 \cite_engine_type default
-\biblio_style plain
+\biblio_style 
 \use_bibtopic false
 \use_indices false
 \paperorientation landscape
@@ -313,12 +313,6 @@ Hamilton, J.D.,
 Time Series Analysis
 \end_layout
 
-\begin_layout Itemize
-Hayashi, F., 
-\emph on
-Econometrics
-\end_layout
-
 \begin_layout Standard
 Some more advanced books:
 \end_layout
@@ -382,8 +376,7 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{here}{https://github.com/mcreel/Econometrics/blob/master/Exampl
-es}
+htmladdnormallink{here}{file:///home/michael/Mystuff/Econometrics/Examples}
 \end_layout
 
 \end_inset
@@ -396,8 +389,7 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{here}{https://github.com/mcreel/Econometrics/blob/master/MyOcta
-veFiles}
+htmladdnormallink{here}{file:///home/michael/Mystuff/Econometrics/MyOctaveFiles}
 \end_layout
 
 \end_inset
@@ -763,8 +755,7 @@ status open
 
 
 \backslash
-htmladdnormallink{here}{https://github.com/mcreel/Econometrics/blob/master/Exampl
-es}
+htmladdnormallink{here}{file:///home/michael/Mystuff/Econometrics/Examples}
 \end_layout
 
 \end_inset
@@ -778,8 +769,7 @@ status open
 
 
 \backslash
-htmladdnormallink{here}{https://github.com/mcreel/Econometrics/blob/master/MyOcta
-veFiles}
+htmladdnormallink{here}{file:///home/michael/Mystuff/Econometrics/MyOctaveFiles}
 \end_layout
 
 \end_inset
@@ -878,8 +868,8 @@ status open
 
 
 \backslash
-htmladdnormallink{econometrics.ova }{https://github.com/mcreel/Econometrics/blob/m
-aster/econometrics.ova}
+htmladdnormallink{econometrics.ova }{file:///home/michael/Mystuff/Econometrics/ec
+onometrics.ova}
 \end_layout
 
 \end_inset
@@ -998,8 +988,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{data}{https://github.com/mcreel/Econometrics/blob/master/Exampl
-es/Intro/data}
+htmladdnormallink{data}{file:///home/michael/Mystuff/Econometrics/Examples/Intro
+/data}
 \end_layout
 
 \end_inset
@@ -1648,8 +1638,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{TypicalData.m}{https://github.com/mcreel/Econometrics/blob/maste
-r/Examples/OLS/TypicalData.m}
+htmladdnormallink{TypicalData.m}{file:///home/michael/Mystuff/Econometrics/Exampl
+es/OLS/TypicalData.m}
 \end_layout
 
 \end_inset
@@ -1978,8 +1968,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{OlsFit.m}{https://github.com/mcreel/Econometrics/blob/master/Exa
-mples/OLS/OlsFit.m} 
+htmladdnormallink{OlsFit.m}{file:///home/michael/Mystuff/Econometrics/Examples/OL
+S/OlsFit.m} 
 \end_layout
 
 \end_inset
@@ -2607,8 +2597,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{InfluentialObservation.m}{https://github.com/mcreel/Econometrics
-/blob/master/Examples/OLS/InfluentialObservation.m}
+htmladdnormallink{InfluentialObservation.m}{file:///home/michael/Mystuff/Economet
+rics/Examples/OLS/InfluentialObservation.m}
 \end_layout
 
 \end_inset
@@ -3303,8 +3293,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{Unbiased.m}{https://github.com/mcreel/Econometrics/blob/master/E
-xamples/OLS/Unbiased.m} 
+htmladdnormallink{Unbiased.m}{file:///home/michael/Mystuff/Econometrics/Examples/
+OLS/Unbiased.m} 
 \end_layout
 
 \end_inset
@@ -3431,8 +3421,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{Biased.m}{https://github.com/mcreel/Econometrics/blob/master/Exa
-mples/OLS/Biased.m} 
+htmladdnormallink{Biased.m}{file:///home/michael/Mystuff/Econometrics/Examples/OL
+S/Biased.m} 
 \end_layout
 
 \end_inset
@@ -3734,8 +3724,8 @@ status open
 
  
 \backslash
-htmladdnormallink{Efficiency.m}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/OLS/Efficiency.m} 
+htmladdnormallink{Efficiency.m}{file:///home/michael/Mystuff/Econometrics/Example
+s/OLS/Efficiency.m} 
 \end_layout
 
 \end_inset
@@ -4188,8 +4178,8 @@ status open
 
 
 \backslash
-htmladdnormallink{nerlove.data}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/Data/nerlove.data} 
+htmladdnormallink{nerlove.data}{file:///home/michael/Mystuff/Econometrics/Example
+s/Data/nerlove.data} 
 \end_layout
 
 \end_inset
@@ -4299,8 +4289,8 @@ status open
 
  
 \backslash
-htmladdnormallink{Nerlove.m}{https://github.com/mcreel/Econometrics/blob/master/Ex
-amples/OLS/Nerlove.m} 
+htmladdnormallink{Nerlove.m}{file:///home/michael/Mystuff/Econometrics/Examples/O
+LS/Nerlove.m} 
 \end_layout
 
 \end_inset
@@ -4393,8 +4383,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{nerlove.gdt}{https://github.com/mcreel/Econometrics/blob/master/
-Examples/Data/nerlove.gdt} 
+htmladdnormallink{nerlove.gdt}{file:///home/michael/Mystuff/Econometrics/Examples
+/Data/nerlove.gdt} 
 \end_layout
 
 \end_inset
@@ -7416,8 +7406,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{ExampleDeltaMethod.m}{https://github.com/mcreel/Econometrics/blo
-b/master/Examples/Restrictions/ExampleDeltaMethod.m}
+htmladdnormallink{ExampleDeltaMethod.m}{file:///home/michael/Mystuff/Econometrics
+/Examples/Restrictions/ExampleDeltaMethod.m}
 \end_layout
 
 \end_inset
@@ -7565,8 +7555,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{NerloveRestrictions.m}{https://github.com/mcreel/Econometrics/bl
-ob/master/Examples/Restrictions/NerloveRestrictions.m} 
+htmladdnormallink{NerloveRestrictions.m}{file:///home/michael/Mystuff/Econometric
+s/Examples/Restrictions/NerloveRestrictions.m} 
 \end_layout
 
 \end_inset
@@ -7802,8 +7792,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{Restrictions/ChowTest.m}{https://github.com/mcreel/Econometrics/
-blob/master/Examples/Restrictions/ChowTest.m}
+htmladdnormallink{Restrictions/ChowTest.m}{file:///home/michael/Mystuff/Econometr
+ics/Examples/Restrictions/ChowTest.m}
 \end_layout
 
 \end_inset
@@ -8936,8 +8926,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{mortality.data}{https://github.com/mcreel/Econometrics/blob/mast
-er/Examples/Data/mortality.data} 
+htmladdnormallink{mortality.data}{file:///home/michael/Mystuff/Econometrics/Examp
+les/Data/mortality.data} 
 \end_layout
 
 \end_inset
@@ -10390,8 +10380,8 @@ status open
 
  
 \backslash
-htmladdnormallink{DataProblems/collinearity.m}{https://github.com/mcreel/Econometr
-ics/blob/master/Examples/DataProblems/collinearity.m} 
+htmladdnormallink{DataProblems/collinearity.m}{file:///home/michael/Mystuff/Econo
+metrics/Examples/DataProblems/collinearity.m} 
 \end_layout
 
 \end_inset
@@ -10661,8 +10651,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{DataProblems/NerloveCollinearity.m}{https://github.com/mcreel/Ec
-onometrics/blob/master/Examples/DataProblems/NerloveCollinearity.m} 
+htmladdnormallink{DataProblems/NerloveCollinearity.m}{file:///home/michael/Mystuf
+f/Econometrics/Examples/DataProblems/NerloveCollinearity.m} 
 \end_layout
 
 \end_inset
@@ -11113,8 +11103,8 @@ status open
 
  
 \backslash
-htmladdnormallink{DataProblems/RidgeRegression.m}{https://github.com/mcreel/Econom
-etrics/blob/master/Examples/DataProblems/RidgeRegression.m} 
+htmladdnormallink{DataProblems/RidgeRegression.m}{file:///home/michael/Mystuff/Ec
+onometrics/Examples/DataProblems/RidgeRegression.m} 
 \end_layout
 
 \end_inset
@@ -11600,8 +11590,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{DataProblems/MeasurementError.m}{https://github.com/mcreel/Econo
-metrics/blob/master/Examples/DataProblems/MeasurementError.m} 
+htmladdnormallink{DataProblems/MeasurementError.m}{file:///home/michael/Mystuff/E
+conometrics/Examples/DataProblems/MeasurementError.m} 
 \end_layout
 
 \end_inset
@@ -12134,8 +12124,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{sampsel.m}{https://github.com/mcreel/Econometrics/blob/master/Ex
-amples/Figures/sampsel.m} 
+htmladdnormallink{sampsel.m}{file:///home/michael/Mystuff/Econometrics/Examples/F
+igures/sampsel.m} 
 \end_layout
 
 \end_inset
@@ -14162,8 +14152,8 @@ status open
 
  
 \backslash
-htmladdnormallink{GLS/EffectsOLS.m}{https://github.com/mcreel/Econometrics/blob/ma
-ster/Examples/GLS/EffectsOLS.m}
+htmladdnormallink{GLS/EffectsOLS.m}{file:///home/michael/Mystuff/Econometrics/Exa
+mples/GLS/EffectsOLS.m}
 \end_layout
 
 \end_inset
@@ -14332,8 +14322,8 @@ status open
 
  
 \backslash
-htmladdnormallink{GLS/cholesky.m}{https://github.com/mcreel/Econometrics/blob/mast
-er/Examples/GLS/cholesky.m}
+htmladdnormallink{GLS/cholesky.m}{file:///home/michael/Mystuff/Econometrics/Examp
+les/GLS/cholesky.m}
 \end_layout
 
 \end_inset
@@ -15013,8 +15003,8 @@ status collapsed
 \backslash
 htmladdnormallink{bootstrap
 \backslash
-_example1.m}{https://github.com/mcreel/Econometrics/blob/master/Examples/Parallel/
-bootstrap/bootstrap
+_example1.m}{file:///home/michael/Mystuff/Econometrics/Examples/Parallel/bootstra
+p/bootstrap
 \backslash
 _example1.m}
 \end_layout
@@ -15944,8 +15934,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{GLS/NerloveResiduals.m}{https://github.com/mcreel/Econometrics/b
-lob/master/Examples/GLS/NerloveResiduals.m}
+htmladdnormallink{GLS/NerloveResiduals.m}{file:///home/michael/Mystuff/Econometri
+cs/Examples/GLS/NerloveResiduals.m}
 \end_layout
 
 \end_inset
@@ -16001,8 +15991,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{GLS/HetTests.m}{https://github.com/mcreel/Econometrics/blob/mast
-er/Examples/GLS/HetTests.m}
+htmladdnormallink{GLS/HetTests.m}{file:///home/michael/Mystuff/Econometrics/Examp
+les/GLS/HetTests.m}
 \end_layout
 
 \end_inset
@@ -16028,8 +16018,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{GLS/NerloveRestrictions-Het.m}{https://github.com/mcreel/Econome
-trics/blob/master/Examples/GLS/NerloveRestrictionsHet.m}
+htmladdnormallink{GLS/NerloveRestrictions-Het.m}{file:///home/michael/Mystuff/Eco
+nometrics/Examples/GLS/NerloveRestrictionsHet.m}
 \end_layout
 
 \end_inset
@@ -16048,8 +16038,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{GLS/NerloveResiduals.m}{https://github.com/mcreel/Econometrics/b
-lob/master/Examples/GLS/NerloveResiduals.m}
+htmladdnormallink{GLS/NerloveResiduals.m}{file:///home/michael/Mystuff/Econometri
+cs/Examples/GLS/NerloveResiduals.m}
 \end_layout
 
 \end_inset
@@ -16062,8 +16052,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{GLS/HetTests.m}{https://github.com/mcreel/Econometrics/blob/mast
-er/Examples/GLS/HetTests.m}
+htmladdnormallink{GLS/HetTests.m}{file:///home/michael/Mystuff/Econometrics/Examp
+les/GLS/HetTests.m}
 \end_layout
 
 \end_inset
@@ -16079,8 +16069,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{GLS/NerloveRestrictions-Het.m}{https://github.com/mcreel/Econome
-trics/blob/master/Examples/GLS/NerloveRestrictions-Het.m}
+htmladdnormallink{GLS/NerloveRestrictions-Het.m}{file:///home/michael/Mystuff/Eco
+nometrics/Examples/GLS/NerloveRestrictions-Het.m}
 \end_layout
 
 \end_inset
@@ -16141,8 +16131,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{GLS/NerloveGLS.m}{https://github.com/mcreel/Econometrics/blob/ma
-ster/Examples/GLS/NerloveGLS.m}
+htmladdnormallink{GLS/NerloveGLS.m}{file:///home/michael/Mystuff/Econometrics/Exa
+mples/GLS/NerloveGLS.m}
 \end_layout
 
 \end_inset
@@ -16284,8 +16274,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{CO2.data}{https://github.com/mcreel/Econometrics/blob/master/Exa
-mples/Data/CO2.data} 
+htmladdnormallink{CO2.data}{file:///home/michael/Mystuff/Econometrics/Examples/Da
+ta/CO2.data} 
 \end_layout
 
 \end_inset
@@ -17234,8 +17224,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{GLS/AR1Errors.m}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/GLS/AR1Errors.m}
+htmladdnormallink{GLS/AR1Errors.m}{file:///home/michael/Mystuff/Econometrics/Exam
+ples/GLS/AR1Errors.m}
 \end_layout
 
 \end_inset
@@ -18148,8 +18138,8 @@ status open
 
  
 \backslash
-htmladdnormallink{GLS/DynamicMA.m}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/GLS/DynamicMA.m} 
+htmladdnormallink{GLS/DynamicMA.m}{file:///home/michael/Mystuff/Econometrics/Exam
+ples/GLS/DynamicMA.m} 
 \end_layout
 
 \end_inset
@@ -18394,8 +18384,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{GLS/NerloveAR.m}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/GLS/NerloveAR.m}
+htmladdnormallink{GLS/NerloveAR.m}{file:///home/michael/Mystuff/Econometrics/Exam
+ples/GLS/NerloveAR.m}
 \end_layout
 
 \end_inset
@@ -18505,8 +18495,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{README}{https://github.com/mcreel/Econometrics/blob/master/Exam
-ples/Data/klein_readme.txt} 
+htmladdnormallink{README}{file:///home/michael/Mystuff/Econometrics/Examples/Dat
+a/klein_readme.txt} 
 \end_layout
 
 \end_inset
@@ -18532,8 +18522,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{GLS/Klein.m}{https://github.com/mcreel/Econometrics/blob/master/
-Examples/GLS/Klein.m}
+htmladdnormallink{GLS/Klein.m}{file:///home/michael/Mystuff/Econometrics/Examples
+/GLS/Klein.m}
 \end_layout
 
 \end_inset
@@ -18613,8 +18603,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{GLS/KleinAR1.m}{https://github.com/mcreel/Econometrics/blob/mast
-er/Examples/GLS/KleinAR1.m}
+htmladdnormallink{GLS/KleinAR1.m}{file:///home/michael/Mystuff/Econometrics/Examp
+les/GLS/KleinAR1.m}
 \end_layout
 
 \end_inset
@@ -18830,8 +18820,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{nerlove.data}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/Data/nerlove.data} 
+htmladdnormallink{nerlove.data}{file:///home/michael/Mystuff/Econometrics/Example
+s/Data/nerlove.data} 
 \end_layout
 
 \end_inset
@@ -18910,8 +18900,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{hall.csv}{https://github.com/mcreel/Econometrics/blob/master/Exa
-mples/Data/hall.csv} 
+htmladdnormallink{hall.csv}{file:///home/michael/Mystuff/Econometrics/Examples/Da
+ta/hall.csv} 
 \end_layout
 
 \end_inset
@@ -18924,8 +18914,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{hall.gdt}{https://github.com/mcreel/Econometrics/blob/master/Exa
-mples/Data/hall.gdt} 
+htmladdnormallink{hall.gdt}{file:///home/michael/Mystuff/Econometrics/Examples/Da
+ta/hall.gdt} 
 \end_layout
 
 \end_inset
@@ -22870,8 +22860,8 @@ status open
 
  
 \backslash
-htmladdnormallink{Simeq/Klein2SLS.m}{https://github.com/mcreel/Econometrics/blob/m
-aster/Examples/Simeq/Klein2SLS.m}
+htmladdnormallink{Simeq/Klein2SLS.m}{file:///home/michael/Mystuff/Econometrics/Ex
+amples/Simeq/Klein2SLS.m}
 \end_layout
 
 \end_inset
@@ -23170,8 +23160,8 @@ status open
 
 
 \backslash
-htmladdnormallink{GridExample.m}{https://github.com/mcreel/Econometrics/blob/maste
-r/Examples/NonlinearOptimization/GridExample.m} 
+htmladdnormallink{GridExample.m}{file:///home/michael/Mystuff/Econometrics/Exampl
+es/NonlinearOptimization/GridExample.m} 
 \end_layout
 
 \end_inset
@@ -24307,9 +24297,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{EstimateRestrictedNerlove.m}{https://github.com/mcreel/Econometr
-ics/blob/master/Examples/NonlinearOptimization/EstimateRestrictedNerlove.m}
- 
+htmladdnormallink{EstimateRestrictedNerlove.m}{file:///home/michael/Mystuff/Econo
+metrics/Examples/NonlinearOptimization/EstimateRestrictedNerlove.m} 
 \end_layout
 
 \end_inset
@@ -24405,8 +24394,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{MEPS health data file}{https://github.com/mcreel/Econometrics/b
-lob/master/Examples/Data/meps1996.data} 
+htmladdnormallink{MEPS health data file}{file:///home/michael/Mystuff/Econometri
+cs/Examples/Data/meps1996.data} 
 \end_layout
 
 \end_inset
@@ -24459,8 +24448,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{ExploreMEPS.m}{https://github.com/mcreel/Econometrics/blob/maste
-r/Examples/MEPS-I/ExploreMEPS.m} 
+htmladdnormallink{ExploreMEPS.m}{file:///home/michael/Mystuff/Econometrics/Exampl
+es/MEPS-I/ExploreMEPS.m} 
 \end_layout
 
 \end_inset
@@ -24557,8 +24546,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{EstimatePoisson.m}{https://github.com/mcreel/Econometrics/blob/m
-aster/Examples/MEPS-I/EstimatePoisson.m}
+htmladdnormallink{EstimatePoisson.m}{file:///home/michael/Mystuff/Econometrics/Ex
+amples/MEPS-I/EstimatePoisson.m}
 \end_layout
 
 \end_inset
@@ -24613,8 +24602,8 @@ status open
 
  
 \backslash
-htmladdnormallink{EstimatePoisson.m}{https://github.com/mcreel/Econometrics/blob/m
-aster/Examples/MEPS-I/EstimatePoisson.m}
+htmladdnormallink{EstimatePoisson.m}{file:///home/michael/Mystuff/Econometrics/Ex
+amples/MEPS-I/EstimatePoisson.m}
 \end_layout
 
 \end_inset
@@ -24635,8 +24624,8 @@ status open
 
  
 \backslash
-htmladdnormallink{CheckScore.m}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/MEPS-I/CheckScore.m}
+htmladdnormallink{CheckScore.m}{file:///home/michael/Mystuff/Econometrics/Example
+s/MEPS-I/CheckScore.m}
 \end_layout
 
 \end_inset
@@ -24788,8 +24777,8 @@ status open
 
  
 \backslash
-htmladdnormallink{FoggyMountain.m}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/NonlinearOptimization/FoggyMountain.m}
+htmladdnormallink{FoggyMountain.m}{file:///home/michael/Mystuff/Econometrics/Exam
+ples/NonlinearOptimization/FoggyMountain.m}
 \end_layout
 
 \end_inset
@@ -24931,8 +24920,8 @@ status open
 
 
 \backslash
-htmladdnormallink{nerlove.data}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/Data/nerlove.data} 
+htmladdnormallink{nerlove.data}{file:///home/michael/Mystuff/Econometrics/Example
+s/Data/nerlove.data} 
 \end_layout
 
 \end_inset
@@ -27102,6 +27091,7 @@ reference "fig:Linear-Approximation"
 \end_inset
 
 .
+ 
 \begin_inset Newpage newpage
 \end_inset
 
@@ -27177,6 +27167,17 @@ Note that the true underlying parameter
  is not estimated consistently, either (it may be of a different dimension
  than the dimension of the parameter of the approximating model, which is
  2 in this example).
+\end_layout
+
+\begin_layout Itemize
+see Exercise 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "ols"
+
+\end_inset
+
+ in the list at the end of the chapter for a practical example.
 \end_layout
 
 \begin_layout Itemize
@@ -27849,6 +27850,16 @@ Suppose that
 
 .
  Hint: the correct answers are 7/6 and -1.
+ To get some help with this exercise, you can use a computer algebra program,
+ as was done in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Consistency-of-OLS"
+
+\end_inset
+
+.
+ A small modification of that code would solve this problem.
 \end_layout
 
 \begin_layout Enumerate
@@ -28131,6 +28142,14 @@ To solve these two problems, we need the methods from Ch.
 \begin_inset Newpage newpage
 \end_inset
 
+
+\end_layout
+
+\begin_layout Subsection
+Exogenous variables
+\end_layout
+
+\begin_layout Standard
 The likelihood function can be factored as 
 \begin_inset Formula 
 \[
@@ -28224,7 +28243,20 @@ With exogeneity of
 \end_inset
 
 .
- We'll suppose this framework in what follows.
+ We'll suppose this framework holds in what follows.
+ If it didn't, for some variables in 
+\begin_inset Formula $Z,$
+\end_inset
+
+ then just move those variables from 
+\begin_inset Formula $Z$
+\end_inset
+
+ to 
+\begin_inset Formula $Y,$
+\end_inset
+
+ until it does hold.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -28601,71 +28633,6 @@ So, the ML estimator is consistent for the true probability.
 \end_layout
 
 \begin_layout Standard
-Now imagine that we had a bag full of bent coins, each bent around a sphere
- of a different radius (with the head pointing to the outside of the sphere).
- We might suspect that the probability of a heads could depend upon the
- radius.
- Suppose that 
-\begin_inset Formula $p_{i}\equiv p(x_{i},\beta)=\left(1+\exp(-x_{i}^{\prime}\beta)\right)^{-1}$
-\end_inset
-
- where 
-\begin_inset Formula $x_{i}=\left[\begin{array}{cc}
-1 & r_{i}\end{array}\right]^{\prime}$
-\end_inset
-
-, so that 
-\begin_inset Formula $\beta$
-\end_inset
-
- is a 2
-\begin_inset Formula $\times$
-\end_inset
-
-1 vector.
- Now 
-\begin_inset Formula 
-\[
-\frac{\partial p_{i}(\beta)}{\partial\beta}=p_{i}\left(1-p_{i}\right)x_{i}
-\]
-
-\end_inset
-
-so
-\begin_inset Formula 
-\begin{eqnarray*}
-\frac{\partial\ln f_{Y}(y,\beta)}{\partial\beta} & = & \frac{y-p_{i}}{p_{i}\left(1-p_{i}\right)}p_{i}\left(1-p_{i}\right)x_{i}\\
- & = & \left(y_{i}-p(x_{i},\beta)\right)x_{i}
-\end{eqnarray*}
-
-\end_inset
-
-So the derivative of the average log likelihood function is now
-\begin_inset Formula 
-\[
-\frac{\partial s_{n}(\beta)}{\partial\beta}=\frac{\sum_{i=1}^{n}\left(y_{i}-p(x_{i},\beta)\right)x_{i}}{n}
-\]
-
-\end_inset
-
-This is a set of 2 nonlinear equations in the two unknown elements in 
-\begin_inset Formula $\beta$
-\end_inset
-
-.
- There is no explicit solution for the two elements that set the equations
- to zero.
- This is commonly the case with ML estimators: they are often nonlinear,
- and finding the value of the estimate often requires use of numeric methods
- to find solutions to the first order conditions.
- See Chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cha:Numeric-optimization-methods"
-
-\end_inset
-
- for more information on how to do this.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -28741,6 +28708,10 @@ f_{y}(y_{1},y_{2},...,y_{n}|x_{1},x_{2},...,x;\beta_{0},\sigma_{0}^{2})=\prod_{t
 
 \end_inset
 
+
+\begin_inset Newpage newpage
+\end_inset
+
 Taking logarithms, and evaluating at some point in the parameter space,
  we get the log-likelihood function: 
 \begin_inset Formula 
@@ -28750,6 +28721,40 @@ Taking logarithms, and evaluating at some point in the parameter space,
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Itemize
+Observe that the first order conditions for 
+\begin_inset Formula $\beta$
+\end_inset
+
+ are the same as for the OLS estimator.
+ We know that the OLS estimator is consistent without making distributional
+ assumptions regarding the errors.
+ As long as the assumptions for consistency of OLS hold (fundamentally,
+ weak exogeneity), then this estimator will be consistent for 
+\begin_inset Formula $\beta$
+\end_inset
+
+ as well, even if the normality assumption is not correct.
+ This would be an example of 
+\emph on
+quasi-maximum likelihood
+\emph default
+ estimation: 
+\begin_inset Quotes sld
+\end_inset
+
+ML
+\begin_inset Quotes srd
+\end_inset
+
+ estimation of a misspecified model.
+ Sometimes the QML estimator is consistent, sometimes it's not.
+\end_layout
+
+\begin_layout Itemize
 A Octave/Matlab example that shows how to compute the maximum likelihood
  estimator for data that follows the CLRM with normality is in 
 \begin_inset ERT
@@ -28759,8 +28764,8 @@ status open
 
  
 \backslash
-htmladdnormallink{NormalExample.m}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/MLE/NormalExample.m} 
+htmladdnormallink{NormalExample.m}{file:///home/michael/Mystuff/Econometrics/Exam
+ples/MLE/NormalExample.m} 
 \end_layout
 
 \end_inset
@@ -28773,8 +28778,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{NormalLF.m}{https://github.com/mcreel/Econometrics/blob/master/E
-xamples/MLE/NormalLF.m} 
+htmladdnormallink{NormalLF.m}{file:///home/michael/Mystuff/Econometrics/Examples/
+MLE/NormalLF.m} 
 \end_layout
 
 \end_inset
@@ -28805,7 +28810,10 @@ reference "Consistency of ee"
 \begin_inset Formula $s_{\infty}(\theta)?$
 \end_inset
 
-
+ For two cases (Bernoulli trial and ML of the linear model with normality)
+ we have seen that the ML estimator converges to the true parameter of the
+ d.g.p.
+ Is this a general result?
 \end_layout
 
 \begin_layout Standard
@@ -29352,12 +29360,20 @@ Now consider
 \begin_inset Formula $\sqrt{n}g(\theta_{0}).$
 \end_inset
 
- This is 
+ For assumption (c) of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Normality of ee"
+
+\end_inset
+
+ to apply, this quantity must follow a Central Limit Theorem.
+ We have 
 \begin_inset Formula 
 \begin{eqnarray*}
 \sqrt{n}g_{n}(\theta_{0}) & = & \sqrt{n}D_{\theta}s_{n}(\theta)\\
- & = & \frac{\sqrt{n}}{n}\sum_{t=1}^{n}D_{\theta}\ln f_{t}(y_{t}|x_{t},\theta_{0})\\
- & = & \frac{1}{\sqrt{n}}\sum_{t=1}^{n}g_{t}(\theta_{0})
+ & = & \sqrt{n}\frac{1}{n}\sum_{t=1}^{n}D_{\theta}\ln f_{t}(y_{t}|x_{t},\theta_{0})\\
+ & = & \sqrt{n}\frac{1}{n}\sum_{t=1}^{n}g_{t}(\theta_{0})
 \end{eqnarray*}
 
 \end_inset
@@ -29537,15 +29553,24 @@ We will show that
 
 \end_inset
 
- Now differentiate again: 
+ Now differentiate again: (Note for lectures: in the second line, start
+ with the term in 
+\begin_inset Formula $\left\{ \right\} $
+\end_inset
+
+ and show you get what's in the first line) 
 \begin_inset Formula 
 \begin{eqnarray}
-0 & = & \int\left[D_{\theta}^{2}\ln f_{t}(\theta)\right]f_{t}(\theta)dy+\int\left[D_{\theta}\ln f_{t}(\theta)\right]D_{\theta^{\prime}}f_{t}(\theta)dy\nonumber \\
- & = & \mathcal{E}_{\theta}\left[D_{\theta}^{2}\ln f_{t}(\theta)\right]+\int\left[D_{\theta}\ln f_{t}(\theta)\right]\left[D_{\theta^{\prime}}\ln f_{t}(\theta)\right]f_{t}(\theta)dy\nonumber \\
+0 & = & \int\left[D_{\theta}^{2}\ln f_{t}(\theta)\right]f_{t}(\theta)dy+\int\left[D_{\theta}\ln f_{t}(\theta)\right]\left\{ D_{\theta^{\prime}}f_{t}(\theta)\right\} dy\nonumber \\
+ & = & \mathcal{E}_{\theta}\left[D_{\theta}^{2}\ln f_{t}(\theta)\right]+\int\left[D_{\theta}\ln f_{t}(\theta)\right]\left\{ \left[D_{\theta^{\prime}}\ln f_{t}(\theta)\right]f_{t}(\theta)\right\} dy\nonumber \\
  & = & \mathcal{E}_{\theta}\left[D_{\theta}^{2}\ln f_{t}(\theta)\right]+\mathcal{E}_{\theta}\left[D_{\theta}\ln f_{t}(\theta)\right]\left[D_{\theta^{\prime}}\ln f_{t}(\theta)\right]\nonumber \\
  & = & \mathcal{E}_{\theta}\left[\mathcal{J}_{t}(\theta)\right]+\mathcal{E}_{\theta}\left[g_{t}(\theta)\right]\left[g_{t}(\theta)\right]^{\prime}\label{informationmatrixequality,singleobservation}
 \end{eqnarray}
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
  Now sum over 
@@ -29640,7 +29665,14 @@ if the scores appear to be correlated one may question the specification
 \begin_inset Formula $\theta_{0}.$
 \end_inset
 
- Using this, 
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+Using this, 
 \begin_inset Formula 
 \[
 \sqrt{n}\left(\hat{\theta}-\theta_{0}\right)\overset{a.s.}{\rightarrow}N\left[0,\mathcal{J}_{\infty}(\theta_{0})^{-1}\mathcal{I}_{\infty}(\theta_{0})\mathcal{J}_{\infty}(\theta_{0})^{-1}\right]
@@ -29662,6 +29694,10 @@ or
 \sqrt{n}\left(\hat{\theta}-\theta_{0}\right)\overset{a.s.}{\rightarrow}N\left[0,-\mathcal{J}_{\infty}(\theta_{0})^{-1}\right]\label{Simple MLE asymp. cov.-1}
 \end{equation}
 
+\end_inset
+
+
+\begin_inset Newpage pagebreak
 \end_inset
 
  To estimate the asymptotic variance, we need estimators of 
@@ -29745,7 +29781,7 @@ ML estimator.
 \end_layout
 
 \begin_layout Standard
-With a litte more detail, the methods are:
+With a little more detail, the methods are:
 \end_layout
 
 \begin_layout Itemize
@@ -29945,7 +29981,14 @@ For this example, find
 \begin_inset Formula $\mathcal{I}_{\infty}(p_{0})$
 \end_inset
 
+ by directly computing the covariance of the score vector, after scaling
+ by 
+\begin_inset Formula $\sqrt{n}$
+\end_inset
+
 .
+ By the information matrix equality, you already know what the answer should
+ be, but verify that your computations give you the same result.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -30004,6 +30047,7 @@ superconsistent
 
  is the highest factor that we can multiply by and still get convergence
  to a stable limiting distribution.
+ 
 \end_layout
 
 \begin_layout Definition
@@ -30034,6 +30078,10 @@ Estimators that are CAN are asymptotically unbiased
 , though not all consistent estimators are asymptotically unbiased.
  Such cases are unusual, though.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Theorem
@@ -30083,10 +30131,10 @@ D_{\theta^{\prime}}\lim_{n\rightarrow\infty}\mathcal{E}_{\theta}(\tilde{\theta}-
 \end_inset
 
  Noting that 
-\begin_inset Formula $D_{\theta^{\prime}}f(Y,\theta)=f(\theta)D_{\theta^{\prime}}\ln f(\theta),$
+\begin_inset Formula $D_{\theta^{\prime}}f(Y,\theta)=f(\theta)D_{\theta^{\prime}}\ln f(\theta)$
 \end_inset
 
- we can write 
+ (a trick we have seen a few times already) we can write 
 \begin_inset Formula 
 \[
 \lim_{n\rightarrow\infty}\int\left(\tilde{\theta}-\theta\right)f(\theta)D_{\theta^{\prime}}\ln f(\theta)dy+\lim_{n\rightarrow\infty}\int f(Y,\theta)D_{\theta^{\prime}}\left(\tilde{\theta}-\theta\right)dy=0.
@@ -30248,7 +30296,7 @@ status collapsed
 estimator.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Definition
 (
 \emph on
 Asymptotic efficiency
@@ -30280,15 +30328,20 @@ Asymptotic efficiency
  is a positive semidefinite matrix.
 \end_layout
 
-\begin_layout Standard
-A direct proof of asymptotic efficiency of an estimator is infeasible, but
- if one can show that the asymptotic variance is equal to the inverse of
- the information matrix, then the estimator is asymptotically efficient.
- In particular, 
+\begin_layout Itemize
+
 \emph on
 the MLE is asymptotically efficient with respect to any other CAN estimator.
-\emph default
+\end_layout
 
+\begin_layout Itemize
+this is the reason that the ML estimator is so important, it provides a
+ benchmark for efficiency.
+ The strong assumptions on which it depends may be questionable, though.
+ If we can find another estimator that obtains an asymptotic variance similar
+ to that of ML, but is consistent under weaker assumptions, we might choose
+ to use it instead.
+ But it's useful to know the potential loss of efficiency.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -30493,8 +30546,8 @@ status open
 
  
 \backslash
-htmladdnormallink{LikelihoodRatioTest.m}{https://github.com/mcreel/Econometrics/bl
-ob/master/Examples/MLE/LikelihoodRatioTest.m} 
+htmladdnormallink{LikelihoodRatioTest.m}{file:///home/michael/Mystuff/Econometric
+s/Examples/MLE/LikelihoodRatioTest.m} 
 \end_layout
 
 \end_inset
@@ -30604,8 +30657,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{NerloveMLE.m}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/MLE/NerloveMLE.m} 
+htmladdnormallink{NerloveMLE.m}{file:///home/michael/Mystuff/Econometrics/Example
+s/MLE/NerloveMLE.m} 
 \end_layout
 
 \end_inset
@@ -30637,8 +30690,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{Nerlove.m}{https://github.com/mcreel/Econometrics/blob/master/Ex
-amples/OLS/Nerlove.m} 
+htmladdnormallink{Nerlove.m}{file:///home/michael/Mystuff/Econometrics/Examples/O
+LS/Nerlove.m} 
 \end_layout
 
 \end_inset
@@ -31194,8 +31247,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{LogitDGP.m}{https://github.com/mcreel/Econometrics/blob/master/M
-yOctaveFiles/Count/LogitDGP.m} 
+htmladdnormallink{LogitDGP.m}{file:///home/michael/Mystuff/Econometrics/MyOctaveF
+iles/Count/LogitDGP.m} 
 \end_layout
 
 \end_inset
@@ -31208,8 +31261,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{logit.m}{https://github.com/mcreel/Econometrics/blob/master/MyOc
-taveFiles/Count/Logit.m} 
+htmladdnormallink{logit.m}{file:///home/michael/Mystuff/Econometrics/MyOctaveFile
+s/Count/Logit.m} 
 \end_layout
 
 \end_inset
@@ -31222,8 +31275,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{EstimateLogit.m}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/NonlinearOptimization/EstimateLogit.m} 
+htmladdnormallink{EstimateLogit.m}{file:///home/michael/Mystuff/Econometrics/Exam
+ples/NonlinearOptimization/EstimateLogit.m} 
 \end_layout
 
 \end_inset
@@ -31918,8 +31971,7 @@ status open
 \backslash
 htmladdnormallink{EstimateRBC
 \backslash
-_ML.mod}{https://github.com/mcreel/Econometrics/blob/master/Examples/RBC/EstimateR
-BC
+_ML.mod}{file:///home/michael/Mystuff/Econometrics/Examples/RBC/EstimateRBC
 \backslash
 _ML.mod} 
 \end_layout
@@ -32340,8 +32392,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{Nerlove.m}{https://github.com/mcreel/Econometrics/blob/master/Ex
-amples/OLS/Nerlove.m} 
+htmladdnormallink{Nerlove.m}{file:///home/michael/Mystuff/Econometrics/Examples/O
+LS/Nerlove.m} 
 \end_layout
 
 \end_inset
@@ -32386,8 +32438,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{logit.m}{https://github.com/mcreel/Econometrics/blob/master/MyOc
-taveFiles/Count/Logit.m} 
+htmladdnormallink{logit.m}{file:///home/michael/Mystuff/Econometrics/MyOctaveFile
+s/Count/Logit.m} 
 \end_layout
 
 \end_inset
@@ -32400,8 +32452,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{EstimateLogit.m}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/NonlinearOptimization/EstimateLogit.m} 
+htmladdnormallink{EstimateLogit.m}{file:///home/michael/Mystuff/Econometrics/Exam
+ples/NonlinearOptimization/EstimateLogit.m} 
 \end_layout
 
 \end_inset
@@ -32757,29 +32809,25 @@ Readings
 ; Davidson and MacKinnon, Ch.
  17 (see pg.
  587 for refs.
- to applications); 
+ to applications), 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "hansen1982"
 
 \end_inset
 
-; 
+,  
 \begin_inset CommandInset citation
-LatexCommand cite
-key "newey_mcfadden"
+LatexCommand citep
+key "NeweyMcfadden"
 
 \end_inset
 
- ( 
-\begin_inset CommandInset href
-LatexCommand href
-name "\"Large Sample Estimation and Hypothesis Testing\""
-target "http://www.sciencedirect.com/science?_ob=ArticleURL&_udi=B7GX7-4FPWV09-5&_user=1517286&_coverDate=12%2F31%2F1994&_rdoc=5&_fmt=high&_orig=browse&_srch=doc-info(%23toc%2320479%231994%23999959999%23583590%23FLP%23display%23Volume)&_cdi=20479&_sort=d&_docanchor=&_ct=21&_acct=C000053449&_version=1&_urlVersion=0&_userid=1517286&md5=5a540eb9d22288a9f25f3914db38aa1b"
 
+\begin_inset Newpage newpage
 \end_inset
 
-)
+
 \end_layout
 
 \begin_layout Section
@@ -32856,11 +32904,15 @@ The expectation operator
 \end_layout
 
 \begin_layout Itemize
-The statistic may be vector-valued, with dimension 
+The moment condition may be vector-valued, with dimension 
 \begin_inset Formula $G,$
 \end_inset
 
  say.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Definition
@@ -32917,6 +32969,10 @@ th moment contribution
 
  refers to the terms that are averaged.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Example
@@ -32951,6 +33007,10 @@ OLS.
  by the weak exogeneity assumption.
  Thus, the moment contributions, and the moment condition, which is their
  average, have expectation zero when evaluated at the true parameter value.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -32980,6 +33040,10 @@ reference "eq:ExpectationScore"
 \end_inset
 
 .
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -33053,6 +33117,10 @@ We know that the
 \end_inset
 
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -33075,7 +33143,7 @@ set the moment condition equal to zero
 
 .
  Then the equation is solved for the estimator.
- In this case of OLS, this gives 
+ In the case of OLS, this gives 
 \begin_inset Formula $\sum_{t}x_{t}(y_{t}-x_{t}^{\prime}\hat{\beta})=0,$
 \end_inset
 
@@ -33098,6 +33166,10 @@ is solved by
 \end_inset
 
  by the LLN, the estimator is consistent.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Example
@@ -33173,6 +33245,10 @@ So, this MM is also consistent for
 
 .
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -33198,8 +33274,8 @@ status open
 
  
 \backslash
-htmladdnormallink{GMM/chi2mm.m}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/GMM/chi2mm.m}
+htmladdnormallink{GMM/chi2mm.m}{file:///home/michael/Mystuff/Econometrics/Example
+s/GMM/chi2mm.m}
 \end_layout
 
 \end_inset
@@ -33270,15 +33346,27 @@ more robust
  There being no free lunch, we should expect to pay something for this,
  of course.
  The cost will be a loss of efficiency, in general.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-To summarize, a moment condition is a vector valued function which has expectati
-on zero at the true parameter value.
+
+\series bold
+To summarize
+\series default
+, a moment condition is a vector valued function which has expectation zero
+ at the true parameter value.
  We have seen some examples of where we might get such functions, and more
  will follow.
  For now, let's take moment conditions as given, and work out the properties
  of the estimator.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -33339,6 +33427,10 @@ The GMM estimator of the
 
 .
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -33378,6 +33470,10 @@ Feasibility: in some cases the MLE estimator is not available, because we
  are not able to deduce or compute the likelihood function.
  More on this in the section on simulation-based estimation.
  The GMM estimator may still be feasible even though MLE is not available.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Example
@@ -33389,8 +33485,8 @@ status open
 
  
 \backslash
-htmladdnormallink{GMM/chi2gmm.m}{https://github.com/mcreel/Econometrics/blob/maste
-r/Examples/GMM/chi2gmm.m}
+htmladdnormallink{GMM/chi2gmm.m}{file:///home/michael/Mystuff/Econometrics/Exampl
+es/GMM/chi2gmm.m}
 \end_layout
 
 \end_inset
@@ -33422,6 +33518,10 @@ help gmm_estimate
 \end_inset
 
  to get more information on how the GMM estimation routine works.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -33552,6 +33652,10 @@ Note that asymptotic identification does not rule out the possibility of
  lack of identification for a given data set - there may be multiple minimizing
  solutions in finite samples.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Example
@@ -33567,13 +33671,17 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{GMM/chi2gmm.m}{https://github.com/mcreel/Econometrics/blob/maste
-r/Examples/GMM/chi2gmm.m}
+htmladdnormallink{GMM/chi2gmm.m}{file:///home/michael/Mystuff/Econometrics/Exampl
+es/GMM/chi2gmm.m}
 \end_layout
 
 \end_inset
 
  to see evidence of the consistency of the GMM estimator.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -34036,6 +34144,10 @@ We would probably like to know how to choose both
 \end_inset
 
  so that the asymptotic variance is a small as possible.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Example
@@ -34047,8 +34159,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{GMM/AsymptoticNormalityGMM.m}{https://github.com/mcreel/Economet
-rics/blob/master/Examples/GMM/AsymptoticNormalityGMM.m}
+htmladdnormallink{GMM/AsymptoticNormalityGMM.m}{file:///home/michael/Mystuff/Econ
+ometrics/Examples/GMM/AsymptoticNormalityGMM.m}
 \end_layout
 
 \end_inset
@@ -34083,6 +34195,9 @@ reference "fig:Asymptotic-Normality-of"
  shows that the small sample distribution may be poorly approximated by
  the asymptotic distribution.
  This has mostly disappeared for the larger sample size.
+\begin_inset Newpage newpage
+\end_inset
+
  
 \begin_inset Float figure
 wide false
@@ -34194,6 +34309,10 @@ status open
 
 \end_layout
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -34624,8 +34743,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{GMM/EfficientGMM.m}{https://github.com/mcreel/Econometrics/blob/
-master/Examples/GMM/EfficientGMM.m}
+htmladdnormallink{GMM/EfficientGMM.m}{file:///home/michael/Mystuff/Econometrics/E
+xamples/GMM/EfficientGMM.m}
 \end_layout
 
 \end_inset
@@ -35159,6 +35278,10 @@ reference "chap:Nonparametric-inference"
  Around the same time as the paper by Newey and West, a number of other
  similar covariance matrix estimators were proposed, but the NW estimator
  seems to be the most widely used in empirical work.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -35201,7 +35324,11 @@ Suppose that a random variable
 \end_inset
 
  is also zero.
- The unconditional expectation is 
+ 
+\begin_inset Newpage newpage
+\end_inset
+
+To see this, the unconditional expectation is 
 \begin_inset Formula 
 \[
 \mathcal{E}Yg(X)=\int_{\mathcal{X}}\left(\int_{\mathcal{Y}}Yg(X)f(Y,X)dY\right)dX.
@@ -35231,7 +35358,7 @@ Suppose that a random variable
 \begin_inset Formula $Y$
 \end_inset
 
- it can be pulled out of the integral 
+, it can be pulled out of the integral 
 \begin_inset Formula 
 \[
 \mathcal{E}Yg(X)=\int_{\mathcal{X}}\left(\int_{\mathcal{Y}}Yf(Y|X)dY\right)g(X)f(X)dX.
@@ -35248,6 +35375,10 @@ Suppose that a random variable
 \end_inset
 
  as claimed.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -35289,11 +35420,20 @@ For example, in the context of the classical linear model
 \begin_inset Formula $K(y_{t},x_{t},\theta)=y_{t}$
 \end_inset
 
- so that 
+.
+ The information set includes the exogenous regressors 
+\begin_inset Formula $x_{t},$
+\end_inset
+
+ so 
 \begin_inset Formula $k(x_{t},\theta)=x_{t}^{\prime}\beta$
 \end_inset
 
 .
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -35346,7 +35486,18 @@ k(x_{t},\theta) & =E\left(q_{t}-\alpha_{2}p_{t}|m_{t}\right)\\
 
 \end_deeper
 \begin_layout Standard
-With this, the error function 
+\begin_inset Newpage newpage
+\end_inset
+
+If 
+\begin_inset Formula $k(x_{t},\theta)$
+\end_inset
+
+ is the conditional expectation of 
+\begin_inset Formula $K(y_{t},x_{t},\theta),$
+\end_inset
+
+ then the error function 
 \begin_inset Formula 
 \[
 \epsilon_{t}(\theta)=K(y_{t},x_{t})-k(x_{t},\theta)
@@ -35354,7 +35505,7 @@ With this, the error function
 
 \end_inset
 
-has conditional expectation equal to zero 
+has conditional expectation equal to zero, by construction: 
 \begin_inset Formula 
 \[
 \mathcal{E}_{\theta}\epsilon_{t}(\theta)|I_{t}=0.
@@ -35423,6 +35574,10 @@ instrumental variables.
 \end_inset
 
  the necessary condition for identification holds.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -35488,6 +35643,7 @@ where
 \end_inset
 
  This fits the previous treatment.
+ 
 \end_layout
 
 \begin_layout Section
@@ -36232,8 +36388,8 @@ status open
 
  
 \backslash
-htmladdnormallink{GMM/MeasurementErrorIV.m}{https://github.com/mcreel/Econometrics
-/blob/master/Examples/GMM/MeasurementErrorIV.m} 
+htmladdnormallink{GMM/MeasurementErrorIV.m}{file:///home/michael/Mystuff/Economet
+rics/Examples/GMM/MeasurementErrorIV.m} 
 \end_layout
 
 \end_inset
@@ -36341,8 +36497,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{GMM/SpecTest.m}{https://github.com/mcreel/Econometrics/blob/mast
-er/Examples/GMM/SpecTest.m} 
+htmladdnormallink{GMM/SpecTest.m}{file:///home/michael/Mystuff/Econometrics/Examp
+les/GMM/SpecTest.m} 
 \end_layout
 
 \end_inset
@@ -36360,8 +36516,11 @@ er/Examples/GMM/SpecTest.m}
 \end_layout
 
 \begin_layout Standard
-In the general discussion of GIV above, we haven't considered from where
- we get the instruments.
+In the general discussion of GIV above, we haven't considered
+\emph on
+ from where we get the instruments
+\emph default
+.
  Two stage least squares is an example of a particular GIV estimator, where
  the instruments are obtained in a particular way.
  Consider a single equation from a system of simultaneous equations.
@@ -36611,14 +36770,18 @@ status open
 
  
 \backslash
-htmladdnormallink{Simeq/KleinGMM.m}{https://github.com/mcreel/Econometrics/blob/ma
-ster/Examples/Simeq/KleinGMM.m}
+htmladdnormallink{Simeq/KleinGMM.m}{file:///home/michael/Mystuff/Econometrics/Exa
+mples/Simeq/KleinGMM.m}
 \end_layout
 
 \end_inset
 
 .
  This script shows the use of the Newey-West covariance estimator.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -36696,7 +36859,8 @@ D(\hat{\theta})\hat{\Omega}^{-1}m(\hat{\theta})=D(\hat{\theta})\hat{\Omega}^{-1}
 
 \end_inset
 
- The lhs is zero, so 
+ The lhs is zero, by the first order conditions for the GMM estimator, so
+ 
 \begin_inset Formula 
 \[
 D(\hat{\theta})\hat{\Omega}^{-1}m_{n}(\theta^{0})=-\left[D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right]\left(\hat{\theta}-\theta^{0}\right)
@@ -37011,6 +37175,44 @@ minimum chi-square
  distribution.
 \end_layout
 
+\begin_layout Example
+Examine and run 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{gmm
+\backslash
+_example.m}{file:///home/michael/Mystuff/Econometrics/Examples/GMM/gmm
+\backslash
+_example.m} 
+\end_layout
+
+\end_inset
+
+.
+ Does the Hansen-Sargan test reject? Keep in mind that the moment conditions
+ 
+\emph on
+are 
+\emph default
+correctly specified in the example.
+ Run it a few times to do a crude Monte Carlo.
+ Compare the exact identification results to those you get from ML estimation
+ using the same data (a bit of programming is required).
+ You should see that the GMM and ML results are identical.
+ This is because the GMM moments are the ML first order conditions.
+ Note that we can estimate an overidentified GMM estimator, using moment
+ conditions based on the mean-variance equality of the Poisson model.
+ The numeric results are different between the overidentified and exactly
+ identified estimators.
+ In this case, adding moment conditions adds no asymptotic efficiency, because
+ the just identified estimator is fully efficient (why?).
+\end_layout
+
 \begin_layout Section
 Other estimators interpreted as GMM estimators
 \end_layout
@@ -37183,8 +37385,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{NerloveGMM.m}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/OLS/NerloveGMM.m} 
+htmladdnormallink{NerloveGMM.m}{file:///home/michael/Mystuff/Econometrics/Example
+s/OLS/NerloveGMM.m} 
 \end_layout
 
 \end_inset
@@ -37203,7 +37405,7 @@ The Hausman Test
 This section discusses the Hausman test (
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Hausman_1978"
+key "Hausman1978"
 
 \end_inset
 
@@ -37253,8 +37455,8 @@ status open
 
  
 \backslash
-htmladdnormallink{OLSvsIV.m}{https://github.com/mcreel/Econometrics/blob/master/Ex
-amples/GMM/Hausman/OLSvsIV.m} 
+htmladdnormallink{OLSvsIV.m}{file:///home/michael/Mystuff/Econometrics/Examples/G
+MM/Hausman/OLSvsIV.m} 
 \end_layout
 
 \end_inset
@@ -37928,8 +38130,8 @@ status open
 
  
 \backslash
-htmladdnormallink{hausman.m}{https://github.com/mcreel/Econometrics/blob/master/Ex
-amples/GMM/Hausman/hausman.m} 
+htmladdnormallink{hausman.m}{file:///home/michael/Mystuff/Econometrics/Examples/G
+MM/Hausman/hausman.m} 
 \end_layout
 
 \end_inset
@@ -37963,22 +38165,15 @@ Readings:
 \series default
  
 \begin_inset CommandInset citation
-LatexCommand cite
-key "Hansen_1982"
+LatexCommand citep
+key "HansenSingleton1982"
 
 \end_inset
 
 ; 
 \begin_inset CommandInset citation
-LatexCommand cite
-key "Tauchen_1986"
-
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Tauchen_1986"
+LatexCommand citep
+key "Tauchen1986"
 
 \end_inset
 
@@ -38463,8 +38658,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{portfolio.m}{https://github.com/mcreel/Econometrics/blob/master/
-Examples/GMM/portfolio.m}
+htmladdnormallink{portfolio.m}{file:///home/michael/Mystuff/Econometrics/Examples
+/GMM/portfolio.m}
 \end_layout
 
 \end_inset
@@ -38478,8 +38673,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{tauchen.data}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/GMM/tauchen.data}
+htmladdnormallink{tauchen.data}{file:///home/michael/Mystuff/Econometrics/Example
+s/GMM/tauchen.data}
 \end_layout
 
 \end_inset
@@ -38543,6 +38738,10 @@ key "HansenHeatonYaron1996"
 
 .
  I believe that this is the case here, though I haven't checked it carefully.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -38568,6 +38767,10 @@ The model is as follows: The consumer chooses consumption, hours of work,
  productivity of the inputs.
  The price of the consumption good is normalized to one.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -38828,6 +39031,10 @@ technology shock
 
 \end_inset
 
+
+\begin_inset Newpage newpage
+\end_inset
+
 There are 9 parameters, listed in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -39085,6 +39292,9 @@ variability preference shock
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 At the beginning of period 
 \begin_inset Formula $t$
 \end_inset
@@ -39138,6 +39348,9 @@ subject to the budget constraint
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 The competitive firm mazimizes profits 
 \begin_inset Formula $y_{t}-w_{t}n_{t}-r_{t}k_{t-1}$
 \end_inset
@@ -39263,7 +39476,7 @@ Because successful nonparametric fitting requires a large number of simulations,
  with moderate computational demands 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Aruoba_2006"
+key "Aruoba2006"
 
 \end_inset
 
@@ -40659,7 +40872,7 @@ Given a draw of the parameters other than
  (e.g., 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Smets_2007"
+key "Smets2007"
 
 \end_inset
 
@@ -41439,7 +41652,14 @@ We have 5 different error functions: two expressions for the iid technology
 
  or before.
  Thus, we can generate quite a few moment conditions.
- The question is, Which Moments to Match? (nod to Gallant and Tauchen, 1993).
+ The question is, Which Moments to Match? (nod to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "emm"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsubsection
@@ -41456,8 +41676,8 @@ status open
 
 
 \backslash
-htmladdnormallink{dsgedata}{https://github.com/mcreel/Econometrics/blob/master/Ex
-amples/DSGE/GenData/dsgedata}
+htmladdnormallink{dsgedata}{file:///home/michael/Mystuff/Econometrics/Examples/D
+SGE/GenData/dsgedata.txt}
 \end_layout
 
 \end_inset
@@ -41476,8 +41696,8 @@ status open
 
 
 \backslash
-htmladdnormallink{GetErrors.m}{https://github.com/mcreel/Econometrics/blob/master/
-Examples/DSGE/GMM/GetErrors.m}
+htmladdnormallink{GetErrors.m}{file:///home/michael/Mystuff/Econometrics/Examples
+/DSGE/GMM/GetErrors.m}
 \end_layout
 
 \end_inset
@@ -41498,8 +41718,7 @@ status open
 \backslash
 htmladdnormallink{EstimateDSGE
 \backslash
-_GMM.m}{https://github.com/mcreel/Econometrics/blob/master/Examples/DSGE/GMM/Estim
-ateDSGE
+_GMM.m}{file:///home/michael/Mystuff/Econometrics/Examples/DSGE/GMM/EstimateDSGE
 \backslash
 _GMM.m}
 \end_layout
@@ -41646,8 +41865,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{meps.m}{https://github.com/mcreel/Econometrics/blob/master/Examp
-les/GMM/MEPS/meps.m} 
+htmladdnormallink{meps.m}{file:///home/michael/Mystuff/Econometrics/Examples/GMM/
+MEPS/meps.m} 
 \end_layout
 
 \end_inset
@@ -41669,8 +41888,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{hausman.m}{https://github.com/mcreel/Econometrics/blob/master/Ex
-amples/GMM/Hausman/hausman.m} 
+htmladdnormallink{hausman.m}{file:///home/michael/Mystuff/Econometrics/Examples/G
+MM/Hausman/hausman.m} 
 \end_layout
 
 \end_inset
@@ -41688,8 +41907,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{EstimateLogit.m}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/NonlinearOptimization/EstimateLogit.m} 
+htmladdnormallink{EstimateLogit.m}{file:///home/michael/Mystuff/Econometrics/Exam
+ples/NonlinearOptimization/EstimateLogit.m} 
 \end_layout
 
 \end_inset
@@ -41803,8 +42022,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{GMM/chi2gmm.m}{https://github.com/mcreel/Econometrics/blob/maste
-r/Examples/GMM/chi2gmm.m}
+htmladdnormallink{GMM/chi2gmm.m}{file:///home/michael/Mystuff/Econometrics/Exampl
+es/GMM/chi2gmm.m}
 \end_layout
 
 \end_inset
@@ -42180,8 +42399,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{GMM/SpecTest.m}{https://github.com/mcreel/Econometrics/blob/mast
-er/Examples/GMM/SpecTest.m} 
+htmladdnormallink{GMM/SpecTest.m}{file:///home/michael/Mystuff/Econometrics/Examp
+les/GMM/SpecTest.m} 
 \end_layout
 
 \end_inset
@@ -44376,7 +44595,7 @@ Then we fit by OLS.
 \begin_inset Formula $k_{1}$
 \end_inset
 
- is small, the estimated 
+ is large, the estimated 
 \begin_inset Formula $A_{1}$
 \end_inset
 
@@ -44385,7 +44604,7 @@ Then we fit by OLS.
 \begin_inset Formula $k_{2}$
 \end_inset
 
- is small, the second lag coefficients are all forced to zero.
+ is large, the second lag coefficients are all forced to zero.
  Jointly, these restrictions push the model in the direction of separate
  random walks for each variable.
  The degree to which the model is pushed depends on the 
@@ -44397,7 +44616,8 @@ Then we fit by OLS.
 \begin_inset Formula $ks$
 \end_inset
 
- are large, the fit is close to the unrestricted OLS fit.
+ are small, the fit is close to the unrestricted OLS fit, when they are
+ large, it is close to separate random walks.
  An example is given in 
 \begin_inset ERT
 status open
@@ -44406,8 +44626,8 @@ status open
 
  
 \backslash
-htmladdnormallink{BVar.m}{https://github.com/mcreel/Econometrics/blob/master/Examp
-les/TimeSeries/BVar.m} 
+htmladdnormallink{BVar.m}{file:///home/michael/Mystuff/Econometrics/Examples/Time
+Series/BVar.m} 
 \end_layout
 
 \end_inset
@@ -44804,8 +45024,8 @@ status open
 
  
 \backslash
-htmladdnormallink{Arch1Example.m}{https://github.com/mcreel/Econometrics/blob/mast
-er/Examples/TimeSeries/Arch1Example.m} 
+htmladdnormallink{Arch1Example.m}{file:///home/michael/Mystuff/Econometrics/Examp
+les/TimeSeries/Arch1Example.m} 
 \end_layout
 
 \end_inset
@@ -44820,8 +45040,8 @@ status open
 
  
 \backslash
-htmladdnormallink{Arch4Example.m}{https://github.com/mcreel/Econometrics/blob/mast
-er/Examples/TimeSeries/Arch4Example.m} 
+htmladdnormallink{Arch4Example.m}{file:///home/michael/Mystuff/Econometrics/Examp
+les/TimeSeries/Arch4Example.m} 
 \end_layout
 
 \end_inset
@@ -44937,8 +45157,8 @@ status open
 
  
 \backslash
-htmladdnormallink{Garch11Example.m}{https://github.com/mcreel/Econometrics/blob/ma
-ster/Examples/TimeSeries/Garch11Example.m} 
+htmladdnormallink{Garch11Example.m}{file:///home/michael/Mystuff/Econometrics/Exa
+mples/TimeSeries/Garch11Example.m} 
 \end_layout
 
 \end_inset
@@ -44962,8 +45182,8 @@ status open
 
  
 \backslash
-htmladdnormallink{garch11.m}{https://github.com/mcreel/Econometrics/blob/master/Ex
-amples/TimeSeries/garch11.m} 
+htmladdnormallink{garch11.m}{file:///home/michael/Mystuff/Econometrics/Examples/T
+imeSeries/garch11.m} 
 \end_layout
 
 \end_inset
@@ -44976,8 +45196,8 @@ status open
 
  
 \backslash
-htmladdnormallink{garch11.cc}{https://github.com/mcreel/Econometrics/blob/master/E
-xamples/TimeSeries/garch11.cc} 
+htmladdnormallink{garch11.cc}{file:///home/michael/Mystuff/Econometrics/Examples/
+TimeSeries/garch11.cc} 
 \end_layout
 
 \end_inset
@@ -45652,13 +45872,13 @@ target "http://economics.sas.upenn.edu/~jesusfv/Chapter_4_Likelihood.pdf"
 
 
 \bar default
- and Mikusheva's MIT OpenCourseWare notes, lectures 20 and 21: 
+ and Mikusheva's MIT OpenCourseWare notes, lectures 21 and 22: 
 \bar under
 
 \begin_inset CommandInset href
 LatexCommand href
 name "Mikusheva's Kalman filter notes"
-target "http://ocw.mit.edu/courses/economics/14-384-time-series-analysis-fall-2008/lecture-notes/"
+target "http://ocw.mit.edu/courses/economics/14-384-time-series-analysis-fall-2013/lecture-notes/"
 
 \end_inset
 
@@ -45670,7 +45890,7 @@ target "http://ocw.mit.edu/courses/economics/14-384-time-series-analysis-fall-20
  
 \begin_inset CommandInset href
 LatexCommand href
-name "Quantitatice Economics Kalman filter"
+name "Quantitative Economics Kalman filter"
 target "http://quant-econ.net/jl/linear_models.html"
 
 \end_inset
@@ -45716,8 +45936,8 @@ status open
 
  
 \backslash
-htmladdnormallink{RandomWalks.inp}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/TimeSeries/RandomWalks.inp} 
+htmladdnormallink{RandomWalks.inp}{file:///home/michael/Mystuff/Econometrics/Exam
+ples/TimeSeries/RandomWalks.inp} 
 \end_layout
 
 \end_inset
@@ -45876,17 +46096,16 @@ References I have used to prepare these notes: Cameron and Trivedi,
 \emph on
 Microeconometrics: Methods and Applications
 \emph default
-, Chapter 13; Chernozhukov and Hong (2003), 
-\begin_inset Quotes sld
+, Chapter 13; 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ChernozhukovHong2003"
+
 \end_inset
 
-An MCMC approach to classical estimation
-\begin_inset Quotes srd
-\end_inset
 
-, 
 \emph on
-Journal of Econometrics; 
+; 
 \emph default
 Gallant and Tauchen, 
 \begin_inset Quotes sld
@@ -45906,8 +46125,8 @@ Simulation Based Bayesian Econometric Inference: Principles and Some Recent
 \end_inset
 
 .
- You might also like to read See Mikusheva's MIT OpenCourseWare notes, lectures
- 23, 24 and 25: 
+ You might also like to read Mikusheva's MIT OpenCourseWare notes, lectures
+ 23-26: 
 \bar under
 
 \begin_inset CommandInset href
@@ -45927,6 +46146,10 @@ This chaper provides a brief introduction to Bayesian methods, which form
  with practical advantages of Bayesian methods (e.g., no need for minimization
  and improved identification coming from the prior) have contributed to
  the popularity of this approach.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -45936,7 +46159,10 @@ Definitions
 \begin_layout Standard
 The Bayesian approach treats beliefs about parameter of a model as a random
  vector.
- There is a true unknown parameter vector, 
+\end_layout
+
+\begin_layout Itemize
+There is a true unknown parameter vector, 
 \begin_inset Formula $\theta_{0}$
 \end_inset
 
@@ -45952,7 +46178,7 @@ prior
  It is assumed that the econometrician can provide this density.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 We also have sample information, 
 \begin_inset Formula $y$
 \end_inset
@@ -45984,6 +46210,10 @@ f(y,\theta)=f(y|\theta)\pi(\theta)
 
 \end_inset
 
+
+\begin_inset Newpage newpage
+\end_inset
+
 We can get the 
 \emph on
 marginal likelihood 
@@ -46011,7 +46241,7 @@ posterior
 of the parameter.
  This is simply the density of the parameter conditional on the sample,
  and we get it in the normal way we get a conditional density, using Bayes'
- theorem
+ theorem:
 \begin_inset Formula 
 \[
 f(\theta|y)=\frac{f(y,\theta)}{f(y)}=\frac{f(y|\theta)\pi(\theta)}{f(y)}
@@ -46035,6 +46265,10 @@ n about our updated beliefs about the parameter, using quantiles or moments
 .
  We can define regions analogous to confidence intervals by using quantiles
  of the posterior, or the marginal posterior.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -46051,6 +46285,10 @@ E(\theta|y)=\int_{\Theta}\theta f(\theta|y)d\theta=\frac{\int_{\Theta}\theta f(y
  One can see that a means of integrating will be needed.
  Only in very special cases will the integrals have analytic solutions.
  Otherwise, computational methods will be needed.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -46079,17 +46317,30 @@ Bayesians and frequentists have a long tradition of arguing about the meaning
  However, we shouldn't reinvent the wheel each time we get a new sample:
  previous samples have information about the parameter, and we should use
  all of the available information.
- A pure frequentist approach would require writing the joint likelihood
- of all samples, which would almost certainly constitute an impossible task.
+ A pure frequentist 
+\begin_inset Quotes sld
+\end_inset
+
+full information
+\begin_inset Quotes srd
+\end_inset
+
+ approach would require writing the joint likelihood of all samples, which
+ would almost certainly constitute an impossible task.
  The Bayesian approach concentrates all of the information coming from previous
  work in the form of a prior.
- A fairly simple, easy to use prior may not exactly capture all previous
- information, but it could offer a handy and reasonably accurate summary.
+ A fairly simple, easy to use prior may not 
+\emph on
+exactly
+\emph default
+ capture all previous information, but it could offer a handy and reasonably
+ accurate summary, and it's almost certainly better than simply pretending
+ that all of that previous information simply doesn't exist.
  So, the idea of a prior as a summary of what we have learned may simply
  be viewed as a practical solution to the problem of using all the available
  information.
  Given that it's a summary, one may as well use a convenient form, as long
- as it's plausible and the results don't depend too exaggerately on the
+ as it's plausible and the results don't depend too exaggeratedly on the
  prior.
 \end_layout
 
@@ -46209,8 +46460,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{BayesExample1.m}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/Bayesian/BayesExample1.m} 
+htmladdnormallink{BayesExample1.m}{file:///home/michael/Mystuff/Econometrics/Exam
+ples/Bayesian/BayesExample1.m} 
 \end_layout
 
 \end_inset
@@ -46442,7 +46693,7 @@ Chernozhukov and Hong, Theorem 2
 
 \begin_layout Itemize
 the intuition is clear: as the amount of information coming from the sample
- increases, the likelihood function brings an increasing amount of information
+ increases, the likelihood function brings an increasing amount of information,
  relative to the prior.
  Eventually, the prior is no longer important for determining the shape
  of the posterior.
@@ -46482,8 +46733,8 @@ e.
  If the objective function that defines the classical estimator is irregular
  (multiple local optima, nondifferentiabilities, noncontinuities...), then
  optimization may be very difficult.
- However, Bayesian methods that use integration may be more tractible.
- Tthis is the main motivation of CH's paper.
+ However, Bayesian methods that use integration may be more tractable.
+ This is the main motivation of CH's paper.
  Additional advantages include the benefits if an informative prior is available.
  When this is the case, the Bayesian estimator can have better small sample
  performance than the maximum likelihood estimator.
@@ -46531,8 +46782,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{BayesExample1.m}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/Bayesian/BayesExample1.m} 
+htmladdnormallink{BayesExample1.m}{file:///home/michael/Mystuff/Econometrics/Exam
+ples/Bayesian/BayesExample1.m} 
 \end_layout
 
 \end_inset
@@ -46587,14 +46838,16 @@ Monte Carlo
 \series default
 \shape default
 \size default
-\emph on
+\emph default
 \bar default
 \strikeout default
 \uuline default
 \uwave default
 \noun default
 \color inherit
-trick is how to make draws from the posterior
+trick is
+\emph on
+ how to make draws from the posterior
 \family roman
 \series medium
 \shape up
@@ -46946,8 +47199,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{BayesExample2.m}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/Bayesian/BayesExample2.m} 
+htmladdnormallink{BayesExample2.m}{file:///home/michael/Mystuff/Econometrics/Exam
+ples/Bayesian/BayesExample2.m} 
 \end_layout
 
 \end_inset
@@ -47024,28 +47277,28 @@ target "http://www.r-project.org/"
 
 , for Bayesian estimation of the linear regression model using MCMC is 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{LRMMCMC.R}{https://github.com/mcreel/Econometrics/blob/master/Ex
-amples/Bayesian/LinearRegressionMcMcR/LRMMCMC.R} 
+htmladdnormallink{LRMMCMC.R}{file:///home/michael/Mystuff/Econometrics/Examples/B
+ayesian/LinearRegressionMcMcR/LRMMCMC.R} 
 \end_layout
 
 \end_inset
 
  (see the source code for the web page that describes the code).
- This is included, along with R, on the econometics.iso image, described
- in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:BootableCD"
-
+ To run this, enter R (included on the econometics.iso image), and type source(
+\begin_inset Quotes sld
 \end_inset
 
-.
+LRMMCMC.R
+\begin_inset Quotes srd
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsection
@@ -47248,8 +47501,8 @@ status open
 
  
 \backslash
-htmladdnormallink{rbc.mod}{https://github.com/mcreel/Econometrics/blob/master/Exam
-ples/Bayesian/BVAR/rbc.mod} 
+htmladdnormallink{rbc.mod}{file:///home/michael/Mystuff/Econometrics/Examples/Bay
+esian/BVAR/rbc.mod} 
 \end_layout
 
 \end_inset
@@ -47263,8 +47516,8 @@ status open
 
  
 \backslash
-htmladdnormallink{rbcdata.m}{https://github.com/mcreel/Econometrics/blob/master/Ex
-amples/Bayesian/BVAR/rbcdata.m} 
+htmladdnormallink{rbcdata.m}{file:///home/michael/Mystuff/Econometrics/Examples/B
+ayesian/BVAR/rbcdata.m} 
 \end_layout
 
 \end_inset
@@ -47290,8 +47543,8 @@ status open
 
  
 \backslash
-htmladdnormallink{EstimateBVAR.m}{https://github.com/mcreel/Econometrics/blob/mast
-er/Examples/Bayesian/BVAR/EstimateBVAR.m} 
+htmladdnormallink{EstimateBVAR.m}{file:///home/michael/Mystuff/Econometrics/Examp
+les/Bayesian/BVAR/EstimateBVAR.m} 
 \end_layout
 
 \end_inset
@@ -47552,14 +47805,14 @@ Bayesian estimation of the Nerlove model
 \begin_layout Standard
 The script 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{BayesExample3.m}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/Bayesian/BayesExample3.m} 
+htmladdnormallink{BayesExample3.m}{file:///home/michael/Mystuff/Econometrics/Exam
+ples/Bayesian/BayesExample3.m} 
 \end_layout
 
 \end_inset
@@ -47596,33 +47849,39 @@ height_special "totalheight"
 status open
 
 \begin_layout Plain Layout
-\align center
-posterior mean -0.552506
+constant: posterior mean -0.573306
 \end_layout
 
 \begin_layout Plain Layout
-\align center
-posterior mean 0.714941
+\begin_inset Formula $\beta_{Q}:$
+\end_inset
+
+ posterior mean 0.594504
 \end_layout
 
 \begin_layout Plain Layout
-\align center
-posterior mean 0.398407
+\begin_inset Formula $\beta_{L}:$
+\end_inset
+
+ posterior mean 0.237332
 \end_layout
 
 \begin_layout Plain Layout
-\align center
-posterior mean 0.413812
+\begin_inset Formula $\beta_{F}:$
+\end_inset
+
+ posterior mean 0.261144
 \end_layout
 
 \begin_layout Plain Layout
-\align center
-posterior mean 0.391437
+\begin_inset Formula $\sigma:$
+\end_inset
+
+ posterior mean 0.710847
 \end_layout
 
 \begin_layout Plain Layout
-\align center
-acceptance rate 0.468600
+acceptance rate 0.245800
 \end_layout
 
 \end_inset
@@ -47631,8 +47890,8 @@ acceptance rate 0.468600
 \end_layout
 
 \begin_layout Standard
-The acceptance rate is a little high, probably.
- The chain is in Figure 
+The acceptance rate is pretty good.
+ The chains are in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Bayesian-estimation-of"
@@ -47640,16 +47899,7 @@ reference "fig:Bayesian-estimation-of"
 \end_inset
 
 .
- The chains for 
-\begin_inset Formula $\beta_{1}$
-\end_inset
-
- and 
-\begin_inset Formula $\beta_{Q}$
-\end_inset
-
- look a little too smooth, which is probably why the acceptance rate is
- too high.
+ The chains look a little too smooth (too autocorrelated).
  One could play with the tuning, but probably the problem is in the simple
  proposal density, which doesn't allow for making correlated draws for parameter
 s.
@@ -47663,6 +47913,8 @@ s.
  This was made using kernel density estimation, using the MCMC chain for
  this parameter.
  Just an example of the sort of things one can do with the MCMC output.
+ Note that the labor and fuel share posterior means are a lower than they
+ were using OLS, maybe they're too low?
 \end_layout
 
 \begin_layout Standard
@@ -47693,7 +47945,7 @@ Bayesian estimation of Nerlove model
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -47718,24 +47970,13 @@ MCMC chain after burnin
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
 status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -47761,10 +48002,6 @@ Marginal posterior for
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -47801,8 +48038,7 @@ status open
 \backslash
 htmladdnormallink{EstimateRBC
 \backslash
-_Bayesian.mod}{https://github.com/mcreel/Econometrics/blob/master/Examples/RBC/Est
-imateRBC
+_Bayesian.mod}{file:///home/michael/Mystuff/Econometrics/Examples/RBC/EstimateRBC
 \backslash
 _Bayesian.mod} 
 \end_layout
@@ -48257,9 +48493,15 @@ Define
 \end_inset
 
 , so 
-\begin_inset Formula $E(\alpha_{i}-\alpha)=0.$
+\begin_inset Formula $E(\alpha_{i}-\alpha)=0,$
 \end_inset
 
+ where the expectation is with respect to the density that describes the
+ distribution of the 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ in the population.
  Our model 
 \begin_inset Formula $y_{it}=\alpha_{i}+x_{it}\beta+\epsilon_{it}$
 \end_inset
@@ -48286,19 +48528,19 @@ First,
 \begin_inset Formula $\alpha_{i}$
 \end_inset
 
- is drawn, either in turn from the set of 
-\begin_inset Formula $n$
-\end_inset
-
- fixed values, or randomly
+ is drawn, from the population density
 \end_layout
 
 \begin_layout Itemize
 then 
-\begin_inset Formula $x$
+\begin_inset Formula $T$
 \end_inset
 
- is drawn from 
+ values of 
+\begin_inset Formula $x_{it}$
+\end_inset
+
+ are drawn from 
 \begin_inset Formula $f_{X}(z|\alpha_{i}).$
 \end_inset
 
@@ -48306,16 +48548,56 @@ then
 \end_layout
 
 \begin_layout Itemize
-In either case, the important point is that the distribution of 
+the important point is that the distribution of 
 \begin_inset Formula $x$
 \end_inset
 
- may vary depending on the realization of 
+ 
+\emph on
+may vary depending on the realization of 
 \begin_inset Formula $\alpha_{i}$
 \end_inset
 
 .
+
+\emph default
  
+\end_layout
+
+\begin_layout Itemize
+For example, if 
+\begin_inset Formula $y$
+\end_inset
+
+ is a quantity demanded of a luxury good, then a high value of 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ means that agent 
+\begin_inset Formula $i$
+\end_inset
+
+ will buy a large quantity, on average.
+ This may be possible only when the agent's income is also high.
+ Thus, it may be possible to draw high values of 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ only when income is also high, otherwise, the budget constraint would be
+ violated.
+ If income is one of the variables in 
+\begin_inset Formula $x_{it},$
+\end_inset
+
+ then 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{it}$
+\end_inset
+
+ are not independent.
 \end_layout
 
 \begin_deeper
@@ -48450,7 +48732,7 @@ fixed effects
 \begin_inset Quotes srd
 \end_inset
 
- model is probably the relevant one unless special circumstances mean that
+ model is probably the relevant one unless special circumstances imply that
  the 
 \begin_inset Formula $\alpha_{i}$
 \end_inset
@@ -48966,7 +49248,7 @@ Applied Economics,
 \begin_layout Standard
 
 \series bold
-In class, do the first part of the example, below.
+In class, do the first part of the example at the end of the chapter
 \end_layout
 
 \begin_layout Section
@@ -50654,11 +50936,15 @@ It is clearly correlated with
 \end_layout
 
 \begin_layout Itemize
+
+\emph on
 as long as the 
 \begin_inset Formula $\epsilon_{it}$
 \end_inset
 
- are not serially correlated, then 
+ are not serially correlated
+\emph default
+, then 
 \begin_inset Formula $y_{i.t-2}$
 \end_inset
 
@@ -50829,6 +51115,8 @@ may
 \emph default
 be due to dynamic misspecification, and this can be solved by including
  additional lags of the dependent variable.
+ However, too many lags leads to a reduction of the sample size, so there's
+ a limit to what can be done without having variances explode.
  However, serial correlation may also be due to factors not captured in
  lags of the dependent variable.
  If this is a possibility, then the validity of the Arellano-Bond type instrumen
@@ -50895,22 +51183,57 @@ n_{it}=\alpha_{i}+\beta_{t}+\gamma w_{it}+\delta k_{it}+\phi ys_{it}+\epsilon_{i
 \end_layout
 
 \begin_layout Itemize
-do residuals appear to be normally distributed?
+open abdata.gdt in GRETL
 \end_layout
 
 \begin_layout Itemize
-is there evidence of serial correlation of residuals? (save them, and run
- an AR1 on them)
+read dataset info: 9 years of data on 140 companies in manufacturing sector
+ (different industries).
 \end_layout
 
 \begin_layout Itemize
-Hausman test: rejects RE: we should favor FE.
+estimate fixed effects
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+save fixed effects, save residuals
+\end_layout
+
+\begin_layout Itemize
+do residuals appear to be normally distributed? Test, and nonparametric
+ density.
+ If not normal, then random effects is not fully efficient, even if exogeneity
+ of effects is valid.
+\end_layout
+
+\begin_layout Itemize
+is there evidence of serial correlation of residuals? Run AR(1) on residuals:
+ significant autocorrelation.
+ Suggests an omitted dynamic effect.
+\end_layout
+
+\begin_layout Itemize
+do nonparametric density plot of fixed effects: mean is 1, but significant
+ variation across companies (different industries have different labor intensity
+)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+run random effects (tradition, but not logic, demands that we do it)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Hausman test: rejects RE (unsurprisingly): we should favor FE.
  However, if errors are not normal, or if there is serial correlation, the
  test is not valid.
  Nevertheless, FE is probably favored on strictly theoretical grounds.
 \end_layout
 
-\begin_layout Standard
+\end_deeper
+\begin_layout Itemize
 Given that the residuals seem to be serially correlated, we need to introduce
  dynamic structure.
  For DPD, use the model 
@@ -51644,8 +51967,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{PoissonVariance.m}{https://github.com/mcreel/Econometrics/blob/m
-aster/Examples/MEPS-I/PoissonVariance.m}
+htmladdnormallink{PoissonVariance.m}{file:///home/michael/Mystuff/Econometrics/Ex
+amples/MEPS-I/PoissonVariance.m}
 \end_layout
 
 \end_inset
@@ -52006,8 +52329,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{This program}{https://github.com/mcreel/Econometrics/blob/maste
-r/Examples/MEPS-II/EstimateNegBin.m} 
+htmladdnormallink{This program}{file:///home/michael/Mystuff/Econometrics/Exampl
+es/MEPS-II/EstimateNegBin.m} 
 \end_layout
 
 \end_inset
@@ -52070,8 +52393,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{parameterize.m}{https://github.com/mcreel/Econometrics/blob/mast
-er/MyOctaveFiles/Count/parameterize.m} 
+htmladdnormallink{parameterize.m}{file:///home/michael/Mystuff/Econometrics/MyOct
+aveFiles/Count/parameterize.m} 
 \end_layout
 
 \end_inset
@@ -52382,8 +52705,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{this program}{https://github.com/mcreel/Econometrics/blob/maste
-r/Examples/MEPS-II/EstimateNegBin.m} 
+htmladdnormallink{this program}{file:///home/michael/Mystuff/Econometrics/Exampl
+es/MEPS-II/EstimateNegBin.m} 
 \end_layout
 
 \end_inset
@@ -55052,7 +55375,7 @@ True elasticity and more flexible approximation
 
 \end_inset
 
-On average, the fit is better, though there is some implausible wavyness
+On average, the fit is better, though there is some implausible waviness
  in the estimate.
  Root mean squared error in the approximation of the elasticity is 
 \begin_inset Formula 
@@ -55062,7 +55385,7 @@ On average, the fit is better, though there is some implausible wavyness
 
 \end_inset
 
- about half that of the RMSE when the first order approximation is used.
+about half that of the RMSE when the first order approximation is used.
  If the trigonometric series contained infinite terms, this error measure
  would be driven to zero, as we shall see.
 \end_layout
@@ -56625,7 +56948,8 @@ Kernel regression estimators
 \series bold
 Readings
 \series default
-: Bierens, 1987, 
+: Li and Racine, Ch.
+ 2; Bierens, 1987, 
 \begin_inset Quotes eld
 \end_inset
 
@@ -57075,7 +57399,8 @@ To estimate
 
 \end_inset
 
- With this kernel, we have 
+ With this kernel, we have (not obviously, see Li and Racine, Ch.
+ 2, section 2.1) 
 \begin_inset Formula 
 \[
 \int y\hat{f}(y,x)dy=\frac{1}{n}\sum_{t=1}^{n}y_{t}\frac{K\left[\left(x-x_{t}\right)/\gamma_{n}\right]}{\gamma_{n}^{k}}
@@ -57218,10 +57543,14 @@ Split the data.
 \end_inset
 
  and 
-\begin_inset Formula $x^{out}.$
+\begin_inset Formula $x^{out}$
 \end_inset
 
+ (these are the first 
+\begin_inset Formula $n_{out}$
+\end_inset
 
+ observations, say-
 \end_layout
 
 \begin_layout Enumerate
@@ -57234,15 +57563,15 @@ Choose a window width
 
 \begin_layout Enumerate
 With the in sample data, fit 
-\begin_inset Formula $\hat{y}_{t}^{out}$
+\begin_inset Formula $\hat{y}_{t}^{out}(\gamma)$
 \end_inset
 
  corresponding to each 
 \begin_inset Formula $x_{t}^{out}.$
 \end_inset
 
- This fitted value is a function of the in sample data, as well as the evaluatio
-n point 
+ This fitted value is a function of the window width, the in sample data,
+ as well as the evaluation point 
 \begin_inset Formula $x_{t}^{out}$
 \end_inset
 
@@ -57259,7 +57588,7 @@ Repeat for all out of sample points.
 
 \begin_layout Enumerate
 Calculate RMSE
-\begin_inset Formula $(\gamma)$
+\begin_inset Formula $(\gamma)=\sqrt{\frac{1}{n_{out}}\sum_{t=1}^{n_{out}}\left(y_{t}^{out}-\hat{y}_{t}^{out}(\gamma)\right)^{2}}$
 \end_inset
 
 
@@ -57299,7 +57628,22 @@ Re-estimate using the best
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
+there is a variation known as leave-one-out cross validation, where each
+ 
+\begin_inset Formula $y_{t}^{out}$
+\end_inset
+
+ is fit in turn using all of the remaining observations, omitting the 
+\begin_inset Formula $t^{th}$
+\end_inset
+
+ observation.
+ This is the recommended procedure.
+ It is somewhat more demanding computationally, but works better.
+\end_layout
+
+\begin_layout Itemize
 This same principle can be used to choose 
 \begin_inset Formula $A$
 \end_inset
@@ -57309,6 +57653,471 @@ This same principle can be used to choose
 \end_inset
 
 in a Fourier form model.
+\end_layout
+
+\begin_layout Subsection
+Neural nets
+\end_layout
+
+\begin_layout Standard
+Papers by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GallantWhiteNeural88"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hornik1989MFN:70405.70408"
+
+\end_inset
+
+ show that neural networks can as as nonparametric regression estimators.
+ 
+\end_layout
+
+\begin_layout Standard
+Neural networks are a well known tool in many fields, and there are many
+ presentations, both academic and more informal, of various structures that
+ can be used.
+ For this reason, the presentation here is brief.
+ For more details and references, see 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "KuanWhiteNNSurvey1994"
+
+\end_inset
+
+.
+ A very useful practical guide is given by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "LeCun2012"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:A-simple-neural"
+
+\end_inset
+
+A simple neural net
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Examples/Figures/neuralnet.pdf
+	width 14cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Suppose we are interested in the regression model 
+\begin_inset Formula $y=g(x)+\epsilon,$
+\end_inset
+
+ where 
+\begin_inset Formula $x$
+\end_inset
+
+ is a 
+\begin_inset Formula $K$
+\end_inset
+
+-vector and 
+\begin_inset Formula $y$
+\end_inset
+
+ is a 
+\begin_inset Formula $G$
+\end_inset
+
+-vector.
+ This is a multivariate (more than one dependent variable) multiple (more
+ than one regresor) regression model.
+ Because we don't specify the form of 
+\begin_inset Formula $g(x)=E(y|x),$
+\end_inset
+
+ it is a nonparametric regression model.
+\end_layout
+
+\begin_layout Standard
+Let's model this using a neural net.
+ Here, we consider a simple feed forward neural net for regression of an
+ output in 
+\begin_inset Formula $R^{G}$
+\end_inset
+
+ upon an input in 
+\begin_inset Formula $R^{K}$
+\end_inset
+
+.
+ A typical feed forward net is depicted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:A-simple-neural"
+
+\end_inset
+
+, which maps 3 inputs (
+\begin_inset Formula $K=3)$
+\end_inset
+
+ to 2 outputs (
+\begin_inset Formula $G=2)$
+\end_inset
+
+.
+ The inputs I1, I2, and I3 to the net are scalar real numbers, as are the
+ outputs O1 and O2.
+ Each of the elements of 
+\begin_inset Formula $x$
+\end_inset
+
+ is an input, and each of the elements of 
+\begin_inset Formula $y$
+\end_inset
+
+ is an output.
+ The net has a single hidden layer, formed by 5 hidden neurons, H1,H2,...,H5,
+ and an output layer, which gives the values of the two outputs O1 and O2.
+ 
+\end_layout
+
+\begin_layout Standard
+In general, a net may have any number of hidden layers, and each layer may
+ have any number of neurons.
+ The value taken by a neuron is the result of an 
+\begin_inset Quotes eld
+\end_inset
+
+activation function
+\begin_inset Quotes erd
+\end_inset
+
+ applied to a affine function of the inputs to the neuron.
+ Thus, the value taken by the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ neuron in the 
+\begin_inset Formula $j^{th}$
+\end_inset
+
+ hidden layer is
+\begin_inset Formula 
+\begin{equation}
+H_{ij}=f_{j}(\alpha_{ij}+\beta_{ij}^{\prime}H_{j-1})\label{eq:HiddenNeuron}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $f_{j}()$
+\end_inset
+
+ is the activation function of the 
+\begin_inset Formula $j^{th}$
+\end_inset
+
+ layer, 
+\begin_inset Formula $\alpha_{ij}$
+\end_inset
+
+ is a scalar parameter, 
+\begin_inset Formula $\beta_{ij}$
+\end_inset
+
+ is a parameter vector.
+ The vector of inputs to the layer is the vector 
+\begin_inset Formula $H_{j-1}$
+\end_inset
+
+, and it is also the output of the 
+\begin_inset Formula $j-1^{th}$
+\end_inset
+
+ layer.
+ The output of the 
+\begin_inset Formula $j^{th}$
+\end_inset
+
+ hidden layer is the vector 
+\begin_inset Formula $H_{j}=(H_{1j},H_{2j},...,H_{n_{j}j}),$
+\end_inset
+
+ where 
+\begin_inset Formula $n_{j}$
+\end_inset
+
+ is the number of neurons in the 
+\begin_inset Formula $j^{th}$
+\end_inset
+
+ hidden layer.
+ The input to the first hidden layer is simply the input data, so that if
+ we were working with the net in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:A-simple-neural"
+
+\end_inset
+
+, we would have 
+\begin_inset Formula $H_{0}=x=(x_{1},x_{2},x_{3})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The output layer, when using a net for regression, is simply a 
+\begin_inset Formula $G$
+\end_inset
+
+ vector valued affine function of the last hidden layer's values, without
+ applying an activation function.
+ Thus, if there are 
+\begin_inset Formula $P$
+\end_inset
+
+ hidden layers,
+\begin_inset Formula 
+\[
+O_{i}=\alpha_{iP}+\beta_{iP}^{\prime}H_{P}.
+\]
+
+\end_inset
+
+The reason that an activation function is used to compute the values of
+ the neurons in the hidden layers is that this is what allows the net to
+ approximate a nonlinear mapping.
+ If all activation functions were identity functions, the entire net would
+ reduce to an over-parameterized linear regression model.
+ A commonly used activation function that is used for the hidden layers
+ is 
+\begin_inset Formula $f(x)=\tanh(x)$
+\end_inset
+
+ (see 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "LeCun2012"
+
+\end_inset
+
+ for discussion of activation functions).
+\end_layout
+
+\begin_layout Standard
+The inputs to a neural net may be the result of preprocessing of raw inputs.
+ For example, standardization and normalization are often useful transformations.
+ It may be useful to use as input to the net the residuals of a linear regressio
+n of 
+\begin_inset Formula $y$
+\end_inset
+
+ upon 
+\begin_inset Formula $x$
+\end_inset
+
+, so that the net only needs to learn the nonlinear part of the mapping.
+ This may help to reduce the size of the net that is needed to learn the
+ mapping well.
+ As noted by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "LeCun2012"
+
+\end_inset
+
+, attempting to train a net when the inputs are correlated is a much more
+ difficult problem that is training a net with uncorrelated inputs.
+ One would like to use a preprocessor that allows use of a relatively simple
+ net, without serious loss of information.
+ 
+\end_layout
+
+\begin_layout Standard
+A neural net may contain many, many hidden parameters.
+ For example, suppose the number of inputs, 
+\begin_inset Formula $K,$
+\end_inset
+
+ is 40 and the number of outputs, 
+\begin_inset Formula $G,$
+\end_inset
+
+ is 9.
+ Suppose the net has two hidden layers, of size 300 and 40, respectively.
+ Then there are 
+\begin_inset Formula $40\times300$
+\end_inset
+
+ parameters in the 
+\begin_inset Formula $\beta_{i,1}$
+\end_inset
+
+ parameter vectors of the first layer, and there are 40 
+\begin_inset Formula $\alpha_{i,1}$
+\end_inset
+
+ parameters.
+ Similarly, in the second hidden layer, there are 
+\begin_inset Formula $300\times40+40$
+\end_inset
+
+ parameters.
+ There are 
+\begin_inset Formula $40\times9+9$
+\end_inset
+
+ parameters that generate the final outputs.
+ Thus, the total number of parameters is 24449.
+ One can see that a feed forward net is an extremely highly parameterized
+ nonlinear regression model.
+ Furthermore, the model is not identified, as a reordering of the neurons
+ in a given layer leads to an observationally equivalent model.
+ The question arises: how are the parameters to be 
+\begin_inset Quotes eld
+\end_inset
+
+estimated
+\begin_inset Quotes erd
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+First, the loss function must be chosen, and a common choice is the least
+ squares loss function, which is what we use here.
+ With least squares loss, the gradient of the objective function is quick
+ and easy to compute using analytic formulae.
+ Thus, training the neural net is conceptually the same as performing nonlinear
+ least squares, with the difference that the model under consideration is
+ extremely highly parameterized, in comparison with ordinary econometric
+ models.
+ A second difference is that the available data is typically split into
+ a training set and a validation set.
+ Having done this, the method that is most widely used for optimization
+ of the loss function is simple steepest descent, or a variation known as
+ stochastic gradient descent.
+ In the neural net literature (see, for example, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "LeCun2012"
+
+\end_inset
+
+), this is known as back propagation, as the gradient may be computed using
+ the chain rule, working from the prediction error in the last layer backwards
+ to the inputs.
+ Stochastic gradient descent computes the gradient for a subset (
+\begin_inset Quotes eld
+\end_inset
+
+batch
+\begin_inset Quotes erd
+\end_inset
+
+) of the training set observations, rather than for the entire collection
+ of inputs.
+ This has two advantages: it is faster than computing the gradient using
+ the full set of observations, and, more importantly, a stochastic gradient,
+ computed using a relatively small and randomly chosen set of observations,
+ can allow the solver to jump out of regions around a local minimum, so
+ that the chances that a good solution is found increase, for a given starting
+ value.
+ Typically, many, many iterations are done, using a small and often decreasing
+ step size (the 
+\begin_inset Quotes eld
+\end_inset
+
+learning rate
+\begin_inset Quotes erd
+\end_inset
+
+ in neural net parlance) at each iteration.
+ The performance of the network, as it learns, is periodically checked using
+ the validation, or test set of observations.
+ For a reader with a background in econometrics, this the familiar idea
+ of cross validation using a hold out sample.
+ The net may be trained, using back propagation and the training set, to
+ the point where there is no improvement in the ability to fit the cross
+ validation sample.
+ There are many wrinkles available in tuning the learning method.
+ Fortunately, efficient software is available, which incorporates these
+ possibilities.
+ For this reason, we do not go into further details.
+ A complete example of how to train a net is given, below.
+ 
+\end_layout
+
+\begin_layout Standard
+If a net is trained to the point where there is no improvement in its ability
+ to fit a cross validation sample, then, typically, training is stopped,
+ and the final fitted net is used for forecasting the outputs.
+ We can see that the outcome of this process, 
+\begin_inset Formula $\hat{y}=\hat{g}(x)$
+\end_inset
+
+, is not an extremum estimator - the gradient at the end of training will
+ not be zero.
+ However, with such a highly parameterized model that is not identified
+ without additional restrictions, it is first doubtful that it would actually
+ be possible to train the net to the point where the gradient were zero,
+ and secondly, it would not be desirable to do so, as the over-parameterized
+ model would be fitting the errors of the training set, rather than the
+ regression function.
+ The output of the trained net will be a good predictor of the target, if
+ the net is well chosen and well trained, but it will not be an extremum
+ estimator, so we will not be able to apply extremum estimator theory directly,
+ for inference about the target.
+\end_layout
+
+\begin_layout Standard
+For an example of neural nets used to compute an indirect inference estimator,
+ see 
+\begin_inset CommandInset href
+LatexCommand href
+name "https://github.com/mcreel/NeuralNetsForIndirectInference.jl"
+target "https://github.com/mcreel/NeuralNetsForIndirectInference.jl"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -57631,8 +58440,8 @@ status open
 
 
 \backslash
-htmladdnormallink{NegBinSNP.cc}{https://github.com/mcreel/Econometrics/blob/master
-/MyOctaveFiles/OctFiles/NegBinSNP.cc}
+htmladdnormallink{NegBinSNP.cc}{file:///home/michael/Mystuff/Econometrics/MyOctav
+eFiles/OctFiles/NegBinSNP.cc}
 \end_layout
 
 \end_inset
@@ -57767,8 +58576,8 @@ status open
 \backslash
 htmladdnormallink{kernel
 \backslash
-_example.m}{https://github.com/mcreel/Econometrics/blob/master/MyOctaveFiles/Econo
-metrics/Kernel/kernel
+_example.m}{file:///home/michael/Mystuff/Econometrics/MyOctaveFiles/Econometrics/
+Kernel/kernel
 \backslash
 _example.m} 
 \end_layout
@@ -57776,6 +58585,42 @@ _example.m}
 \end_inset
 
  
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Recommended example: 
+\series default
+There is an example of local constant and local linear kernel regression
+ in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink{kernel
+\backslash
+_local
+\backslash
+_linear
+\backslash
+_example.m}{file:///home/michael/Mystuff/Econometrics/MyOctaveFiles/Econometrics/
+Kernel/kernel
+\backslash
+_local
+\backslash
+_linear
+\backslash
+_example.m} 
+\end_layout
+
+\end_inset
+
+.
+ Run that, experimenting with different bandwidths.
 \end_layout
 
 \begin_layout Subsection
@@ -57801,8 +58646,8 @@ status open
 
 
 \backslash
-htmladdnormallink{OBDVkernel.m}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/Nonparametric/OBDVkernel.m} 
+htmladdnormallink{OBDVkernel.m}{file:///home/michael/Mystuff/Econometrics/Example
+s/Nonparametric/OBDVkernel.m} 
 \end_layout
 
 \end_inset
@@ -57877,8 +58722,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{EstimateNBSNP.m}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/Nonparametric/EstimateNBSNP.m} 
+htmladdnormallink{EstimateNBSNP.m}{file:///home/michael/Mystuff/Econometrics/Exam
+ples/Nonparametric/EstimateNBSNP.m} 
 \end_layout
 
 \end_inset
@@ -57946,8 +58791,8 @@ status open
 
 
 \backslash
-htmladdnormallink{rates}{https://github.com/mcreel/Econometrics/blob/master/Examp
-les/Nonparametric/SpotRate/rates}
+htmladdnormallink{rates}{file:///home/michael/Mystuff/Econometrics/Examples/Nonp
+arametric/SpotRate/rates}
 \end_layout
 
 \end_inset
@@ -57967,8 +58812,8 @@ status open
 
 
 \backslash
-htmladdnormallink{README}{https://github.com/mcreel/Econometrics/blob/master/Exam
-ples/Nonparametric/SpotRate/README}
+htmladdnormallink{README}{file:///home/michael/Mystuff/Econometrics/Examples/Non
+parametric/SpotRate/README}
 \end_layout
 
 \end_inset
@@ -58165,8 +59010,8 @@ status open
 
 
 \backslash
-htmladdnormallink{kernelfit.m}{https://github.com/mcreel/Econometrics/blob/master/
-Examples/Nonparametric/SpotRate/kernelfit.m}
+htmladdnormallink{kernelfit.m}{file:///home/michael/Mystuff/Econometrics/Examples
+/Nonparametric/SpotRate/kernelfit.m}
 \end_layout
 
 \end_inset
@@ -58399,8 +59244,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{OBDVkernel.m}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/Nonparametric/OBDVkernel.m} 
+htmladdnormallink{OBDVkernel.m}{file:///home/michael/Mystuff/Econometrics/Example
+s/Nonparametric/OBDVkernel.m} 
 \end_layout
 
 \end_inset
@@ -59045,8 +59890,8 @@ status open
 
 
 \backslash
-htmladdnormallink{quantile.gdt}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/Quantile/quantile.gdt} 
+htmladdnormallink{quantile.gdt}{file:///home/michael/Mystuff/Econometrics/Example
+s/Quantile/quantile.gdt} 
 \end_layout
 
 \end_inset
@@ -59199,36 +60044,41 @@ Simulation-Based Econometric Methods
 \emph default
  (Oxford University Press).
  There are many articles.
- Some of the seminal papers are Gallant and Tauchen (1996), 
-\begin_inset Quotes eld
+ Some of the seminal papers are 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "emm"
+
 \end_inset
 
-Which Moments to Match?
-\begin_inset Quotes erd
+;  
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GourierouxMonfortIndirect"
+
 \end_inset
 
-, ECONOMETRIC THEORY, Vol.
- 12, 1996, pages 657-681;  Gourieroux, Monfort and Renault (1993), 
-\begin_inset Quotes eld
-\end_inset
 
-Indirect Inference,
-\begin_inset Quotes erd
-\end_inset
-
+\emph on
+;
+\emph default
  
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PakesPollard"
+
+\end_inset
+
+; 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "McFadden1989MSM"
+
+\end_inset
+
+
 \emph on
-J.
- Apl.
- Econometrics;
-\emph default
- Pakes and Pollard (1989) 
-\emph on
-Econometrica
-\emph default
-; McFadden (1989) 
-\emph on
-Econometrica.
+.
  
 \end_layout
 
@@ -59288,7 +60138,14 @@ Example: Multinomial and/or dynamic discrete response models
 \end_layout
 
 \begin_layout Standard
-(following McFadden, 1989)
+(following 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "McFadden1989MSM"
+
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Standard
@@ -60299,7 +61156,7 @@ The log-likelihood function with this simulator is a discontinuous function
 
  is stochastically equicontinuous.
  However, it does cause problems if one attempts to use a gradient-based
- optimization method such as Newton-Raphson.
+ optimization method such as BFGS.
 \end_layout
 
 \begin_layout Itemize
@@ -60423,6 +61280,13 @@ To solve to log(0) problem, one possibility is to search the web for the
  if this is a serious problem.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Properties
 \end_layout
@@ -60529,6 +61393,10 @@ The varcov is the typical inverse of the information matrix, so that as
  grows fast enough the estimator is consistent and fully asymptotically
  efficient.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -60681,6 +61549,10 @@ criterion and estimate as usual.
 
  appears linearly within the sums.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -61065,17 +61937,14 @@ m_{t}(\theta)=D_{\theta}\ln p_{t}(\theta\mid I_{t})
 \end_layout
 
 \begin_layout Standard
-The efficient method of moments (EMM) (see Gallant and Tauchen (1996), 
-\begin_inset Quotes eld
+The efficient method of moments (EMM) (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "emm"
+
 \end_inset
 
-Which Moments to Match?
-\begin_inset Quotes erd
-\end_inset
-
-, ECONOMETRIC THEORY, Vol.
- 12, 1996, pages 657-681) seeks to provide moment conditions that closely
- mimic the score vector.
+) seeks to provide moment conditions that closely mimic the score vector.
  If the approximation is very good, the resulting estimator will be very
  nearly fully efficient.
  
@@ -65143,8 +66012,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{PoissonLatentHet.m}{https://github.com/mcreel/Econometrics/blob/
-master/Examples/SBEM/PoissonLatentHet.m}
+htmladdnormallink{PoissonLatentHet.m}{file:///home/michael/Mystuff/Econometrics/E
+xamples/SBEM/PoissonLatentHet.m}
 \end_layout
 
 \end_inset
@@ -65168,8 +66037,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{EstimatePoissonLatentHet.m}{https://github.com/mcreel/Econometri
-cs/blob/master/Examples/SBEM/EstimatePoissonLatentHet.m}
+htmladdnormallink{EstimatePoissonLatentHet.m}{file:///home/michael/Mystuff/Econom
+etrics/Examples/SBEM/EstimatePoissonLatentHet.m}
 \end_layout
 
 \end_inset
@@ -65228,7 +66097,7 @@ status open
 \backslash
 htmladdnormallink{MSM
 \backslash
-_Example.m}{https://github.com/mcreel/Econometrics/blob/master/Examples/SBEM/MSM
+_Example.m}{file:///home/michael/Mystuff/Econometrics/Examples/SBEM/MSM
 \backslash
 _Example.m}
 \end_layout
@@ -65354,8 +66223,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{probitdgp.m}{https://github.com/mcreel/Econometrics/blob/master/
-MyOctaveFiles/Count/ProbitDGP.m}
+htmladdnormallink{probitdgp.m}{file:///home/michael/Mystuff/Econometrics/MyOctave
+Files/Count/ProbitDGP.m}
 \end_layout
 
 \end_inset
@@ -65371,8 +66240,7 @@ status open
 \backslash
 htmladdnormallink{emm
 \backslash
-_moments.m}{https://github.com/mcreel/Econometrics/blob/master/Examples/Parallel/g
-mm/emm
+_moments.m}{file:///home/michael/Mystuff/Econometrics/Examples/Parallel/gmm/emm
 \backslash
 _moments.m}
 \end_layout
@@ -65549,8 +66417,8 @@ status open
 \backslash
 htmladdnormallink{emm
 \backslash
-_example.m}{https://github.com/mcreel/Econometrics/blob/master/MyOctaveFiles/Paral
-lelKnoppix/gmm/emm
+_example.m}{file:///home/michael/Mystuff/Econometrics/MyOctaveFiles/ParallelKnopp
+ix/gmm/emm
 \backslash
 _example.m}
 \end_layout
@@ -65599,8 +66467,8 @@ status open
 
  
 \backslash
-htmladdnormallink{DSGE by SBIL}{https://github.com/mcreel/Econometrics/blob/maste
-r/MyOctaveFiles/Econometrics/IL/DSGE
+htmladdnormallink{DSGE by SBIL}{file:///home/michael/Mystuff/Econometrics/MyOcta
+veFiles/Econometrics/IL/DSGE
 \backslash
 _SBIL
 \backslash
@@ -65667,8 +66535,8 @@ status open
 
  
 \backslash
-htmladdnormallink{probitdgp.m}{https://github.com/mcreel/Econometrics/blob/master/
-MyOctaveFiles/Count/ProbitDGP.m}
+htmladdnormallink{probitdgp.m}{file:///home/michael/Mystuff/Econometrics/MyOctave
+Files/Count/ProbitDGP.m}
 \end_layout
 
 \end_inset
@@ -65875,8 +66743,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{tracetest.m}{https://github.com/mcreel/Econometrics/blob/master/
-Examples/Parallel/montecarlo/tracetest.m}
+htmladdnormallink{tracetest.m}{file:///home/michael/Mystuff/Econometrics/Examples
+/Parallel/montecarlo/tracetest.m}
 \end_layout
 
 \end_inset
@@ -65905,8 +66773,8 @@ status collapsed
 \backslash
 htmladdnormallink{mc
 \backslash
-_example1.m}{https://github.com/mcreel/Econometrics/blob/master/Examples/Parallel/
-montecarlo/mc
+_example1.m}{file:///home/michael/Mystuff/Econometrics/Examples/Parallel/montecar
+lo/mc
 \backslash
 _example1.m}
 \end_layout
@@ -66014,8 +66882,7 @@ status collapsed
 \backslash
 htmladdnormallink{mle
 \backslash
-_example1.m}{https://github.com/mcreel/Econometrics/blob/master/Examples/Parallel/
-mle/mle
+_example1.m}{file:///home/michael/Mystuff/Econometrics/Examples/Parallel/mle/mle
 \backslash
 _example1.m}
 \end_layout
@@ -66143,8 +67010,7 @@ status collapsed
 \backslash
 htmladdnormallink{gmm
 \backslash
-_example1.m}{https://github.com/mcreel/Econometrics/blob/master/Examples/Parallel/
-gmm/gmm
+_example1.m}{file:///home/michael/Mystuff/Econometrics/Examples/Parallel/gmm/gmm
 \backslash
 _example1.m}
 \end_layout
@@ -66250,8 +67116,8 @@ status collapsed
 \backslash
 htmladdnormallink{kernel
 \backslash
-_example1.m}{https://github.com/mcreel/Econometrics/blob/master/Examples/Parallel/
-kernel/kernel
+_example1.m}{file:///home/michael/Mystuff/Econometrics/Examples/Parallel/kernel/k
+ernel
 \backslash
 _example1.m}
 \end_layout
@@ -66558,8 +67424,8 @@ status open
 
  
 \backslash
-htmladdnormallink{first.m}{https://github.com/mcreel/Econometrics/blob/master/Exam
-ples/OctaveIntro/first.m} 
+htmladdnormallink{first.m}{file:///home/michael/Mystuff/Econometrics/Examples/Oct
+aveIntro/first.m} 
 \end_layout
 
 \end_inset
@@ -66677,8 +67543,8 @@ status open
 
   
 \backslash
-htmladdnormallink{second.m}{https://github.com/mcreel/Econometrics/blob/master/Exa
-mples/OctaveIntro/second.m} 
+htmladdnormallink{second.m}{file:///home/michael/Mystuff/Econometrics/Examples/Oc
+taveIntro/second.m} 
 \end_layout
 
 \end_inset
@@ -66748,8 +67614,8 @@ status open
 
 
 \backslash
-htmladdnormallink{CommonOperations.m}{https://github.com/mcreel/Econometrics/blob/
-master/Examples/OctaveIntro/CommonOperations.m}
+htmladdnormallink{CommonOperations.m}{file:///home/michael/Mystuff/Econometrics/E
+xamples/OctaveIntro/CommonOperations.m}
 \end_layout
 
 \end_inset
@@ -66767,8 +67633,8 @@ status collapsed
 
 
 \backslash
-htmladdnormallink{here}{https://github.com/mcreel/Econometrics/blob/master/Exampl
-es/EconometricsOctaveFiles.html}
+htmladdnormallink{here}{file:///home/michael/Mystuff/Econometrics/Examples/Econo
+metricsOctaveFiles.html}
 \end_layout
 
 \end_inset
@@ -66781,8 +67647,7 @@ status open
 
 
 \backslash
-htmladdnormallink{here}{https://github.com/mcreel/Econometrics/blob/master/MyOcta
-veFiles}
+htmladdnormallink{here}{file:///home/michael/Mystuff/Econometrics/MyOctaveFiles}
 \end_layout
 
 \end_inset
@@ -66797,7 +67662,7 @@ status open
 
 
 \backslash
-htmladdnormallink{home page}{https://github.com/mcreel/Econometrics/blob/master}
+htmladdnormallink{home page}{file:///home/michael/Mystuff/Econometrics}
 \end_layout
 
 \end_inset
@@ -66857,8 +67722,8 @@ status open
 
 
 \backslash
-htmladdnormallink{home page}{https://github.com/mcreel/Econometrics/blob/master/E
-xamples/}
+htmladdnormallink{home page}{file:///home/michael/Mystuff/Econometrics/Examples/
+}
 \end_layout
 
 \end_inset
@@ -67768,7 +68633,7 @@ In other words,
 \end_inset
 
  or 
-\begin_inset Formula $X_{n}\rightarrow X,a.s.$
+\begin_inset Formula $X_{n}\rightarrow X,\,a.s.$
 \end_inset
 
  One can show that 
@@ -68262,7 +69127,7 @@ Consider a random sample of iid r.v.'s with mean 0 and variance
 \end_inset
 
  now we have have the stronger result that relates the rate of convergence
- to the sample size.
+ to the sample size..
  
 \end_layout
 
@@ -69115,8 +69980,8 @@ status open
 
  
 \backslash
-htmladdnormallink{meps.m}{https://github.com/mcreel/Econometrics/blob/master/Examp
-les/GMM/MEPS/meps.m} 
+htmladdnormallink{meps.m}{file:///home/michael/Mystuff/Econometrics/Examples/GMM/
+MEPS/meps.m} 
 \end_layout
 
 \end_inset
@@ -70685,8 +71550,8 @@ status open
 
 
 \backslash
-htmladdnormallink{this estimation program}{https://github.com/mcreel/Econometrics
-/blob/master/Examples/MEPS-II/estimate
+htmladdnormallink{this estimation program}{file:///home/michael/Mystuff/Economet
+rics/Examples/MEPS-II/estimate
 \backslash
 _hpoisson.ox} 
 \end_layout
@@ -73727,8 +74592,8 @@ status open
 
 
 \backslash
-htmladdnormallink{this estimation program}{https://github.com/mcreel/Econometrics
-/blob/master/Examples/MEPS-II/estimate
+htmladdnormallink{this estimation program}{file:///home/michael/Mystuff/Economet
+rics/Examples/MEPS-II/estimate
 \backslash
 _mixnegbin.ox} 
 \end_layout
@@ -78069,6 +78934,14 @@ The slope parameter estimates are pretty close to what we got with the NB-I
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "econometrics"
+options "elsarticle-harv"
+
+\end_inset
+
+
 \begin_inset CommandInset index_print
 LatexCommand printindex
 type "idx"

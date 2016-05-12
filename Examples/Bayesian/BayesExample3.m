@@ -14,9 +14,9 @@ function BayesExample3
 	y = data(:,1);
 	x = [ones(n,1) data(:,2:5)];
 
-	S = 5000;
-	theta = [-5; 0.7; 0.5; .4; 0.4];  % initial parameter values (use OLS with HOD1 to get these)
-	tuning = [0.3; 0.05; 0.05; 0.05; 0.1];  % tunes the acceptance rate
+	S = 10000;
+	theta = [-5; 0.7; 0.45; .45; 0.38];  % initial parameter values (use OLS with HOD1 to get these)
+	tuning = [3; 0.4; 0.4; 0.4; 0.5];  % tunes the acceptance rate
 
 	thetas = zeros(S, 5);
 	accepts = zeros(S, 1);
@@ -45,7 +45,7 @@ function BayesExample3
     thetas = thetas(1001:end,:); # drop burnin
 	thetas(:,1) = thetas(:,1)/10; % scale constant to make a nice plot
 	plot(thetas);
-	legend('const10', 'bq', 'bL','bF','sig', 'location', 'southwest');
+	legend('const10', 'bq', 'bL','bF','sig', 'location', 'southwestoutside');
 	thetas = thetas(1001:end,:);
 	pm = mean(thetas);
 	fprintf('posterior mean %f\n', pm);
