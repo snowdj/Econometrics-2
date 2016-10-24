@@ -21587,12 +21587,12 @@ status collapsed
 covariance estimator would ordinarily be 
 \begin_inset Formula 
 \[
-\hat{V}(\hat{\delta})=\left(Z^{\prime}\hat{Z}\right)^{-1}\left(\hat{Z}^{\prime}\hat{Z}\right)\left(\hat{Z}^{\prime}Z\right)^{-1}\hat{\sigma}_{IV}^{2}
+\hat{V}(\hat{\delta})=\left(\hat{Z}^{\prime}Z\right)^{-1}\left(\hat{Z}^{\prime}\hat{Z}\right)\left(Z^{\prime}\hat{Z}\right)^{-1}\hat{\sigma}_{IV}^{2}
 \]
 
 \end_inset
 
- However, looking at the last term in brackets
+ However, looking at the first term in parentheses
 \begin_inset Newline newline
 \end_inset
 
@@ -21634,8 +21634,8 @@ X_{1}^{\prime}P_{X}Y_{1} & X_{1}^{\prime}X_{1}
 
 \end_inset
 
- Therefore, the second and last term in the variance formula cancel, so
- the 2SLS varcov estimator simplifies to 
+ Therefore, the first and seconds in the variance formula cancel, so the
+ 2SLS varcov estimator simplifies to 
 \begin_inset Formula 
 \[
 \hat{V}(\hat{\delta})=\left(Z^{\prime}\hat{Z}\right)^{-1}\hat{\sigma}_{IV}^{2}
@@ -35818,6 +35818,10 @@ where
 
  This fits the previous treatment.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -35893,7 +35897,11 @@ Let
 instrumental variables.
 
 \emph default
- Consider the moment conditions
+ 
+\begin_inset Newpage newpage
+\end_inset
+
+Consider the moment conditions
 \begin_inset Formula 
 \begin{align*}
 m_{t}(\theta) & =z_{t}\epsilon_{t}\\
@@ -35926,6 +35934,10 @@ m_{n}(\theta) & =\frac{1}{n}Z^{\prime}\epsilon\\
  & =\frac{1}{n}(Z^{\prime}y-Z^{\prime}X\theta)
 \end{align*}
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 The 
@@ -35985,7 +35997,18 @@ Verify that the efficient weight matrix is
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 If we accept what is stated in these two exercises, then
+\begin_inset Formula 
+\[
+D_{n}W_{n}Z^{\prime}X\hat{\theta}_{IV}=D_{n}W_{n}Z^{\prime}y
+\]
+
+\end_inset
+
+becomes
 \begin_inset Formula 
 \[
 \frac{X^{\prime}Z}{n}\left(\frac{Z^{\prime}Z}{n}\right)^{-1}Z^{\prime}X\hat{\theta}_{IV}=\frac{X^{\prime}Z}{n}\left(\frac{Z^{\prime}Z}{n}\right)^{-1}Z^{\prime}y
@@ -36017,6 +36040,9 @@ or
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 Another way of arriving to the same point is to define the projection matrix
  
 \begin_inset Formula $P_{Z}$
@@ -36109,6 +36135,10 @@ y^{*}=X^{*}\theta+\varepsilon^{*}
 
  will lead to a consistent estimator, given a few more assumptions.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Exercise
@@ -36133,9 +36163,9 @@ With the definition of
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\hat{\theta}_{IV}=(X^{\prime}P_{Z}X)^{-1}X^{\prime}P_{Z}y
-\]
+\begin{equation}
+\hat{\theta}_{IV}=(X^{\prime}P_{Z}X)^{-1}X^{\prime}P_{Z}y\label{eq:GIVestimator2}
+\end{equation}
 
 \end_inset
 
@@ -36167,6 +36197,10 @@ With the definition of
 \hat{\theta}_{IV}-\theta^{0}=\left(\left(\frac{X^{\prime}Z}{n}\right)\left(\frac{Z^{\prime}Z}{n}^{-1}\right)\left(\frac{Z^{\prime}X}{n}\right)\right)^{-1}\left(\frac{X^{\prime}Z}{n}\right)\left(\frac{Z^{\prime}Z}{n}\right)^{-1}\left(\frac{Z^{\prime}\varepsilon}{n}\right)
 \]
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
  Assuming that each of the terms with a 
@@ -36243,15 +36277,19 @@ then the plim of the rhs is zero.
 
 \end_inset
 
+
+\begin_inset Newpage newpage
+\end_inset
+
  Furthermore, scaling by 
 \begin_inset Formula $\sqrt{n,}$
 \end_inset
 
  we have 
 \begin_inset Formula 
-\[
-\sqrt{n}\left(\hat{\theta}_{IV}-\theta^{0}\right)=\left(\left(\frac{X^{\prime}Z}{n}\right)\left(\frac{Z^{\prime}Z}{n}\right)^{-1}\left(\frac{Z^{\prime}X}{n}\right)\right)^{-1}\left(\frac{X^{\prime}Z}{n}\right)\left(\frac{Z^{\prime}Z}{n}\right)^{-1}\left(\frac{Z^{\prime}\varepsilon}{\sqrt{n}}\right)
-\]
+\begin{equation}
+\sqrt{n}\left(\hat{\theta}_{IV}-\theta^{0}\right)=\left(\left(\frac{X^{\prime}Z}{n}\right)\left(\frac{Z^{\prime}Z}{n}\right)^{-1}\left(\frac{Z^{\prime}X}{n}\right)\right)^{-1}\left(\frac{X^{\prime}Z}{n}\right)\left(\frac{Z^{\prime}Z}{n}\right)^{-1}\left(\frac{Z^{\prime}\varepsilon}{\sqrt{n}}\right)\label{eq:asvarGIV}
+\end{equation}
 
 \end_inset
 
@@ -36266,7 +36304,7 @@ Assuming that the far right term satifies a CLT, so that
 \begin_inset Formula $\frac{Z^{\prime}\varepsilon}{\sqrt{n}}\overset{d}{\rightarrow}N(0,Q_{ZZ}\sigma^{2})$
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Standard
@@ -36278,7 +36316,19 @@ then we get
 
 \end_inset
 
- The estimators for 
+The adjustment for heteroscedastic or autocorrelated errors should be apparent.
+ We just assume that 
+\begin_inset Formula $\frac{Z^{\prime}\varepsilon}{\sqrt{n}}\overset{d}{\rightarrow}N(0,\Omega)$
+\end_inset
+
+ and work out the algebra (also, see below).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+The estimators for 
 \begin_inset Formula $Q_{XZ}$
 \end_inset
 
@@ -36372,6 +36422,9 @@ Biased in general, because even though
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 An important point is that the asymptotic distribution of 
 \begin_inset Formula $\hat{\beta}_{IV}$
 \end_inset
@@ -36424,7 +36477,7 @@ When we have two sets of instruments,
 \end_layout
 
 \begin_layout Itemize
-The penalty for indiscriminant use of instruments is that the small sample
+The penalty for indiscriminate use of instruments is that the small sample
  bias of the IV
 \begin_inset ERT
 status collapsed
@@ -36448,15 +36501,7 @@ estimator rises as the number of instruments increases.
 \end_inset
 
  itself as the number of instruments increases.
-\end_layout
-
-\begin_layout Exercise
-How would one adapt the GIV estimator presented here to deal with the case
- of heteroscedastic and/or autocorrelated errors?
-\end_layout
-
-\begin_layout Exercise
-\begin_inset Formula $\,$
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -36683,6 +36728,10 @@ er/Examples/GMM/SpecTest.m}
  For example, if the significance level is set to 10%, the test rejects
  about 16% of the time.
  This is a common result for this test.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -36690,248 +36739,122 @@ er/Examples/GMM/SpecTest.m}
 \end_layout
 
 \begin_layout Standard
-In the general discussion of GIV above, we haven't considered
-\emph on
- from where we get the instruments
-\emph default
+When we have more instruments than regressors, we can think of an alternative
+ formulation of the GIV estimator.
+ Let 
+\begin_inset Formula $\hat{X}=Z\left(Z^{\prime}Z\right)^{-1}Z^{\prime}X=P_{Z}X$
+\end_inset
+
 .
- Two stage least squares is an example of a particular GIV estimator, where
- the instruments are obtained in a particular way.
- Consider a single equation from a system of simultaneous equations.
- Refer back to equation 
+ These are the fitted values from a regression of the regressors upon the
+ instruments.
+ Substitute this into eqn.
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:single equation from system"
+reference "eq:GIVestimator2"
 
 \end_inset
 
- for context.
- The model is 
+, to get
 \begin_inset Formula 
-\begin{eqnarray*}
-y & = & Y_{1}\gamma_{1}+X_{1}\beta_{1}+\varepsilon\\
- & = & Z\delta+\varepsilon
-\end{eqnarray*}
+\[
+\hat{\theta}_{IV}=(X^{\prime}\hat{X})^{-1}\hat{X}^{\prime}y
+\]
+
+\end_inset
+
+or
+\begin_inset Formula 
+\[
+\hat{\theta}_{IV}=(\hat{X}^{\prime}\hat{X})^{-1}\hat{X}^{\prime}y.
+\]
+
+\end_inset
+
+These are equivalent.
+ So, the GIV estimator can be obtained by 
+\end_layout
+
+\begin_layout Enumerate
+first regressing the regressors on the instruments, and obtaining the predicted
+ values
+\end_layout
+
+\begin_layout Enumerate
+then regressing the dependent variable on the predicted regressors.
+\end_layout
+
+\begin_layout Standard
+It's clear why it's called 2SLS, no? 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+Eqn.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:asvarGIV"
+
+\end_inset
+
+ simplifies to
+\begin_inset Formula 
+\begin{equation}
+\sqrt{n}\left(\hat{\theta}_{IV}-\theta^{0}\right)=\left(\frac{\hat{X}^{\prime}\hat{X}}{n}\right)^{-1}\left(\frac{\hat{X}^{\prime}\varepsilon}{\sqrt{n}}\right)\label{eq:asvarGIV-1}
+\end{equation}
+
+\end_inset
+
+From this, we can write
+\begin_inset Formula 
+\[
+\sqrt{n}\left(\hat{\theta}_{IV}-\theta^{0}\right)\overset{d}{\rightarrow}N\left(0,(Q_{\hat{X}}^{-1}\Omega Q_{\hat{X}}^{-1}\right)
+\]
 
 \end_inset
 
 where 
-\begin_inset Formula $Z=\left[\begin{array}{cc}
-Y_{1} & X_{1}\end{array}\right]$
-\end_inset
-
- and 
-\begin_inset Formula $\delta=\left[\begin{array}{cc}
-\gamma_{1}^{\prime} & \beta_{1}^{\prime}\end{array}\right]^{\prime}$
-\end_inset
-
- and 
-\begin_inset Formula $Y_{1}$
-\end_inset
-
- are current period endogenous variables that are correlated with the error
- term.
- 
-\begin_inset Formula $X_{1}$
-\end_inset
-
- are exogenous and predetermined variables that are assumed not to be correlated
- with the error term.
- Let 
-\begin_inset Formula $X$
-\end_inset
-
- be all of the weakly exogenous variables (please refer back for context).
- The problem, recall, is that the variables in 
-\begin_inset Formula $Y_{1}$
-\end_inset
-
- are correlated with 
-\begin_inset Formula $\epsilon$
+\begin_inset Formula $\Omega=limV\left(\frac{\hat{X}^{\prime}\varepsilon}{\sqrt{n}}\right)$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Itemize
-Define 
-\begin_inset Formula $\hat{Z}=\left[\begin{array}{cc}
-\hat{Y_{1}} & X_{1}\end{array}\right]$
-\end_inset
-
- as the vector of predictions of 
-\begin_inset Formula $Z$
-\end_inset
-
- when regressed upon 
-\begin_inset Formula $X$
-\end_inset
-
-: 
-\begin_inset Formula 
-\[
-\hat{Z}=X\left(X^{\prime}X\right)^{-1}X^{\prime}Z
-\]
-
-\end_inset
-
- Remember that 
-\begin_inset Formula $X$
-\end_inset
-
- are 
-\emph on
-all
-\emph default
- of the exogenous variables from all equations.
- The fitted values of a regression of 
-\begin_inset Formula $X_{1}$
-\end_inset
-
- on 
-\begin_inset Formula $X$
-\end_inset
-
- are just 
-\begin_inset Formula $X_{1}$
-\end_inset
-
-, because 
-\begin_inset Formula $X$
-\end_inset
-
- contains 
-\begin_inset Formula $X_{1}$
-\end_inset
-
-.
- So, 
-\begin_inset Formula $\hat{Y_{1}}$
-\end_inset
-
- are the reduced form predictions of 
-\begin_inset Formula $Y_{1}$
-\end_inset
-
-.
- 
+this can be estimated using White's or Newey-West estimators, as appropriate,
+ or simplified further if the classical assumption regarding homoscedasticity
+ and no autocorrelation hold.
 \end_layout
 
 \begin_layout Itemize
-Since 
-\begin_inset Formula $\hat{Z}$
+In either case, it is important to use the residuals 
+\begin_inset Formula $y-X\hat{\theta}_{IV},$
 \end_inset
 
- is a linear combination of the weakly exogenous variables 
-\begin_inset Formula $X$
+ not 
+\begin_inset Formula $y-\hat{X}\hat{\theta}_{IV}$
 \end_inset
 
-, it must be uncorrelated with 
-\begin_inset Formula $\varepsilon.$
+, to estimate 
+\begin_inset Formula $\Omega$
 \end_inset
 
- This suggests the 
-\begin_inset Formula $K$
-\end_inset
-
--dimensional moment condition 
-\begin_inset Formula $m_{t}(\delta)=\hat{\mathbf{z}}_{t}\left(y_{t}-\mathbf{z}_{t}^{\prime}\delta\right)$
-\end_inset
-
- and so 
-\begin_inset Formula 
-\[
-m(\delta)=1/n\sum_{t}\hat{\mathbf{z}}_{t}\left(y_{t}-\mathbf{z}_{t}^{\prime}\delta\right).
-\]
-
-\end_inset
-
-
+ properly.
 \end_layout
 
 \begin_layout Itemize
-Since we have 
-\begin_inset Formula $K$
-\end_inset
-
- parameters and 
-\begin_inset Formula $K$
-\end_inset
-
- moment conditions, the GMM
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-estimator will set 
-\begin_inset Formula $m$
-\end_inset
-
- identically equal to zero, regardless of 
-\begin_inset Formula $W,$
-\end_inset
-
- so we have 
-\begin_inset Formula 
-\[
-\hat{\delta}=\left(\sum_{t}\hat{\mathbf{z}}_{t}\mathbf{z}_{t}^{\prime}\right)^{-1}\sum_{t}\left(\hat{\mathbf{z}}_{t}y_{t}\right)=\left(\hat{\mathbf{Z}}^{\prime}\mathbf{Z}\right)^{-1}\hat{\mathbf{Z}}^{\prime}\mathbf{y}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This is the standard formula for 2SLS.
- We use the exogenous variables and the reduced form predictions of the
- endogenous variables as instruments, and apply IV estimation.
- See Hamilton pp.
- 420-21 for the varcov formula (which is the standard formula for 2SLS),
- and for how to deal with 
-\begin_inset Formula $\varepsilon_{t}$
-\end_inset
-
- heterogeneous and dependent (basically, just use the Newey-West or some
- other consistent estimator of 
-\begin_inset Formula $\Omega,$
-\end_inset
-
- and apply the usual formula).
-\end_layout
-
-\begin_layout Itemize
-Note that autocorrelation of 
-\begin_inset Formula $\varepsilon_{t}$
-\end_inset
-
- causes lagged endogenous variables to loose their status as legitimate
- instruments.
- Some caution is warranted if this suspicion arises.
-\end_layout
-
-\begin_layout Itemize
-An example of 2SLS estimation is given in Section 
+Go to Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Example:-Klein's-Model"
 
 \end_inset
 
-.
- 
+ for an example.
 \end_layout
 
 \begin_layout Itemize
