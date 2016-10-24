@@ -22974,7 +22974,7 @@ The equation is over-identified by three restrictions, according to the
 \begin_layout Standard
 The Octave program 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -23009,6 +23009,18 @@ The above results are not valid (specifically, they are inconsistent) if
  Standard errors will still be estimated inconsistently, unless use a Newey-West
  type covariance estimator.
  Food for thought...
+\end_layout
+
+\begin_layout Standard
+Here's a Gretl script to estimate Klein's model 1: 
+\begin_inset CommandInset href
+LatexCommand href
+name "http://gretl.sourceforge.net/gretl-help/scripts/klein.inp"
+target "http://gretl.sourceforge.net/gretl-help/scripts/klein.inp"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
