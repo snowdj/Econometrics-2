@@ -372,31 +372,11 @@ With respect to contents, the emphasis is on estimation and inference within
 \end_layout
 
 \begin_layout Standard
-The integrated examples (they are on-line 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{here}{https://github.com/mcreel/Econometrics/blob/master/Exampl
-es}
-\end_layout
-
-\end_inset
-
- and the support files are 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{here}{https://github.com/mcreel/Econometrics/blob/master/MyOcta
-veFiles}
-\end_layout
+The integrated examples and the support files (available online at the 
+\begin_inset CommandInset href
+LatexCommand href
+name "github repository"
+target "https://github.com/mcreel/Econometrics"
 
 \end_inset
 
@@ -733,7 +713,7 @@ The materials are available from a
 \begin_inset CommandInset href
 LatexCommand href
 name "github repository"
-target "https://github.com/mcreel/Econometrics/blob/master/"
+target "https://github.com/mcreel/Econometrics"
 
 \end_inset
 
