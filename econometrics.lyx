@@ -36115,10 +36115,6 @@ y^{*}=X^{*}\theta+\varepsilon^{*}
 
  will lead to a consistent estimator, given a few more assumptions.
  
-\begin_inset Newpage newpage
-\end_inset
-
-
 \end_layout
 
 \begin_layout Exercise
@@ -36131,6 +36127,10 @@ reference "eq:GIV estimator"
 \end_inset
 
 .
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Exercise
@@ -36288,7 +36288,7 @@ Assuming that the far right term satifies a CLT, so that
 \end_layout
 
 \begin_layout Standard
-then we get 
+then we get (using some pleasing cancelations)
 \begin_inset Formula 
 \[
 \sqrt{n}\left(\hat{\theta}_{IV}-\theta^{0}\right)\overset{d}{\rightarrow}N\left(0,(Q_{XZ}Q_{ZZ}^{-1}Q_{XZ}^{\prime})^{-1}\sigma^{2}\right)
@@ -36301,7 +36301,7 @@ The adjustment for heteroscedastic or autocorrelated errors should be apparent.
 \begin_inset Formula $\frac{Z^{\prime}\varepsilon}{\sqrt{n}}\overset{d}{\rightarrow}N(0,\Omega)$
 \end_inset
 
- and work out the algebra (also, see below).
+ and work out the algebra (also, see below, in the 2SLS section).
 \end_layout
 
 \begin_layout Standard

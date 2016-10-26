@@ -7,12 +7,12 @@ mkdir ~/backup
 cd $LOCATION/MyOctaveFiles/OctFiles
 echo "making my .cc files"
 make clean
-make -j4 all
+make all
 
 cd $LOCATION/MyOctaveFiles/mpi/src
 echo "making mpi files"
 make clean
-make -j4 all
+make all
 
 cd $LOCATION/MyOctaveFiles/Econometrics/NearestNeighbors/ann_1.1.2_creel
 make clean
