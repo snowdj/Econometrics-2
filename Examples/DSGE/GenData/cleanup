@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -R -f TEMPLATEMODFILE*
+rm -R -f CGHK*
 rm parameterfile*
 if [ -f octave-workspace ]; then
 	rm octave-workspace

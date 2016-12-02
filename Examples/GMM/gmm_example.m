@@ -75,6 +75,9 @@ theta = gmm_results(theta, data, weight, moments, momentargs);
 printf("\nThe true parameter values:\n");
 prettyprint_c(theta_true', char(["theta1"; "theta2"; "theta3"; "theta4"; "theta5"]));
 
+# we can see that GMM with these moments is the same as MLE
+mle_results(theta, data(:,1:6), "Poisson", "");
+
 
 % second example: overidentification
 weight = eye(2*columns(w));
@@ -87,6 +90,8 @@ momentargs = {k}; # needed to know where x ends and w starts
 # the user is reponsible to properly estimate the efficient weight
 m = feval(moments, theta, data, momentargs);
 momentcov = cov(m);
+# how to use Newey-West covariance estimator, if desired (not needed here)
+momentcov = NeweyWest(m,2);
 weight = inv(momentcov);
 # estimation results - we now use efficient weight because there is overidentification
 gmmtitle = "Poisson GMM example: overidentification";

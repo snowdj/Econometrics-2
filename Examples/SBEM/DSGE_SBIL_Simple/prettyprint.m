@@ -24,7 +24,7 @@ function prettyprint(mat, rlabels, clabels)
 	fprintf('  ');
 
 	% print the column labels
-	clabels = strvcat('          ',clabels); % pad to 8 characters wide
+	clabels = strvcat('            ',clabels); % pad to 8 characters wide
 	clabels = strjust(clabels,'right');
 
 	k = columns(mat);
@@ -41,7 +41,7 @@ function prettyprint(mat, rlabels, clabels)
 		else
 			fprintf('%i', rlabels(i,:));
 		end
-		fprintf('  %10.5f', mat(i,:));
+		fprintf('  %12.3f', mat(i,:));
 		fprintf('\n');
 	end
 end

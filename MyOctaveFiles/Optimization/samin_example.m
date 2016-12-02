@@ -50,11 +50,6 @@ curvature = 0.01;
 # SA controls
 ub = 10*ones(rows(theta),1);
 lb = -ub;
-# setting ub and lb to same value restricts that parameter, and the algorithm does not search
-ub(1,:) = 0;
-lb(1,:) = 0;
-theta(1,:) = 0; # must satisfy restriction
-
 nt = 20;
 ns = 5;
 rt = 0.5; # careful - this is too low for many problems
@@ -66,6 +61,11 @@ verbosity = 1; # only final results. Inc
 minarg = 1;
 control = { lb, ub, nt, ns, rt, maxevals, neps, functol, paramtol, verbosity, 1};
 
+# example of how to impose a restriction:
+#setting ub and lb to same value restricts that parameter, and the algorithm does not search
+ub(1,:) = 0;
+lb(1,:) = 0;
+theta(1,:) = 0; # must satisfy restriction, i.e., same value as lb, ub
 
 # do sa
 t=cputime();

@@ -1,6 +1,6 @@
 % GMM estimation for a sample from Chi^2(theta)
 % compare to two method of moments estimators (see chi2mm.m)
-n = 10;
+n = 30;
 theta = 3;
 data = chi2rnd(theta, n, 1);
 

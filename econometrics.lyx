@@ -132,61 +132,6 @@ theorems-ams-extended
 \begin_body
 
 \begin_layout Title
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Reminder of how to publish:
-\end_layout
-
-\begin_layout Plain Layout
-1) change version number, and update changelog, if not already done
-\end_layout
-
-\begin_layout Plain Layout
-2) print to file
-\end_layout
-
-\begin_layout Plain Layout
-3) run publish
-\end_layout
-
-\begin_layout Plain Layout
-4) ftp the econometrics.tgz file to Pareto
-\end_layout
-
-\begin_layout Plain Layout
-5) zap the ./public_html/Econometrics directory in Pareto, to get rid of
- old stuff
-\end_layout
-
-\begin_layout Plain Layout
-6) untar the new file there
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Solutions to problems:
-\end_layout
-
-\begin_layout Plain Layout
-Missing html.sty –> Has appeared after updating \SpecialChar LyX
-.
- To solve, reinstall latex2html, and reconfigure \SpecialChar TeX
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Title
 Econometrics
 \end_layout
 
@@ -217,7 +162,8 @@ Universitat Autònoma de Barcelona
 
 
 \size small
-March 2016
+Dec.
+ 2016
 \end_layout
 
 \begin_layout Standard
@@ -23051,6 +22997,10 @@ Readings:
 ; Goffe, et.
  al.
  (1994).
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -23062,8 +23012,31 @@ The next chapter introduces extremum estimators, which are minimizers or
  on numeric optimization methods.
  We'll consider a few well-known techniques, and one fairly new technique
  that may allow one to solve difficult problems.
- The main objective is to become familiar with the issues, and to learn
- how to use the BFGS algorithm at the practical level.
+\end_layout
+
+\begin_layout Standard
+The main objectives are 
+\end_layout
+
+\begin_layout Itemize
+to become familiar with the issues, which should lead you to take a cautious
+ attitude
+\end_layout
+
+\begin_layout Itemize
+to learn how to use gradient-based local minimizers such as 
+\family typewriter
+fminunc
+\family default
+ and 
+\family typewriter
+fmincon
+\family default
+ at the practical level.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -23137,6 +23110,10 @@ element would be
 More general problems will not have linear f.o.c., and we will not be able
  to solve for the maximizer analytically.
  This is when we need a numeric optimization method.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -23436,7 +23413,7 @@ A locally increasing direction of search
 
 \end_inset
 
- for 
+for 
 \begin_inset Formula $a$
 \end_inset
 
@@ -23472,8 +23449,7 @@ As long as the gradient at
 \end_inset
 
 .
- To see this, take a T.S.
- expansion around 
+ To see this, take a Taylor's series expansion around 
 \begin_inset Formula $a^{0}=0$
 \end_inset
 
@@ -23486,7 +23462,7 @@ s(\theta+ad) & = & s(\theta+0d)+\left(a-0\right)g(\theta+0d)^{\prime}d+o(1)\\
 
 \end_inset
 
- For small enough 
+For small enough 
 \begin_inset Formula $a$
 \end_inset
 
@@ -25501,6 +25477,10 @@ The maximum likelihood estimator is maximizes the joint density of the sample.
 
 \end_inset
 
+
+\begin_inset Newpage newpage
+\end_inset
+
 Because the natural logarithm is strictly increasing on 
 \begin_inset Formula $(0,\infty)$
 \end_inset
@@ -25598,7 +25578,7 @@ where
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Note that the objective function 
 \begin_inset Formula $s_{n}(\mathbf{Z}_{n},\theta)$
 \end_inset
@@ -25608,14 +25588,22 @@ Note that the objective function
 \end_inset
 
 .
- We need to consider what happens as different outcomes 
+ 
+\end_layout
+
+\begin_layout Itemize
+We need to consider what happens as different outcomes 
 \begin_inset Formula $\omega\in\Omega$
 \end_inset
 
  occur.
  These different outcomes lead to different data being generated, and the
  different data causes the objective function to change.
- Note, however, that for a fixed 
+ 
+\end_layout
+
+\begin_layout Itemize
+Note, however, that for a fixed 
 \begin_inset Formula $\omega\in\Omega$
 \end_inset
 
@@ -25632,10 +25620,35 @@ Note that the objective function
 \end_inset
 
 .
- When actually computing an extremum estimator, we treat the data as fixed,
- and employ algorithms for optimization of nonstochastic functions.
- When analyzing the properties of an extremum estimator, we need to investigate
- what happens throughout 
+ 
+\end_layout
+
+\begin_layout Itemize
+When actually 
+\emph on
+computing
+\emph default
+ an extremum estimator, we condition on the observed data, and treat it
+ as fixed.
+ Then we compute estimators employing algorithms for optimization of nonstochast
+ic functions.
+ How to do this is the topic of Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Numeric-optimization-methods"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+When 
+\emph on
+analyzing the properties
+\emph default
+ of an extremum estimator, we need to investigate what happens throughout
+ 
 \begin_inset Formula $\Omega$
 \end_inset
 
@@ -25650,9 +25663,14 @@ Note that the objective function
 \end_inset
 
 .
+ This is the topic of the remainder of the present Chapter.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 We'll often write the objective function suppressing the dependence on 
 \begin_inset Formula $\mathbf{Z}_{n},$
 \end_inset
@@ -25924,6 +25942,10 @@ eierstrass), say that
 
 .
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -25977,6 +25999,10 @@ Continuity of
 
 .
  So the above claim is true.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -26000,7 +26026,7 @@ s_{n_{m}}(\hat{\theta}_{n_{m}})\geq s_{n_{m}}(\theta^{0})
 \end_layout
 
 \begin_layout Itemize
-However, 
+However, for the left hand side, the previous slide showed that
 \begin_inset Formula 
 \[
 \lim_{m\rightarrow\infty}s_{n_{m}}(\hat{\theta}_{n_{m}})=s_{\infty}(\hat{\theta}),
@@ -26008,7 +26034,7 @@ However,
 
 \end_inset
 
- as seen above, and 
+ For the right hand side, a similar argument gives
 \begin_inset Formula 
 \[
 \lim_{m\rightarrow\infty}s_{n_{m}}(\theta^{0})=s_{\infty}(\theta^{0})
@@ -26016,7 +26042,7 @@ However,
 
 \end_inset
 
- by uniform convergence, so 
+ by uniform convergence, so the above inequality can be written as
 \begin_inset Formula 
 \[
 s_{\infty}(\hat{\theta})\geq s_{\infty}(\theta^{0}).
@@ -26044,7 +26070,7 @@ But by assumption (c), there is a unique global maximum of
 \begin_inset Formula $\hat{\theta}=\theta^{0}$
 \end_inset
 
- in the limit.
+ , in the limit.
 \end_layout
 
 \begin_layout Itemize
@@ -26072,6 +26098,10 @@ Finally, so far we have held
 
  with 
 \begin_inset Formula $P(C)=0.$
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -26166,9 +26196,8 @@ Why uniform convergence of
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/Figures/UniformConvergence.pdf
-	width 10cm
-	rotateAngle 90
+	filename Examples/Figures/UniformConvergence.png
+	width 15cm
 
 \end_inset
 
@@ -26317,16 +26346,12 @@ As long as the
 \end_layout
 
 \begin_layout Standard
-With these assumptions, it can be shown that pointwise convergence holds
- throughout the parameter space, so we obtain the needed uniform convergence.
+With these assumptions, it can be shown that assumption (b) holds.
 \end_layout
 
 \begin_layout Standard
 These are reasonable conditions in many cases, and henceforth when dealing
- with specific estimators we'll simply assume that pointwise almost sure
- convergence can be extended to uniform almost sure convergence in this
- way.
- 
+ with specific estimators we'll simply assume that assumption (b) holds.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -26900,7 +26925,7 @@ You already know that the OLS estimator is inconsistent when relevant variables
 \begin_inset Formula $E(W\epsilon)=0$
 \end_inset
 
- but that 
+ and that 
 \begin_inset Formula $E(WX)\ne0.$
 \end_inset
 
@@ -27222,10 +27247,6 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -27392,6 +27413,10 @@ reference "Consistency of ee"
 \end_inset
 
 
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Theorem
@@ -27408,6 +27433,10 @@ reference "Consistency of ee"
 \end_inset
 
 
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Theorem
@@ -27417,6 +27446,10 @@ reference "Consistency of ee"
 
  where 
 \begin_inset Formula $\mathcal{I}_{\infty}(\theta^{0})=\lim_{n\rightarrow\infty}Var\sqrt{n}D_{\theta}s_{n}(\theta^{0})$
+\end_inset
+
+
+\begin_inset VSpace defskip
 \end_inset
 
 
@@ -27519,6 +27552,10 @@ Also, since
 D_{\theta}^{2}s_{n}(\theta^{*})\stackrel{a.s.}{\rightarrow}\mathcal{J}_{\infty}(\theta^{0})
 \]
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -27625,7 +27662,8 @@ Effects of
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename Examples/Figures/IJ.jpg
-	height 65page%
+	scaleBeforeRotation
+	rotateAngle 90
 
 \end_inset
 
@@ -27641,96 +27679,7 @@ Effects of
 
 \end_layout
 
-\begin_layout Itemize
-
-\series bold
-Skip this in lecture.
-
-\series default
- A note on the order of these matrices: Supposing that 
-\begin_inset Formula $s_{n}(\theta)$
-\end_inset
-
- is representable as an average of 
-\begin_inset Formula $n$
-\end_inset
-
- terms, which is the case for all estimators we consider, 
-\begin_inset Formula $D_{\theta}^{2}s_{n}(\theta)$
-\end_inset
-
- is also an average of 
-\begin_inset Formula $n$
-\end_inset
-
- matrices, the elements of which are not centered (they do not have zero
- expectation).
- Supposing a SLLN applies, the almost sure limit of 
-\begin_inset Formula $D_{\theta}^{2}s_{n}(\theta^{0}),$
-\end_inset
-
- 
-\begin_inset Formula $\mathcal{J}_{\infty}(\theta^{0})=O(1),$
-\end_inset
-
- as we saw in Example 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "uncentered"
-
-\end_inset
-
-.
- On the other hand, assumption (c):
-\begin_inset Formula $\sqrt{n}D_{\theta}s_{n}(\theta^{0})\stackrel{d}{\rightarrow}N\left[0,\mathcal{I}_{\infty}(\theta^{0})\right]$
-\end_inset
-
- means that 
-\begin_inset Formula 
-\[
-\sqrt{n}D_{\theta}s_{n}(\theta^{0})=\mathnormal{O_{p}(1)}
-\]
-
-\end_inset
-
- where we use the result of Example 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "normop1"
-
-\end_inset
-
-.
- If we were to omit the 
-\begin_inset Formula $\sqrt{n},$
-\end_inset
-
- we'd have 
-\begin_inset Formula 
-\begin{eqnarray*}
-D_{\theta}s_{n}(\theta^{0}) & = & n^{-\frac{1}{2}}O_{p}(1)\\
- & = & O_{p}\left(n^{-\frac{1}{2}}\right)
-\end{eqnarray*}
-
-\end_inset
-
- where we use the fact that 
-\begin_inset Formula $O_{p}(n^{r})O_{p}(n^{q})=O_{p}(n^{r+q}).$
-\end_inset
-
- The sequence 
-\begin_inset Formula $D_{\theta}s_{n}(\theta^{0})$
-\end_inset
-
- 
-\emph on
-is
-\emph default
- centered, so we need to scale by 
-\begin_inset Formula $\sqrt{n}$
-\end_inset
-
- to avoid convergence to zero.
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -27775,6 +27724,10 @@ so, evaluating at
 \end_inset
 
 
+\begin_inset Newpage newpage
+\end_inset
+
+
 \begin_inset Formula 
 \[
 D_{\beta}s_{n}(\beta^{0})=-2\frac{X^{\prime}\epsilon}{n}
@@ -27815,7 +27768,7 @@ Considering
 \end_inset
 
 , it has expectation 0, so the variance is the expectation of the outer
- product:
+ product (there's no need to subtract the mean):
 \begin_inset Formula 
 \begin{eqnarray*}
 Var\sqrt{n}D_{\beta}s_{n}(\beta^{0}) & = & E\left[\left(-\sqrt{n}2\frac{X^{\prime}\epsilon}{n}\right)\left(-\sqrt{n}2\frac{X^{\prime}\epsilon}{n}\right)^{\prime}\right]\\
@@ -27825,7 +27778,7 @@ Var\sqrt{n}D_{\beta}s_{n}(\beta^{0}) & = & E\left[\left(-\sqrt{n}2\frac{X^{\prim
 
 \end_inset
 
-(assuming regressors independent of errors).
+(because regressors are independent of errors).
  Therefore
 \begin_inset Formula 
 \begin{eqnarray*}
@@ -27836,12 +27789,16 @@ Var\sqrt{n}D_{\beta}s_{n}(\beta^{0}) & = & E\left[\left(-\sqrt{n}2\frac{X^{\prim
 \end_inset
 
 where 
-\begin_inset Formula $Q_{X}=limE\left(\frac{X^{\prime}X}{n}\right),$
+\begin_inset Formula $Q_{X}=\lim E\left(\frac{X^{\prime}X}{n}\right),$
 \end_inset
 
- a finite p.d.
- matrix, is obtained using a LLN.
+ is a finite p.d.
+ matrix.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -27863,6 +27820,10 @@ n:
 \end_inset
 
 There's no parameter in that last expression, so uniformity is not an issue.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -28173,6 +28134,12 @@ maximum likelihood estimator
 \end_layout
 
 \begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:Count-data.-Suppose"
+
+\end_inset
+
 Count data.
  Suppose we have a sample 
 \begin_inset Formula $Y=\{y_{1},...,y_{n}\}$
@@ -28198,15 +28165,34 @@ L(\lambda)=\prod_{i=1}^{n}\frac{e^{-\lambda}\lambda^{y_{i}}}{y_{i}!}=\frac{e^{-n
 
 \end_inset
 
-A little algebra shows us that the value that maximizes this is 
+A little calculus and algebra shows us that the value that maximizes this
+ is 
 \begin_inset Formula $\hat{\lambda}=\bar{y}$
 \end_inset
 
 .
 \end_layout
 
+\begin_layout Exercise
+Prove this last statement
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
-we can compute the ML estimator without much trouble, and we have asymptotic
+In Example 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "exa:Count-data.-Suppose"
+
+\end_inset
+
+ we can compute the ML estimator without much trouble, and we have asymptotic
  theory that will allow us to test hypotheses about 
 \begin_inset Formula $\lambda$
 \end_inset
@@ -28219,13 +28205,19 @@ however, now suppose that each observation has its own
 \begin_inset Formula $\lambda_{i}=\exp(x_{i}^{\prime}\beta)$
 \end_inset
 
- which depends on conditioning variables and a new parameter vector.
+, which depends on conditioning variables and a new parameter vector.
  We can now write the likelihood function in terms of 
 \begin_inset Formula $\beta$
 \end_inset
 
-.
- 
+ (as was done in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:MEPS data"
+
+\end_inset
+
+) 
 \begin_inset Separator latexpar
 \end_inset
 
@@ -28243,13 +28235,14 @@ The problem is, we can't find an analytic solution for the ML estimator
 \end_layout
 
 \begin_layout Itemize
-Even if we could, 
+Even if we could, the 
 \begin_inset Formula $\hat{\beta}$
 \end_inset
 
  which solves the f.o.c.
  is a nonlinear function of the data.
- How could we test hypotheses?
+ How could we test hypotheses? The t and F tests developed for the classical
+ linear model do not apply.
 \end_layout
 
 \begin_layout Itemize
@@ -28325,7 +28318,11 @@ Note that if
 \end_inset
 
 .
- In this case, the variables 
+ 
+\end_layout
+
+\begin_layout Itemize
+In this case, the variables 
 \begin_inset Formula $Z$
 \end_inset
 
@@ -28347,10 +28344,10 @@ exogenous
 \end_inset
 
 .
- Exogeneity may or may not hold, but when it does, we can simplify the problem.
+ 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 With exogeneity of 
 \begin_inset Formula $Z$
 \end_inset
@@ -28364,7 +28361,12 @@ With exogeneity of
 \end_inset
 
 .
- We'll suppose this framework holds in what follows.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We'll suppose this framework holds in what follows.
  If it didn't, for some variables in 
 \begin_inset Formula $Z,$
 \end_inset
@@ -28384,6 +28386,7 @@ With exogeneity of
 
 \end_layout
 
+\end_deeper
 \begin_layout Subsection
 A convenient factorization of the likelihood function
 \end_layout
@@ -28616,6 +28619,9 @@ For this example, the average log-likelihood function is
 \end_layout
 
 \begin_layout Example
+\begin_inset Newpage newpage
+\end_inset
+
 The derivative of a representative term is
 \begin_inset Formula 
 \begin{eqnarray*}
@@ -28650,6 +28656,9 @@ So it's easy to calculate the MLE of
 \end_inset
 
  in this case.
+\begin_inset Newpage newpage
+\end_inset
+
  
 \end_layout
 
@@ -28669,7 +28678,8 @@ The mean is
 \end_layout
 
 \begin_layout Itemize
-Thus, the ML is consistent.
+Thus, the MLE, which is the sample mean, is a consistent estimator of the
+ parameter, because the population mean is the parameter.
  
 \end_layout
 
@@ -28682,6 +28692,9 @@ For future reference, note that
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 We see that the ML estimator is consistent, for this model.
  However, let's verify that the consistency theorem for extremum estimators
  gives us the same result:
@@ -28750,7 +28763,9 @@ The consistency theorem for extremum estimators tells us that the ML estimator
 \end_layout
 
 \begin_layout Itemize
-So, the ML estimator is consistent for the true probability.
+So, the ML estimator is consistent for the true probability, according to
+ the consistency theorem for extremum estimators.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -28772,7 +28787,7 @@ name "exa:Likelihood-function-of"
 Likelihood function and MLE of classical linear regression model
 \emph default
 .
- Let's suppòse that a dependent variable is normally distributed:
+ Let's suppose that a dependent variable is normally distributed:
 \begin_inset Formula $y\sim N(\mu_{0},\sigma_{0}^{2})$
 \end_inset
 
@@ -28851,10 +28866,26 @@ Observe that the first order conditions for
 \end_inset
 
  are the same as for the OLS estimator.
- We know that the OLS estimator is consistent without making distributional
+ For the 
+\begin_inset Formula $\beta$
+\end_inset
+
+'s, the OLS and ML estimators are identical.
+\end_layout
+
+\begin_layout Itemize
+We know that the OLS estimator is consistent without making distributional
  assumptions regarding the errors.
  As long as the assumptions for consistency of OLS hold (fundamentally,
- weak exogeneity), then this estimator will be consistent for 
+ weak exogeneity), then the 
+\begin_inset Quotes sld
+\end_inset
+
+ML
+\begin_inset Quotes srd
+\end_inset
+
+ estimator will be consistent for 
 \begin_inset Formula $\beta$
 \end_inset
 
@@ -28879,7 +28910,7 @@ ML
 A Octave/Matlab example that shows how to compute the maximum likelihood
  estimator for data that follows the CLRM with normality is in 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -28935,6 +28966,10 @@ reference "Consistency of ee"
  we have seen that the ML estimator converges to the true parameter of the
  d.g.p.
  Is this a general result?
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -28996,7 +29031,11 @@ is
 \begin_inset Formula $.$
 \end_inset
 
- Therefore, since 
+ 
+\begin_inset Newpage newpage
+\end_inset
+
+Therefore, since 
 \begin_inset Formula $\ln(1)=0,$
 \end_inset
 
@@ -29024,6 +29063,10 @@ or
 
 \end_inset
 
+
+\begin_inset Newpage newpage
+\end_inset
+
 Taking limits of each side:
 \begin_inset Formula 
 \[
@@ -29040,11 +29083,14 @@ reference "Consistency of ee"
 \end_inset
 
 ).
+ So the true parameter value is the maximizer of the limiting objective
+ function (we are in Case 1 of the three cases discussed above - a fully
+ correctly specified model).
 \end_layout
 
 \begin_layout Standard
-By the identification assumption there is a unique maximizer, so the inequality
- is strict if 
+If the identification assumption holds, then there is a unique maximizer,
+ so the inequality is strict if 
 \begin_inset Formula $\theta\neq\theta_{0}$
 \end_inset
 
@@ -29080,6 +29126,8 @@ reference "Consistency of ee"
 \end_inset
 
  So, the ML estimator is consistent for the true parameter value.
+ In practice, we will need to check identification for the specific model
+ under consideration.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -29139,7 +29187,7 @@ g_{n}(Y,\theta) & \equiv & D_{\theta}s_{n}(\theta)\nonumber \\
 
 \end_inset
 
- This is the 
+This is the 
 \emph on
 score vector
 \emph default
@@ -29161,6 +29209,9 @@ as an argument, which implies that it is a random function.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 The ML estimator 
 \begin_inset Formula $\hat{\theta}$
 \end_inset
@@ -29336,7 +29387,7 @@ Now consider
  where the notation 
 \begin_inset Formula 
 \[
-D_{\theta}^{2}s_{n}(\theta)\equiv\frac{\partial^{2}s_{n}(\theta)}{\partial\theta\partial\theta^{\prime}}.
+D_{\theta}^{2}s_{n}(\theta^{*})\equiv\left.\frac{\partial^{2}s_{n}(\theta)}{\partial\theta\partial\theta^{\prime}}\right|_{\theta=\theta^{*}}.
 \]
 
 \end_inset
@@ -30067,11 +30118,18 @@ Es_{n}(p)=p^{0}\ln p+\left(1-p^{0}\right)\ln\left(1-p\right)
 \end_inset
 
 by the fact that the observations are i.i.d.
- Thus, 
-\begin_inset Formula $s_{\infty}(p)=p^{0}\ln p+\left(1-p^{0}\right)\ln\left(1-p\right)$
+ Note that this does not depend on the sample size, 
+\begin_inset Formula $n,$
 \end_inset
 
-.
+ thus, 
+\begin_inset Formula 
+\[
+s_{\infty}(p)=p^{0}\ln p+\left(1-p^{0}\right)\ln\left(1-p\right).
+\]
+
+\end_inset
+
  A bit of calculation shows that
 \begin_inset Formula 
 \[
@@ -30227,6 +30285,13 @@ The limiting variance of a CAN estimator of
 
 , minus the inverse of the information matrix is a positive semidefinite
  matrix.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -30389,11 +30454,14 @@ I_{K} & \mathcal{I}_{\infty}(\theta)
 \end_inset
 
  is positive semidefinite.
- This conludes the proof.
+ This concludes the proof.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
-This means that 
+\begin_layout Itemize
 \begin_inset Formula $\mathcal{I}_{\infty}^{-1}(\theta)$
 \end_inset
 
@@ -30456,19 +30524,28 @@ the MLE is asymptotically efficient with respect to any other CAN estimator.
 \end_layout
 
 \begin_layout Itemize
-this is the reason that the ML estimator is so important, it provides a
+this is the reason that the ML estimator is so important: it provides a
  benchmark for efficiency.
- The strong assumptions on which it depends may be questionable, though.
- If we can find another estimator that obtains an asymptotic variance similar
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The strong assumptions on which it depends may be questionable, though.
+\end_layout
+
+\begin_layout Itemize
+If we can find another estimator that obtains an asymptotic variance similar
  to that of ML, but is consistent under weaker assumptions, we might choose
  to use it instead.
- But it's useful to know the potential loss of efficiency.
+ But it's useful to know that this entails a potential loss of efficiency.
 \begin_inset Newpage newpage
 \end_inset
 
 
 \end_layout
 
+\end_deeper
 \begin_layout Section
 Likelihood ratio-type tests
 \end_layout
@@ -30507,7 +30584,7 @@ LR=2\left(\ln L(\hat{\theta})-\ln L(\tilde{\theta})\right)
 
 \end_inset
 
- where 
+where 
 \begin_inset Formula $\hat{\theta}$
 \end_inset
 
@@ -30516,7 +30593,23 @@ LR=2\left(\ln L(\hat{\theta})-\ln L(\tilde{\theta})\right)
 \end_inset
 
  is the restricted estimate.
- To show that it is asymptotically 
+ We will show that, under the null hypothesis that 
+\begin_inset Formula $r(\theta)=0$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+LR\overset{d}{\rightarrow}\chi^{2}(q).
+\]
+
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+To show that it is asymptotically 
 \begin_inset Formula $\chi^{2},$
 \end_inset
 
@@ -30540,7 +30633,8 @@ LR=2\left(\ln L(\hat{\theta})-\ln L(\tilde{\theta})\right)
 \begin_inset Formula $D_{\theta}\ln L(\hat{\theta})\equiv0$
 \end_inset
 
- by the fonc and we need to multiply the second-order term by 
+ by the first order necessary conditions, and we need to multiply the second-ord
+er term by 
 \begin_inset Formula $n$
 \end_inset
 
@@ -30584,10 +30678,19 @@ LR\overset{a}{=}n\left(\tilde{\theta}-\hat{\theta}\right)^{\prime}\mathcal{I}_{\
 
  An analogous result for the restricted estimator is (this is unproven here,
  to prove this set up the Lagrangean for MLE subject to 
-\begin_inset Formula $R\beta=r,$
+\begin_inset Formula $r(\theta)=0,$
 \end_inset
 
- and manipulate the first order conditions) : 
+ and manipulate the first order conditions.
+ Also note, 
+\begin_inset Formula $R$
+\end_inset
+
+ is notation for 
+\begin_inset Formula $R=D_{\theta}r^{\prime}(\theta)$
+\end_inset
+
+): 
 \begin_inset Formula 
 \[
 \sqrt{n}\left(\tilde{\theta}-\theta_{0}\right)\overset{a}{=}\mathcal{I}_{\infty}(\theta_{0})^{-1}\left(I_{n}-R^{\prime}\left(R\mathcal{I}_{\infty}(\theta_{0})^{-1}R^{\prime}\right)^{-1}R\mathcal{I}_{\infty}(\theta_{0})^{-1}\right)n^{1/2}g(\theta_{0}).
@@ -33882,6 +33985,10 @@ reference "Normality of ee"
 \end_inset
 
 
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -33949,6 +34056,10 @@ D_{n}(\theta)\equiv\frac{\partial}{\partial\theta}m_{n}^{\prime}\left(\theta\rig
 \end_inset
 
  but it is omitted to unclutter the notation).
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -34078,7 +34189,7 @@ Note that the first term contains a
 \end_inset
 
 because 
-\begin_inset Formula $m(\theta^{0})=o_{p}(1)$
+\begin_inset Formula $m(\theta^{0})\stackrel{a.s.}{\rightarrow}0$
 \end_inset
 
  and 
@@ -34090,6 +34201,10 @@ because
 \end_inset
 
 .
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -34123,6 +34238,10 @@ Stacking these results over the
 
  a.s.
  (we assume a LLN holds).
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -34179,6 +34298,10 @@ reference "gmmscores"
 \Omega_{\infty}=\lim_{n\rightarrow\infty}\mathcal{E}\left[nm(\theta^{0})m(\theta^{0})^{\prime}\right].
 \]
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
  Using this, and the last equation, we get 
@@ -34555,83 +34678,25 @@ To provide a little intuition, consider the linear model
 \end_inset
 
  That is, he have heteroscedasticity and autocorrelation.
-\end_layout
-
-\begin_layout Itemize
-Let 
-\begin_inset Formula $P$
-\end_inset
-
- be the Cholesky factorization of 
-\begin_inset Formula $\Omega^{-1},$
-\end_inset
-
- e.g, 
-\begin_inset Formula $P^{\prime}P=\Omega^{-1}.$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Then the model 
-\begin_inset Formula $Py=P\mathbf{X}\beta+P\varepsilon$
-\end_inset
-
- satisfies the classical assumptions of homoscedasticity and nonautocorrelation,
- because 
-\begin_inset Formula $V(P\varepsilon)=PV(\varepsilon)P^{\prime}=P\Omega P^{\prime}=P(P^{\prime}P)^{-1}P^{\prime}=PP^{-1}\left(P^{\prime}\right)^{-1}P^{\prime}=I_{n}.$
-\end_inset
-
- (Note: we use 
-\begin_inset Formula $\left(AB\right)^{-1}=B^{-1}A^{-1}$
-\end_inset
-
- for 
-\begin_inset Formula $A,$
-\end_inset
-
- 
-\begin_inset Formula $B$
-\end_inset
-
- both nonsingular).
- This means that the transformed model is efficient.
-\end_layout
-
-\begin_layout Itemize
-The OLS
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
  
 \end_layout
 
-\end_inset
-
-estimator of the model 
-\begin_inset Formula $Py=P\mathbf{X}\beta+P\varepsilon$
-\end_inset
-
- minimizes the objective function 
+\begin_deeper
+\begin_layout Itemize
+The generalized least square estimator minimizes the objective function
+ 
 \begin_inset Formula $(y-\mathbf{X}\beta)^{\prime}\Omega^{-1}(y-\mathbf{X}\beta).$
 \end_inset
 
- Interpreting 
-\begin_inset Formula $\left(y-\mathbf{X}\beta\right)=\varepsilon(\beta)$
-\end_inset
+ We have seen that the GLS estimator is efficient with respect to OLS, when
+ there is het.
+ and or aut.
+ 
+\end_layout
 
- as moment conditions (note that they do have zero expectation when evaluated
- at 
-\begin_inset Formula $\beta^{0}$
-\end_inset
-
-), the optimal weighting matrix is seen to be the inverse of the covariance
- matrix of the moment conditions.
+\begin_layout Itemize
+The GLS optimal weighting matrix is seen to be the inverse of the covariance
+ matrix of the errors.
  This result carries over to GMM
 \begin_inset ERT
 status collapsed
@@ -34646,7 +34711,11 @@ status collapsed
 \end_inset
 
 estimation.
- (Note:
+ 
+\end_layout
+
+\begin_layout Itemize
+Note:
 \begin_inset ERT
 status collapsed
 
@@ -34685,11 +34754,27 @@ status collapsed
 
 \end_inset
 
-estimator as defined above, because the number of moment conditions here
- is equal to the sample size, 
+estimator as defined above, because if we take the errors as 
+\begin_inset Quotes sld
+\end_inset
+
+moment conditions
+\begin_inset Quotes srd
+\end_inset
+
+, the dimension is the sample size, 
 \begin_inset Formula $n.$
 \end_inset
 
+ Thus, the dimension is not fixed.
+ Also, they are not averages, as we require - see definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "GMM estimator (defn)"
+
+\end_inset
+
+.
  Later we'll see that GLS
 \begin_inset ERT
 status collapsed
@@ -34703,10 +34788,15 @@ status collapsed
 
 \end_inset
 
-can be put into the GMM framework defined above).
+can be expressed in the GMM framework.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
+\end_deeper
 \begin_layout Theorem
 \begin_inset CommandInset label
 LatexCommand label
@@ -34805,6 +34895,10 @@ Set
  This is a quadratic form in a p.d.
  matrix, so it is p.s.d., which concludes the proof.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -34877,6 +34971,10 @@ The obvious estimator of
 \end_inset
 
  is not continuous.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Example
@@ -35049,6 +35147,10 @@ efficient
 \end_inset
 
 
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Example
@@ -35086,13 +35188,6 @@ In the case that we wish to use the optimal weighting matrix, we need an
 \end_inset
 
 .
- While one could think of estimating 
-\begin_inset Formula $\Omega_{\infty}$
-\end_inset
-
- parametrically (along the lines of feasible GLS) we in general have little
- information upon which to base a parametric specification, so nonparametric
- estimation is normally used.
  In general, we expect that:
 \end_layout
 
@@ -35113,8 +35208,8 @@ In the case that we wish to use the optimal weighting matrix, we need an
 \end_layout
 
 \begin_layout Itemize
-contemporaneously correlated, since the individual moment conditions will
- not in general be independent of one another (
+contemporaneously correlated, since the individual moment contributions
+ will not in general be independent of one another (
 \begin_inset Formula $\mathcal{E}(m_{it}m_{jt})\neq0$
 \end_inset
 
@@ -35131,9 +35226,8 @@ and have different variances (
 \end_layout
 
 \begin_layout Standard
-Since we need to estimate so many components if we are to take the parametric
- approach, it is unlikely that we would arrive at a correct parametric specifica
-tion.
+Since we need to estimate so many components, it is unlikely that we would
+ arrive at a correct parametric specification.
  For this reason, research has focused on consistent nonparametric estimators
  of 
 \begin_inset Formula $\Omega_{\infty}.$
@@ -35151,7 +35245,7 @@ Henceforth we assume that
 \emph on
 covariance stationary
 \emph default
- (the covariance between 
+, so the covariance between 
 \begin_inset Formula $m_{t}$
 \end_inset
 
@@ -35160,14 +35254,19 @@ covariance stationary
 \end_inset
 
  does not depend on 
-\begin_inset Formula $t).$
+\begin_inset Formula $t.$
 \end_inset
 
+ Thus, 
+\end_layout
+
+\begin_layout Definition
+(Autocovariance).
  Define the 
 \begin_inset Formula $s-th$
 \end_inset
 
- autocovariance of the moment conditions 
+ autocovariance of covariance stationary moment contributions as 
 \begin_inset Formula $\Gamma_{s}=\mathcal{E}(m_{t}m_{t-s}^{\prime}).$
 \end_inset
 
@@ -35180,6 +35279,10 @@ Show that
 \end_inset
 
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -35225,7 +35328,7 @@ Recall that
  is 
 \begin_inset Formula 
 \[
-\widehat{\Gamma_{s}}=1/n\sum_{t=v+1}^{n}\hat{m}_{t}\hat{m}_{t-s}^{\prime}.
+\widehat{\Gamma_{s}}=1/n\sum_{t=s+1}^{n}\hat{m}_{t}\hat{m}_{t-s}^{\prime}.
 \]
 
 \end_inset
@@ -35235,6 +35338,9 @@ Recall that
 \end_inset
 
  in the denominator instead).
+\begin_inset Newpage newpage
+\end_inset
+
  So, a natural, but inconsistent, estimator of 
 \begin_inset Formula $\Omega_{\infty}$
 \end_inset
@@ -35263,7 +35369,7 @@ Recall that
 
 \begin_layout Standard
 On the other hand, supposing that 
-\begin_inset Formula $\Gamma_{v}$
+\begin_inset Formula $\Gamma_{s}$
 \end_inset
 
  tends to zero sufficiently rapidly as 
@@ -35373,6 +35479,9 @@ Note: the formula for
 \end_inset
 
  change appreciably between iterations.
+\begin_inset Newpage newpage
+\end_inset
+
  
 \end_layout
 
@@ -35435,6 +35544,12 @@ reference "chap:Nonparametric-inference"
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Estimation-using-conditional"
+
+\end_inset
+
 Estimation using conditional moments
 \end_layout
 
@@ -35481,7 +35596,7 @@ Suppose that a random variable
 To see this, the unconditional expectation is 
 \begin_inset Formula 
 \[
-\mathcal{E}Yg(X)=\int_{\mathcal{X}}\left(\int_{\mathcal{Y}}Yg(X)f(Y,X)dY\right)dX.
+\mathcal{E}\left(Yg(X)\right)=\int_{\mathcal{X}}\left(\int_{\mathcal{Y}}Yg(X)f(Y,X)dY\right)dX.
 \]
 
 \end_inset
@@ -35495,7 +35610,7 @@ To see this, the unconditional expectation is
 
 \begin_inset Formula 
 \[
-\mathcal{E}Yg(X)=\int_{\mathcal{X}}\left(\int_{\mathcal{Y}}Yg(X)f(Y|X)dY\right)f(X)dX.
+\mathcal{E}\left(Yg(X)\right)=\int_{\mathcal{X}}\left(\int_{\mathcal{Y}}Yg(X)f(Y|X)dY\right)f(X)dX.
 \]
 
 \end_inset
@@ -35511,7 +35626,7 @@ To see this, the unconditional expectation is
 , it can be pulled out of the integral 
 \begin_inset Formula 
 \[
-\mathcal{E}Yg(X)=\int_{\mathcal{X}}\left(\int_{\mathcal{Y}}Yf(Y|X)dY\right)g(X)f(X)dX.
+\mathcal{E}\left(Yg(X)\right)=\int_{\mathcal{X}}\left(\int_{\mathcal{Y}}Yf(Y|X)dY\right)g(X)f(X)dX.
 \]
 
 \end_inset
@@ -35519,7 +35634,7 @@ To see this, the unconditional expectation is
  But the term in parentheses on the rhs is zero by assumption, so 
 \begin_inset Formula 
 \[
-\mathcal{E}Yg(X)=0
+\mathcal{E}\left(Yg(X)\right)=0
 \]
 
 \end_inset
@@ -35580,7 +35695,11 @@ For example, in the context of the classical linear model
 \end_inset
 
  so 
-\begin_inset Formula $k(x_{t},\theta)=x_{t}^{\prime}\beta$
+\begin_inset Formula 
+\begin{align*}
+E_{\theta}K(y_{t},x_{t},\theta)|I_{t} & =E_{\theta}\left(x_{t}^{\prime}\beta+\varepsilon_{t}|x_{t}\right)=k(x_{t},\theta)=x_{t}^{\prime}\beta
+\end{align*}
+
 \end_inset
 
 .
@@ -36174,7 +36293,7 @@ With the definition of
  to get 
 \begin_inset Formula 
 \[
-\hat{\theta}_{IV}-\theta^{0}=\left(\left(\frac{X^{\prime}Z}{n}\right)\left(\frac{Z^{\prime}Z}{n}^{-1}\right)\left(\frac{Z^{\prime}X}{n}\right)\right)^{-1}\left(\frac{X^{\prime}Z}{n}\right)\left(\frac{Z^{\prime}Z}{n}\right)^{-1}\left(\frac{Z^{\prime}\varepsilon}{n}\right)
+\hat{\theta}_{IV}-\theta^{0}=\left(\left(\frac{X^{\prime}Z}{n}\right)\left(\frac{Z^{\prime}Z}{n}\right)^{-1}\left(\frac{Z^{\prime}X}{n}\right)\right)^{-1}\left(\frac{X^{\prime}Z}{n}\right)\left(\frac{Z^{\prime}Z}{n}\right)^{-1}\left(\frac{Z^{\prime}\varepsilon}{n}\right)
 \]
 
 \end_inset
@@ -36329,8 +36448,24 @@ The estimators for
 
 \end_inset
 
- This estimator is consistent following the proof of consistency of the
- OLS estimator of 
+
+\end_layout
+
+\begin_layout Itemize
+Note that his is computed using the real regressors, 
+\begin_inset Formula $X,$
+\end_inset
+
+ not the projected regressors, 
+\begin_inset Formula $X^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+This estimator is consistent following the proof of consistency of the OLS
+ estimator of 
 \begin_inset Formula $\sigma^{2},$
 \end_inset
 
@@ -37142,18 +37277,34 @@ o, a quadratic form on the r.h.s.
 \end_inset
 
  or 
+\begin_inset Newpage newpage
+\end_inset
+
+
+\series bold
+\emph on
+Hansen-Sargan
+\series default
+ 
+\emph default
+test
+\emph on
+: 
+\emph default
+Supposing that the moment conditions actually have expectation zero at the
+ true parameter value, and that we are using an estimate of the efficient
+ weight matrix, then
 \begin_inset Formula 
 \[
-n\cdot s_{n}(\hat{\theta})\stackrel{d}{\rightarrow}\chi^{2}(g-K)
+n\cdot s_{n}(\hat{\theta})\stackrel{d}{\rightarrow}\chi^{2}(g-K).
 \]
 
 \end_inset
 
-supposing the model is correctly specified.
- 
+
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 This is a convenient test since we just multiply the optimized value of
  the objective function by 
 \begin_inset Formula $n,$
@@ -37168,7 +37319,7 @@ This is a convenient test since we just multiply the optimized value of
  are correctly specified.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 This won't work when the estimator is just identified.
  The f.o.c.
  are 
@@ -37209,25 +37360,12 @@ regardless
 , so the test breaks down.
 \end_layout
 
-\begin_layout Standard
-A note:
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
- 
-\end_layout
-
-\end_inset
-
-this sort of test often over-rejects in finite samples.
+\begin_layout Itemize
+This sort of test often over-rejects in finite samples.
  One should be cautious in rejecting a model when this test rejects.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 This test goes by several names: Hansen test, Sargan test, Hansen-Sargan
  test, J test.
  I call it the GMM criterion test.
@@ -37250,6 +37388,10 @@ minimum chi-square
 \end_inset
 
  distribution.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Example
@@ -37288,6 +37430,10 @@ correctly specified in the example.
  identified estimators.
  In this case, adding moment conditions adds no asymptotic efficiency, because
  the just identified estimator is fully efficient (why?).
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -37391,7 +37537,7 @@ m_{t}(\theta)\equiv D_{\theta}\ln f(y_{t}|x_{t},\theta)
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Recall that the score contributions are both conditionally and unconditionally
  uncorrelated.
  Conditional uncorrelation follows from the fact that 
@@ -37418,7 +37564,11 @@ n hold regardless of the realization of
 \end_inset
 
  preserves uncorrelation (see the section on ML estimation, above).
- The fact that the scores are serially uncorrelated implies that 
+ 
+\end_layout
+
+\begin_layout Itemize
+The fact that the scores are serially uncorrelated implies that 
 \begin_inset Formula $\Omega$
 \end_inset
 
@@ -37434,10 +37584,22 @@ n hold regardless of the realization of
 
 \end_inset
 
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+note that this is the estimator of the information matrix, from ML
+\end_layout
+
+\begin_layout Itemize
 There is no need for a Newey-West style estimator, the heteroscedastic-consisten
 t estimator of White is sufficient.
- Also, the fact that the scores of ML are uncorrelated suggests a means
- of testing the correct specification of the model: see if the fitted scores
+\end_layout
+
+\begin_layout Itemize
+Also, the fact that the scores of ML are uncorrelated suggests a means of
+ testing the correct specification of the model: see if the fitted scores
  (
 \begin_inset Formula $m_{t}(\hat{\theta})$
 \end_inset
@@ -37446,8 +37608,13 @@ t estimator of White is sufficient.
  If they do, the correctness of the specification of the model is subject
  to doubt.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
+\end_deeper
 \begin_layout Subsection
 OLS as a GMM estimator - the Nerlove model again
 \end_layout
@@ -37472,6 +37639,10 @@ htmladdnormallink{NerloveGMM.m}{https://github.com/mcreel/Econometrics/blob/mast
  It also illustrates that the weight matrix does not matter when the moments
  just identify the parameter.
  You are encouraged to examine the script and run it.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -37639,6 +37810,10 @@ IV
 
 \end_inset
 
+
+\begin_inset Newpage newpage
+\end_inset
+
 We have seen that inconsistent and the consistent estimators converge to
  different probability limits.
  This is the idea behind the Hausman test - a pair of consistent estimators
@@ -37680,6 +37855,10 @@ Play with the above script to convince yourself of this point: make exogeneity
 When we have a more efficient estimator that relies on stronger assumptions
  (such as exogeneity) than the IV estimator, we might prefer to use it,
  unless we have evidence that the assumptions are false.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -38223,6 +38402,10 @@ H2
 \end_inset
 
  test in my paper), for a simple linear model.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -38262,7 +38445,7 @@ Though GMM estimation has many applications, application to rational expectation
 s models is elegant, since theory directly suggests the moment conditions.
  Hansen and Singleton's 1982 paper is also a classic worth studying in itself.
  Though I strongly recommend reading the paper, I'll use a simplified model
- with similar notation to Hamilton's.
+ with notation similar to Hamilton's.
  The literature on estimation of these models has grown a lot since these
  early papers.
  After work like the cited papers, people moved to ML estimation of linearized
@@ -38276,6 +38459,10 @@ s models is elegant, since theory directly suggests the moment conditions.
  The methods explained in this section are intended to provide an example
  of GMM estimation.
  They are not the state of the art for estimation of such models.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -38339,6 +38526,10 @@ The choice variable is
  - current consumption, which is constrained to be less than or equal to
  current wealth 
 \begin_inset Formula $w_{t}.$
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -38425,6 +38616,10 @@ not known
 \end_inset
 
 : the asset is risky.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -38466,6 +38661,10 @@ reference "umax"
 
  Therefore, unless the condition holds, the expected discounted utility
  function is not maximized.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -38501,6 +38700,10 @@ u^{\prime}(c_{t})=c_{t}^{-\gamma}
 c_{t}^{-\gamma}=\beta\mathcal{E}\left\{ \left(1+r_{t+1}\right)c_{t+1}^{-\gamma}|I_{t}\right\} 
 \]
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
  While it is true that 
@@ -38566,7 +38769,8 @@ is analogous to
 \begin_inset Formula $h_{t}(\theta)$
 \end_inset
 
- defined above: it's a scalar moment condition.
+ defined above: it's a scalar moment condition that has conditional expectation
+ equal to zero.
  To get a vector of moment conditions we need some instruments.
  Suppose that 
 \begin_inset Formula $\mathbf{z}_{t}$
@@ -38607,6 +38811,10 @@ is analogous to
 Therefore, the above expression may be interpreted as a moment condition
  which can be used for GMM estimation of the parameters 
 \begin_inset Formula $\theta^{0}.$
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -38678,6 +38886,10 @@ s(\theta)=m(\theta)^{\prime}\hat{\Omega}^{-1}m(\theta).
 \end_inset
 
  and repeat until the estimates don't change.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -38714,6 +38926,10 @@ Empirical papers that use this approach often have serious problems in obtaining
  Note that we are basing everything on a single partial first order condition.
  Probably this f.o.c.
  is simply not informative enough.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -38773,7 +38989,7 @@ htmladdnormallink{tauchen.data}{https://github.com/mcreel/Econometrics/blob/mast
  There are 95 observations (source: 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Tauchen_1986"
+key "Tauchen1986"
 
 \end_inset
 
@@ -39503,6 +39719,9 @@ Technology shocks
 \end_layout
 
 \begin_layout Subsection
+\begin_inset Newpage newpage
+\end_inset
+
 First order conditions
 \end_layout
 
@@ -39544,6 +39763,9 @@ where the first two are from utility maximization, the second two are from
 \end_layout
 
 \begin_layout Subsection
+\begin_inset Newpage newpage
+\end_inset
+
 The steady state
 \end_layout
 
@@ -39731,6 +39953,9 @@ k=\frac{c}{\varphi^{1-\alpha}-\delta}
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 To summarize, the steady state values for the 9 endogenous variables are
  given in Table 
 \begin_inset CommandInset ref
@@ -40153,6 +40378,9 @@ technology shock
 \end_layout
 
 \begin_layout Subsection
+\begin_inset Newpage newpage
+\end_inset
+
 True parameter values and priors 
 \end_layout
 
@@ -40247,6 +40475,9 @@ reference "eq:MRS-MPL"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 We use independent uniform priors for all parameters except 
 \begin_inset Formula $\psi,$
 \end_inset
@@ -40690,7 +40921,7 @@ Prior RMSE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.010 
+0.020 
 \end_layout
 
 \end_inset
@@ -40904,6 +41135,9 @@ Prior RMSE
 \end_layout
 
 \begin_layout Subsection
+\begin_inset Newpage newpage
+\end_inset
+
 Solution of the model and generation of simulated data
 \end_layout
 
@@ -41349,6 +41583,10 @@ stoch_simul(nograph, noprint, order=3, drop=100, periods=260) y c n MPK
 \end_inset
 
 With this file, we can generate samples at the chosen parameter values.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -41435,6 +41673,9 @@ The LHS is IID standard normal, according to the model.
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset Newpage newpage
+\end_inset
+
 Euler equation
 \end_layout
 
@@ -41500,6 +41741,9 @@ has mean zero, conditional on information available in period
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset Newpage newpage
+\end_inset
+
 Production function
 \end_layout
 
@@ -41520,6 +41764,19 @@ k_{t-1}=\frac{\alpha n_{t}w_{t}}{(1-\alpha)r_{t}}
 
 \end_inset
 
+
+\emph on
+Important note
+\emph default
+: We do not observe the actual level of capital, but, given the other variables,
+ and a guess for the value of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, we can compute this imputed value for capital in the previous period.
+\end_layout
+
+\begin_layout Standard
 Next, from the production function, use the above expression for 
 \begin_inset Formula $k$
 \end_inset
@@ -41566,6 +41823,9 @@ reference "eq:MRSError"
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset Newpage newpage
+\end_inset
+
 Law of motion for 
 \begin_inset Formula $k$
 \end_inset
@@ -41606,7 +41866,11 @@ q_{t}=y_{t}-c_{t}+(1-\delta)k_{t-1}-k_{t}\label{eq:LawMotionError}
 \end_inset
 
 is an error that is equal to zero at the true parameter values.
- Remember that the actual 
+ 
+\end_layout
+
+\begin_layout Itemize
+Remember that the actual 
 \begin_inset Formula $k$
 \end_inset
 
@@ -41619,8 +41883,15 @@ is an error that is equal to zero at the true parameter values.
 \end_inset
 
 .
- So, this equation will not hold exactly except at the true parameter values.
- Thus, it should be informative for both 
+ 
+\end_layout
+
+\begin_layout Itemize
+So, this equation will not hold exactly except at the true parameter values.
+\end_layout
+
+\begin_layout Itemize
+Thus, it should be informative for both 
 \begin_inset Formula $\delta$
 \end_inset
 
@@ -41641,6 +41912,15 @@ is an error that is equal to zero at the true parameter values.
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
 MPL
 \end_layout
 
@@ -41687,6 +41967,9 @@ reference "eq:ProductionError"
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset Newpage newpage
+\end_inset
+
 MPK
 \end_layout
 
@@ -41698,13 +41981,17 @@ The result is the same as for MPL, because both use the same expression
 
  which was derived from the ratio of the two eqns.
  So, MPK adds nothing to what MPL already gives.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
 Collecting the moment conditions
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 We have 5 different error functions: two expressions for the iid technology
  shock, 
 \begin_inset Formula $u,$
@@ -41715,10 +42002,20 @@ We have 5 different error functions: two expressions for the iid technology
 \end_inset
 
  plus the Euler error and the law of motion error.
- The 3 iid shocks give at least two moments each: the mean are zero, and
+ 
+\end_layout
+
+\begin_layout Itemize
+The 3 iid shocks give at least two moments each: the mean are zero, and
  the variances are 1.
  We could also work with skew=0 and kurtosis=3, due to the normality of
  the shocks.
+ 
+\end_layout
+
+\begin_layout Itemize
+All of these errors have conditional expectation zero, at the true parameter
+ values.
  We can cross any of the errors with variables known in period 
 \begin_inset Formula $t,$
 \end_inset
@@ -41727,9 +42024,20 @@ We have 5 different error functions: two expressions for the iid technology
 \begin_inset Formula $t$
 \end_inset
 
- or before.
+ or before, following the ideas of Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Estimation-using-conditional"
+
+\end_inset
+
+.
  Thus, we can generate quite a few moment conditions.
- The question is, Which Moments to Match? (nod to 
+ 
+\end_layout
+
+\begin_layout Itemize
+The question is, Which Moments to Match? (nod to 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "emm"
@@ -41740,6 +42048,9 @@ key "emm"
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset Newpage newpage
+\end_inset
+
 Estimation by GMM
 \end_layout
 
@@ -42545,7 +42856,7 @@ where
 \end_inset
 
 .
- The observations are independent over time.
+ The observations are independent over time, and the errors have zero mean.
  The variable 
 \begin_inset Formula $x_{t}$
 \end_inset
@@ -43688,7 +43999,8 @@ For example, if we have an MA(1) model, then
 \end_layout
 
 \begin_layout Standard
-Thus, if the model is MA(1), the density of the vector of 
+Thus, if the model is MA(1) with normally distributed shocks, the density
+ of the vector of 
 \begin_inset Formula $n$
 \end_inset
 
@@ -66984,23 +67296,19 @@ Convergenge modes
 \series bold
 Readings:
 \series default
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-after "Chapter 4"
-key "DM"
-
-\end_inset
-
-;
-\begin_inset CommandInset citation
-LatexCommand cite
-after "Chapter 4"
-key "Gallant Intro"
-
-\end_inset
-
-.
+ Davidson, R.
+ and J.G.
+ MacKinnon, 
+\emph on
+Econometric Theory and Methods
+\emph default
+, Ch.
+ 4; Gallant, A.R., 
+\emph on
+An Introduction to Econometric Theory, 
+\emph default
+Ch.
+ 4.
 \end_layout
 
 \begin_layout Standard

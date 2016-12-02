@@ -66,6 +66,6 @@ minarg = 1;
 control = { lb, ub, nt, ns, rt, maxevals, neps, functol, paramtol, verbosity, 1};
 
 % options for bfgs
-%control = {Inf, 2};
+% control = {Inf, 2};
 [thetahat, obj_value, convergence] = gmm_estimate(thetastart, dsgedata, weight, "dsgemoments", {}, control);
 thetahat 

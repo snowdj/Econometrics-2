@@ -1,0 +1,3 @@
+c.m is a vector of 160 observation on consumption, from the CGHK model.
+Only this variable is used for linearized estimation using KF,
+due to the stoch. sing. problem.

@@ -8,12 +8,12 @@ betaiv = betaols;
 n = 1000; # sample size
 
 # covariance of X, W, e
-cov_X_W = 0.2;  % experiment with lowering or raising this: quality of instrument
-cov_X_e = 0;
+cov_X_W = 1;  % experiment with lowering or raising this: quality of instrument
+cov_X_e = 0.5;
 sig = [
-3, cov_X_W, cov_X_e;
-cov_X_W, 1, 0;
-cov_X_e, 0, 1];
+      3,                  cov_X_W,      cov_X_e;
+      cov_X_W,     1,                   0;
+     cov_X_e,        0,                  1];
 
 true = [1; 2]; # true beta
 p = chol(sig);

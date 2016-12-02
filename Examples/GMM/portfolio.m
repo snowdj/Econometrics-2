@@ -55,9 +55,9 @@ r = (p + d) ./ lag(p,1) - 1;
 c = c ./ lag(c,1); # ensure stationarity
 
 # choose maximal lag of instruments.
-max_lag = 1;
+max_lag = 2;
 %inst = [c r d p];
-inst = [d p];
+inst = [d p c];
 inst = lags(inst, max_lag);
 inst = st_norm(inst);
 inst = [ones(rows(inst),1) inst];

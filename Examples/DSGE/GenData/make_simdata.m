@@ -1,5 +1,5 @@
 % generates a sample of size 160 from the simple DSGE model
-system("ln -s ../Common/TEMPLATEMODFILE* ./")
+system("ln -s ../Common/CGHK* ./")
 outfile = "simdata.design";
 reps = 1;  % total replications
 
@@ -34,7 +34,7 @@ save parameterfile  alpha beta delta gam rho1 sigma1 rho2 sigma2 nss;
 % states on nodes after running Dynare, which synchronizes them
 %RNGstate = rand('state');
 
-dynare TEMPLATEMODFILE noclearall;
+dynare CGHK.mod noclearall;
 % get a simulation of length 160 and compute aux. statistic
 data = [y c n MPK MPL];
 data = data(101:260,:);

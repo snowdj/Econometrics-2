@@ -1,0 +1,491 @@
+Starting Dynare (version 4.4.3).
+Starting preprocessing of the model file ...
+Found 11 equation(s).
+Evaluating expressions...done
+Computing static model derivatives:
+ - order 1
+Computing dynamic model derivatives:
+ - order 1
+ - order 2
+ - order 3
+Processing outputs ...done
+Preprocessing completed.
+Starting MATLAB/Octave computing.
+warning: delete: no such file: junk_static.mex
+warning: called from
+    delete at line 47 column 9
+    erase_compiled_function at line 23 column 5
+    junk at line 119 column 1
+    dynare at line 188 column 1
+    EstimateCGHK_ML at line 3 column 1
+warning: delete: no such file: junk_dynamic.mex
+warning: Some of the parameters have no value (psi, c1, iss, yss, kss, css) when using stoch_simul. If these parameters are not initialized in a steadystate file, Dynare may not be able to solve the model...
+
+Estimation using a non linear filter!
+
+You are using a gradient-based mode-finder. Particle filtering introduces discontinuities in the
+objective function w.r.t the parameters. Thus, should use a non-gradient based optimizer.
+
+Please choose a mode-finder:
+	 0 - Continue using gradient-based method (it is most likely that you will no get any sensible result).
+	 6 - Monte Carlo based algorithm
+	 7 - Nelder-Mead simplex based optimization routine (Matlab optimization toolbox required)
+	 8 - Nelder-Mead simplex based optimization routine (Dynare's implementation)
+	 9 - CMA-ES (Covariance Matrix Adaptation Evolution Strategy) algorithm
+Please enter your choice: 8
+Loading 160 observations from c.m
+
+Initial value of the log posterior (or likelihood): 579.439
+max_func_calls =  2000
+
+
+
++----------------------+
+ SIMPLEX INITIALIZATION 
++----------------------+
+
+Objective function value: -579.439
+Current parameter values: 
+Names: 			 Best point 			 Worst point 			 Mean values 			 Min values 			 Max values 
+alppha: 			 +0.330000 			 +0.330000 			 +0.333300 			 +0.330000 			 +0.346500 
+rho1: 			 +0.900000 			 +0.945000 			 +0.909000 			 +0.900000 			 +0.945000 
+sigma1: 			 +0.020000 			 +0.020000 			 +0.020200 			 +0.020000 			 +0.021000 
+nss: 			 +0.333333 			 +0.333333 			 +0.336667 			 +0.333333 			 +0.350000 
+
+Simplex iteration number: 2-1-1
+Simplex move:             reflect-0
+Objective function value: -579.439
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.070782
+Crit. f:                  28.302
+Crit. x:                  0.045
+
+Simplex iteration number: 3-1-1
+Simplex move:             reflect-1
+Objective function value: -582.488
+Mode improvement:         3.0491
+Norm of dx:               0.028569
+Norm of dSimplex:         0.07545
+Crit. f:                  22.519
+Crit. x:                  0.045
+
+Current parameter values: 
+Names: 			 Best point 			 Worst point 			 Mean values 			 Min values 			 Max values 
+alppha: 			 +0.317625 			 +0.330000 			 +0.329175 			 +0.317625 			 +0.338250 
+rho1: 			 +0.877500 			 +0.900000 			 +0.886500 			 +0.855000 			 +0.900000 
+sigma1: 			 +0.020750 			 +0.020000 			 +0.020450 			 +0.020000 			 +0.021000 
+nss: 			 +0.345833 			 +0.350000 			 +0.340833 			 +0.333333 			 +0.350000 
+
+Simplex iteration number: 4-1-1
+Simplex move:             reflect-1
+Objective function value: -588.544
+Mode improvement:         6.0554
+Norm of dx:               0.024179
+Norm of dSimplex:         0.075679
+Crit. f:                  12.098
+Crit. x:                  0.0225
+
+Current parameter values: 
+Names: 			 Best point 			 Worst point 			 Mean values 			 Min values 			 Max values 
+alppha: 			 +0.327938 			 +0.338250 			 +0.328763 			 +0.317625 			 +0.338250 
+rho1: 			 +0.866250 			 +0.855000 			 +0.879750 			 +0.855000 			 +0.900000 
+sigma1: 			 +0.021125 			 +0.020500 			 +0.020675 			 +0.020000 			 +0.021125 
+nss: 			 +0.327083 			 +0.341667 			 +0.336250 			 +0.327083 			 +0.345833 
+
+Simplex iteration number: 5-1-1
+Simplex move:             contract inside
+Objective function value: -588.544
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.057467
+Crit. f:                  16.345
+Crit. x:                  0.03375
+
+
+
+Compute optimal expansion...
+Weight =         1.9608 1.9223 1.8846
+Done!
+
+
+Simplex iteration number: 6-1-1
+Simplex move:             expand
+Objective function value: -600.048
+Mode improvement:         11.504
+Norm of dx:               0.03305
+Norm of dSimplex:         0.048934
+Crit. f:                  14.372
+Crit. x:                  0.03375
+
+Current parameter values: 
+Names: 			 Best point 			 Worst point 			 Mean values 			 Min values 			 Max values 
+alppha: 			 +0.321147 			 +0.330000 			 +0.325806 			 +0.317625 			 +0.332320 
+rho1: 			 +0.837330 			 +0.900000 			 +0.870310 			 +0.837330 			 +0.900000 
+sigma1: 			 +0.019893 			 +0.020000 			 +0.020475 			 +0.019893 			 +0.021125 
+nss: 			 +0.341514 			 +0.333333 			 +0.337209 			 +0.327083 			 +0.345833 
+
+Simplex iteration number: 7-1-1
+Simplex move:             reflect-0
+Objective function value: -600.048
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.057137
+Crit. f:                  20.608
+Crit. x:                  0.06267
+
+
+
+Compute optimal expansion...
+Weight =         1.9608
+Done!
+
+
+Simplex iteration number: 8-1-1
+Simplex move:             expand
+Objective function value: -607.915
+Mode improvement:         7.8672
+Norm of dx:               0.051638
+Norm of dSimplex:         0.072492
+Crit. f:                  17.559
+Crit. x:                  0.04017
+
+Current parameter values: 
+Names: 			 Best point 			 Worst point 			 Mean values 			 Min values 			 Max values 
+alppha: 			 +0.340592 			 +0.332320 			 +0.328303 			 +0.319515 			 +0.340592 
+rho1: 			 +0.794316 			 +0.870469 			 +0.838828 			 +0.794316 			 +0.870469 
+sigma1: 			 +0.020611 			 +0.020609 			 +0.020685 			 +0.019893 			 +0.021189 
+nss: 			 +0.320592 			 +0.338281 			 +0.334099 			 +0.320592 			 +0.343023 
+
+Simplex iteration number: 9-1-1
+Simplex move:             contract outside
+Objective function value: -607.915
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.050263
+Crit. f:                  22.916
+Crit. x:                  0.076153
+
+
+
+Compute optimal expansion...
+Weight =         1.9608 1.9223
+Done!
+
+
+Simplex iteration number: 10-1-1
+Simplex move:             expand
+Objective function value: -620.617
+Mode improvement:         12.703
+Norm of dx:               0.079962
+Norm of dSimplex:         0.11066
+Crit. f:                  19.371
+Crit. x:                  0.071934
+
+Current parameter values: 
+Names: 			 Best point 			 Worst point 			 Mean values 			 Min values 			 Max values 
+alppha: 			 +0.323712 			 +0.319515 			 +0.325951 			 +0.319515 			 +0.340592 
+rho1: 			 +0.720847 			 +0.825774 			 +0.797882 			 +0.720847 			 +0.837330 
+sigma1: 			 +0.019603 			 +0.021189 			 +0.020409 			 +0.019603 			 +0.021189 
+nss: 			 +0.347243 			 +0.343023 			 +0.336562 			 +0.320592 			 +0.347243 
+
+Simplex iteration number: 11-1-1
+Simplex move:             reflect-0
+Objective function value: -620.617
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.073623
+Crit. f:                  24.151
+Crit. x:                  0.11648
+
+Simplex iteration number: 12-1-1
+Simplex move:             contract inside
+Objective function value: -620.617
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.061609
+Crit. f:                  22.159
+Crit. x:                  0.11648
+
+Simplex iteration number: 13-1-1
+Simplex move:             contract outside
+Objective function value: -620.617
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.08428
+Crit. f:                  20.57
+Crit. x:                  0.11648
+
+Simplex iteration number: 14-1-1
+Simplex move:             reflect-1
+Objective function value: -621.094
+Mode improvement:         0.47625
+Norm of dx:               0.014478
+Norm of dSimplex:         0.084142
+Crit. f:                  12.703
+Crit. x:                  0.073469
+
+Current parameter values: 
+Names: 			 Best point 			 Worst point 			 Mean values 			 Min values 			 Max values 
+alppha: 			 +0.321436 			 +0.327526 			 +0.329098 			 +0.321436 			 +0.337214 
+rho1: 			 +0.706617 			 +0.794138 			 +0.741697 			 +0.706617 			 +0.794138 
+sigma1: 			 +0.018938 			 +0.020294 			 +0.019607 			 +0.018938 			 +0.020294 
+nss: 			 +0.346014 			 +0.332247 			 +0.335845 			 +0.326851 			 +0.347243 
+
+Simplex iteration number: 15-1-1
+Simplex move:             contract inside
+Objective function value: -621.094
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.072081
+Crit. f:                  11.432
+Crit. x:                  0.08752
+
+Simplex iteration number: 16-1-1
+Simplex move:             reflect-0
+Objective function value: -621.094
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.042843
+Crit. f:                  5.2341
+Crit. x:                  0.054745
+
+Simplex iteration number: 17-1-1
+Simplex move:             reflect-1
+Objective function value: -622.497
+Mode improvement:         1.4029
+Norm of dx:               0.0073029
+Norm of dSimplex:         0.062642
+Crit. f:                  5.1541
+Crit. x:                  0.054745
+
+Current parameter values: 
+Names: 			 Best point 			 Worst point 			 Mean values 			 Min values 			 Max values 
+alppha: 			 +0.320576 			 +0.317416 			 +0.323749 			 +0.317416 			 +0.335604 
+rho1: 			 +0.701189 			 +0.741596 			 +0.725258 			 +0.701189 			 +0.756043 
+sigma1: 			 +0.018458 			 +0.018864 			 +0.019021 			 +0.018458 			 +0.019603 
+nss: 			 +0.350799 			 +0.350462 			 +0.344278 			 +0.326872 			 +0.350799 
+
+Simplex iteration number: 18-1-1
+Simplex move:             contract inside
+Objective function value: -622.497
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.047915
+Crit. f:                  5.4618
+Crit. x:                  0.054854
+
+Simplex iteration number: 19-1-1
+Simplex move:             contract inside
+Objective function value: -622.497
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.049915
+Crit. f:                  3.3405
+Crit. x:                  0.054854
+
+Simplex iteration number: 20-1-1
+Simplex move:             reflect-0
+Objective function value: -622.497
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.023193
+Crit. f:                  2.9026
+Crit. x:                  0.034337
+
+Simplex iteration number: 21-1-1
+Simplex move:             reflect-1
+Objective function value: -623.828
+Mode improvement:         1.3316
+Norm of dx:               0.0098156
+Norm of dSimplex:         0.054482
+Crit. f:                  1.8792
+Crit. x:                  0.034337
+
+Current parameter values: 
+Names: 			 Best point 			 Worst point 			 Mean values 			 Min values 			 Max values 
+alppha: 			 +0.324555 			 +0.325832 			 +0.324218 			 +0.320576 			 +0.328689 
+rho1: 			 +0.701172 			 +0.700705 			 +0.709042 			 +0.700705 			 +0.735526 
+sigma1: 			 +0.018200 			 +0.019095 			 +0.018761 			 +0.018200 			 +0.019115 
+nss: 			 +0.341830 			 +0.344065 			 +0.343995 			 +0.337267 			 +0.350799 
+
+Simplex iteration number: 22-1-1
+Simplex move:             contract inside
+Objective function value: -623.828
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.050377
+Crit. f:                  2.7386
+Crit. x:                  0.034354
+
+Simplex iteration number: 23-1-1
+Simplex move:             reflect-0
+Objective function value: -623.828
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.052369
+Crit. f:                  2.7346
+Crit. x:                  0.034354
+
+Simplex iteration number: 24-1-1
+Simplex move:             contract inside
+Objective function value: -623.828
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.0441
+Crit. f:                  2.4455
+Crit. x:                  0.034354
+
+Simplex iteration number: 25-1-1
+Simplex move:             contract inside
+Objective function value: -623.828
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.027836
+Crit. f:                  1.3316
+Crit. x:                  0.019536
+
+Simplex iteration number: 26-1-1
+Simplex move:             contract inside
+Objective function value: -623.828
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.020074
+Crit. f:                  1.2445
+Crit. x:                  0.019536
+
+Simplex iteration number: 27-1-1
+Simplex move:             contract inside
+Objective function value: -623.828
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.014828
+Crit. f:                  1.2249
+Crit. x:                  0.014112
+
+Simplex iteration number: 28-1-1
+Simplex move:             contract inside
+Objective function value: -623.828
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.01025
+Crit. f:                  1.0953
+Crit. x:                  0.014112
+
+Simplex iteration number: 29-1-1
+Simplex move:             contract outside
+Objective function value: -624.656
+Mode improvement:         0.82763
+Norm of dx:               0.0072693
+Norm of dSimplex:         0.013391
+Crit. f:                  1.0228
+Crit. x:                  0.012726
+
+Current parameter values: 
+Names: 			 Best point 			 Worst point 			 Mean values 			 Min values 			 Max values 
+alppha: 			 +0.325855 			 +0.326412 			 +0.325500 			 +0.324555 			 +0.326412 
+rho1: 			 +0.708310 			 +0.711206 			 +0.708100 			 +0.701172 			 +0.713898 
+sigma1: 			 +0.018569 			 +0.018478 			 +0.018556 			 +0.018200 			 +0.018886 
+nss: 			 +0.341574 			 +0.341997 			 +0.342296 			 +0.341574 			 +0.344021 
+
+Simplex iteration number: 30-1-1
+Simplex move:             shrink
+Objective function value: -624.656
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.010486
+Crit. f:                  1.7785
+Crit. x:                  0.007138
+
+Simplex iteration number: 31-1-1
+Simplex move:             contract inside
+Objective function value: -624.656
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.0076639
+Crit. f:                  2.2352
+Crit. x:                  0.003569
+
+Simplex iteration number: 32-1-1
+Simplex move:             reflect-0
+Objective function value: -624.656
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.0046637
+Crit. f:                  1.861
+Crit. x:                  0.002794
+
+Simplex iteration number: 33-1-1
+Simplex move:             reflect-0
+Objective function value: -624.656
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.0061698
+Crit. f:                  1.329
+Crit. x:                  0.0033706
+
+Simplex iteration number: 34-1-1
+Simplex move:             shrink
+Objective function value: -624.656
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.0048664
+Crit. f:                  1.0928
+Crit. x:                  0.0033706
+
+Simplex iteration number: 35-1-1
+Simplex move:             contract inside
+Objective function value: -624.656
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.0018921
+Crit. f:                  1.7655
+Crit. x:                  0.0016853
+
+
+
+Compute optimal expansion...
+Weight =         1.9608
+Done!
+
+
+Simplex iteration number: 36-1-1
+Simplex move:             expand
+Objective function value: -624.656
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.0017742
+Crit. f:                  1.7318
+Crit. x:                  0.0016853
+
+Simplex iteration number: 37-1-1
+Simplex move:             reflect-0
+Objective function value: -624.656
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.00179
+Crit. f:                  1.5781
+Crit. x:                  0.0016853
+
+Simplex iteration number: 38-1-1
+Simplex move:             shrink
+Objective function value: -624.656
+Mode improvement:         0
+Norm of dx:               0
+Norm of dSimplex:         0.0023403
+Crit. f:                  1.0306
+Crit. x:                  0.0016853
+
+Simplex iteration number: 39-1-1
+Simplex move:             reflect-1
+Objective function value: -625.165
+Mode improvement:         0.50893
+Norm of dx:               0.00046034
+Norm of dSimplex:         0.0017305
+Crit. f:                  2.8072
+Crit. x:                  0.00084266
+
+Current parameter values: 
+Names: 			 Best point 			 Worst point 			 Mean values 			 Min values 			 Max values 
+alppha: 			 +0.326108 			 +0.325849 			 +0.325903 			 +0.325781 			 +0.326108 
+rho1: 			 
