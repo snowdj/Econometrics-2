@@ -1,7 +1,7 @@
 # Nerlove Cobb-Douglas model with constant and output varying, input price coefs fixed
 
 load nerlove.data;
-
+data = nerlove;
 data = data(:,2:6);
 data = log(data);
 n = rows(data);

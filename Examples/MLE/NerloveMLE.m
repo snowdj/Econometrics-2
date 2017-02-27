@@ -3,7 +3,7 @@
 # ML estimator (for the b's, not for sig^2)
 
 load nerlove.data;
-
+data = nerlove;
 data = data(:,2:6);
 data = log(data);
 n = rows(data);

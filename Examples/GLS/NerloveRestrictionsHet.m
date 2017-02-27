@@ -2,7 +2,7 @@
 # The constant and output coefficient varies across 5 firm size groups
 
 load nerlove.data;
-
+data = nerlove;
 data = data(:,2:6);
 data = log(data);
 n = rows(data);

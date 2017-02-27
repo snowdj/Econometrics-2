@@ -1,6 +1,6 @@
 # Check the Nerlove data for collinearity
 load nerlove.data;
-
+data = nerlove;
 data = data(:,3:6); # these are the regressors
 data = log(data);
 n = rows(data);

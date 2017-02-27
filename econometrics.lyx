@@ -48,6 +48,7 @@
     captionpos=b%
 }
 \end_preamble
+\options authordate
 \use_default_options false
 \begin_modules
 theorems-ams
@@ -71,7 +72,7 @@ theorems-ams-extended
 \graphics default
 \default_output_format default
 \output_sync 0
-\bibtex_command bibtex8
+\bibtex_command default
 \index_command default
 \paperfontsize 17
 \spacing onehalf
@@ -97,9 +98,9 @@ theorems-ams-extended
 \use_package stackrel 0
 \use_package stmaryrd 1
 \use_package undertilde 1
-\cite_engine natbib
-\cite_engine_type authoryear
-\biblio_style plain
+\cite_engine basic
+\cite_engine_type default
+\biblio_style round, plainnat
 \use_bibtopic false
 \use_indices false
 \paperorientation landscape
@@ -280,12 +281,11 @@ Estimation and Inference in Econometrics
 \end_layout
 
 \begin_layout Itemize
-Gallant, A.R.
- (1985) 
+Gallant, 
 \emph on
 Nonlinear Statistical Models
 \emph default
-, Wiley.
+.
  
 \end_layout
 
@@ -4251,7 +4251,7 @@ We will estimate the Cobb-Douglas model
  To do this yourself, you need the data file mentioned above, as well as
  
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -58007,6 +58007,8 @@ target "https://github.com/mcreel/NeuralNetsForIndirectInference.jl"
 \end_inset
 
 .
+ Part of that repository has been copied into the ./Examples/DSGE/NNII directory
+ of the example files that accompany these notes.
  See especially 
 \begin_inset CommandInset href
 LatexCommand href
@@ -58015,8 +58017,24 @@ target "https://github.com/mcreel/NeuralNetsForIndirectInference.jl/blob/master/
 
 \end_inset
 
- for an example that shows that shows that a neural net estimator can be
- computed in extremely little time.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{this file}{https://github.com/mcreel/Econometrics/blob/master/E
+xamples/DSGE/NNII/NN
+\backslash
+_estimate.m} 
+\end_layout
+
+\end_inset
+
+for an example that shows that shows that an accurate neural net estimator
+ can be computed in extremely little time.
  Using these methods to estimate the model discussed in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -69653,9 +69671,8 @@ Notation for differentiation of vectors and matrices
 
 \begin_layout Standard
 \begin_inset CommandInset citation
-LatexCommand cite
-after "Chapter 1"
-key "Gallant Nonlinear S. Models"
+LatexCommand citet
+key "GallantNonlinearStatisticalModels"
 
 \end_inset
 

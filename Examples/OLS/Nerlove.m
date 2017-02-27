@@ -1,6 +1,7 @@
 % Estimates the basic Nerlove Cobb-Douglas model
 
 load nerlove.data;
+data = nerlove;
 
 data = data(:,2:6);
 data = log(data);
