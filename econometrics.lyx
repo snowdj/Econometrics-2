@@ -58010,14 +58010,6 @@ target "https://github.com/mcreel/NeuralNetsForIndirectInference.jl"
  Part of that repository has been copied into the ./Examples/DSGE/NNII directory
  of the example files that accompany these notes.
  See especially 
-\begin_inset CommandInset href
-LatexCommand href
-name "this file"
-target "https://github.com/mcreel/NeuralNetsForIndirectInference.jl/blob/master/DSGE/SimpleDirectEstimationExample/NN_estimate.m"
-
-\end_inset
-
- 
 \begin_inset ERT
 status open
 
