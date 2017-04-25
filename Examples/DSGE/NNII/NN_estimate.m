@@ -15,13 +15,13 @@ Set the true parameters within these bounds
 % set true parameters here
 alpha  = 0.3;
 beta   = 0.99;
-delta  = 0.04;
-gam    = 2.5;
-rho1   = 0.8;
+delta  = 0.025;
+gam    = 2.0;
+rho1   = 0.9;
 sigma1 = 0.03;
 rho2   = 0.3;
 sigma2 = 0.01;
-nss    = 0.3;
+nss    = 1/3;
 theta0 = [alpha; beta; delta; gam; rho1; sigma1; rho2; sigma2; nss];
 
 % the psi implied by other parameters
@@ -35,7 +35,7 @@ save parameterfile  alpha beta delta gam rho1 sigma1 rho2 sigma2 nss;
 RNGstate = rand('state');   % this is used to get different random draws
                             % each time, otherwise, Dynare fixes the state
                             % so the results are the same each time this is run
-dynare SimpleModel noclearall;
+dynare SimpleModel noclearall; % solve the model
 % set a new state in case this is run again
 ss = round(RNGstate(1)/RNGstate(2)*sum(RNGstate));
 set_dynare_seed(ss);

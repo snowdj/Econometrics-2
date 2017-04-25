@@ -98,9 +98,9 @@ theorems-ams-extended
 \use_package stackrel 0
 \use_package stmaryrd 1
 \use_package undertilde 1
-\cite_engine basic
-\cite_engine_type default
-\biblio_style round, plainnat
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style 
 \use_bibtopic false
 \use_indices false
 \paperorientation landscape
@@ -163,7 +163,7 @@ Universitat Autònoma de Barcelona
 
 
 \size small
-Feb.
+Apr.
  2017
 \end_layout
 
@@ -205,6 +205,22 @@ LatexCommand tableofcontents
 About this document
 \end_layout
 
+\begin_layout Standard
+Note to self: for different versions, these are the strings to replace
+\end_layout
+
+\begin_layout Standard
+https://github.com/mcreel/Econometrics/blob/master
+\end_layout
+
+\begin_layout Standard
+file:///home/michael/Mystuff/Econometrics
+\end_layout
+
+\begin_layout Standard
+file:///home/user/Econometrics
+\end_layout
+
 \begin_layout Section
 Prerequisites
 \end_layout
@@ -218,7 +234,7 @@ Introductory Econometrics: A Modern Approach
 \emph default
  by Jeffrey Wooldridge.
  It is the student's responsibility to get up to speed on this material,
- it will not be covered in class
+ it will not be covered in class.
 \end_layout
 
 \begin_layout Standard
@@ -237,7 +253,13 @@ This document integrates lecture notes for a one year graduate level course
 \end_layout
 
 \begin_layout Itemize
-Cameron, A.C.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cameron2005microeconometrics"
+
+\end_inset
+
+ Cameron, A.C.
  and P.K.
  Trivedi, 
 \emph on
@@ -4097,7 +4119,7 @@ where
 One can verify that the property of HOD1 implies that 
 \begin_inset Formula 
 \[
-\sum_{i=1}^{g}\beta_{g}=1
+\sum_{i=1}^{g}\beta_{i}=1
 \]
 
 \end_inset
@@ -19877,6 +19899,12 @@ reference "ass:Weakly-exogenous-regressors:"
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Reduced-form"
+
+\end_inset
+
 Reduced form
 \end_layout
 
@@ -23156,7 +23184,14 @@ Numeric optimization methods
 \series bold
 Readings:
 \series default
- Cameron and Trivedi, Ch.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cameron2005microeconometrics"
+
+\end_inset
+
+, Ch.
  10; Hamilton, ch.
  5, section 7 (pp.
  133-139)
@@ -23230,7 +23265,23 @@ The general problem we consider is how to find the maximizing element
 
  This function may not be continuous, and it may not be differentiable.
  Even if it is twice continuously differentiable, it may not be globally
- concave, so local maxima, minima and saddlepoints may all exist.
+ concave, so 
+\begin_inset CommandInset href
+LatexCommand href
+name "local maxima, minima"
+target "https://en.wikipedia.org/wiki/Maxima_and_minima"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset href
+LatexCommand href
+name "saddlepoints"
+target "https://en.wikipedia.org/wiki/Saddle_point"
+
+\end_inset
+
+ may all exist.
  Supposing 
 \begin_inset Formula $s(\theta)$
 \end_inset
@@ -23694,6 +23745,7 @@ reference "Increasing directions"
 
  
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -23719,7 +23771,7 @@ Increasing directions of search
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename Examples/NonlinearOptimization/IncreasingDirections.pdf
-	width 6in
+	width 5in
 
 \end_inset
 
@@ -23750,7 +23802,9 @@ With this, the iteration rule becomes
 \begin_layout Standard
 and we keep going until the gradient becomes zero, so that there is no increasin
 g direction.
- The problem is how to choose 
+ The problem is now 
+\emph on
+how to choose 
 \begin_inset Formula $a$
 \end_inset
 
@@ -23775,7 +23829,8 @@ Conditional on
 \end_inset
 
  is fairly straightforward.
- A simple line search is an attractive possibility, since 
+ A simple line (1 dimensional grid) search is an attractive possibility,
+ since 
 \begin_inset Formula $a$
 \end_inset
 
@@ -24407,6 +24462,16 @@ automatic differentiation
 .
  This will probably become important in the future, but existing econometric
  software makes little use of it.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+update as of 2017: the MXNet.jl package used to train neural nets, mentioned
+ in the chapter on nonparametric methods, uses automatic differentiation.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -24527,6 +24592,7 @@ This is important in practice.
 \emph default
 In the future, if you start to do empirical work and get results that seem
  meaningless or crazy, try to remember this point.
+ 
 \begin_inset Newpage newpage
 \end_inset
 
@@ -24555,7 +24621,7 @@ Switching between algorithms during iterations is sometimes useful.
 The Nerlove model via numeric minimization.
  The example code 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -24861,7 +24927,7 @@ When the data is scaled so that the magnitudes of the first and second derivativ
 es are of different orders, problems can easily result.
  If we uncomment the appropriate line in 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -24934,7 +25000,10 @@ reference "foggy mountain"
  the fog you don't know if the true summit is across the gap that's at your
  feet.
  Do you claim victory and go home, or do you trudge down the gap and explore
- the other side?
+ the other side? (example inspired by H.W.
+ Tilman 
+\emph on
+Snow on the Equator).
 \end_layout
 
 \begin_layout Standard
@@ -25060,9 +25129,9 @@ filename "Examples/NonlinearOptimization/FoggyMountain.out"
 \end_inset
 
 In that run, the single BFGS run with bad start values converged to a point
- far from the true minimizer, which simulated annealing and BFGS using a
- battery of random start values both found the true maximizer.
- Using a battery of random start values, we managed to find the global max.
+ far from the true minimizer, while simulated annealing and BFGS using a
+ battery of random start values both found the true minimizer.
+ Using a battery of random start values, we managed to find the global min.
  The moral of the story is to be cautious and don't publish your results
  too quickly.
 \end_layout
@@ -25350,44 +25419,28 @@ Asymptotic properties of extremum estimators
 \series bold
 Readings
 \series default
-: Cameron and Trivedi, Ch.
+: 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cameron2005microeconometrics"
+
+\end_inset
+
+, Ch.
  5; Hayashi (2000), Ch.
  7; Gourieroux and Monfort (1995), Vol.
  2, Ch.
  24; Amemiya, Ch.
  4 section 4.1; Davidson and MacKinnon, pp.
  591-96; Gallant, Ch.
- 3; Newey and McFadden (1994), 
-\begin_inset Quotes eld
-\end_inset
-
-
-\begin_inset CommandInset href
-LatexCommand href
-name "Large Sample Estimation and Hypothesis Testing"
-target "http://www.sciencedirect.com/science?_ob=ArticleURL&_udi=B7GX7-4FPWV09-5&_user=1517286&_coverDate=12%2F31%2F1994&_rdoc=5&_fmt=high&_orig=browse&_srch=doc-info(%23toc%2320479%231994%23999959999%23583590%23FLP%23display%23Volume)&_cdi=20479&_sort=d&_docanchor=&_ct=21&_acct=C000053449&_version=1&_urlVersion=0&_userid=1517286&md5=5a540eb9d22288a9f25f3914db38aa1b"
+ 3; 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NeweyMcfadden"
 
 \end_inset
 
-,
-\begin_inset Quotes erd
-\end_inset
-
- in 
-\emph on
-
-\begin_inset CommandInset href
-LatexCommand href
-name "Handbook of Econometrics"
-target "http://www.sciencedirect.com/science/handbooks/15734412"
-
-\end_inset
-
-, Vol.
- 4
-\emph default
-, Ch.
- 36.
+.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -25644,7 +25697,7 @@ The maximum likelihood estimator is maximizes the joint density of the sample.
  is 
 \begin_inset Formula 
 \[
-\hat{\theta}\equiv\arg\max_{\Theta}\,\,\mathcal{L}_{n}(\theta)=\prod_{t=1}^{n}\left(2\pi\right)^{-1/2}(1/\sigma)\exp\left(-\frac{\left(y_{t}-\theta\right)^{2}}{2}\right)
+\hat{\theta}\equiv\arg\max_{\Theta}\,\,\mathcal{L}_{n}(\theta)=\prod_{t=1}^{n}\left(2\pi\right)^{-1/2}(1/\sigma)\exp\left(-\frac{1}{2}\left(\frac{y_{t}-\theta}{\sigma}\right)^{2}\right)
 \]
 
 \end_inset
@@ -25670,7 +25723,7 @@ Because the natural logarithm is strictly increasing on
  where 
 \begin_inset Formula 
 \[
-s_{n}(\theta)=\left(1/n\right)\ln\mathcal{L}_{n}(\theta)=-\ln\sqrt{2\pi}-\text{\log}\sigma-\left(1/n\right)\sum_{t=1}^{n}\frac{\left(y_{t}-\theta\right)^{2}}{2}
+s_{n}(\theta)=\left(1/n\right)\ln\mathcal{L}_{n}(\theta)=-\ln\sqrt{2\pi}-\text{\log}\sigma-\left(1/n\right)\sum_{t=1}^{n}\left(\frac{y_{t}-\theta}{\sigma}\right)^{2}
 \]
 
 \end_inset
@@ -25909,9 +25962,14 @@ Consistency
 \end_layout
 
 \begin_layout Standard
-The following theorem is patterned on a proof in Gallant (1987) (the article,
- ref.
- later), which we'll see in its original form later in the course.
+The following theorem is patterned on a proof in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gallant_1987"
+
+\end_inset
+
+.
  It is interesting to compare the following proof with Amemiya's Theorem
  4.1.1, which is done in terms of convergence in probability.
 \end_layout
@@ -26086,7 +26144,7 @@ The sequence
 \begin_inset Formula $\overline{\Theta},$
 \end_inset
 
- by assumption (a) and the fact that maximixation is over 
+ by assumption (a) and the fact that maximization is over 
 \begin_inset Formula $\overline{\Theta}$
 \end_inset
 
@@ -26137,7 +26195,8 @@ By uniform convergence and continuity,
 \begin_inset Formula $\left\{ \hat{\theta}_{n_{m}}\right\} .$
 \end_inset
 
- Then uniform convergence implies 
+ Then uniform convergence (assn.
+ b) implies 
 \begin_inset Formula 
 \[
 \lim_{m\rightarrow\infty}s_{n_{m}}(\hat{\theta}_{t})=s_{\infty}(\hat{\theta}_{t})
@@ -26591,8 +26650,9 @@ We suppose that data is generated by random sampling of
  is 
 \begin_inset Formula 
 \begin{eqnarray*}
-s_{n}(\theta) & = & 1/n\sum_{t=1}^{n}\left(y_{t}-\beta x_{t}\right)^{2}=1/n\sum_{i=1}^{n}\left(\beta_{0}x_{t}+\varepsilon_{t}-\beta x_{t}\right)^{2}\\
- & = & 1/n\sum_{t=1}^{n}\left(x_{t}\left(\beta_{0}-\beta\right)\right)^{2}+2/n\sum_{t=1}^{n}x_{t}\left(\beta_{0}-\beta\right)\varepsilon_{t}+1/n\sum_{t=1}^{n}\varepsilon_{t}^{2}
+s_{n}(\theta) & = & \frac{1}{n}\sum_{t=1}^{n}\left(y_{t}-\beta x_{t}\right)^{2}=\frac{1}{n}\sum_{i=1}^{n}\left(\beta_{0}x_{t}+\varepsilon_{t}-\beta x_{t}\right)^{2}\\
+ & = & \frac{1}{n}\sum_{i=1}^{n}\left((\beta_{0}-\beta)x_{t}+\varepsilon_{t}\right)^{2}\\
+ & = & \frac{1}{n}\sum_{t=1}^{n}\left((\beta_{0}-\beta)x_{t}\right)^{2}+\frac{2}{n}\sum_{t=1}^{n}(\beta_{0}-\beta)x_{t}\varepsilon_{t}+\frac{1}{n}\sum_{t=1}^{n}\varepsilon_{t}^{2}
 \end{eqnarray*}
 
 \end_inset
@@ -26604,7 +26664,7 @@ s_{n}(\theta) & = & 1/n\sum_{t=1}^{n}\left(y_{t}-\beta x_{t}\right)^{2}=1/n\sum_
 Considering the last term, by the SLLN, 
 \begin_inset Formula 
 \[
-1/n\sum_{t=1}^{n}\varepsilon_{t}^{2}\stackrel{a.s.}{\rightarrow}\int_{\mathcal{X}}\int_{\mathcal{E}}\varepsilon^{2}d\mu_{\mathcal{X}}d\mu_{\mathcal{E}}=\sigma_{\varepsilon}^{2}.
+\frac{1}{n}\sum_{t=1}^{n}\varepsilon_{t}^{2}\stackrel{a.s.}{\rightarrow}\int_{\mathcal{X}}\int_{\mathcal{E}}\varepsilon^{2}d\mu_{\mathcal{X}}d\mu_{\mathcal{E}}=\sigma_{\varepsilon}^{2}.
 \]
 
 \end_inset
@@ -26637,7 +26697,7 @@ Finally, for the first term, for a given
 , we assume that a SLLN applies so that
 \begin_inset Formula 
 \begin{eqnarray}
-1/n\sum_{t=1}^{n}\left(x_{t}\left(\beta_{0}-\beta\right)\right)^{2} & \stackrel{a.s.}{\rightarrow} & \int_{\mathcal{X}}\left(x\left(\beta_{0}-\beta\right)\right)^{2}d\mu_{\mathcal{X}}\label{olslim}\\
+\frac{1}{n}\sum_{t=1}^{n}\left((\beta_{0}-\beta)x_{t}\right)^{2} & \stackrel{a.s.}{\rightarrow} & \int_{\mathcal{X}}\left((\beta_{0}-\beta)x\right)^{2}d\mu_{\mathcal{X}}\label{olslim}\\
  & = & \left(\beta^{0}-\beta\right)^{2}\int_{\mathcal{X}}x^{2}d\mu_{\mathcal{X}}\nonumber \\
  & = & \left(\beta^{0}-\beta\right)^{2}E\left(X^{2}\right)\nonumber 
 \end{eqnarray}
@@ -26743,7 +26803,17 @@ reference "fig:Consistency-of-OLS"
 \begin_inset Formula $(0,1).$
 \end_inset
 
+ The computations show that the true parameter values satisfy the first
+ order conditions for minimization of the first term of the limiting objective
+ function, eqn.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "olslim"
 
+\end_inset
+
+, above.
 \end_layout
 
 \begin_layout Standard
@@ -26896,7 +26966,9 @@ and we can write the limiting objective function as
 \begin_inset Formula $\hat{\theta}_{n}\stackrel{a.s.}{\rightarrow}\theta^{0}$
 \end_inset
 
- What is the relationship between 
+ 
+\emph on
+What is the relationship between 
 \begin_inset Formula $\theta^{0}$
 \end_inset
 
@@ -26938,7 +27010,7 @@ and we can write the limiting objective function as
 
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 case 1: If knowledge of 
 \begin_inset Formula $\theta^{0}$
 \end_inset
@@ -26967,7 +27039,7 @@ reference "eeolsexample"
  illustrates this case.
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 case 2: If knowledge of 
 \begin_inset Formula $\theta^{0}$
 \end_inset
@@ -26995,7 +27067,7 @@ true parameter value
 al variances.
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 case 3: If knowledge of 
 \begin_inset Formula $\theta^{0}$
 \end_inset
@@ -27114,12 +27186,13 @@ The sample objective function for a sample size
 \begin{eqnarray*}
 s_{n}(\gamma) & = & 1/n\sum_{t=1}^{n}\left(y_{t}-\gamma w_{t}\right)^{2}=1/n\sum_{i=1}^{n}\left(\beta_{0}x_{t}+\varepsilon_{t}-\gamma w_{t}\right)^{2}\\
  & = & 1/n\sum_{t=1}^{n}\left(\beta_{0}x_{t}\right)^{2}+1/n\sum_{t=1}^{n}\left(\gamma w_{t}\right)^{2}+1/n\sum_{t=1}^{n}\varepsilon_{t}^{2}\\
- &  & +2/n\sum_{t=1}^{n}\beta_{0}x_{t}\varepsilon_{t}-2/n\sum_{t=1}^{n}\beta_{0}\gamma x_{t}w_{t}-2/n\sum_{t=1}^{n}\varepsilon_{t}x_{t}w_{t}
+ &  & +2/n\sum_{t=1}^{n}\beta_{0}x_{t}\varepsilon_{t}-2/n\sum_{t=1}^{n}\beta_{0}\gamma x_{t}w_{t}-2/n\sum_{t=1}^{n}\varepsilon_{t}x_{t}w_{t},
 \end{eqnarray*}
 
 \end_inset
 
- Using arguments similar to above, 
+which one can verify if armed with patience.
+ Using arguments similar to the correctly specified case, above, 
 \begin_inset Formula 
 \[
 s_{\infty}(\gamma)=\gamma^{2}E\left(W^{2}\right)-2\beta_{0}\gamma E(WX)+C
@@ -27166,6 +27239,12 @@ The theorem for consistency is really quite intuitive.
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Example:-Linearization-of"
+
+\end_inset
+
 Example: Linearization of a nonlinear model
 \end_layout
 
@@ -27593,11 +27672,11 @@ reference "Consistency of ee"
 
 \begin_layout Theorem
 (b) 
-\begin_inset Formula $\{\mathcal{J}_{n}(\theta_{n})\}\stackrel{a.s.}{\rightarrow}\mathcal{J}_{\infty}(\theta^{0}),$
+\begin_inset Formula $\mathcal{J}_{n}(\theta_{n})\stackrel{a.s.}{\rightarrow}\mathcal{J}_{\infty}(\theta^{0}),$
 \end_inset
 
- a finite negative definite matrix, for any sequence 
-\begin_inset Formula $\{\theta_{n}\}$
+ a finite negative definite matrix, for any sequence of 
+\begin_inset Formula $\theta_{n}$
 \end_inset
 
  that converges almost surely to 
@@ -27687,10 +27766,11 @@ Now the l.h.s.
  is a maximizer and the f.o.c.
  must hold exactly since the limiting objective function is strictly concave
  in a neighborhood of 
-\begin_inset Formula $\theta^{0}.$
+\begin_inset Formula $\theta^{0}$
 \end_inset
 
-
+ (assns.
+ a and b)
 \end_layout
 
 \begin_layout Itemize
@@ -28175,7 +28255,13 @@ Maximum likelihood estimation
 \end_layout
 
 \begin_layout Standard
-Cameron and Trivedi, Ch.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cameron2005microeconometrics"
+
+\end_inset
+
+, Ch.
  5
 \end_layout
 
@@ -28630,7 +28716,7 @@ Then, in the end, we have
 \begin_layout Standard
 \begin_inset Formula 
 \[
-L(Y,\theta)=f(y_{n}|y_{1,}y_{2},\ldots y_{t-n},Z,\theta)f(y_{n-1}|y_{1,}y_{2},\ldots y_{n-2},Z,\theta)\cdots f(y_{2}|y_{1},Z,\theta)f(y_{1}|Z,\theta)
+L(Y|Z,\theta)=f(y_{n}|y_{1,}y_{2},\ldots y_{n-1},Z,\theta)f(y_{n-1}|y_{1,}y_{2},\ldots y_{n-2},Z,\theta)\cdots f(y_{2}|y_{1},Z,\theta)f(y_{1}|Z,\theta)
 \]
 
 \end_inset
@@ -28680,7 +28766,7 @@ Regardless of the specific contents of
  the likelihood function can now be written as 
 \begin_inset Formula 
 \[
-L(Y|X;\theta)=\prod_{t=1}^{n}f(y_{t}|x_{t},\theta)
+L(Y|Z;\theta)=\prod_{t=1}^{n}f(y_{t}|x_{t},\theta)
 \]
 
 \end_inset
@@ -28693,7 +28779,7 @@ The criterion function can be defined as the average log-likelihood function:
  
 \begin_inset Formula 
 \[
-s_{n}(\theta)=\frac{1}{n}\ln L(Y|X;\theta)=\frac{1}{n}\sum_{t=1}^{n}\ln f(y_{t}|x_{t};\theta)
+s_{n}(\theta)=\frac{1}{n}\ln L(Y|Z;\theta)=\frac{1}{n}\sum_{t=1}^{n}\ln f(y_{t}|x_{t};\theta)
 \]
 
 \end_inset
@@ -28731,13 +28817,36 @@ s_{n}(\theta)=\frac{1}{n}\ln L(Y|X;\theta)=\frac{1}{n}\sum_{t=1}^{n}\ln f(y_{t}|
 \begin_inset Formula $\hat{\theta}.$
 \end_inset
 
+ 
+\end_layout
 
+\begin_deeper
+\begin_layout Itemize
+
+\emph on
+Question: why do we do it, then? 
+\emph default
+There are both theoretical and practical reasons:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+to get a LLN to apply
+\end_layout
+
+\begin_layout Itemize
+to avoid loss of precision on a digital computer
+\end_layout
+
+\end_deeper
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
 
 \end_layout
 
+\end_deeper
 \begin_layout Example
 Example: 
 \begin_inset CommandInset label
@@ -28878,10 +28987,13 @@ A LLN tells us that, for a given
 \end_inset
 
  
-\begin_inset Formula $s_{n}(p)\rightarrow^{a.s.}p_{0}\ln p+(1-p_{0})\ln(1-p)$
+\begin_inset Formula 
+\[
+s_{n}(p)=\frac{1}{n}\sum_{t=1}^{n}y_{t}\ln p+\left(1-y_{t}\right)\ln\left(1-p\right)\rightarrow^{a.s.}p_{0}\ln p+(1-p_{0})\ln(1-p).
+\]
+
 \end_inset
 
-.
  
 \end_layout
 
@@ -29146,11 +29258,11 @@ reference "Consistency of ee"
 
 \begin_layout Standard
 Remember that 
-\begin_inset Formula $s_{n}(\theta)=\frac{1}{n}\ln L(Y,\theta)$
+\begin_inset Formula $s_{n}(\theta)=\frac{1}{n}\ln L(Y|Z,\theta)$
 \end_inset
 
 , and 
-\begin_inset Formula $L(Y,\theta_{0})$
+\begin_inset Formula $L(Y|Z,\theta_{0})$
 \end_inset
 
  is the true density of the sample data.
@@ -29352,8 +29464,8 @@ reference "Normality of ee"
 To maximize the log-likelihood function, take derivatives: 
 \begin_inset Formula 
 \begin{eqnarray}
-g_{n}(Y,\theta) & \equiv & D_{\theta}s_{n}(\theta)\nonumber \\
- & = & \frac{1}{n}\sum_{t=1}^{n}D_{\theta}\ln f(y_{t}|x_{x},\theta)\label{eq:MLscore}\\
+g_{n}(Y|Z,\theta) & \equiv & D_{\theta}s_{n}(\theta)\nonumber \\
+ & = & \frac{1}{n}\sum_{t=1}^{n}D_{\theta}\ln f(y_{t}|x_{t},\theta)\label{eq:MLscore}\\
  & \equiv & \frac{1}{n}\sum_{t=1}^{n}g_{t}(\theta).\nonumber 
 \end{eqnarray}
 
@@ -29401,7 +29513,7 @@ g_{n}(\hat{\theta})=\frac{1}{n}\sum_{t=1}^{n}g_{t}(\hat{\theta})\equiv0.
 
 \begin_layout Standard
 We will show that 
-\begin_inset Formula $\mathcal{E}_{\theta}\left[g_{t}(\theta)\right]=0,$
+\begin_inset Formula $E_{\theta}\left[g_{t}(\theta)|x_{t}\right]=0,$
 \end_inset
 
  
@@ -29413,17 +29525,17 @@ We will show that
 This is the expectation taken with respect to the density
 \emph default
  
-\begin_inset Formula $f(\theta),$
+\begin_inset Formula $f(y_{t}|x_{t},\theta),$
 \end_inset
 
  not necessarily 
-\begin_inset Formula $f\left(\theta_{0}\right).$
+\begin_inset Formula $f\left(y_{t}|x_{t},\theta_{0}\right).$
 \end_inset
 
 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{E}_{\theta}\left[g_{t}(\theta)\right] & = & \int[D_{\theta}\ln f(y_{t}|x_{t},\theta)]f(y_{t}|x,\theta)dy_{t}\\
+E_{\theta}\left[g_{t}(\theta)|x_{t}\right] & = & \int[D_{\theta}\ln f(y_{t}|x_{t},\theta)]f(y_{t}|x,\theta)dy_{t}\\
  & = & \int\frac{1}{f(y_{t}|x_{t},\theta)}\left[D_{\theta}f(y_{t}|x_{t},\theta)\right]f(y_{t}|x_{t},\theta)dy_{t}\\
  & = & \int D_{\theta}f(y_{t}|x_{t},\theta)dy_{t}.
 \end{eqnarray*}
@@ -29439,7 +29551,7 @@ This is the expectation taken with respect to the density
  This gives 
 \begin_inset Formula 
 \begin{eqnarray}
-\mathcal{E}_{\theta}\left[g_{t}(\theta)\right] & = & D_{\theta}\int f(y_{t}|x_{t},\theta)dy_{t}\label{eq:ExpectationScore}\\
+E_{\theta}\left[g_{t}(\theta)|x_{t}\right] & = & D_{\theta}\int f(y_{t}|x_{t},\theta)dy_{t}\label{eq:ExpectationScore}\\
  & = & D_{\theta}1\nonumber \\
  & = & 0\nonumber 
 \end{eqnarray}
@@ -29451,16 +29563,12 @@ where we use the fact that the integral of the density is 1.
 
 \begin_layout Itemize
 So 
-\begin_inset Formula $\mathcal{E}_{\theta}(g_{t}(\theta)=0:$
+\begin_inset Formula $E_{\theta}(g_{t}(\theta)|x_{t})=0:$
 \end_inset
 
  
 \emph on
-the conditional (on 
-\begin_inset Formula $x_{t})$
-\end_inset
-
- expectation of the score vector is zero
+the conditional expectation of the score vector is zero
 \emph default
 .
  Because this is true for all 
@@ -29476,10 +29584,35 @@ This hold for all
 \end_inset
 
  so it implies that 
-\begin_inset Formula $\mathcal{E}_{\theta}g_{n}(Y,\theta)=0.$
+\begin_inset Formula $\mathcal{E}_{\theta}g_{n}(Y|Z,\theta)=0.$
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
+This result allows us to show that 
+\begin_inset Formula $E_{\theta}(g_{t}(y_{t}|x_{t},\theta)g_{t-s}(y_{t-s}|x_{t-s},\theta)^{\prime})=0$
+\end_inset
+
+: the score contributions are uncorrelated.
+ This comes from the fact that all random variables in 
+\begin_inset Formula $g_{t-s}(y_{t-s}|x_{t-s},\theta)$
+\end_inset
+
+ are in the information set 
+\begin_inset Formula $x_{t}$
+\end_inset
+
+.
+ This concept is explained in detail in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Estimation-using-conditional"
+
+\end_inset
+
+, for now let's just accept it.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -29643,6 +29776,10 @@ Also, since we know that
  
 \emph on
 This matrix converges to a finite limit.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -29697,6 +29834,10 @@ i.e.,
 \end_inset
 
 
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -29739,7 +29880,24 @@ We've already seen that
 \end_inset
 
 , too.
- 
+ Thus, the last line, without scaling by 
+\begin_inset Formula $\sqrt{n}$
+\end_inset
+
+, would converge almost surely to zero, by a LLN (assuming the variances
+ of the 
+\begin_inset Formula $g_{t}$
+\end_inset
+
+ are bounded).
+ To get a stable limiting distribution, we need to multiply by something
+ that is tending to infinity, at the proper rate.
+ It turns out that 
+\begin_inset Formula $\sqrt{n}$
+\end_inset
+
+ is the quantity that fits the bill (see a proof of a CLT to understand
+ why).
 \end_layout
 
 \begin_layout Itemize
@@ -29772,18 +29930,10 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-Note that 
-\begin_inset Formula $g_{n}(\theta_{0})\overset{a.s.}{\rightarrow}0,$
+\begin_inset Newpage newpage
 \end_inset
 
- by consistency.
- To avoid this collapse to a degenerate r.v.
- (a constant vector) we need to scale by 
-\begin_inset Formula $\sqrt{n}$
-\end_inset
-
-.
- With this, and assuming that a CLT applies: 
+Assuming that a CLT applies: 
 \begin_inset Formula 
 \begin{equation}
 \sqrt{n}g_{n}(\theta_{0})\overset{d}{\rightarrow}N\left[0,\mathcal{I}_{\infty}(\theta_{0})\right]\label{eq:asymptoticnormalityofscores}
@@ -29800,7 +29950,7 @@ Note that
 
 \end_inset
 
- This can also be written as 
+
 \end_layout
 
 \begin_layout Itemize
@@ -29812,29 +29962,23 @@ Note that
 information matrix
 \emph default
 .
- It is the asymptotic variance of the score vector.
+ It is the asymptotic variance of the score vector
 \end_layout
 
 \begin_layout Itemize
-Combining [
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "anmle"
-
+From the previous expression 
+\begin_inset Formula $\sqrt{n}\left(\hat{\theta}-\theta_{0}\right)=-\mathcal{J}(\theta^{*})^{-1}\sqrt{n}g(\theta_{0})$
 \end_inset
 
-] and [
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:asymptoticnormalityofscores"
-
-\end_inset
-
-], and noting that 
+, and noting that 
 \begin_inset Formula $\mathcal{J}(\theta^{*})\overset{a.s.}{\rightarrow}\mathcal{J}_{\infty}(\theta_{0})$
 \end_inset
 
-, we get 
+, we see that 
+\begin_inset Formula $\sqrt{n}\left(\hat{\theta}-\theta_{0}\right)$
+\end_inset
+
+ is a 
 \begin_inset Formula 
 \[
 \sqrt{n}\left(\hat{\theta}-\theta_{0}\right)\overset{a}{\sim}N\left[0,\mathcal{J}_{\infty}(\theta_{0})^{-1}\mathcal{I}_{\infty}(\theta_{0})\mathcal{J}_{\infty}(\theta_{0})^{-1}\right].
@@ -30145,8 +30289,7 @@ The sandwich version:
 \end_layout
 
 \begin_layout Itemize
-or the inverse of the negative of the Hessian (since the middle and last
- term cancel, except for a minus sign): 
+or the inverse of the negative of the Hessian: 
 \end_layout
 
 \begin_layout Standard
@@ -30161,13 +30304,10 @@ or the inverse of the negative of the Hessian (since the middle and last
 \end_layout
 
 \begin_layout Itemize
-or the inverse of the outer product of the gradient (since the middle and
- last cancel except for a minus sign, and the first term converges to minus
- the inverse of the middle term, which is still inside the overall inverse)
- 
+or the inverse of the outer product of the gradient: 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 \begin_inset Formula 
 \[
 \widehat{V_{\infty}}=\left\{ 1/n\sum_{t=1}^{n}\left[D_{\theta}\ln f(y_{t}|Y_{t-1},\hat{\theta})\right]\left[D_{\theta}\ln f(y_{t}|Y_{t-1},\hat{\theta})\right]^{\prime}\right\} ^{-1}.
@@ -30192,8 +30332,11 @@ Asymptotically, if the model is correctly specified, all of these forms
  converge to the same limit.
  In small samples they will differ.
  In particular, there is evidence that the outer product of the gradient
- formula does not perform very well in small samples (see Davidson and MacKinnon
-, pg.
+ formula does not perform very well in small samples (
+\emph on
+e.g., 
+\emph default
+see Davidson and MacKinnon, pg.
  477).
  
 \end_layout
@@ -30207,6 +30350,34 @@ Information matrix test
  information matrix: outer product of gradient or negative of the Hessian.
  If they differ by too much, this is evidence of misspecification of the
  model.
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Examine the code in 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{EstimatePoisson.m}{https://github.com/mcreel/Econometrics/blob/m
+aster/Examples/MEPS-I/EstimatePoisson.m}
+\end_layout
+
+\end_inset
+
+ to figure out how the variance-covariance of the parameters has been estimated.
+ Change that to try the three options given above, and note the important
+ changes in the estimated standard errors and t statistics.
+ Interpret these findings: do you believe that the Poisson model is adequate?
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -30483,16 +30654,23 @@ Proof: Since the estimator is CAN, it is asymptotically unbiased, so
 \begin_inset Formula 
 \begin{eqnarray*}
 D_{\theta^{\prime}}\lim_{n\rightarrow\infty}\mathcal{E}_{\theta}(\tilde{\theta}-\theta) & = & \lim_{n\rightarrow\infty}\int D_{\theta^{\prime}}\left[f(Y,\theta)\left(\tilde{\theta}-\theta\right)\right]dy\\
- & = & 0\textrm{ }(\textrm{this is a }K\times K\textrm{ matrix of zeros}).\textrm{ }
+ & = & 0.\textrm{ }
 \end{eqnarray*}
 
 \end_inset
 
+(The RHS is zero, because we're differentiating something that is zero to
+ start with).
  Noting that 
 \begin_inset Formula $D_{\theta^{\prime}}f(Y,\theta)=f(\theta)D_{\theta^{\prime}}\ln f(\theta)$
 \end_inset
 
- (a trick we have seen a few times already) we can write 
+ (a trick we have seen a few times already), and applying the product rule
+ to differentiate the two parts that depend on 
+\begin_inset Formula $\theta,$
+\end_inset
+
+ we can write 
 \begin_inset Formula 
 \[
 \lim_{n\rightarrow\infty}\int\left(\tilde{\theta}-\theta\right)f(\theta)D_{\theta^{\prime}}\ln f(\theta)dy+\lim_{n\rightarrow\infty}\int f(Y,\theta)D_{\theta^{\prime}}\left(\tilde{\theta}-\theta\right)dy=0.
@@ -30541,7 +30719,7 @@ D_{\theta^{\prime}}\lim_{n\rightarrow\infty}\mathcal{E}_{\theta}(\tilde{\theta}-
 
 \end_inset
 
- This means that the covariance of the score function with 
+ This means that the limiting covariance of the score function with 
 \begin_inset Formula $\sqrt{n}\left(\tilde{\theta}-\theta\right),$
 \end_inset
 
@@ -30625,9 +30803,41 @@ I_{K} & \mathcal{I}_{\infty}(\theta)
 \begin_inset Formula $V_{\infty}(\tilde{\theta})-\mathcal{I}_{\infty}^{-1}(\theta)$
 \end_inset
 
- is positive semidefinite.
+ must be positive semidefinite.
  This concludes the proof.
 \begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Interpretation:
+\end_layout
+
+\begin_layout Itemize
+any linear combination of 
+\begin_inset Formula $\tilde{\theta}$
+\end_inset
+
+ will have an asymptotic variance greater than or equal to the same linear
+ combination of the ML estimator.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+e.g., 
+\emph default
+the individual variances of each 
+\begin_inset Formula $\tilde{\theta_{j}}$
+\end_inset
+
+ will be no smaller than the corresponding element of the ML estimator,
+ 
+\begin_inset Formula $j=1,2,...,k$
 \end_inset
 
 
@@ -30655,6 +30865,13 @@ status collapsed
 \end_inset
 
 estimator.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Definition
@@ -30751,7 +30968,7 @@ Suppose we would like to test a set of
  The test statistic is 
 \begin_inset Formula 
 \[
-LR=2\left(\ln L(\hat{\theta})-\ln L(\tilde{\theta})\right)
+LR=2\left(\ln L(\hat{\theta})-\ln L(\tilde{\theta})\right)=2n\left[s_{n}(\hat{\theta})-s_{n}(\tilde{\theta})\right]
 \]
 
 \end_inset
@@ -30848,7 +31065,7 @@ LR\overset{a}{=}n\left(\tilde{\theta}-\hat{\theta}\right)^{\prime}\mathcal{I}_{\
 
 \end_inset
 
- An analogous result for the restricted estimator is (this is unproven here,
+An analogous result for the restricted estimator is (this is unproven here,
  to prove this set up the Lagrangean for MLE subject to 
 \begin_inset Formula $r(\theta)=0,$
 \end_inset
@@ -30910,7 +31127,15 @@ R\mathcal{I}_{\infty}(\theta_{0})^{-1}n^{1/2}g(\theta_{0})\overset{d}{\rightarro
 \end_inset
 
  We can see that LR is a quadratic form of this rv, with the inverse of
- its variance in the middle, so 
+ its variance in the middle, so, by the Continuous Mapping Theorem (also
+ known as the Mann-Wald Theorem) (see 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "gallant1997introduction"
+
+\end_inset
+
+ Theorem 4.7 for a statement):
 \begin_inset Formula 
 \[
 LR\overset{d}{\rightarrow}\chi^{2}(q).
@@ -31094,7 +31319,7 @@ amples/OLS/Nerlove.m}
 
 , which does OLS.
  The script also provides a basic example of how to use the MLE estimation
- routing 
+ routine 
 \family typewriter
 mle_results.m
 \family default
@@ -31155,6 +31380,10 @@ model results, where
 \end_inset
 
 is the standard normal distribution function.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -31212,6 +31441,17 @@ Again, if
 \end_inset
 
  is the standard normal distribution function, then we have a probit model.
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+The following is another verification of the information matrix equality,
+ skip this in lectures.
 \end_layout
 
 \begin_layout Standard
@@ -31318,7 +31558,7 @@ s_{\infty}(\theta)=\int_{\mathcal{X}}\left\{ p(x,\theta_{0})\ln p(x,\theta)+\lef
 \begin_inset Formula $p(x,\theta)$
 \end_inset
 
- is continous for the logit and probit models, for example.
+ is continuous for the logit and probit models, for example.
  The maximizing element of 
 \begin_inset Formula $s_{\infty}(\theta),$
 \end_inset
@@ -31720,7 +31960,7 @@ Duration data and the Weibull model
 
 \begin_layout Standard
 In some cases the dependent variable may be the time that passes between
- the occurence of two events.
+ the occurrence of two events.
  For example, it may be the duration of a strike, or the time needed to
  find a job once one is unemployed.
  Such variables take on values on the positive real line, and are referred
@@ -31732,8 +31972,8 @@ A
 \emph on
 spell
 \emph default
- is the period of time between the occurence of initial event and the concluding
- event.
+ is the period of time between the occurrence of initial event and the concludin
+g event.
  For example, the initial event could be the loss of a job, and the final
  event is the finding of a new job.
  The spell is the period of unemployment.
@@ -32328,6 +32568,134 @@ name "subsec:DSGE-ML"
 \end_inset
 
 Estimation of a simple DSGE model
+\end_layout
+
+\begin_layout Standard
+Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Application:-Simple-DSGE"
+
+\end_inset
+
+ introduces a simple dynamic stochastic general equilibrium model.
+ The file 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{EstimateCGHK
+\backslash
+_ML.m}{https://github.com/mcreel/Econometrics/blob/master/Examples/DSGE/ML/Estimat
+eCGHK
+\backslash
+_ML.m} 
+\end_layout
+
+\end_inset
+
+ allows you to explore maximum likelihood estimation of the model using
+ Kalman or particle filtering, using the 
+\begin_inset CommandInset href
+LatexCommand href
+name "http://www.dynare.org/"
+target "http://www.dynare.org/"
+
+\end_inset
+
+ package.
+\end_layout
+
+\begin_layout Itemize
+When order=1, the estimation process involves forming a linear approximation
+ to the true model, which means that the estimator is not actually the true
+ maximum likelihood estimator, it is actually a 
+\begin_inset Quotes sld
+\end_inset
+
+quasi-ML
+\begin_inset Quotes srd
+\end_inset
+
+ estimator (refer to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Example:-Linearization-of"
+
+\end_inset
+
+).
+ The quasi-likelihood is computed by putting the linearized model in state-space
+ form, and then computing the likelihood iteratively using Kalman filtering,
+ which relies on the assumption that shocks to the model are normally distribute
+d.
+ State space models and Kalman filtering are introduced in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:State-space-models"
+
+\end_inset
+
+.
+ Once the likelihood function is available, the methods studied in this
+ Chapter may be applied.
+ 
+\end_layout
+
+\begin_layout Itemize
+The linearization of the model, combined with the fact that it has only
+ two shocks, leads to a problem of 
+\begin_inset Quotes sld
+\end_inset
+
+stochastic singularity
+\begin_inset Quotes srd
+\end_inset
+
+, which means that at most two observed variables may be used to compute
+ the likelihood function.
+ The code lets you explore the choice.
+ If interested, do a Google search for this term, along with DSGE, and you'll
+ find more information.
+\end_layout
+
+\begin_layout Itemize
+Not using all of the observed variables for estimation is very likely to
+ cause problems of lack of identification and inefficiency.
+ This can be confirmed if you experiment with the estimation script.
+ This is not a problem of the ML method, it is a problem due to the fact
+ that we are not really estimating the true model, we're working with a
+ linear approximation.
+ 
+\end_layout
+
+\begin_layout Itemize
+The intention of presenting this example is to show that ML may be used
+ for estimation of complex models.
+ The problem here is that the model is not complex enough: the linearization
+ throws away so much information so that estimation becomes impossible.
+ A better solution is to try to actually do ML estimation for the true nonlinear
+ model: see papers by Fernandez-Villaverde and Rubio-Ramirez which use particle
+ filtering.
+ You can also modify the script to do this, by setting order=2 in the code,
+ as Dynare supports the particle filter option.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Another example
+\end_layout
+
+\begin_layout Standard
+This is the example I used in the past, based on code from the Dynare web
+ site.
+ I have now standardized on a slightly more complicated model to illustrate
+ estimation methods.
+ The code still works, though, and I'll leave this here for those who might
+ be interested).
 \end_layout
 
 \begin_layout Standard
@@ -33259,7 +33627,14 @@ Generalized method of moments
 \series bold
 Readings
 \series default
-: Cameron and Trivedi, Ch.
+: 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cameron2005microeconometrics"
+
+\end_inset
+
+, Ch.
  6; Hamilton Ch.
  14
 \begin_inset Formula $^{*}$
@@ -33270,19 +33645,26 @@ Readings
  587 for refs.
  to applications), 
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand citet
 key "hansen1982"
 
 \end_inset
 
 ,  
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand citet
+key "HansenSingleton1982"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand citet
 key "NeweyMcfadden"
 
 \end_inset
 
-
+.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -33307,7 +33689,7 @@ Moment condition: a moment condition
 \noun off
 \color none
 
-\begin_inset Formula $m_{n}(\theta)=m_{n}(Z_{n},\theta)$
+\begin_inset Formula $\bar{m}_{n}(\theta)=\bar{m}_{n}(Z_{n},\theta)$
 \end_inset
 
  is a vector-valued function of the data 
@@ -33339,8 +33721,8 @@ Moment condition: a moment condition
  
 \begin_inset Formula 
 \begin{align*}
-Em_{n}(Z_{n},\theta_{0}) & =0\\
-Em_{n}(Z_{n},\theta) & \ne0,\,\theta\ne\theta_{0}
+E\bar{m}_{n}(Z_{n},\theta_{0}) & =0\\
+E\bar{m}_{n}(Z_{n},\theta) & \ne0,\,\theta\ne\theta_{0}
 \end{align*}
 
 \end_inset
@@ -33353,13 +33735,13 @@ The expectation operator
 \begin_inset Formula $E$
 \end_inset
 
- means that expectations are taken with respect to the true density of the
- data.
+ supposes that expectations are taken with respect to the true density of
+ the data.
  This may depend on more parameters than appear in 
 \begin_inset Formula $\theta$
 \end_inset
 
-.
+, if the model is semi-parametric.
 \end_layout
 
 \begin_layout Itemize
@@ -33377,7 +33759,7 @@ The moment condition may be vector-valued, with dimension
 \begin_layout Definition
 Moment contribution: we will be dealing with moment conditions that are
  defined as averages: 
-\begin_inset Formula $m_{n}(\theta)=\frac{1}{n}\sum_{t}m(Z_{t},\theta)=\frac{1}{n}\sum_{t}m_{t}(\theta)$
+\begin_inset Formula $\bar{m}_{n}(\theta)=\frac{1}{n}\sum_{t}m(Z_{t},\theta)=\frac{1}{n}\sum_{t}m_{t}(\theta)$
 \end_inset
 
 .
@@ -33398,7 +33780,7 @@ th moment contribution
 \begin_inset Formula $m_{t}$
 \end_inset
 
- is a function the same observation's data.
+ is a function of the same observation's data.
  I'm casually using 
 \begin_inset Formula $m(Z_{t},\theta),$
 \end_inset
@@ -33415,7 +33797,7 @@ th moment contribution
  This first of these is the full expression, but I will suppress arguments
  when the context makes things clear enough, to reduce the notational burden.
  The main thing is that 
-\begin_inset Formula $m_{n}$
+\begin_inset Formula $\bar{m}_{n}$
 \end_inset
 
  refers to the average over the 
@@ -33438,7 +33820,7 @@ th moment contribution
 OLS.
  The classical linear model.
  Let 
-\begin_inset Formula $m_{n}(\beta)=\frac{1}{n}\sum_{t}x_{t}(y_{t}-x_{t}^{\prime}\beta).$
+\begin_inset Formula $\bar{m}_{n}(\beta)=\frac{1}{n}\sum_{t}x_{t}(y_{t}-x_{t}^{\prime}\beta).$
 \end_inset
 
  So the moment contributions are 
@@ -33554,7 +33936,7 @@ m_{t}(\theta)=y_{t}-\theta
 Then 
 \begin_inset Formula 
 \begin{align*}
-m_{n}(\theta) & =\frac{1}{n}\sum_{t=1}^{n}m_{t}(\theta)=\bar{y}-\theta
+\bar{m}_{n}(\theta) & =\frac{1}{n}\sum_{t=1}^{n}m_{t}(\theta)=\bar{y}-\theta
 \end{align*}
 
 \end_inset
@@ -33563,12 +33945,20 @@ We know that the
 \begin_inset Formula $E(\bar{y})=\theta_{0}.$
 \end_inset
 
- Thus, 
-\begin_inset Formula $Em_{n}(\theta_{0})=0.$
+
+\end_layout
+
+\begin_layout Itemize
+Thus, 
+\begin_inset Formula $E\bar{m}_{n}(\theta_{0})=0.$
 \end_inset
 
- However, 
-\begin_inset Formula $Em_{n}(\theta)=\theta_{0}-\theta\ne$
+ 
+\end_layout
+
+\begin_layout Itemize
+However, 
+\begin_inset Formula $E\bar{m}_{n}(\theta)=\theta_{0}-\theta\ne$
 \end_inset
 
 0 if 
@@ -33597,7 +33987,7 @@ method of moments principle
 set the moment condition equal to zero
 \emph default
 : 
-\begin_inset Formula $m_{n}(\hat{\theta})\equiv0$
+\begin_inset Formula $\bar{m}_{n}(\hat{\theta})\equiv0$
 \end_inset
 
 .
@@ -33610,7 +34000,7 @@ set the moment condition equal to zero
  For the chi-squared example, 
 \begin_inset Formula 
 \[
-m(\hat{\theta})=\bar{y}-\hat{\theta}=0
+\bar{m}(\hat{\theta})=\bar{y}-\hat{\theta}=0
 \]
 
 \end_inset
@@ -33621,7 +34011,7 @@ is solved by
 
 .
  Since 
-\begin_inset Formula $\bar{y}=\sum_{t=1}^{n}y_{t}/n\stackrel{p}{\rightarrow}\theta^{0}$
+\begin_inset Formula $\bar{y}=\sum_{t=1}^{n}y_{t}/n\stackrel{p}{\rightarrow}\theta_{0}$
 \end_inset
 
  by the LLN, the estimator is consistent.
@@ -33637,14 +34027,14 @@ is solved by
 
  version 2.
  The variance of a 
-\begin_inset Formula $\chi^{2}(\theta^{0})$
+\begin_inset Formula $\chi^{2}(\theta_{0})$
 \end_inset
 
  r.v.
  is 
 \begin_inset Formula 
 \[
-V\left(Y\right)=E_{\theta^{0}}\left(Y-\theta^{0}\right)^{2}=2\theta^{0}.
+V\left(Y\right)=E\left(Y-\theta_{0}\right)^{2}=2\theta_{0}.
 \]
 
 \end_inset
@@ -33656,7 +34046,7 @@ V\left(Y\right)=E_{\theta^{0}}\left(Y-\theta^{0}\right)^{2}=2\theta^{0}.
 Let 
 \begin_inset Formula 
 \begin{align*}
-m_{t}(\theta) & =\left(y_{t}-\bar{y}\right)^{2}-2\theta
+m_{t}(\theta) & =\frac{n}{n-1}\left(y_{t}-\bar{y}\right)^{2}-2\theta
 \end{align*}
 
 \end_inset
@@ -33668,23 +34058,15 @@ m_{t}(\theta) & =\left(y_{t}-\bar{y}\right)^{2}-2\theta
 The MM estimator using the variance would set 
 \begin_inset Formula 
 \[
-m_{n}(\hat{\theta})=\frac{\sum_{t=1}^{n}\left(y_{t}-\bar{y}\right)^{2}}{n}-2\hat{\theta}\equiv0.
+\bar{m}_{n}(\hat{\theta})=\frac{\sum_{t=1}^{n}\left(y_{t}-\bar{y}\right)^{2}}{n-1}-2\hat{\theta}\equiv0.
 \]
 
 \end_inset
 
-Solving for the estimator, it is half the sample variance (dividing by 
-\begin_inset Formula $n$
-\end_inset
-
- rather than the bias correcting 
-\begin_inset Formula $n-1)$
-\end_inset
-
-: 
+Solving for the estimator, it is half the sample variance: 
 \begin_inset Formula 
 \[
-\hat{\theta}=\frac{1}{2}\frac{\sum_{t=1}^{n}\left(y_{t}-\bar{y}\right)^{2}}{n}.
+\hat{\theta}=\frac{1}{2}\frac{\sum_{t=1}^{n}\left(y_{t}-\bar{y}\right)^{2}}{n-\text{1}}.
 \]
 
 \end_inset
@@ -33693,13 +34075,13 @@ Again, by the LLN, the sample variance is consistent for the true variance,
  that is, 
 \begin_inset Formula 
 \[
-\frac{\sum_{t=1}^{n}\left(y_{t}-\bar{y}\right)^{2}}{n}\stackrel{p}{\rightarrow}2\theta^{0}.
+\frac{\sum_{t=1}^{n}\left(y_{t}-\bar{y}\right)^{2}}{n}\stackrel{p}{\rightarrow}2\theta_{0}.
 \]
 
 \end_inset
 
 So, this MM is also consistent for 
-\begin_inset Formula $\theta^{0}$
+\begin_inset Formula $\theta_{0}$
 \end_inset
 
 .
@@ -33853,18 +34235,26 @@ The GMM estimator of the
 \end_inset
 
  
-\begin_inset Formula $\hat{\theta}\equiv\arg\min_{\Theta}s_{n}(\theta)\equiv m_{n}(\theta)^{\prime}W_{n}m_{n}(\theta),$
+\begin_inset Formula 
+\[
+\hat{\theta}\equiv\arg\min_{\Theta}\bar{m}_{n}(\theta)^{\prime}W_{n}\bar{m}_{n}(\theta),
+\]
+
 \end_inset
 
- where 
-\begin_inset Formula $m_{n}(\theta)=\frac{1}{n}\sum_{t=1}^{n}m(Z_{t},\theta)$
+ 
+\end_layout
+
+\begin_layout Itemize
+where 
+\begin_inset Formula $\bar{m}_{n}(\theta)=\frac{1}{n}\sum_{t=1}^{n}m(Z_{t},\theta)$
 \end_inset
 
  is a 
 \begin_inset Formula $g$
 \end_inset
 
--vector valued function of the , 
+-vector valued function, 
 \begin_inset Formula $g\geq k,$
 \end_inset
 
@@ -33872,7 +34262,11 @@ The GMM estimator of the
 \begin_inset Formula $\mathcal{E}m(\theta_{0})=0,$
 \end_inset
 
- and 
+
+\end_layout
+
+\begin_layout Itemize
+and 
 \begin_inset Formula $W_{n}$
 \end_inset
 
@@ -33968,15 +34362,7 @@ reference "exa:chi2 mm"
 \begin_inset Formula $I_{2}.$
 \end_inset
 
- In Octave, type 
-\begin_inset Quotes sld
-\end_inset
-
-help gmm_estimate
-\begin_inset Quotes srd
-\end_inset
-
- to get more information on how the GMM estimation routine works.
+ 
 \begin_inset Newpage newpage
 \end_inset
 
@@ -34037,11 +34423,11 @@ i.e.,
 \end_inset
 
  Taking the case of a quadratic objective function 
-\begin_inset Formula $s_{n}(\theta)=m_{n}(\theta)^{\prime}W_{n}m_{n}(\theta),$
+\begin_inset Formula $s_{n}(\theta)=\bar{m}_{n}(\theta)^{\prime}W_{n}\bar{m}_{n}(\theta),$
 \end_inset
 
  first consider 
-\begin_inset Formula $m_{n}(\theta).$
+\begin_inset Formula $\bar{m}_{n}(\theta).$
 \end_inset
 
 
@@ -34049,7 +34435,7 @@ i.e.,
 
 \begin_layout Itemize
 Applying a uniform law of large numbers, we get 
-\begin_inset Formula $m_{n}(\theta)\stackrel{a.s.}{\rightarrow}m_{\infty}(\theta).$
+\begin_inset Formula $\bar{m}_{n}(\theta)\stackrel{a.s.}{\rightarrow}m_{\infty}(\theta).$
 \end_inset
 
 
@@ -34057,7 +34443,7 @@ Applying a uniform law of large numbers, we get
 
 \begin_layout Itemize
 Since 
-\begin_inset Formula $\mathcal{E}_{\theta^{0}}m_{n}(\theta^{0})=0$
+\begin_inset Formula $E\bar{m}_{n}(\theta^{0})=0$
 \end_inset
 
  by assumption, 
@@ -34083,7 +34469,12 @@ Since
  for at least some element of the vector.
  There can be no other parameter value that sets the moment conditions to
  zero (at least, in the limit).
- This and the assumption that 
+ 
+\emph on
+Draw picture here.
+ 
+\emph default
+This and the assumption that 
 \begin_inset Formula $W_{n}\stackrel{a.s.}{\rightarrow}$
 \end_inset
 
@@ -34195,7 +34586,7 @@ reference "Normality of ee"
 
  We need to determine the form of these matrices given the objective function
  
-\begin_inset Formula $s_{n}(\theta)=m_{n}(\theta)^{\prime}W_{n}m_{n}(\theta).$
+\begin_inset Formula $s_{n}(\theta)=\bar{m}_{n}(\theta)^{\prime}W_{n}\bar{m}_{n}(\theta).$
 \end_inset
 
 
@@ -34216,7 +34607,7 @@ reference "sec:Notation-for-differentiation"
 , 
 \begin_inset Formula 
 \[
-\frac{\partial}{\partial\theta}s_{n}(\theta)=2\left[\frac{\partial}{\partial\theta}m_{n}^{^{\prime}}\left(\theta\right)\right]W_{n}m_{n}\left(\theta\right)
+\frac{\partial}{\partial\theta}s_{n}(\theta)=2\left[\frac{\partial}{\partial\theta}\bar{m}_{n}^{\prime}\left(\theta\right)\right]W_{n}\bar{m}_{n}\left(\theta\right)
 \]
 
 \end_inset
@@ -34236,7 +34627,7 @@ Define the
  matrix 
 \begin_inset Formula 
 \[
-D_{n}(\theta)\equiv\frac{\partial}{\partial\theta}m_{n}^{\prime}\left(\theta\right),
+D_{n}(\theta)\equiv\frac{\partial}{\partial\theta}\bar{m}_{n}^{\prime}\left(\theta\right),
 \]
 
 \end_inset
@@ -34244,7 +34635,7 @@ D_{n}(\theta)\equiv\frac{\partial}{\partial\theta}m_{n}^{\prime}\left(\theta\rig
  so:
 \begin_inset Formula 
 \begin{equation}
-\frac{\partial}{\partial\theta}s(\theta)=2D(\theta)Wm\left(\theta\right).\label{gmmscores}
+\frac{\partial}{\partial\theta}s(\theta)=2D(\theta)W\bar{m}\left(\theta\right).\label{gmmscores}
 \end{equation}
 
 \end_inset
@@ -34262,7 +34653,7 @@ D_{n}(\theta)\equiv\frac{\partial}{\partial\theta}m_{n}^{\prime}\left(\theta\rig
 \end_inset
 
  and 
-\begin_inset Formula $m_{n}(\theta)$
+\begin_inset Formula $\bar{m}_{n}(\theta)$
 \end_inset
 
  all depend on the sample size 
@@ -34296,7 +34687,7 @@ To take second derivatives, let
  row vector, and 
 \begin_inset Formula 
 \[
-\frac{\partial}{\partial\theta_{i}}s(\theta)=2D_{i}(\theta)Wm\left(\theta\right)
+\frac{\partial}{\partial\theta_{i}}s(\theta)=2D_{i}(\theta)W\bar{m}\left(\theta\right)
 \]
 
 \end_inset
@@ -34353,8 +34744,8 @@ reference "def: Product-rule.-Let"
 ), 
 \begin_inset Formula 
 \begin{eqnarray*}
-\frac{\partial}{\partial\theta^{\prime}}\frac{\partial}{\partial\theta_{i}}s(\theta) & = & \frac{\partial}{\partial\theta^{\prime}}\left[2D_{i}(\theta)Wm\left(\theta\right)\right]\\
- & = & 2D_{i}WD^{\prime}+2m^{\prime}W\left[\frac{\partial}{\partial\theta^{\prime}}D_{i}^{\prime}\right]
+\frac{\partial}{\partial\theta^{\prime}}\frac{\partial}{\partial\theta_{i}}s(\theta) & = & \frac{\partial}{\partial\theta^{\prime}}\left[2D_{i}(\theta)W\bar{m}\left(\theta\right)\right]\\
+ & = & 2D_{i}WD^{\prime}+2\bar{m}^{\prime}W\left[\frac{\partial}{\partial\theta^{\prime}}D_{i}^{\prime}\right]
 \end{eqnarray*}
 
 \end_inset
@@ -34364,14 +34755,14 @@ Note that the first term contains a
 \end_inset
 
  which appears due to 
-\begin_inset Formula $\frac{\partial}{\partial\theta^{\prime}}m_{n}\left(\theta\right)$
+\begin_inset Formula $\frac{\partial}{\partial\theta^{\prime}}\bar{m}_{n}\left(\theta\right)$
 \end_inset
 
 .
  When evaluating the second term: 
 \begin_inset Formula 
 \[
-2m(\theta)^{\prime}W\left[\frac{\partial}{\partial\theta^{\prime}}D(\theta)_{i}^{\prime}\right]
+2\bar{m}(\theta)^{\prime}W\left[\frac{\partial}{\partial\theta^{\prime}}D(\theta)_{i}^{\prime}\right]
 \]
 
 \end_inset
@@ -34397,13 +34788,13 @@ Note that the first term contains a
  In this case, we have 
 \begin_inset Formula 
 \[
-2m(\theta^{0})^{\prime}W\left[\frac{\partial}{\partial\theta^{\prime}}D(\theta^{0})_{i}^{\prime}\right]\stackrel{a.s.}{\rightarrow}0,
+2\bar{m}(\theta^{0})^{\prime}W\left[\frac{\partial}{\partial\theta^{\prime}}D(\theta^{0})_{i}^{\prime}\right]\stackrel{a.s.}{\rightarrow}0,
 \]
 
 \end_inset
 
 because 
-\begin_inset Formula $m(\theta^{0})\stackrel{a.s.}{\rightarrow}0$
+\begin_inset Formula $\bar{m}(\theta^{0})\stackrel{a.s.}{\rightarrow}0$
 \end_inset
 
  and 
@@ -34475,21 +34866,21 @@ reference "gmmscores"
 \end_inset
 
  (since 
-\begin_inset Formula $\mathcal{E}m(\theta^{0})=0$
+\begin_inset Formula $\mathcal{E}\bar{m}(\theta^{0})=0$
 \end_inset
 
  by assumption), we have
 \begin_inset Formula 
 \begin{eqnarray*}
 \mathcal{I}_{\infty}(\theta^{0}) & = & \lim_{n\rightarrow\infty}Var\sqrt{n}\frac{\partial}{\partial\theta}s_{n}(\theta^{0})\\
- & = & \lim_{n\rightarrow\infty}\mathcal{E}4nDWm(\theta^{0})m(\theta^{0})^{\prime}WD^{\prime}\\
- & = & \lim_{n\rightarrow\infty}\mathcal{E}4DW\left\{ \sqrt{n}m(\theta^{0})\right\} \left\{ \sqrt{n}m(\theta^{0})^{\prime}\right\} WD^{\prime}
+ & = & \lim_{n\rightarrow\infty}\mathcal{E}4nDW\bar{m}(\theta^{0})\bar{m}(\theta^{0})^{\prime}WD^{\prime}\\
+ & = & \lim_{n\rightarrow\infty}\mathcal{E}4DW\left\{ \sqrt{n}\bar{m}(\theta^{0})\right\} \left\{ \sqrt{n}\bar{m}(\theta^{0})^{\prime}\right\} WD^{\prime}
 \end{eqnarray*}
 
 \end_inset
 
  Now, given that 
-\begin_inset Formula $m(\theta^{0})$
+\begin_inset Formula $\bar{m}(\theta^{0})$
 \end_inset
 
  is an average of centered (mean-zero) quantities, it is reasonable to expect
@@ -34501,7 +34892,7 @@ reference "gmmscores"
  Assuming this, 
 \begin_inset Formula 
 \begin{equation}
-\sqrt{n}m(\theta^{0})\stackrel{d}{\rightarrow}N(0,\Omega_{\infty}),\label{eq:CLT applied to moment conditions}
+\sqrt{n}\bar{m}(\theta^{0})\stackrel{d}{\rightarrow}N(0,\Omega_{\infty}),\label{eq:CLT applied to moment conditions}
 \end{equation}
 
 \end_inset
@@ -34509,7 +34900,7 @@ reference "gmmscores"
  where 
 \begin_inset Formula 
 \[
-\Omega_{\infty}=\lim_{n\rightarrow\infty}\mathcal{E}\left[nm(\theta^{0})m(\theta^{0})^{\prime}\right].
+\Omega_{\infty}=\lim_{n\rightarrow\infty}\mathcal{E}\left[n\bar{m}(\theta^{0})\bar{m}(\theta^{0})^{\prime}\right].
 \]
 
 \end_inset
@@ -34561,7 +34952,7 @@ reference "Normality of ee"
 .
  This is related to identification.
  If the rows of 
-\begin_inset Formula $m_{n}(\theta)$
+\begin_inset Formula $\bar{m}_{n}(\theta)$
 \end_inset
 
  were not linearly independent of one another, then neither 
@@ -34587,7 +34978,7 @@ There are two things that affect the asymptotic variance:
 
 \begin_layout Itemize
 the choice of the moment conditions, 
-\begin_inset Formula $m_{n}(\theta$
+\begin_inset Formula $\bar{m}_{n}(\theta$
 \end_inset
 
 ), which determines both 
@@ -34615,7 +35006,7 @@ the choice of the weight matrix
 
 \begin_layout Standard
 We would probably like to know how to choose both 
-\begin_inset Formula $m_{n}(\theta)$
+\begin_inset Formula $\bar{m}_{n}(\theta)$
 \end_inset
 
  and 
@@ -34876,7 +35267,7 @@ estimator efficient
 within the class of GMM estimators
 \emph default
  defined by 
-\begin_inset Formula $m_{n}(\theta)$
+\begin_inset Formula $\bar{m}_{n}(\theta)$
 \end_inset
 
 .
@@ -35036,7 +35427,7 @@ status collapsed
 \end_inset
 
 estimator that minimizes 
-\begin_inset Formula $m_{n}(\theta)^{\prime}W_{n}m_{n}(\theta),$
+\begin_inset Formula $\bar{m}_{n}(\theta)^{\prime}W_{n}\bar{m}_{n}(\theta),$
 \end_inset
 
  the asymptotic variance of 
@@ -35165,7 +35556,7 @@ The obvious estimator of
 \end_inset
 
  is simply 
-\begin_inset Formula $\frac{\partial}{\partial\theta}m_{n}^{\prime}\left(\hat{\theta}\right),$
+\begin_inset Formula $\frac{\partial}{\partial\theta}\bar{m}_{n}\left(\hat{\theta}\right),$
 \end_inset
 
  which is consistent by the consistency of 
@@ -35173,7 +35564,7 @@ The obvious estimator of
 \end_inset
 
  assuming that 
-\begin_inset Formula $\frac{\partial}{\partial\theta}m_{n}^{\prime}$
+\begin_inset Formula $\frac{\partial}{\partial\theta}\bar{m}_{n}$
 \end_inset
 
  is continuous in 
@@ -35181,7 +35572,7 @@ The obvious estimator of
 \end_inset
 
  Stochastic equicontinuity results can give us this result even if 
-\begin_inset Formula $\frac{\partial}{\partial\theta}m_{n}^{\prime}$
+\begin_inset Formula $\frac{\partial}{\partial\theta}\bar{m}_{n}$
 \end_inset
 
  is not continuous.
@@ -35398,7 +35789,7 @@ In the case that we wish to use the optimal weighting matrix, we need an
 \end_inset
 
  the limiting variance-covariance matrix of 
-\begin_inset Formula $\sqrt{n}m_{n}(\theta^{0})$
+\begin_inset Formula $\sqrt{n}\bar{m}_{n}(\theta^{0})$
 \end_inset
 
 .
@@ -35471,6 +35862,14 @@ covariance stationary
 \begin_inset Formula $t.$
 \end_inset
 
+ (See the first part of Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Models-for-time"
+
+\end_inset
+
+ for the definition).
  Thus, 
 \end_layout
 
@@ -35485,6 +35884,18 @@ covariance stationary
 \end_inset
 
  
+\end_layout
+
+\begin_layout Standard
+Because of stationarity, 
+\begin_inset Formula $\Gamma_{s}$
+\end_inset
+
+ does not depend on 
+\begin_inset Formula $t.$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Exercise
@@ -35505,7 +35916,7 @@ Recall that
 \end_inset
 
  and 
-\begin_inset Formula $m_{n}$
+\begin_inset Formula $\bar{m}_{n}$
 \end_inset
 
  are functions of 
@@ -35528,7 +35939,7 @@ Recall that
  Now 
 \begin_inset Formula 
 \begin{eqnarray*}
-\Omega_{n} & = & \mathcal{E}\left[nm_{n}(\theta^{0})m_{n}(\theta^{0})^{\prime}\right]=\mathcal{E}\left[n\left(1/n\sum_{t=1}^{n}m_{t}\right)\left(1/n\sum_{t=1}^{n}m_{t}^{\prime}\right)\right]\\
+\Omega_{n} & = & \mathcal{E}\left[n\bar{m}_{n}(\theta^{0})\bar{m}_{n}(\theta^{0})^{\prime}\right]=\mathcal{E}\left[n\left(1/n\sum_{t=1}^{n}m_{t}\right)\left(1/n\sum_{t=1}^{n}m_{t}^{\prime}\right)\right]\\
  & = & \mathcal{E}\left[1/n\left(\sum_{t=1}^{n}m_{t}\right)\left(\sum_{t=1}^{n}m_{t}^{\prime}\right)\right]\\
  & = & \Gamma_{0}+\frac{n-1}{n}\left(\Gamma_{1}+\Gamma_{1}^{\prime}\right)+\frac{n-2}{n}\left(\Gamma_{2}+\Gamma_{2}^{\prime}\right)\cdots+\frac{1}{n}\left(\Gamma_{n-1}+\Gamma_{n-1}^{\prime}\right)
 \end{eqnarray*}
@@ -35578,7 +35989,8 @@ Recall that
 \begin_inset Formula $n\rightarrow\infty.$
 \end_inset
 
-
+ There is always only one observation to estimate the highest order autocovarian
+ce.
 \end_layout
 
 \begin_layout Standard
@@ -35655,8 +36067,8 @@ Note: the formula for
 \begin_inset Formula $\hat{\Omega}$
 \end_inset
 
- requires an estimate of 
-\begin_inset Formula $m(\theta^{0}),$
+ requires an estimate of the 
+\begin_inset Formula $m_{t}(\theta^{0}),$
 \end_inset
 
  which in turn requires an estimate of 
@@ -35684,7 +36096,21 @@ Note: the formula for
 \begin_inset Formula $\theta^{0}.$
 \end_inset
 
- The process can be iterated until neither 
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This is the 
+\emph on
+two-step GMM estimator, 
+\emph default
+which is probably the most commonly encountered version of GMM in applied
+ work.
+\end_layout
+
+\begin_layout Itemize
+The process can be iterated until neither 
 \begin_inset Formula $\hat{\Omega}$
 \end_inset
 
@@ -35693,12 +36119,14 @@ Note: the formula for
 \end_inset
 
  change appreciably between iterations.
+ 
 \begin_inset Newpage newpage
 \end_inset
 
  
 \end_layout
 
+\end_deeper
 \begin_layout Subsection
 Newey-West covariance estimator
 \end_layout
@@ -35706,13 +36134,17 @@ Newey-West covariance estimator
 \begin_layout Standard
 The Newey-West estimator (
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citealp
 key "NeweyWest1987"
 
 \end_inset
 
-) solves the problem of possible nonpositive definiteness of the above estimator.
+) solves the problem of possible non-positive definiteness of the above
+ estimator.
  Their estimator is 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 \hat{\Omega}=\widehat{\Gamma_{0}}+\sum_{s=1}^{q(n)}\left[1-\frac{s}{q+1}\right]\left(\widehat{\Gamma_{s}}+\widehat{\Gamma_{s}^{\prime}}\right).
@@ -35748,9 +36180,52 @@ reference "chap:Nonparametric-inference"
 \end_inset
 
 .
- Around the same time as the paper by Newey and West, a number of other
- similar covariance matrix estimators were proposed, but the NW estimator
- seems to be the most widely used in empirical work.
+ 
+\end_layout
+
+\begin_layout Itemize
+Around the same time as the paper by Newey and West, a number of other similar
+ covariance matrix estimators were proposed, but the NW estimator seems
+ to be the most widely used in empirical work.
+\end_layout
+
+\begin_layout Itemize
+If there is no autocorrelation of the moments, then all 
+\begin_inset Formula $\Gamma_{s},\,s>0$
+\end_inset
+
+ may be set to zero.
+ The result is White's heteroscedastic consistent variance covariance estimator,
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white1980heteroskedasticity"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+see Gretl User Manual additional information, and use Gretl for examples
+ of both:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+het: Nerlove model: do resid.
+ plot, add square of log output.
+ Test for HET
+\end_layout
+
+\begin_layout Itemize
+aut: NYSE data, square of log difference of closing price: test for AUT,
+ estimate with and without HAC.
+ Note how t-stat declines.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -35815,29 +36290,27 @@ To see this, the unconditional expectation is
 
 \end_inset
 
- This can be factored into a conditional expectation and an expectation
- w.r.t.
- the marginal density of 
-\begin_inset Formula $X:$
-\end_inset
-
-
+ Factor the joint density in to conditional and marginal:
 \begin_inset Formula 
 \[
-\mathcal{E}\left(Yg(X)\right)=\int_{\mathcal{X}}\left(\int_{\mathcal{Y}}Yg(X)f(Y|X)dY\right)f(X)dX.
+\mathcal{E}\left(Yg(X)\right)=\int_{\mathcal{X}}\left(\int_{\mathcal{Y}}Yg(X)f(Y|X)f(X)dY\right)dX.
 \]
 
 \end_inset
 
- Since 
+ Because 
+\begin_inset Formula $f(X)$
+\end_inset
+
+ and 
 \begin_inset Formula $g(X)$
 \end_inset
 
- doesn't depend on 
+ don't depend on 
 \begin_inset Formula $Y$
 \end_inset
 
-, it can be pulled out of the integral 
+, they can be pulled out of the integral 
 \begin_inset Formula 
 \[
 \mathcal{E}\left(Yg(X)\right)=\int_{\mathcal{X}}\left(\int_{\mathcal{Y}}Yf(Y|X)dY\right)g(X)f(X)dX.
@@ -35881,7 +36354,7 @@ Suppose a model tells us that the function
 
 \begin_inset Formula 
 \[
-\mathcal{E}_{\theta}K(y_{t},x_{t},\theta)|I_{t}=k(x_{t},\theta).
+\mathcal{E}K(y_{t},x_{t},\theta)|I_{t}=k(x_{t},\theta).
 \]
 
 \end_inset
@@ -35911,7 +36384,7 @@ For example, in the context of the classical linear model
  so 
 \begin_inset Formula 
 \begin{align*}
-E_{\theta}K(y_{t},x_{t},\theta)|I_{t} & =E_{\theta}\left(x_{t}^{\prime}\beta+\varepsilon_{t}|x_{t}\right)=k(x_{t},\theta)=x_{t}^{\prime}\beta
+EK(y_{t},x_{t},\theta)|I_{t} & =E_{\theta}\left(x_{t}^{\prime}\beta+\varepsilon_{t}|x_{t}\right)=k(x_{t},\theta)=x_{t}^{\prime}\beta
 \end{align*}
 
 \end_inset
@@ -35995,7 +36468,7 @@ If
 has conditional expectation equal to zero, by construction: 
 \begin_inset Formula 
 \[
-\mathcal{E}_{\theta}\epsilon_{t}(\theta)|I_{t}=0.
+\mathcal{E}\epsilon_{t}(\theta)|I_{t}=0.
 \]
 
 \end_inset
@@ -36098,7 +36571,7 @@ Z_{n}^{\prime}
  moment conditions 
 \begin_inset Formula 
 \begin{eqnarray*}
-m_{n}(\theta) & = & \frac{1}{n}Z_{n}^{\prime}\left[\begin{array}{l}
+\bar{m}_{n}(\theta) & = & \frac{1}{n}Z_{n}^{\prime}\left[\begin{array}{l}
 \epsilon_{1}(\theta)\\
 \epsilon_{2}(\theta)\\
 \vdots\\
@@ -36111,7 +36584,7 @@ m_{n}(\theta) & = & \frac{1}{n}Z_{n}^{\prime}\left[\begin{array}{l}
 With this, we can write
 \begin_inset Formula 
 \begin{align*}
-m_{n}(\theta) & =\frac{1}{n}\sum_{t=1}^{n}Z_{t}\epsilon_{t}(\theta)\\
+\bar{m}_{n}(\theta) & =\frac{1}{n}\sum_{t=1}^{n}Z_{t}\epsilon_{t}(\theta)\\
  & =\frac{1}{n}\sum_{t=1}^{n}m_{t}(\theta)
 \end{align*}
 
@@ -36181,6 +36654,48 @@ The model in matrix form is
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+We have seen some cases where this problem arises:
+\end_layout
+
+\begin_layout Enumerate
+measurement error of regressors: Example 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "exa:Measurement-error-in"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+lagged dependent variable and autocorrelated errors: Example 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "exa:-Dynamic-model"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+simultaneous equations: Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Reduced-form"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 Let 
 \begin_inset Formula $K=dim(x_{t}).$
 \end_inset
@@ -36211,9 +36726,9 @@ instrumental variables.
 
 \emph default
  
-\begin_inset Newpage newpage
-\end_inset
+\end_layout
 
+\begin_layout Standard
 Consider the moment conditions
 \begin_inset Formula 
 \begin{align*}
@@ -36243,7 +36758,7 @@ z_{n}^{\prime}
 The average moment conditions are
 \begin_inset Formula 
 \begin{align*}
-m_{n}(\theta) & =\frac{1}{n}Z^{\prime}\epsilon\\
+\bar{m}_{n}(\theta) & =\frac{1}{n}Z^{\prime}\epsilon\\
  & =\frac{1}{n}(Z^{\prime}y-Z^{\prime}X\theta)
 \end{align*}
 
@@ -36264,11 +36779,13 @@ generalized instrumental variables
 
 , we have exact identification, and it is referred to as the instrumental
  variables estimator.
+ Given the form of the moment conditions, the general formulae for GMM lead
+ to particular forms for the GIV estimator:
 \end_layout
 
 \begin_layout Standard
 The first order conditions for GMM are 
-\begin_inset Formula $D_{n}W_{n}m_{n}(\hat{\theta})=0$
+\begin_inset Formula $D_{n}W_{n}\bar{m}_{n}(\hat{\theta})=0$
 \end_inset
 
 , which imply that 
@@ -36610,7 +37127,7 @@ then the plim of the rhs is zero.
 \end_layout
 
 \begin_layout Standard
-Assuming that the far right term satifies a CLT, so that
+Assuming that the far right term satisfies a CLT, so that
 \end_layout
 
 \begin_layout Itemize
@@ -36621,7 +37138,7 @@ Assuming that the far right term satifies a CLT, so that
 \end_layout
 
 \begin_layout Standard
-then we get (using some pleasing cancelations)
+then we get (using some pleasing cancellations)
 \begin_inset Formula 
 \[
 \sqrt{n}\left(\hat{\theta}_{IV}-\theta^{0}\right)\overset{d}{\rightarrow}N\left(0,(Q_{XZ}Q_{ZZ}^{-1}Q_{XZ}^{\prime})^{-1}\sigma^{2}\right)
@@ -37068,8 +37585,7 @@ er/Examples/GMM/SpecTest.m}
 \end_layout
 
 \begin_layout Standard
-When we have more instruments than regressors, we can think of an alternative
- formulation of the GIV estimator.
+We can give an alternative formulation of the GIV estimator.
  Let 
 \begin_inset Formula $\hat{X}=Z\left(Z^{\prime}Z\right)^{-1}Z^{\prime}X=P_{Z}X$
 \end_inset
@@ -37138,7 +37654,7 @@ reference "eq:asvarGIV"
 
 \end_inset
 
-From this, we can write
+From this, we can write (allowing for possible HET/AUT)
 \begin_inset Formula 
 \[
 \sqrt{n}\left(\hat{\theta}_{IV}-\theta^{0}\right)\overset{d}{\rightarrow}N\left(0,(Q_{\hat{X}}^{-1}\Omega Q_{\hat{X}}^{-1}\right)
@@ -37155,8 +37671,8 @@ where
 
 \begin_layout Itemize
 this can be estimated using White's or Newey-West estimators, as appropriate,
- or simplified further if the classical assumption regarding homoscedasticity
- and no autocorrelation hold.
+ or simplified further (as above) if the classical assumption regarding
+ homoscedasticity and no autocorrelation hold.
 \end_layout
 
 \begin_layout Itemize
@@ -37225,7 +37741,7 @@ The first order conditions for minimization, using the an estimate of the
  optimal weighting matrix, are 
 \begin_inset Formula 
 \[
-\frac{\partial}{\partial\theta}s(\hat{\theta})=2\left[\frac{\partial}{\partial\theta}m_{n}^{^{\prime}}\left(\hat{\theta}\right)\right]\hat{\Omega}^{-1}m_{n}\left(\hat{\theta}\right)\equiv0
+\frac{\partial}{\partial\theta}s(\hat{\theta})=2\left[\frac{\partial}{\partial\theta}\bar{m}_{n}\left(\hat{\theta}\right)\right]\hat{\Omega}^{-1}\bar{m}_{n}\left(\hat{\theta}\right)\equiv0
 \]
 
 \end_inset
@@ -37236,7 +37752,7 @@ The first order conditions for minimization, using the an estimate of the
 \begin_layout Standard
 \begin_inset Formula 
 \[
-D(\hat{\theta})\hat{\Omega}^{-1}m_{n}(\hat{\theta})\equiv0
+D(\hat{\theta})\hat{\Omega}^{-1}\bar{m}_{n}(\hat{\theta})\equiv0
 \]
 
 \end_inset
@@ -37255,7 +37771,7 @@ Consider a Taylor expansion of
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-m(\hat{\theta})=m_{n}(\theta^{0})+D_{n}^{\prime}(\theta^{*})\left(\hat{\theta}-\theta^{0}\right)\label{TS expansion of moments}
+m(\hat{\theta})=\bar{m}_{n}(\theta^{0})+D_{n}^{\prime}(\theta^{*})\left(\hat{\theta}-\theta^{0}\right)\label{TS expansion of moments}
 \end{equation}
 
 \end_inset
@@ -37280,7 +37796,7 @@ where
  we obtain 
 \begin_inset Formula 
 \[
-D(\hat{\theta})\hat{\Omega}^{-1}m(\hat{\theta})=D(\hat{\theta})\hat{\Omega}^{-1}m_{n}(\theta^{0})+D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\left(\hat{\theta}-\theta^{0}\right)
+D(\hat{\theta})\hat{\Omega}^{-1}m(\hat{\theta})=D(\hat{\theta})\hat{\Omega}^{-1}\bar{m}_{n}(\theta^{0})+D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\left(\hat{\theta}-\theta^{0}\right)
 \]
 
 \end_inset
@@ -37289,7 +37805,7 @@ D(\hat{\theta})\hat{\Omega}^{-1}m(\hat{\theta})=D(\hat{\theta})\hat{\Omega}^{-1}
  
 \begin_inset Formula 
 \[
-D(\hat{\theta})\hat{\Omega}^{-1}m_{n}(\theta^{0})=-\left[D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right]\left(\hat{\theta}-\theta^{0}\right)
+D(\hat{\theta})\hat{\Omega}^{-1}\bar{m}_{n}(\theta^{0})=-\left[D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right]\left(\hat{\theta}-\theta^{0}\right)
 \]
 
 \end_inset
@@ -37300,7 +37816,7 @@ D(\hat{\theta})\hat{\Omega}^{-1}m_{n}(\theta^{0})=-\left[D(\hat{\theta})\hat{\Om
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\left(\hat{\theta}-\theta^{0}\right)=-\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1}m_{n}(\theta^{0})
+\left(\hat{\theta}-\theta^{0}\right)=-\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1}\bar{m}_{n}(\theta^{0})
 \]
 
 \end_inset
@@ -37319,7 +37835,7 @@ reference "TS expansion of moments"
 ), we get 
 \begin_inset Formula 
 \[
-\sqrt{n}m(\hat{\theta})=\sqrt{n}m_{n}(\theta^{0})-\sqrt{n}D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1}m_{n}(\theta^{0}).
+\sqrt{n}\bar{m}_{n}(\hat{\theta})=\sqrt{n}\bar{m}_{n}(\theta^{0})-\sqrt{n}D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1}\bar{m}_{n}(\theta^{0}).
 \]
 
 \end_inset
@@ -37327,7 +37843,7 @@ reference "TS expansion of moments"
  With some factoring, this last can be written as
 \begin_inset Formula 
 \begin{align*}
-\sqrt{n}m(\hat{\theta}) & =\left(\hat{\Omega}^{1/2}-D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1/2}\right)\left(\sqrt{n}\hat{\Omega}^{-1/2}m_{n}(\theta^{0})\right)
+\sqrt{n}\bar{m}_{n}(\hat{\theta}) & =\left(\hat{\Omega}^{1/2}-D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1/2}\right)\left(\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\theta^{0})\right)
 \end{align*}
 
 \end_inset
@@ -37360,7 +37876,7 @@ Next, multiply by
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\sqrt{n}\hat{\Omega}^{-1/2}m(\hat{\theta}) & =\left(I_{g}-\hat{\Omega}^{-1/2}D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1/2}\right)\left(\sqrt{n}\hat{\Omega}^{-1/2}m_{n}(\theta^{0})\right)\equiv PX
+\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\hat{\theta}) & =\left(I_{g}-\hat{\Omega}^{-1/2}D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1/2}\right)\left(\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\theta^{0})\right)\equiv PX
 \end{align*}
 
 \end_inset
@@ -37375,7 +37891,7 @@ reference "eq:CLT applied to moment conditions"
  we have 
 \begin_inset Formula 
 \[
-X\equiv\sqrt{n}\hat{\Omega}^{-1/2}m_{n}(\theta^{0})\stackrel{d}{\rightarrow}N(0,I_{g})
+X\equiv\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\theta^{0})\stackrel{d}{\rightarrow}N(0,I_{g})
 \]
 
 \end_inset
@@ -37482,15 +37998,23 @@ S
 o, a quadratic form on the r.h.s.
  has an asymptotic chi-square distribution.
  The quadratic form made using the l.h.s.
- must also have the same distribution, so we finally get 
+ must also have the same distribution, so we finally get, by the Continuous
+ Mapping Theorem (
+\begin_inset CommandInset citation
+LatexCommand citet
+key "gallant1997introduction"
+
+\end_inset
+
+, Theorem 4.7) 
 \begin_inset Formula 
 \[
-\left(\sqrt{n}\hat{\Omega}^{-1/2}m(\hat{\theta})\right)^{\prime}\left(\sqrt{n}\hat{\Omega}^{-1/2}m(\hat{\theta})\right)=nm(\hat{\theta})^{\prime}\hat{\Omega}^{-1}m(\hat{\theta})\stackrel{d}{\rightarrow}\chi^{2}(g-K)
+\left(\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\hat{\theta})\right)^{\prime}\left(\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\hat{\theta})\right)=n\bar{m}_{n}(\hat{\theta})^{\prime}\hat{\Omega}^{-1}\bar{m}_{n}(\hat{\theta})\stackrel{d}{\rightarrow}\chi^{2}(g-K)
 \]
 
 \end_inset
 
- or 
+ 
 \begin_inset Newpage newpage
 \end_inset
 
@@ -37539,7 +38063,7 @@ This won't work when the estimator is just identified.
  are 
 \begin_inset Formula 
 \[
-D_{\theta}s_{n}(\theta)=D\hat{\Omega}^{-1}m(\hat{\theta})\equiv0.
+D_{\theta}s_{n}(\theta)=D\hat{\Omega}^{-1}\bar{m}_{n}(\hat{\theta})\equiv0.
 \]
 
 \end_inset
@@ -37556,7 +38080,7 @@ But with exact identification, both
  normality hold), so
 \begin_inset Formula 
 \[
-m(\hat{\theta})\equiv0.
+\bar{m}_{n}(\hat{\theta})\equiv0.
 \]
 
 \end_inset
@@ -38429,13 +38953,13 @@ Following up on this last point, let's think of two not necessarily efficient
  The estimators are defined (suppressing the dependence upon data) by
 \begin_inset Formula 
 \begin{eqnarray*}
-\hat{\theta}_{i} & = & \arg\min_{\theta_{i}\in\Theta}\,m_{_{i}}(\theta_{i})^{\prime}\,W_{i}\,m_{i}(\theta_{i})
+\hat{\theta}_{i} & = & \arg\min_{\theta_{i}\in\Theta}\,\bar{m}_{_{i}}(\theta_{i})^{\prime}\,W_{i}\,\bar{m}_{i}(\theta_{i})
 \end{eqnarray*}
 
 \end_inset
 
 where 
-\begin_inset Formula $m_{i}(\theta_{i})$
+\begin_inset Formula $\bar{m}_{i}(\theta_{i})$
 \end_inset
 
  is a 
@@ -38458,12 +38982,12 @@ where
 \begin_inset Formula 
 \begin{equation}
 \left(\hat{\theta}_{1},\hat{\theta}_{2}\right)=\arg\min_{\Theta\times\Theta}\,\left[\begin{array}{cc}
-m_{1}(\theta_{1})^{\prime} & m_{2}(\theta_{2})^{\prime}\end{array}\right]\left[\begin{array}{cc}
+\bar{m}_{1}(\theta_{1})^{\prime} & \bar{m}_{2}(\theta_{2})^{\prime}\end{array}\right]\left[\begin{array}{cc}
 W_{1} & \mathbf{0}_{\left(g_{1}\times g_{2}\right)}\\
 \mathbf{0}_{\left(g_{2}\times g_{1}\right)} & W_{2}
 \end{array}\right]\left[\begin{array}{c}
-m_{1}(\theta_{1})\\
-m_{2}(\theta_{2})
+\bar{m}_{1}(\theta_{1})\\
+\bar{m}_{2}(\theta_{2})
 \end{array}\right].\label{Standard Omnibus}
 \end{equation}
 
@@ -38473,8 +38997,8 @@ Suppose that the asymptotic covariance of the omnibus moment vector is
 \begin_inset Formula 
 \begin{eqnarray}
 \Sigma & = & \lim_{n\rightarrow\infty}Var\left\{ \sqrt{n}\left[\begin{array}{c}
-m_{1}(\theta_{1})\\
-m_{2}(\theta_{2})
+\bar{m}_{1}(\theta_{1})\\
+\bar{m}_{2}(\theta_{2})
 \end{array}\right]\right\} \label{omnibus variance}\\
  & \equiv & \left(\begin{array}{cc}
 \Sigma_{1} & \Sigma_{12}\\
@@ -38554,9 +39078,9 @@ reference "Standard Omnibus"
 \begin_inset Formula 
 \begin{equation}
 \left(\hat{\theta}_{1},\hat{\theta}_{2}\right)=\arg\min_{\Theta\times\Theta}\left[\begin{array}{cc}
-m_{1}(\theta_{1})^{\prime} & m_{2}(\theta_{2})^{\prime}\end{array}\right]\left(\widetilde{\Sigma}\right)^{-1}\left[\begin{array}{c}
-m_{1}(\theta_{1})\\
-m_{2}(\theta_{2})
+\bar{m}_{1}(\theta_{1})^{\prime} & \bar{m}_{2}(\theta_{2})^{\prime}\end{array}\right]\left(\widetilde{\Sigma}\right)^{-1}\left[\begin{array}{c}
+\bar{m}_{1}(\theta_{1})\\
+\bar{m}_{2}(\theta_{2})
 \end{array}\right],\label{New Omnibus}
 \end{equation}
 
@@ -39057,7 +39581,7 @@ Note that at time
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\Omega_{_{\infty}}=\lim E\left[nm(\theta^{0})m(\theta^{0})^{\prime}\right]
+\Omega_{_{\infty}}=\lim E\left[n\bar{m}(\theta^{0})\bar{m}(\theta^{0})^{\prime}\right]
 \]
 
 \end_inset
@@ -39086,7 +39610,7 @@ Note that at time
  we then minimize 
 \begin_inset Formula 
 \[
-s(\theta)=m(\theta)^{\prime}\hat{\Omega}^{-1}m(\theta).
+s(\theta)=\bar{m}(\theta)^{\prime}\hat{\Omega}^{-1}\bar{m}(\theta).
 \]
 
 \end_inset
@@ -39263,7 +39787,7 @@ Application: Simple DSGE model
 
 \begin_layout Standard
 This section presents a simple DSGE model, which will be used to illustrate
- several estimators: GMM, MSM, ABC.
+ several estimators: ML, GMM, MSM, ABC.
  It is to be expected that the difficulties we encounter with this simple
  model will probably affect econometric estimation of larger models.
 \end_layout
@@ -39836,30 +40360,52 @@ E_{t}\sum_{s=0}^{\infty}\beta^{s}\left(\frac{c_{t+s}^{1-\gamma}}{1-\gamma}+(1-n_
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Itemize
 subject to the budget constraint 
 \begin_inset Formula $c_{t}+i_{t}=r_{t}k_{t-1}+w_{t}n_{t}$
 \end_inset
 
-, available time 
+
+\end_layout
+
+\begin_layout Itemize
+available time 
 \begin_inset Formula $0\le n_{t}\le$
 \end_inset
 
-1, and the accumulation of capital 
-\begin_inset Formula $k_{t}=i_{t}+(1-\delta k_{t-1}).$
+1
+\end_layout
+
+\begin_layout Itemize
+and the accumulation of capital 
+\begin_inset Formula $k_{t}=i_{t}+(1-\delta)k_{t-1}$
 \end_inset
 
- There is a shock, 
+ 
+\end_layout
+
+\begin_layout Itemize
+There is a shock, 
 \begin_inset Formula $\eta_{t}$
 \end_inset
 
 , that affects the desirability of leisure.
- The shock evolves according to 
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The shock evolves according to 
 \begin_inset Formula $\ln\eta_{t}=\rho_{\eta}\ln\eta_{t-1}+\sigma_{\eta}\epsilon_{t}$
 \end_inset
 
 .
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
@@ -42698,7 +43244,7 @@ When working out the structure of
 
 \begin_layout Enumerate
 Verify the missing steps needed to show that 
-\begin_inset Formula $n\cdot m(\hat{\theta})^{\prime}\hat{\Omega}^{-1}m(\hat{\theta})$
+\begin_inset Formula $n\cdot\bar{m}(\hat{\theta})^{\prime}\hat{\Omega}^{-1}\bar{m}(\hat{\theta})$
 \end_inset
 
  has a 
@@ -43043,7 +43589,7 @@ Prove that the GMM estimator based upon the
 \end_inset
 
  moment conditions 
-\begin_inset Formula $m_{n}(\theta)=\left[\begin{array}{cc}
+\begin_inset Formula $\bar{m}_{n}(\theta)=\left[\begin{array}{cc}
 p_{n}^{\prime}(\theta) & q_{n}^{\prime}(\theta)\end{array}\right]^{\prime}$
 \end_inset
 
@@ -43956,6 +44502,12 @@ Verify the missing steps needed to show that
 \end_layout
 
 \begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Models-for-time"
+
+\end_inset
+
 Models for time series data
 \end_layout
 
@@ -46874,10 +47426,13 @@ Bayesian methods
 \end_layout
 
 \begin_layout Standard
-References I have used to prepare these notes: Cameron and Trivedi, 
-\emph on
-Microeconometrics: Methods and Applications
-\emph default
+References I have used to prepare these notes: 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cameron2005microeconometrics"
+
+\end_inset
+
 , Chapter 13; 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -48923,14 +49478,23 @@ Experiment with the examples to learn about tuning, etc.
 \end_layout
 
 \begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Introduction-to-panel"
+
+\end_inset
+
 Introduction to panel data
 \end_layout
 
 \begin_layout Standard
-Reference: Cameron and Trivedi, 2005, 
-\emph on
-Microeconometrics: Methods and Applications
-\emph default
+Reference: 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cameron2005microeconometrics"
+
+\end_inset
+
 , Part V, Chapters 21 and 22 (plus 23 if you have special interest in the
  topic).
  The GRETL manual, chapters 16 and 17 is also a nice reference.
@@ -54424,7 +54988,7 @@ and
 \end_layout
 
 \begin_layout Itemize
-Next, pointwise convergence needs to be stregnthened to uniform almost sure
+Next, pointwise convergence needs to be strengthened to uniform almost sure
  convergence.
  There are a number of possible assumptions one could use.
  Here, we'll just assume it holds.
@@ -61099,6 +61663,10 @@ htmladdnormallink{OBDVkernel.m}{https://github.com/mcreel/Econometrics/blob/mast
  as a model, plot kernel regression fits for OBDV visits as a function of
  income and education.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -61106,8 +61674,14 @@ Quantile regression
 \end_layout
 
 \begin_layout Standard
-References: Cameron and Trivedi, Chapter 4, and Chernozhukov's MIT OpenCourseWar
-e notes, lecture 8 
+References: 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cameron2005microeconometrics"
+
+\end_inset
+
+, Chapter 4, and Chernozhukov's MIT OpenCourseWare notes, lecture 8 
 \bar under
 
 \begin_inset CommandInset href
@@ -61126,6 +61700,10 @@ target "http://ocw.mit.edu/courses/economics/14-385-nonlinear-econometric-analys
 This chapter gives a brief outline of quantile regression.
  The intention is to learn what quantile regression is, and its potential
  uses, but without going into the topic in depth.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -61133,26 +61711,6 @@ Quantiles of the linear regression model
 \end_layout
 
 \begin_layout Standard
-The classical linear regression model 
-\begin_inset Formula $y_{t}=x_{t}^{\prime}\beta+\epsilon_{t}$
-\end_inset
-
- with normal errors implies that the distribution of 
-\begin_inset Formula $y_{t}$
-\end_inset
-
- conditional on 
-\begin_inset Formula $x_{t}$
-\end_inset
-
- is
-\begin_inset Formula 
-\[
-y_{t}\sim N(x_{t}^{\prime}\beta,\sigma^{2})
-\]
-
-\end_inset
-
 The 
 \begin_inset Formula $\alpha$
 \end_inset
@@ -61178,7 +61736,11 @@ The
 \end_inset
 
 .
- If 
+ 
+\end_layout
+
+\begin_layout Itemize
+If 
 \begin_inset Formula $F_{Y|X=x}$
 \end_inset
 
@@ -61191,11 +61753,18 @@ The
 \end_inset
 
 -conditional quantile is 
-\begin_inset Formula $Y_{\alpha|X=x}=\text{\inf\,}y:\alpha\leq F_{Y|X=x}(y)$
+\begin_inset Formula 
+\[
+Y_{\alpha|X=x}=\text{\ensuremath{\inf}\,}y:\alpha\leq F_{Y|X=x}(y).
+\]
+
 \end_inset
 
-.
- When 
+ 
+\end_layout
+
+\begin_layout Itemize
+When 
 \begin_inset Formula $\alpha=0.5,$
 \end_inset
 
@@ -61232,6 +61801,30 @@ The
 \end_layout
 
 \begin_layout Standard
+The classical linear regression model 
+\begin_inset Formula $y_{t}=x_{t}^{\prime}\beta+\epsilon_{t}$
+\end_inset
+
+ with normal errors implies that the distribution of 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+ conditional on 
+\begin_inset Formula $x_{t}$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+y_{t}\sim N(x_{t}^{\prime}\beta,\sigma^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
 Note that 
 \begin_inset Formula $Pr(Y<x^{\prime}\beta|X=x)=0.5$
 \end_inset
@@ -61242,8 +61835,16 @@ Note that
 \end_inset
 
 .
- One can estimate the conditional median just by using the fitted conditional
+ 
+\end_layout
+
+\begin_layout Itemize
+One can estimate the conditional median just by using the fitted conditional
  mean, because the mean and median are the same given normality.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -61256,7 +61857,11 @@ How about other quantiles? We have
 \end_inset
 
 .
- Conditional on 
+ 
+\end_layout
+
+\begin_layout Itemize
+Conditional on 
 \begin_inset Formula $x$
 \end_inset
 
@@ -61273,7 +61878,11 @@ How about other quantiles? We have
 \end_inset
 
 .
- Note that 
+ 
+\end_layout
+
+\begin_layout Itemize
+Note that 
 \begin_inset Formula $\epsilon/\sigma$
 \end_inset
 
@@ -61298,7 +61907,11 @@ How about other quantiles? We have
 \end_inset
 
  is the standard normal CDF function.
- The probit function 
+ 
+\end_layout
+
+\begin_layout Itemize
+The probit function 
 \begin_inset Formula $\Phi^{-1}(\alpha)$
 \end_inset
 
@@ -61490,10 +62103,20 @@ If the error is heteroscedastic, so that
 \begin_inset Formula $\sigma=\sigma(x)$
 \end_inset
 
-, quantiles can have different slopes.
+, quantiles can have 
+\bar under
+different slopes
+\bar default
+.
  
 \emph on
 Draw a picture.
+\emph default
+
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -61533,6 +62156,10 @@ For this reason, we may go the semi-parametric route, which imposes more
  When people talk about quantile regression, they usually mean the semi-parametr
 ic approach.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -61571,10 +62198,10 @@ The assumption is that the
 This is a generalization of what we get from the classical model with normality,
  where the slopes of the quantiles with respect to the regressors are constant
  for all 
-\begin_inset Formula $\alpha.$
+\begin_inset Formula $\alpha$
 \end_inset
 
- 
+: 
 \begin_inset Separator latexpar
 \end_inset
 
@@ -61643,10 +62270,14 @@ The question is how to estimate
 \end_inset
 
  when we don't make distributional assumptions.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-It turns out that the problem can be expressed as an extremum estimator,
+It turns out that the problem can be expressed as an extremum estimator:
  
 \begin_inset Formula $\widehat{\beta_{\alpha}}=\arg\min s_{n}(\beta)$
 \end_inset
@@ -61693,8 +62324,12 @@ The presence of the weights in the general version accounts for the fact
 \end_inset
 
 , and only 10% to be smaller.
- We need to downweight the likely events and upweight the unlikely events
+ We need to down-weight the likely events and up-weight the unlikely events
  so that the objective function minimizes at the appropriate place.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -61726,9 +62361,17 @@ the asymptotic variance depends upon which quantile we're estimating.
 \end_inset
 
  is close to 0 or 1, the asymptotic variance becomes large, and the asymptotic
- appoximation is unreliable for the small sample distribution.
- Extreme quantiles are hard to estimate with precision, because the data
+ approximation is unreliable for the small sample distribution.
+\end_layout
+
+\begin_layout Itemize
+Extreme quantiles are hard to estimate with precision, because the data
  is sparse in those regions.
+ 
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -61804,7 +62447,7 @@ Quantile regression results
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -61887,7 +62530,14 @@ Simulation-based methods for estimation and inference
 \series bold
 Readings
 \series default
-: Cameron and Trivedi, Ch.
+: 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cameron2005microeconometrics"
+
+\end_inset
+
+, Ch.
  12; Gourieroux and Monfort (1996) 
 \emph on
 Simulation-Based Econometric Methods
@@ -63506,7 +64156,7 @@ The above presentation is in terms of a specific moment condition based
 \begin_deeper
 \begin_layout Itemize
 A leading example is Indirect Inference, where we set 
-\begin_inset Formula $m_{n}(\theta)=\text{\hat{\phi}-\ensuremath{\frac{1}{S}\sum\tilde{\phi^{s}}(\theta)}}$
+\begin_inset Formula $\bar{m}_{n}(\theta)=\text{\hat{\phi}-\ensuremath{\frac{1}{S}\sum\tilde{\phi^{s}}(\theta)}}$
 \end_inset
 
 , and then we just do ordinary GMM.
@@ -63920,7 +64570,7 @@ We have seen in the section on QML that
 ; this suggests using the moment conditions 
 \begin_inset Formula 
 \begin{equation}
-m_{n}(\theta,\hat{\lambda})=\frac{1}{n}\sum_{t=1}^{n}\int D_{\lambda}\ln f_{t}(\hat{\lambda})p_{t}(\theta)dy\label{iimomcond}
+\bar{m}_{n}(\theta,\hat{\lambda})=\frac{1}{n}\sum_{t=1}^{n}\int D_{\lambda}\ln f_{t}(\hat{\lambda})p_{t}(\theta)dy\label{iimomcond}
 \end{equation}
 
 \end_inset
@@ -63936,7 +64586,7 @@ These moment conditions are not calculable, since
  is not available, but they are simulable using 
 \begin_inset Formula 
 \[
-\widetilde{m_{n}}(\theta,\hat{\lambda})=\frac{1}{n}\sum_{t=1}^{n}\frac{1}{H}\sum_{h=1}^{H}D_{\lambda}\ln f(\widetilde{y}_{t}^{h}|x_{t},\hat{\lambda})
+\widetilde{\bar{m}_{n}}(\theta,\hat{\lambda})=\frac{1}{n}\sum_{t=1}^{n}\frac{1}{H}\sum_{h=1}^{H}D_{\lambda}\ln f(\widetilde{y}_{t}^{h}|x_{t},\hat{\lambda})
 \]
 
 \end_inset
@@ -64159,7 +64809,7 @@ reference "Normality of ee"
 \end_inset
 
  Now take a first order Taylor's series approximation to 
-\begin_inset Formula $\sqrt{n}m_{n}(\theta^{0},\hat{\lambda})$
+\begin_inset Formula $\sqrt{n}\bar{m}_{n}(\theta^{0},\hat{\lambda})$
 \end_inset
 
  about 
@@ -64280,7 +64930,7 @@ reference "efficient weighting matrix"
  as 
 \begin_inset Formula 
 \[
-\hat{\theta}=\arg\min_{\Theta}m_{n}(\theta,\hat{\lambda})^{\prime}\left[\left(1+\frac{1}{H}\right)\widehat{\mathcal{I}(\lambda^{0})}\right]^{-1}m_{n}(\theta,\hat{\lambda})
+\hat{\theta}=\arg\min_{\Theta}\bar{m}_{n}(\theta,\hat{\lambda})^{\prime}\left[\left(1+\frac{1}{H}\right)\widehat{\mathcal{I}(\lambda^{0})}\right]^{-1}\bar{m}_{n}(\theta,\hat{\lambda})
 \]
 
 \end_inset
@@ -64341,7 +64991,7 @@ reference "lamdist"
  where 
 \begin_inset Formula 
 \[
-D_{\infty}=\lim_{n\rightarrow\infty}\mathcal{E}\left[D_{\theta}m_{n}^{\prime}(\theta^{0},\lambda^{0})\right].
+D_{\infty}=\lim_{n\rightarrow\infty}\mathcal{E}\left[D_{\theta}\bar{m}_{n}(\theta^{0},\lambda^{0})\right].
 \]
 
 \end_inset
@@ -64349,7 +64999,7 @@ D_{\infty}=\lim_{n\rightarrow\infty}\mathcal{E}\left[D_{\theta}m_{n}^{\prime}(\t
  This can be consistently estimated using 
 \begin_inset Formula 
 \[
-\hat{D}=D_{\theta}m_{n}^{\prime}(\hat{\theta},\hat{\lambda})
+\hat{D}=D_{\theta}\bar{m}_{n}(\hat{\theta},\hat{\lambda})
 \]
 
 \end_inset
@@ -64365,7 +65015,7 @@ Diagnostic testing
 The fact that 
 \begin_inset Formula 
 \[
-\sqrt{n}m_{n}(\theta^{0},\hat{\lambda})\stackrel{a}{\sim}N\left[0,\left(1+\frac{1}{H}\right)\mathcal{I}(\lambda^{0})\right]
+\sqrt{n}\bar{m}_{n}(\theta^{0},\hat{\lambda})\stackrel{a}{\sim}N\left[0,\left(1+\frac{1}{H}\right)\mathcal{I}(\lambda^{0})\right]
 \]
 
 \end_inset
@@ -64373,7 +65023,7 @@ The fact that
  implies that 
 \begin_inset Formula 
 \[
-nm_{n}(\hat{\theta},\hat{\lambda})^{\prime}\left[\left(1+\frac{1}{H}\right)\mathcal{I}(\hat{\lambda})\right]^{-1}m_{n}(\hat{\theta},\hat{\lambda})\stackrel{a}{\sim}\chi^{2}(q)
+n\bar{m}_{n}(\hat{\theta},\hat{\lambda})^{\prime}\left[\left(1+\frac{1}{H}\right)\mathcal{I}(\hat{\lambda})\right]^{-1}\bar{m}_{n}(\hat{\theta},\hat{\lambda})\stackrel{a}{\sim}\chi^{2}(q)
 \]
 
 \end_inset
@@ -64405,7 +65055,7 @@ Information about what is wrong can be gotten from the pseudo-t-statistics:
  
 \begin_inset Formula 
 \[
-\left(\text{diag}\left[\left(1+\frac{1}{H}\right)\mathcal{I}(\hat{\lambda})\right]^{1/2}\right)^{-1}\sqrt{n}m_{n}(\hat{\theta},\hat{\lambda})
+\left(\text{diag}\left[\left(1+\frac{1}{H}\right)\mathcal{I}(\hat{\lambda})\right]^{1/2}\right)^{-1}\sqrt{n}\bar{m}_{n}(\hat{\theta},\hat{\lambda})
 \]
 
 \end_inset
@@ -64419,15 +65069,15 @@ Information about what is wrong can be gotten from the pseudo-t-statistics:
 \end_inset
 
  since 
-\begin_inset Formula $\sqrt{n}m_{n}(\theta^{0},\hat{\lambda})$
+\begin_inset Formula $\sqrt{n}\bar{m}_{n}(\theta^{0},\hat{\lambda})$
 \end_inset
 
  and 
-\begin_inset Formula $\sqrt{n}m_{n}(\hat{\theta},\hat{\lambda})$
+\begin_inset Formula $\sqrt{n}\bar{m}_{n}(\hat{\theta},\hat{\lambda})$
 \end_inset
 
  have different distributions (that of 
-\begin_inset Formula $\sqrt{n}m_{n}(\hat{\theta},\hat{\lambda})$
+\begin_inset Formula $\sqrt{n}\bar{m}_{n}(\hat{\theta},\hat{\lambda})$
 \end_inset
 
  is somewhat more complicated).
@@ -64504,7 +65154,7 @@ Suppose we have a fully specified model indexed by a parameter
 \end_inset
 
 , that lead to moment conditions 
-\begin_inset Formula $m_{n}(\theta)=Z_{n}-E_{\theta}(Z_{n}),$
+\begin_inset Formula $\bar{m}_{n}(\theta)=Z_{n}-E_{\theta}(Z_{n}),$
 \end_inset
 
  where 
@@ -68039,7 +68689,7 @@ We estimate
 1996).
  The moment conditions that define the continuously updated indirect inference
  (CU-II) estimator are 
-\begin_inset Formula $m_{n}(\theta)=Z_{n}-\bar{Z}_{S,n}(\theta)$
+\begin_inset Formula $\bar{m}_{n}(\theta)=Z_{n}-\bar{Z}_{S,n}(\theta)$
 \end_inset
 
  where 
@@ -68839,7 +69489,7 @@ For a sample as above, the GMM estimator of the parameter
 where 
 \begin_inset Formula 
 \[
-s_{n}(\theta)=m_{n}(\theta)^{\prime}W_{n}m_{n}(\theta)
+s_{n}(\theta)=\bar{m}_{n}(\theta)^{\prime}W_{n}\bar{m}_{n}(\theta)
 \]
 
 \end_inset
@@ -68847,20 +69497,20 @@ s_{n}(\theta)=m_{n}(\theta)^{\prime}W_{n}m_{n}(\theta)
  and 
 \begin_inset Formula 
 \[
-m_{n}(\theta)=\frac{1}{n}\sum_{t=1}^{n}m_{t}(y_{t}|x_{t},\theta)
+\bar{m}_{n}(\theta)=\frac{1}{n}\sum_{t=1}^{n}m_{t}(y_{t}|x_{t},\theta)
 \]
 
 \end_inset
 
  Since 
-\begin_inset Formula $m_{n}(\theta)$
+\begin_inset Formula $\bar{m}_{n}(\theta)$
 \end_inset
 
  is an average, it can obviously be computed blockwise, using for example
  2 blocks:
 \begin_inset Formula 
 \begin{equation}
-m_{n}(\theta)=\frac{1}{n}\left\{ \left(\sum_{t=1}^{n_{1}}m_{t}(y_{t}|x_{t},\theta)\right)+\left(\sum_{t=n_{1}+1}^{n}m_{t}(y_{t}|x_{t},\theta)\right)\right\} \label{eq:gmm moment contributions}
+\bar{m}_{n}(\theta)=\frac{1}{n}\left\{ \left(\sum_{t=1}^{n_{1}}m_{t}(y_{t}|x_{t},\theta)\right)+\left(\sum_{t=n_{1}+1}^{n}m_{t}(y_{t}|x_{t},\theta)\right)\right\} \label{eq:gmm moment contributions}
 \end{equation}
 
 \end_inset
@@ -72716,7 +73366,7 @@ where
  of the moment conditions 
 \begin_inset Formula 
 \begin{eqnarray*}
-\Omega_{n} & = & \mathcal{E}\left[nm_{n}(\theta^{0})m_{n}(\theta^{0})^{\prime}\right]\\
+\Omega_{n} & = & \mathcal{E}\left[n\bar{m}_{n}(\theta^{0})\bar{m}_{n}(\theta^{0})^{\prime}\right]\\
  & = & \mathcal{E}\left[\frac{1}{n}Z_{n}^{\prime}h_{n}(\theta^{0})h_{n}(\theta^{0})^{\prime}Z_{n}\right]\\
  & = & Z_{n}^{\prime}\mathcal{E}\left(\frac{1}{n}h_{n}(\theta^{0})h_{n}(\theta^{0})^{\prime}\right)Z_{n}\\
  & \equiv & Z_{n}^{\prime}\frac{\Phi_{n}}{n}Z_{n}
@@ -82239,7 +82889,7 @@ AV=\lim_{n\rightarrow\infty}E\left[\mathbf{z}^{\prime}\left(\frac{\mathbf{Z}_{K}
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "econometrics"
-options "elsarticle-harv"
+options "bibtotoc,plainnm"
 
 \end_inset
 

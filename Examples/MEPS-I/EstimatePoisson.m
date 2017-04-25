@@ -25,7 +25,7 @@ y = data(:,which_dep);
 x = data(:,7:12);
 n = rows(x);
 x = [ones(n,1) x];
-%x(:,end) = x(:,end)/1000; # put income in thousands
+x(:,end) = x(:,end)/1000; # put income in thousands
 % choose one of the next 2 lines to see the effects of scaling the data
 [x scale] = scale_data(x); # scale the data
 %scale = 0; # don't scale the data

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Octave
+Comment=
+Exec=octave --force-gui --jit-compiler --quiet
+Icon=/home/user/Econometrics/octave.png
+Path=
+Terminal=false
+StartupNotify=false

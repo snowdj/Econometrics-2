@@ -24,3 +24,7 @@ theta
 fprintf('the ML estimates\n');
 thetahat
 
+fprintf('the OLS estimates\n');
+inv(x'*x)*x'*y
+
+

@@ -1,0 +1,8 @@
+[Added Associations]
+text/html=iceweasel.desktop;kde4-kwrite.desktop;kde4-okularApplication_txt.desktop;gvim.desktop;vim.desktop;
+text/x-matlab=octave.desktop;
+
+[Removed Associations]
+text/html=kde4-kfmclient_html.desktop;
+text/x-matlab=kde4-kate.desktop;kde4-okularApplication_txt.desktop;gvim.desktop;kde4-kwrite.desktop;
+text/x-objcsrc=kde4-kwrite.desktop;kde4-okularApplication_txt.desktop;gvim.desktop;

@@ -1,0 +1,13 @@
+[General]
+Default Identity=1837027094
+
+[Identity #0]
+Default Domain=debian
+Dictionary=English (United States of America)
+Disable Fcc=false
+Identity=Debian Live user
+Image Location=
+Inline Signature=
+Name=Debian Live user
+Signature Enabled=false
+uoid=1837027094

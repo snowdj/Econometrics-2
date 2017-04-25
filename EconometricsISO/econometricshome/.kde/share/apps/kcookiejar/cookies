@@ -1,0 +1,14 @@
+# KDE Cookie File v2
+#
+# Host               Domain               Path         Exp.date   Prot Name                 Sec  Value
+[.google.com]
+accounts.google.com  ""                   "/"          1476427676    0 ACCOUNT_CHOOSER      7    AFx_qI5LfS4HW57fgOum0YZuW_qzfn7VDjI-gxU1gQguf8K5s6fN8K3JIhu6rDRsxSS2UeK9-80f_ZBLX6ZnPcYo5aiMl__9sJ8RMj-Cowesobpvb85LgZsv6bNayiXRKjRbO6A6sgjm
+www.google.com       ".google.com"        "/"          1476427681    0 PREF                 4    ID=589ecc502a6c6f3d:FF=0:LD=en:TM=1413355681:LM=1413355681:GM=1:S=1f8U1KFJVaM7Di12
+apis.google.com      ""                   "/"          1415947682    0 OTZ                  5    2517528_56_56__56_
+accounts.google.com  ".google.com"        "/"          1429167033    0 NID                  6    67=mHIgYiHw5gtHCDDvYBFkqB317ZmHSzWemwdzFVTCJ2GANIdDTQBVUrlm4nHgG-EyCi6XdmioGFWI5hM9GYfrQ2_0HVhrFHv1lN86-Ow6Qn7Ka387ec8LAQpZqEth3Sb6
+accounts.google.com  ""                   "/"          1476427838    0 GAPS                 7    1:jXchII9rl6MZ4x5cvPaZiCkvmZY2qw:2Ms1pP6blAJPMi_n
+[.youtube.com]
+accounts.youtube.com ""                   "/accounts"  1476427833    0 GAPS                 7    1:n8U1r8NuzFqtLyfFRiR0d-rJJp8cSg:KZO7X6GQhyisifRV
+[.google.es]
+www.google.es        ""                   "/accounts"  1476427837    0 GAPS                 6    1:WDUQpJqq6owlNdqco5Y1CGpsCNhUEA:t8Tcpq5svkBbpuGS
+accounts.google.es   ".google.es"         "/"          1429167038    0 NID                  6    67=sWFueJKfYusjhmnS1UzCYwRGIKzoSy2wphY8rgLHd2FHXoeKfzGRsWwXPdQ3vBhMYSP8niuVMHbzHth4ajMhPVP8B5NLdmAfEPLbSw9omzUy6b27kpAXMVWsBRbafacj

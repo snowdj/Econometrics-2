@@ -1,5 +1,11 @@
 % Nerlove model by OLS, but imposing that factor shares are in (0,1) and sum to 1
-load nerlove.data
+usematlab = false;
+
+if usematlab
+    data = importdata('nerlove.data');
+else
+    data = load('nerlove.data');
+end    
 n = size(data,1);
 y = log(data(:,2));
 x = [ones(n,1) log(data(:,3:6))];
@@ -19,7 +25,17 @@ ub = [Inf; Inf;1;1;1];
 % the equality restriction: bL + b_f + bK = 1
 R = [0 0 1 1 1];
 r = 1;       
-[thetahat, ssr] = sqp(thetastart, @(theta) (y-x*theta)'*(y-x*theta), @(theta) R*theta-r, [], lb, ub); %Octave replacement for fmincon
+if usematlab
+  [thetahat_r, logL] = fmincon(@(theta) (y-x*theta)'*(y-x*theta), thetastart, [],[],R,r, lb, ub);
+else
+  [thetahat, ssr] = sqp(thetastart, @(theta) (y-x*theta)'*(y-x*theta), @(theta) R*theta-r, [], lb, ub); %Octave replacement for fmincon
+end
+
+
+%%%%%%%% here's an example of a binding constraint: use the results to do LR test   
+
+
+
 fprintf('\nrestricted estimates\n');
 thetahat
 ssr

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE khotnewstuff3>
+<hotnewstuffregistry>
+ <stuff category="">
+  <name>eucalypt mist</name>
+  <providerid>https://api.opendesktop.org/v1/</providerid>
+  <author homepage="http://opendesktop.org/usermanager/search.php?username=zaniah">zaniah</author>
+  <homepage>https://opendesktop.org/content/show.php?content=44740</homepage>
+  <licence>1</licence>
+  <version></version>
+  <rating>67</rating>
+  <downloads>12628</downloads>
+  <installedfile>/home/user/.kde/share/wallpapers///Eucalypt+Mist</installedfile>
+  <id>44740</id>
+  <releasedate>2012-05-18</releasedate>
+  <summary>Eucalypt forest of Mt Tomah botanical gardens, about an hour's drive west of Sydney in the blue mountains New South Wales Australia.</summary>
+  <changelog></changelog>
+  <preview>https://openDesktop.org/CONTENT/content-m1/m44740-1.png</preview>
+  <previewBig>https://openDesktop.org/CONTENT/content-pre1/44740-1.jpg</previewBig>
+  <payload>http://kde-look.org/content/show.php/Eucalypt+Mist?content=122100</payload>
+  <status>installed</status>
+ </stuff>
+ <stuff category="">
+  <name>Debian Plane</name>
+  <providerid>https://api.opendesktop.org/v1/</providerid>
+  <author homepage="http://opendesktop.org/usermanager/search.php?username=maleficmax">maleficmax</author>
+  <homepage>https://opendesktop.org/content/show.php?content=161990</homepage>
+  <licence>10</licence>
+  <version>1</version>
+  <rating>53</rating>
+  <downloads>24</downloads>
+  <installedfile>/home/user/.kde/share/wallpapers///161990-2_summ.jpg</installedfile>
+  <id>161990</id>
+  <releasedate>2013-11-21</releasedate>
+  <summary></summary>
+  <changelog></changelog>
+  <preview>https://openDesktop.org/CONTENT/content-m1/m161990-1.png</preview>
+  <previewBig>https://openDesktop.org/CONTENT/content-pre1/161990-1.jpg</previewBig>
+  <payload>http://opendesktop.org/CONTENT/content-files/161990-2_summ.jpg</payload>
+  <status>installed</status>
+ </stuff>
+ <stuff category="">
+  <name>SamuraiSVG</name>
+  <providerid>https://api.opendesktop.org/v1/</providerid>
+  <author homepage="http://opendesktop.org/usermanager/search.php?username=serxxx">serxxx</author>
+  <homepage>https://opendesktop.org/content/show.php?content=33041</homepage>
+  <licence>0</licence>
+  <version></version>
+  <rating>64</rating>
+  <downloads>8467</downloads>
+  <installedfile>/home/user/.kde/share/wallpapers///33041-Samurai.svgz</installedfile>
+  <id>33041</id>
+  <releasedate>2005-12-28</releasedate>
+  <summary>This was originally a bitmap from http://6t-web-ftp2.dyndns.org/galerie/displayimage.php?pid=359&amp;amp;fullsize=1.  That link seems to be broken now, and there\\\'s no author information in the original metadata. I don\\\'t know who the original author was.
+
+I converted the jpg to SVG with a little auto-tracing, and a lot of manual tracing.</summary>
+  <changelog></changelog>
+  <preview>https://openDesktop.org/CONTENT/content-m1/m33041-1.png</preview>
+  <previewBig>https://openDesktop.org/CONTENT/content-pre1/33041-1.png</previewBig>
+  <payload>http://opendesktop.org/CONTENT/content-files/33041-Samurai.svgz</payload>
+  <status>installed</status>
+ </stuff>
+</hotnewstuffregistry>
