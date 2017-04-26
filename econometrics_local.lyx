@@ -37349,7 +37349,14 @@ estimator rises as the number of instruments increases.
 \end_layout
 
 \begin_layout Example
-Recall Example 
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:GIV-example.-Recall"
+
+\end_inset
+
+GIV example.
+ Recall Example 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "exa:Measurement-error-in"
@@ -37542,33 +37549,7 @@ GIV estimation results for
 
 \end_inset
 
- As mentioned above, when the GMM estimator is overidentified and we use
- a consistent estimate of the efficient weight matrix, we have the criterion-bas
-ed specification test 
-\begin_inset Formula $n\cdot s_{n}(\hat{\theta})$
-\end_inset
-
- available.
- The Octave script 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
  
-\backslash
-htmladdnormallink{GMM/SpecTest.m}{file:///home/michael/Mystuff/Econometrics/Examp
-les/GMM/SpecTest.m} 
-\end_layout
-
-\end_inset
-
- does a Monte Carlo study of this test, for the dynamic model with measurement
- error, and shows that it over-rejects a correctly specified model, in this
- case.
- For example, if the significance level is set to 10%, the test rejects
- about 16% of the time.
- This is a common result for this test.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -37757,7 +37738,7 @@ D(\hat{\theta})\hat{\Omega}^{-1}\bar{m}_{n}(\hat{\theta})\equiv0
 
 \begin_layout Standard
 Consider a Taylor expansion of 
-\begin_inset Formula $m(\hat{\theta})$
+\begin_inset Formula $\bar{m}(\hat{\theta})$
 \end_inset
 
  about the true parameter value:
@@ -37766,7 +37747,7 @@ Consider a Taylor expansion of
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-m(\hat{\theta})=\bar{m}_{n}(\theta^{0})+D_{n}^{\prime}(\theta^{*})\left(\hat{\theta}-\theta^{0}\right)\label{TS expansion of moments}
+\bar{m}(\hat{\theta})=\bar{m}_{n}(\theta^{0})+D_{n}^{\prime}(\theta^{*})\left(\hat{\theta}-\theta^{0}\right)\label{TS expansion of moments}
 \end{equation}
 
 \end_inset
@@ -37791,7 +37772,7 @@ where
  we obtain 
 \begin_inset Formula 
 \[
-D(\hat{\theta})\hat{\Omega}^{-1}m(\hat{\theta})=D(\hat{\theta})\hat{\Omega}^{-1}\bar{m}_{n}(\theta^{0})+D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\left(\hat{\theta}-\theta^{0}\right)
+D(\hat{\theta})\hat{\Omega}^{-1}\bar{m}(\hat{\theta})=D(\hat{\theta})\hat{\Omega}^{-1}\bar{m}_{n}(\theta^{0})+D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\left(\hat{\theta}-\theta^{0}\right)
 \]
 
 \end_inset
@@ -37945,6 +37926,18 @@ One can easily verify that
 \end_layout
 
 \begin_layout Itemize
+\begin_inset Formula $X=\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\theta^{0})$
+\end_inset
+
+ converges to a 
+\begin_inset Formula $G$
+\end_inset
+
+ vector of i.i.d.
+ standard normal random variables, by the LLN and the Slutsky theorem.
+\end_layout
+
+\begin_layout Itemize
 
 \family roman
 \series medium
@@ -37957,12 +37950,13 @@ One can easily verify that
 \uwave off
 \noun off
 \color none
-We know as a basic result from statistics that 
+Thus, 
 \begin_inset Formula $X^{\prime}PX\stackrel{d}{\rightarrow}\chi^{2}(d)$
 \end_inset
 
-, because it is a quadratic form of standard normal variables, weighted
- by an idempotent matrix.
+, by the Continuous Mapping Theorem.
+ This is because, asymptotically, it is a quadratic form of standard normal
+ variables, weighted by an idempotent matrix.
 \end_layout
 
 \begin_layout Itemize
@@ -38121,6 +38115,43 @@ minimum chi-square
 \end_inset
 
  distribution.
+\end_layout
+
+\begin_layout Standard
+The Octave script 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{GMM/SpecTest.m}{file:///home/michael/Mystuff/Econometrics/Examp
+les/GMM/SpecTest.m} 
+\end_layout
+
+\end_inset
+
+ does a Monte Carlo study of the Hansen-Sargan test, for same the dynamic
+ model with measurement error as was discussed in Examples 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "exa:Measurement-error-in"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "exa:GIV-example.-Recall"
+
+\end_inset
+
+, which did GIV estimation, and shows that it over-rejects a correctly specified
+ model, in this case.
+ For example, if the significance level is set to 10%, the test rejects
+ about 16% of the time.
+ This is a common result for this test.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -38128,7 +38159,49 @@ minimum chi-square
 \end_layout
 
 \begin_layout Example
-Examine and run 
+GMM for Nerlove model (runs on Matlab) Examine and run 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{TwoStepGMM.m}{file:///home/michael/Mystuff/Econometrics/Example
+s/GMM/TwoStepGMM.m} 
+\end_layout
+
+\end_inset
+
+, which illustrates how to do two step GMM for the Nerlove data.
+ The Octave script 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{NerloveGMM.m}{file:///home/michael/Mystuff/Econometrics/Example
+s/OLS/NerloveGMM.m} 
+\end_layout
+
+\end_inset
+
+ does the same thing, with nicer formatting of outout, but with the inner
+ workings of GMM estimation somewhat hidden from view.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+GMM using Poisson model.
+ Examine and run 
 \begin_inset ERT
 status open
 
@@ -38353,25 +38426,8 @@ OLS as a GMM estimator - the Nerlove model again
 \end_layout
 
 \begin_layout Standard
-The simple Nerlove model can be estimated using GMM.
- The Octave script 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{NerloveGMM.m}{file:///home/michael/Mystuff/Econometrics/Example
-s/OLS/NerloveGMM.m} 
-\end_layout
-
-\end_inset
-
- estimates the model by GMM and by OLS.
- It also illustrates that the weight matrix does not matter when the moments
- just identify the parameter.
- You are encouraged to examine the script and run it.
+The simple Nerlove model can be estimated using GMM, as we've seen.
+ So, OLS is a special case of GMM.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -39678,7 +39734,7 @@ Empirical example: a portfolio model
 \begin_layout Standard
 The Octave program 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -39764,6 +39820,34 @@ key "HansenHeatonYaron1996"
 
 .
  I believe that this is the case here, though I haven't checked it carefully.
+\end_layout
+
+\begin_layout Standard
+The Octave/Matlab program 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink{HallGMM.m}{file:///home/michael/Mystuff/Econometrics/Examples/G
+MM/HallGMM.m}
+\end_layout
+
+\end_inset
+
+ estimates a very similar model, following Chapter 23 of the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Gretl Users Guide"
+target "http://ricardo.ecn.wfu.edu/pub/gretl/manual/en/gretl-guide-a4.pdf"
+
+\end_inset
+
+.
+ I encourage you to verify that you can obtain the same results using Gretl
+ and Octave.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -71751,13 +71835,57 @@ Finally, analogous almost sure versions of
 
  are defined in the obvious way.
  
-\begin_inset Newpage newpage
+\end_layout
+
+\begin_layout Section
+Slutsky Theorem and Continuous Mapping Theorem
+\end_layout
+
+\begin_layout Standard
+The following two theorems are important for getting the asymptotic distribution
+ of estimators, and for test statistics that are derived from transformations
+ of estimators.
+ See 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "gallant1997introduction"
+
+\end_inset
+
+, Theorems 4.6 and 4.7.
+ Statement of the theorems are here:
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "Slutsky Theorem"
+target "https://en.wikipedia.org/wiki/Slutsky%27s_theorem"
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "Continuous Mapping Theorem"
+target "https://en.wikipedia.org/wiki/Continuous_mapping_theorem"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
 For 
 \begin_inset Formula $a$
 \end_inset
@@ -71777,7 +71905,7 @@ For
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Enumerate
 For 
 \begin_inset Formula $A$
 \end_inset
@@ -71801,7 +71929,7 @@ For
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Enumerate
 For 
 \begin_inset Formula $x$
 \end_inset
@@ -71821,7 +71949,7 @@ For
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Enumerate
 For 
 \begin_inset Formula $x$
 \end_inset
@@ -71841,7 +71969,7 @@ For
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Enumerate
 Write an Octave program that verifies each of the previous results by taking
  numeric derivatives.
  For a hint, type 
