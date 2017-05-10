@@ -1,1 +1,1 @@
-/home/michael/Mystuff/Econometrics/Examples/DSGE/GenData/dsgedata.m
+../GenData/dsgedata.m
