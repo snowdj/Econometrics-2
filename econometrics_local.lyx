@@ -163,8 +163,7 @@ Universitat Autònoma de Barcelona
 
 
 \size small
-Apr.
- 2017
+May 2017
 \end_layout
 
 \begin_layout Standard
@@ -38698,7 +38697,7 @@ reference "information matrix equality"
  Combining these two equations, we get
 \begin_inset Formula 
 \[
-\sqrt{n}\left(\hat{\theta}-\theta_{0}\right)\overset{a.s.}{\rightarrow}I_{\infty}(\theta_{0})^{-1}\sqrt{n}g(\theta_{0}).
+\sqrt{n}\left(\hat{\theta}-\theta_{0}\right)\overset{a.s.}{\rightarrow}\mathcal{I}_{\infty}(\theta_{0})^{-1}\sqrt{n}g(\theta_{0}).
 \]
 
 \end_inset
@@ -44627,6 +44626,10 @@ Up to now we've considered the behavior of the dependent variable
  model, most applied time series work is done with linear models, though
  nonlinear time series is also a large and growing field.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -44702,7 +44705,7 @@ So a time series is a sample of size
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\,$
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -44756,6 +44759,9 @@ weak stationarity.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 What is the mean of 
 \begin_inset Formula $Y_{t}?$
 \end_inset
@@ -44767,13 +44773,13 @@ What is the mean of
 
  repeated samples from the stoch.
  proc., e.g., 
-\begin_inset Formula $\left\{ y_{tm}\right\} $
+\begin_inset Formula $\left\{ y_{tm}\right\} _{m=1}^{M}$
 \end_inset
 
  By a LLN, we would expect that 
 \begin_inset Formula 
 \[
-\lim_{M\rightarrow\infty}\frac{1}{M}\sum_{m=1}^{M}y_{tm}\overset{p}{\rightarrow}\mathcal{E}(Y_{t})
+\frac{1}{M}\sum_{m=1}^{M}y_{tm}\overset{p}{\rightarrow}\mathcal{E}(Y_{t})
 \]
 
 \end_inset
@@ -44820,6 +44826,10 @@ This implies that the autocovariances die off, so that the
 \end_inset
 
  are not so strongly dependent that they don't satisfy a LLN.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Definition
@@ -44884,6 +44894,10 @@ This implies that the autocovariances die off, so that the
 \end_inset
 
  Gaussian white noise just adds a normality assumption.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -44895,6 +44909,10 @@ With these concepts, we can discuss ARMA models.
  These are closely related to the AR and MA error processes that we've already
  discussed.
  The main difference is that the lhs variable is observed directly now.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -44949,6 +44967,10 @@ y_{t}=\mu+\varepsilon_{t}+\theta_{1}\varepsilon_{t-1}+\theta_{2}\varepsilon_{t-2
 \end_inset
 
  are finite.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -45010,6 +45032,10 @@ With this, it is very easy to program the log-likelihood function.
  In this form, one needs a lot of computer memory.
  A more economical approach uses the Kalman filter, which we'll see in the
  discussion of state space models.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -45075,6 +45101,10 @@ Maximization of the conditional likelihood is also used for estimation,
  This is a convenient shortcut, but it's not recommended if the sample is
  not large, especially since it's not hard to compute the exact likelihood
  function.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -45149,6 +45179,10 @@ Y_{t}=C+FY_{t-1}+E_{t}
 
 \end_inset
 
+
+\begin_inset Newpage newpage
+\end_inset
+
  With this, we can recursively work forward in time: 
 \begin_inset Formula 
 \begin{eqnarray*}
@@ -45175,6 +45209,10 @@ Y_{t+2} & = & C+FY_{t+1}+E_{t+2}\\
 Y_{t+j}=C+FC+\cdots+F^{j}C+F^{j+1}Y_{t-1}+F^{j}E_{t}+F^{j-1}E_{t+1}+\cdots+FE_{t+j-1}+E_{t+j}
 \]
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
  Consider the impact of a shock in period 
@@ -45213,6 +45251,10 @@ Y_{t+j}=C+FC+\cdots+F^{j}C+F^{j+1}Y_{t-1}+F^{j}E_{t}+F^{j-1}E_{t+1}+\cdots+FE_{t
 \begin_layout Itemize
 Save this result, we'll need it in a minute.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -45325,6 +45367,10 @@ F-\lambda I_{P}=\left[\begin{array}{ll}
 
 \end_inset
 
+
+\begin_inset Newpage newpage
+\end_inset
+
  Supposing that all of the roots of this polynomial are distinct, then the
  matrix 
 \begin_inset Formula $F$
@@ -45395,6 +45441,10 @@ F^{j}=T\Lambda^{j}T^{-1}
 \end{array}\right]
 \]
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
  Supposing that the 
@@ -45492,12 +45542,18 @@ impulse-response
 \emph default
  function.
  Real eigenvalues lead to steady movements, whereas complex eigenvalues
- lead to ocillatory behavior.
+ lead to oscillatory behavior.
  Of course, when there are multiple eigenvalues the overall effect can be
  a mixture.
  
 \emph on
 pictures
+\emph default
+
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -45548,6 +45604,10 @@ y_{t}-\mu & = & \mu-\phi_{1}\mu-...-\phi_{p}\mu+\phi_{1}y_{t-1}+\phi_{2}y_{t-2}+
  & = & \phi_{1}(y_{t-1}-\mu)+\phi_{2}(y_{t-2}-\mu)+...+\phi_{p}(y_{t-p}-\mu)+\varepsilon_{t}
 \end{eqnarray*}
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
  With this, the second moments are easy to find: The variance is 
@@ -45606,6 +45666,10 @@ y_{t}-\mu & = & \mu-\phi_{1}\mu-...-\phi_{p}\mu+\phi_{1}y_{t-1}+\phi_{2}y_{t-2}+
 \end_inset
 
  can be solved for recursively.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -45646,6 +45710,10 @@ may
  which is outside the scope of this course.
  Estimation can be done using the Kalman filter, assuming that the errors
  are normally distributed.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -45693,7 +45761,7 @@ where
 \begin_inset Formula $A_{1}$
 \end_inset
 
-is a 
+ is a 
 \begin_inset Formula $G\times G$
 \end_inset
 
@@ -45730,7 +45798,7 @@ vector autoregressive
  The extension to a VAR(p) model is quite obvious.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 As shown in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -45740,6 +45808,10 @@ reference "sec:EstimationRF"
 
 , it is efficient to estimate a VAR model using OLS equation by equation,
  there is no need to use GLS, in spite of the cross equation correlations.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -45835,14 +45907,22 @@ reference "eq:VAR1"
 
 .
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 C.
  Sims originally proposed reduced form VAR models as an alternative to structura
 l simultaneous equations models, which were perceived to require too many
  unrealistic assumptions for their identification.
- However, the search for structural interpretations of VAR models slowly
+ 
+\end_layout
+
+\begin_layout Itemize
+However, the search for structural interpretations of VAR models slowly
  crept back into the literature, leading to 
 \begin_inset Quotes sld
 \end_inset
@@ -45852,10 +45932,18 @@ structural VARs
 \end_inset
 
 .
- A structural VAR model is really just a dynamic linear simultaneous equations
- model, with other imaginative and hopefully more realistic methods used
- for identification.
- The issue of identifying the structural parameters 
+ 
+\end_layout
+
+\begin_layout Itemize
+A structural VAR model is really just a certain form of dynamic linear simultane
+ous equations model, with other imaginative and hopefully more realistic
+ methods used for identification.
+ 
+\end_layout
+
+\begin_layout Itemize
+The issue of identifying the structural parameters 
 \begin_inset Formula $\Gamma$
 \end_inset
 
@@ -45865,20 +45953,35 @@ structural VARs
 
  is more or less the same problem that was studied in the context of simultaneou
 s equations.
- There, identification was obtained through zero restrictions.
+ 
+\end_layout
+
+\begin_layout Itemize
+There, identification was obtained through zero restrictions.
  In the structural VAR literature, zero restrictions are often used, but
  other information may also be used, such as covariance matrix restrictions
  or sign restrictions.
- Interest often focuses on the impulse-response functions.
+\end_layout
+
+\begin_layout Itemize
+Interest often focuses on the impulse-response functions.
  Identification of the impact of structural shocks (how to estimate the
  impact-response functions) is complicated, with many alternative methodologies,
  and is often a topic of much disagreement among practitioners.
  The estimated impulse response functions are often sensitive to the identificat
 ion strategy that is used.
  There is a large literature.
- Papers by C.
+ 
+\end_layout
+
+\begin_layout Itemize
+Papers by C.
  Sims are a good place to start, if one wants to learn more.
  He also offers a good deal of useful software on his web page.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -45888,7 +45991,11 @@ An issue which arises when a VAR(p) model
 
  is contemplated is that the number of parameters increases rapidly in p,
  which introduces severe collinearity problems.
- One can use Bayesian methods such as the 
+ 
+\end_layout
+
+\begin_layout Itemize
+One can use Bayesian methods such as the 
 \begin_inset Quotes sld
 \end_inset
 
@@ -45902,16 +46009,33 @@ y follows a random walk (an AR(1) model with
 \end_inset
 
 .
- The prior on 
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The prior on 
 \begin_inset Formula $A_{1}$
 \end_inset
 
- is that it is an identity matrix, and the prior on the 
+ is that it is an identity matrix
+\end_layout
+
+\begin_layout Itemize
+and the prior on the 
 \begin_inset Formula $A_{j},\,j>1$
 \end_inset
 
- is that they are zero matrices.
- This can be done using stochastic restrictions similar to what was in the
+ is that they are zero matrices
+\end_layout
+
+\begin_layout Itemize
+thus, each variable follows a random walk, according to the prior
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+This can be done using stochastic restrictions similar to what was in the
  discussion of collinearity and ridge regression.
  For example, a VAR(2) model in de-meaned variables, with 
 \begin_inset Formula $G$
@@ -46051,6 +46175,10 @@ Bayesian VARs
  An introduction to more formal Bayesian methods is given in a chapter that
  follows.
  For highly parameterized models, Bayesian methods can help to impose structure.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -46106,6 +46234,10 @@ target "http://en.wikipedia.org/wiki/Skewness"
 
 \begin_layout Itemize
 perhaps slight autocorrelation within the bounds allowed by arbitrage
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -46133,6 +46265,10 @@ reference "fig:Dow-Jones-close,"
 \end_layout
 
 \begin_layout Itemize
+compute descriptive statistics: negative skew and positive excess kurtosis
+\end_layout
+
+\begin_layout Itemize
 regress returns on its own lag and on squared returns and lags: low predictabili
 ty
 \end_layout
@@ -46140,6 +46276,10 @@ ty
 \begin_layout Itemize
 regress squared returns on its own lags and on returns: more predictable,
  evidence of leverage
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -46241,11 +46381,15 @@ Frequency distribution
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 The presence of volatility clusters indicates that the variance of the series
  is not constant over time, conditional on past events.
  Engle's ARCH paper was the first to model this feature.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -46320,6 +46464,10 @@ to ensure that the model is covariance stationary, we need
 
 .
  Otherwise, the variances will explode off to infinity.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -46408,6 +46556,9 @@ where
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 In principle, this is easy to maximize.
  Some complications can arise when the restrictions for positivity and stationar
 ity are imposed.
@@ -46452,6 +46603,10 @@ les/TimeSeries/Arch4Example.m}
 
  does the same thing for an ARCH(4) model, and it illustrates imposition
  of stationarity constraints.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -46541,19 +46696,34 @@ backcast
 
  the conditional variance.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 The GARCH model also requires restrictions on the parameters to ensure stationar
 ity and positivity of the variance.
- A useful modification is the EGARCH model (exponential GARCH, Nelson, D.
+ 
+\end_layout
+
+\begin_layout Itemize
+A useful modification is the EGARCH model (exponential GARCH, Nelson, D.
  B.
  (1991).
  "Conditional heteroskedasticity in asset returns: A new approach", Econometrica
  59: 347-370).
  This model treats the logarithm of the variance as an ARMA process, so
  the variance will be positive without restrictions on the parameters.
- It is also possible to introduce asymmetry (leverage) and non-normality.
+\end_layout
+
+\begin_layout Standard
+There are many variants that introduce asymmetry (leverage) and non-normality.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -46573,12 +46743,24 @@ mples/TimeSeries/Garch11Example.m}
 
  illustrates estimation of a GARCH(1,1) model, using the NYSE closing price
  data.
- If you run this, you'll see that it's pretty slow.
+ 
+\end_layout
+
+\begin_layout Itemize
+If you run this, you'll see that it's pretty slow.
  Octave does not perform well with code that has loops, and the likelihood
  function has a loop.
- For this problem, evaluation of the likelihood function is done many times
+ 
+\end_layout
+
+\begin_layout Itemize
+For this problem, evaluation of the likelihood function is done many times
  during the iterative maximization.
- A good strategy for speeding up code is to optimize the inner loop, and
+ 
+\end_layout
+
+\begin_layout Itemize
+A good strategy for speeding up code is to optimize the inner loop, and
  in this case, that means reducing the time needed to compute the likelihood
  function.
  Octave has very nice methods for using C++ code.
@@ -46774,8 +46956,8 @@ Note that the time to run goes from 40s using plain Octave code to 0.6s using
 \end_layout
 
 \begin_layout Itemize
-The results are slightly different, because the way the variance is initialized
- is slightly different in the two versions.
+The results are slightly different, perhaps the two versions of the likelihood
+ are not exactly identical, but I don't see differences.
  
 \end_layout
 
@@ -46828,9 +47010,28 @@ Note that the
  using efficient C++ code.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
+With Gretl, run the GARCH variants GJR(1,1) with skewed t shocks.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Do a density plot
+\end_layout
+
+\begin_layout Itemize
+note the BIC value
+\end_layout
+
+\begin_layout Itemize
+there are a lot of options to explore
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
 Note that the test of homoscedasticity against ARCH or GARCH involves parameters
- being on the boundary of the parameter space.
+ being on the boundary of the parameter space, which means that standard
+ asymptotics do not apply.
  Also, the reduction of GARCH to ARCH has the same problem.
  Testing needs to be done taking this into account.
  See Demos and Sentana (1998) 
@@ -46838,6 +47039,10 @@ Note that the test of homoscedasticity against ARCH or GARCH involves parameters
 Journal of Econometrics
 \emph default
 .
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -46868,9 +47073,45 @@ In this model, the log of the standard error of the observed sequence follows
 \begin_inset Formula $\eta_{t}.$
 \end_inset
 
- Variants of this sort of model are widely used to model financial data,
- competing with the GARCH(1,1) model for being the most popular choice.
+ 
+\end_layout
+
+\begin_layout Itemize
+While the ARCH and GARCH models have a link between the shocks to 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+ and the dynamics of the variance of 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+, the stochastic volatility model has latent shocks to the variance which
+ are not directly linked to the observed dependent variable.
+ This may be perfectly reasonable: even when volatility is high, the mean
+ of shocks to the observables may be zero.
+ An ARCH model could not account for an increase in volatility without having
+ a realized extreme shock.
+ The SV model can allow for this.
+ 
+\end_layout
+
+\begin_layout Itemize
+The latent shocks complicate estimation.
  Many estimation methods have been proposed.
+\end_layout
+
+\begin_layout Itemize
+Variants of this sort of model are widely used to model financial data,
+ competing with the GARCH(1,1) model for being the most popular choice.
+ 
+\end_layout
+
+\begin_layout Standard
+exit
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -46966,6 +47207,10 @@ Here,
 \end_inset
 
 .
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -47024,6 +47269,10 @@ e of a jump, are independent and conditionally normally distributed:
 .
  This jump model was considered in, for example, Andersen, Benzoni and Lund
  (2002).
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -47048,63 +47297,6 @@ reference "fig:Spot-volatility,-jump-diffusion"
 
 .
  Returns are observable, but spot volatility is not.
-\end_layout
-
-\begin_layout Standard
-One might want to try to infer the parameters of the model, and also the
- latent spot volatility, using the observable data.
- Estimation of the parameters of such models is complicated by the fact
- that data is available in discrete time: 
-\begin_inset Formula $p_{1},p_{2},...p_{n},$
-\end_inset
-
- but the model is in continuous time.
- One can 
-\begin_inset Quotes sld
-\end_inset
-
-discretize
-\begin_inset Quotes srd
-\end_inset
-
- the model, to obtain something like the discrete time SV model of the previous
- section, but the discrete time transition density implied by the approximating
- model is not the same as the true transition density 
-\begin_inset Formula 
-\[
-p_{t}\sim f_{p}\left(p_{t}|p_{t-1},h_{t-1};\theta\right),
-\]
-
-\end_inset
-
-induced by the continuous time model.
- This true density is unknown, however, so using it for ML estimation is
- not possible.
- If one estimates the discrete time version treating it as the actual density,
- there is an approximation misspecification that causes the estimates to
- be inconsistent: we're not doing ML, we're doing quasi-ML, which is in
- general an inconsistent estimator.
- Consistent estimation of parameters is discussed in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:sim-baed estimation differential eqns"
-
-\end_inset
-
-, in the Chapter on simulation-based estimation.
- A means of learning about spot volatility, 
-\begin_inset Formula $h_{t},$
-\end_inset
-
- given estimated parameters and the history of observable variables, is
- discussed in the chapter on nonparametric inference, in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Limited-information-nonparametri"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
@@ -47210,6 +47402,89 @@ status open
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+One might want to try to infer the parameters of the model, and also the
+ latent spot volatility, using the observable data.
+ 
+\end_layout
+
+\begin_layout Itemize
+Estimation of the parameters of such models is complicated by the fact that
+ data is available in discrete time: 
+\begin_inset Formula $p_{1},p_{2},...p_{n},$
+\end_inset
+
+ but the model is in continuous time.
+ 
+\end_layout
+
+\begin_layout Itemize
+One can 
+\begin_inset Quotes sld
+\end_inset
+
+discretize
+\begin_inset Quotes srd
+\end_inset
+
+ the model, to obtain something like the discrete time SV model of the previous
+ section, but the discrete time transition density implied by the approximating
+ model is not the same as the true transition density 
+\begin_inset Formula 
+\[
+p_{t}\sim f_{p}\left(p_{t}|p_{t-1},h_{t-1};\theta\right),
+\]
+
+\end_inset
+
+induced by the continuous time model.
+ 
+\end_layout
+
+\begin_layout Itemize
+This true density is unknown, however, so using it for ML estimation is
+ not possible.
+ If one estimates the discrete time version treating it as the actual density,
+ there is an approximation misspecification that causes the estimates to
+ be inconsistent: we're not doing ML, we're doing quasi-ML, which is in
+ general an inconsistent estimator.
+ 
+\end_layout
+
+\begin_layout Itemize
+Consistent estimation of parameters is discussed in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:sim-baed estimation differential eqns"
+
+\end_inset
+
+, in the Chapter on simulation-based estimation.
+ A means of learning about spot volatility, 
+\begin_inset Formula $h_{t},$
+\end_inset
+
+ given estimated parameters and the history of observable variables, is
+ discussed in the chapter on nonparametric inference, in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Limited-information-nonparametri"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -47265,10 +47540,31 @@ reference "eq:MA1likelihood"
  matrix must be stored.
  A more efficient method is to write the MA model as a linear Gaussian state-spa
 ce model, and to use Kalman filtering to compute the likelihood.
+ 
 \end_layout
 
 \begin_layout Standard
-For Kalman filtering, see Fernández-Villaverde's notes 
+For Kalman filtering, see 
+\bar under
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Mikusheva's MIT Open Courseware notes"
+target "http://ocw.mit.edu/courses/economics/14-384-time-series-analysis-fall-2013/lecture-notes/"
+
+\end_inset
+
+
+\bar default
+, lectures 21 and 22, and also the summary in the introduction of 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "LopesTsayPArticleFilter2011"
+
+\end_inset
+
+.
+ Additional sources are 
 \bar under
 
 \begin_inset CommandInset href
@@ -47280,22 +47576,7 @@ target "http://economics.sas.upenn.edu/~jesusfv/Chapter_4_Likelihood.pdf"
 
 
 \bar default
- and Mikusheva's MIT OpenCourseWare notes, lectures 21 and 22: 
-\bar under
-
-\begin_inset CommandInset href
-LatexCommand href
-name "Mikusheva's Kalman filter notes"
-target "http://ocw.mit.edu/courses/economics/14-384-time-series-analysis-fall-2013/lecture-notes/"
-
-\end_inset
-
-
-\bar default
-.
- I will follow Mikusheva's notes in class.
- Another excellent reference (with code using the Julia language) is the
- 
+ and the 
 \begin_inset CommandInset href
 LatexCommand href
 name "Quantitative Economics Kalman filter"
@@ -47303,7 +47584,7 @@ target "http://quant-econ.net/jl/linear_models.html"
 
 \end_inset
 
- tutorial.
+ tutorial (includes example code using the Julia language).
 \end_layout
 
 \begin_layout Standard
@@ -47312,6 +47593,14 @@ For nonlinear state space models, or non-Gaussian state space models, the
  a widely-used means of computing the likelihood.
  This is a fairly new, computationally demanding technique, and is currently
  (this was written in 2013) an active area of research.
+ See 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "LopesTsayPArticleFilter2011"
+
+\end_inset
+
+ for a review.
  Papers by Fernández-Villaverde and Rubio-Ramírez provide interesting and
  reasonably accessible applications in the context of estimating macroeconomic
  (DSGE) models.
@@ -47504,7 +47793,13 @@ Bayesian methods
 \end_layout
 
 \begin_layout Standard
-References I have used to prepare these notes: 
+This chatper provides a brief introduction to Bayesian methods, which form
+ a large part of econometric research, especially in the last two decades.
+ Advances in computational methods (e.g., MCMC, particle filtering), combined
+ with practical advantages of Bayesian methods (e.g., no need for minimization
+ and improved identification coming from the prior) have contributed to
+ the popularity of this approach.
+ References I have used to prepare these notes: 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cameron2005microeconometrics"
@@ -47555,12 +47850,6 @@ target "http://ocw.mit.edu/courses/economics/14-384-time-series-analysis-fall-20
 \end_layout
 
 \begin_layout Standard
-This chaper provides a brief introduction to Bayesian methods, which form
- a large part of econometric research, especially in the last two decades.
- Advances in computational methods (e.g., MCMC, particle filtering), combined
- with practical advantages of Bayesian methods (e.g., no need for minimization
- and improved identification coming from the prior) have contributed to
- the popularity of this approach.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -47572,8 +47861,8 @@ Definitions
 \end_layout
 
 \begin_layout Standard
-The Bayesian approach treats beliefs about parameter of a model as a random
- vector.
+The Bayesian approach summarizes beliefs about parameter using a density
+ function:
 \end_layout
 
 \begin_layout Itemize
@@ -47664,21 +47953,45 @@ f(\theta|y)=\frac{f(y,\theta)}{f(y)}=\frac{f(y|\theta)\pi(\theta)}{f(y)}
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Itemize
 The posterior reflects the learning that occurs about the parameter when
  one receives the sample information.
- The sources of information used to make the posterior are the prior and
+\end_layout
+
+\begin_layout Itemize
+The sources of information used to make the posterior are the prior and
  the likelihood function.
- Once we have the posterior, one can provide a complete probabilistic descriptio
-n about our updated beliefs about the parameter, using quantiles or moments
+ 
+\end_layout
+
+\begin_layout Itemize
+Once we have the posterior, one can provide a complete probabilistic description
+ about our updated beliefs about the parameter, using quantiles or moments
  of the posterior.
- The posterior mean or median provide the Bayesian analogue of the frequentist
- point estimator in the form of the ML estimator.
- One can show that these point estimators converge to the true 
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The posterior mean or median provide the Bayesian analogue of the frequentist
+ point estimator, in the form of the ML estimator.
+ 
+\end_layout
+
+\begin_layout Itemize
+One can show that these point estimators converge to the true 
 \begin_inset Formula $\theta_{0}$
 \end_inset
 
 .
- We can define regions analogous to confidence intervals by using quantiles
+ 
+\end_layout
+
+\begin_layout Itemize
+We can define regions analogous to confidence intervals by using quantiles
  of the posterior, or the marginal posterior.
 \begin_inset Newpage newpage
 \end_inset
@@ -47686,6 +47999,7 @@ n about our updated beliefs about the parameter, using quantiles or moments
 
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 So far, this is pretty straightforward.
  The complications are often computational.
@@ -47714,7 +48028,11 @@ Philosophy, etc.
 So, the classical paradigm views the data as generated by a data generating
  process, which is a perhaps unknown model characterized by a parameter
  vector, and the data is generated from the model at a particular value
- of the parameter vector.
+ of the parameter vector, 
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+.
  Bayesians view data as given, and update beliefs about a random parameter
  using the information about the parameter contained in the data.
  
@@ -47727,8 +48045,8 @@ Bayesians and frequentists have a long tradition of arguing about the meaning
  Fundamentally, I take the frequentist view: I find it pleasing to think
  about a model with a fixed non-random parameter about which we would like
  to learn.
- I like the idea of a point estimator that gives a best guess about the
- true parameter.
+ I like the idea of a point estimator that gives a best (in some sense)
+ guess about the true parameter.
  However, we shouldn't reinvent the wheel each time we get a new sample:
  previous samples have information about the parameter, and we should use
  all of the available information.
@@ -47755,8 +48073,8 @@ exactly
  be viewed as a practical solution to the problem of using all the available
  information.
  Given that it's a summary, one may as well use a convenient form, as long
- as it's plausible and the results don't depend too exaggeratedly on the
- prior.
+ as it's plausible and the results don't depend too exaggeratedly particular
+ form used.
 \end_layout
 
 \begin_layout Standard
@@ -47908,7 +48226,7 @@ reference "fig:Bayesian-estimation,-exponential"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -48189,7 +48507,7 @@ Under some special circumstances, the integrals may have analytic solutions:
 
 \begin_layout Itemize
 When the dimension of the parameter is low, quadrature methods may be used.
- What was done in as was done in 
+ What was done in 
 \begin_inset ERT
 status collapsed
 
@@ -48355,21 +48673,26 @@ Let's consider the basic Metropolis-Hastings MCMC algorithm.
 , as follows:
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 The prior density is 
 \begin_inset Formula $\pi(\theta)$
 \end_inset
 
 , as above.
- Let 
+\end_layout
+
+\begin_layout Itemize
+Let 
 \begin_inset Formula $g(\theta^{*};\theta^{s})$
 \end_inset
 
- be a proposal density, which generates a new trial parameter value 
+ be a proposal density.
+ It must be possible to sample from the proposal.
+ This gives a new trial parameter value 
 \begin_inset Formula $\theta^{*}$
 \end_inset
 
- given the most recently accepted parameter value 
+, given the most recently accepted parameter value 
 \begin_inset Formula $\theta^{s}$
 \end_inset
 
@@ -48415,7 +48738,7 @@ The other factor is the density associated with returning to
 \begin_inset Formula $\theta^{*}$
 \end_inset
 
-, which has to do with the reversability of the Markov chain.
+, which has to do with the reversibility of the Markov chain.
  If this is too low, acceptance is not favored.
  We don't want to jump to a new region if we will never get back, as we
  need to sample from the entire support of the posterior.
@@ -48441,8 +48764,19 @@ The idea is to sample from all regions of the posterior, those with high
 Consider a bimodal density: we want to explore the area around both modes.
  To be able to do that, it is important that the proposal density allows
  us to be able to jump between modes.
- Understanding in detail why this makes sense is the tricky and elegant
- part of the theory, see the references for more information.
+ 
+\end_layout
+
+\begin_layout Itemize
+Understanding in detail why this makes sense is the tricky and elegant part
+ of the theory, see the references for more information.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -48502,6 +48836,13 @@ the place where artistry comes to bear is the choice of the proposal density
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
 the steps are:
 \end_layout
@@ -48557,6 +48898,13 @@ iterate
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
 Once the chain is considered to have stabilized, say at iteration 
 \begin_inset Formula $r$
@@ -48617,6 +48965,10 @@ target "http://www.cs.cmu.edu/~ggordon/MCMC/"
 \end_inset
 
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -48628,8 +48980,8 @@ MCMC for the simple example
 \end_layout
 
 \begin_layout Standard
-The simple exponential example with lognormal prior can be implemented using
- MH MCMC, and this is done in the Octave script 
+The simple exponential example with log-normal prior can be implemented
+ using MH MCMC, and this is done in the Octave script 
 \begin_inset ERT
 status collapsed
 
@@ -48699,6 +49051,13 @@ Metropolis-Hastings MCMC, exponential likelihood, lognormal prior
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 MCMC for linear regression model using R
 \end_layout
@@ -48739,498 +49098,8 @@ LRMMCMC.R
 ).
 \end_layout
 
-\begin_layout Subsection
-Bayesian VAR with Minnesota priors
-\end_layout
-
 \begin_layout Standard
-Consider a VAR(p) model, where the data have been de-meaned: 
-\begin_inset Formula 
-\[
-y_{t}=A_{1}y_{t-1}+\cdots+A_{p}y_{t-p}+\epsilon_{t}
-\]
-
-\end_inset
-
-This follows an SUR structure, so OLS estimation is appropriate, even though
- we expect that 
-\begin_inset Formula $V(\epsilon_{t})=\Sigma$
-\end_inset
-
- is a full 
-\begin_inset Formula $G\times G$
-\end_inset
-
- matrix (heteroscedasticity and autocorrelation, which would normally lead
- on to think of GLS estimation).
- As was previously noted, a problem with the estimation of this model is
- that the number of parameters increases rapidly in the number of lags,
- 
-\begin_inset Formula $p$
-\end_inset
-
-.
- One can use Bayesian methods such as the 
-\begin_inset Quotes sld
-\end_inset
-
-Minnesota prior
-\begin_inset Quotes srd
-\end_inset
-
- (Doan, T., Litterman, R., Sims, C.
- (1984).
- "Forecasting and conditional projection using realistic prior distributions".
- Econometric Reviews 3: 1–100), which is a prior that each variable separately
- follows a random walk (an AR(1) model with 
-\begin_inset Formula $\rho=1$
-\end_inset
-
-).
- The prior on 
-\begin_inset Formula $A_{1}$
-\end_inset
-
- is that it is an identity matrix, and the prior on the 
-\begin_inset Formula $A_{j},j>1$
-\end_inset
-
- is that they are zero matrices.
- This can be done using stochastic restrictions similar to what was in the
- discussion of collinearity and ridge regression.
- To be specific, note that the model can be written as
-\begin_inset Formula 
-\[
-Y=Y_{-1}A_{1}^{\prime}+Y_{-2}A_{2}^{\prime}+\cdots+Y_{-p}A_{p}^{\prime}+E
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula 
-\[
-Y=\left[\begin{array}{c}
-y_{1}^{\prime}\\
-y_{2}^{\prime}\\
-\vdots\\
-y_{n}^{\prime}
-\end{array}\right]
-\]
-
-\end_inset
-
-is the 
-\begin_inset Formula $n\times G$
-\end_inset
-
- matrix of all the data, and the right hand side 
-\begin_inset Formula $Y's$
-\end_inset
-
- are this matrix, lagged the indicated number of times.
- The initial data with missing lags has been dropped, and 
-\begin_inset Formula $n$
-\end_inset
-
- refers to the number of complete observations, including all needed lags.
- 
-\end_layout
-
-\begin_layout Exercise
-Convince yourself that this matrix representation is the same as 
-\begin_inset Formula $y_{t}=A_{1}y_{t-1}+\cdots+A_{p}y_{t-p}+\epsilon_{t}$
-\end_inset
-
-, just writing all observations at once, and transposing.
-\end_layout
-
-\begin_layout Standard
-Now, consider the prior that each variable separately follows a random walk.
- If this were exactly true, then 
-\begin_inset Formula $A_{1}=I_{G},$
-\end_inset
-
- and all the 
-\begin_inset Formula $A_{s}=0_{G},$
-\end_inset
-
- a 
-\begin_inset Formula $G\times G$
-\end_inset
-
- matrix of zeros, for 
-\begin_inset Formula $s=2,3,...,p$
-\end_inset
-
-.
- Consider the prior
-\begin_inset Formula 
-\begin{align*}
-A_{1} & \sim N(I_{G},\sigma_{1}^{2}I_{G})\\
-A_{2} & \sim N(0_{G},\sigma_{2}^{2}I_{G})\\
-\vdots\\
-A_{p} & \sim N(0_{G},\sigma_{p}^{2}I_{G})
-\end{align*}
-
-\end_inset
-
-and all of the matrices of parameters are independent of one another.
- In the same way we formulated the ridge regression estimator in Section
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Stochastic-restrictions-and"
-
-\end_inset
-
-, we can write the model and priors as
-\begin_inset Formula 
-\begin{align*}
-\left[\begin{array}{c}
-Y\\
-I_{G}\\
-0_{G}\\
-\vdots\\
-0_{G}
-\end{array}\right] & =\left[\begin{array}{cccc}
-Y_{-1} & Y_{-2} & \cdots & Y_{-p}\\
-I_{G} & 0_{G} & \cdots & 0_{G}\\
-0_{G} & I_{G} & \cdots & 0_{G}\\
-\vdots &  & \ddots\\
-0_{G} &  &  & I_{G}
-\end{array}\right]\left[\begin{array}{c}
-A_{1}^{\prime}\\
-A_{2}^{\prime}\\
-\vdots\\
-A_{p}^{\prime}
-\end{array}\right]+\left[\begin{array}{c}
-E\\
-v_{1}\\
-v_{2}\\
-\vdots\\
-v_{p}
-\end{array}\right]
-\end{align*}
-
-\end_inset
-
-The final blocks may be multiplied by a prior precision, to enforce the
- prior to the desired degree, and then estimation may be done using OLS,
- just as we did when introducing ordinary ridge regression.
- This is a simple example of a Bayesian VAR: the VAR(p) model, combined
- with a certain prior (random walk, and Gaussian prior), implemented using
- mixed estimation.
-\end_layout
-
-\begin_layout Standard
-We have previously seen a simple RBC model, in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:DSGE-ML"
-
-\end_inset
-
-.
- If you run 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{rbc.mod}{file:///home/michael/Mystuff/Econometrics/Examples/Bay
-esian/BVAR/rbc.mod} 
-\end_layout
-
-\end_inset
-
- using Dynare, it will generate simulated data from this model.
- The data file 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{rbcdata.m}{file:///home/michael/Mystuff/Econometrics/Examples/B
-ayesian/BVAR/rbcdata.m} 
-\end_layout
-
-\end_inset
-
- contains 400 observations on consumption, investment and hours worked,
- generated by this model.
- The data are plotted in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Data-from-RBC"
-
-\end_inset
-
-.
- Hours worked is quite stable around the steady state value of 1/3, but
- consumption and investment fluctuate a little more.
- Let's estimate a Bayesian VAR, using this data.
- The script 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{EstimateBVAR.m}{file:///home/michael/Mystuff/Econometrics/Examp
-les/Bayesian/BVAR/EstimateBVAR.m} 
-\end_layout
-
-\end_inset
-
- gives the results
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-octave:1> EstimateBVAR
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-plain OLS results
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-A1
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
--0.463821 -9.234590 -10.554874
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-0.065112 1.650430 0.913775
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-0.300228 1.465854 2.509376
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-A2
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-1.47732 9.31190 10.57178
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
--0.18877 -1.20802 -1.30911
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
--0.10263 -0.64005 -0.78350
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-r-squares OLS fit: 0.98860 0.82362 0.79340
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-#################################
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-Minnesota prior results
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-A1
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-1.004195 0.037051 0.026717
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
--0.046089 0.706809 -0.273725
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-0.058231 0.160412 1.121387
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-A2
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-0.0066800 0.0739334 0.0674895
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
--0.0358829 -0.1631035 -0.1307285 
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-0.0357671 0.1514610 0.1249041 
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-r-squares Minnesota fit: 0.98859 0.82341 0.79320 
-\end_layout
-
-\begin_layout Standard
-Note how the 
-\begin_inset Formula $R^{2}s$
-\end_inset
-
- hardly change, but the estimated coefficients are much more similar to
- AR1 fits.
- The prior seems to be imposing discipline on the coefficients, without
- affecting goodness of fit in any serious way.
- Having a look at the residuals, see Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:BVAR-residuals,-with"
-
-\end_inset
-
-.
- Note that the residuals for investment and hours are obviously very highly
- correlated.
- This is because the model that generated the data contains only one shock
- (a technology shock), so the stochastic behavior of the variables is necessaril
-y fairly tightly linked.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Data from RBC model
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Data-from-RBC"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Examples/Bayesian/BVAR/rbcdata.png
-	lyxscale 25
-	width 12cm
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:BVAR-residuals,-with"
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-BVAR residuals, with separation
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:BVAR-residuals,-with"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Examples/Bayesian/BVAR/RBCresiduals.png
-	lyxscale 25
-	width 12cm
-
-\end_inset
-
-
-\end_layout
-
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -49270,10 +49139,14 @@ reference "simple nerlove model"
  coefficients should all be between 0 and 1, and should add up to one (one
  could also estimate by OLS using sqp or fmincon to achieve this).
  Results from one run are:
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-\begin_inset Box ovalbox
+\begin_inset Box Shadowbox
 position "t"
 hor_pos "c"
 has_inner_box 1
@@ -49292,10 +49165,14 @@ backgroundcolor "none"
 status open
 
 \begin_layout Plain Layout
+
+\family typewriter
 constant: posterior mean -0.573306
 \end_layout
 
 \begin_layout Plain Layout
+
+\family typewriter
 \begin_inset Formula $\beta_{Q}:$
 \end_inset
 
@@ -49303,6 +49180,8 @@ constant: posterior mean -0.573306
 \end_layout
 
 \begin_layout Plain Layout
+
+\family typewriter
 \begin_inset Formula $\beta_{L}:$
 \end_inset
 
@@ -49310,6 +49189,8 @@ constant: posterior mean -0.573306
 \end_layout
 
 \begin_layout Plain Layout
+
+\family typewriter
 \begin_inset Formula $\beta_{F}:$
 \end_inset
 
@@ -49317,6 +49198,8 @@ constant: posterior mean -0.573306
 \end_layout
 
 \begin_layout Plain Layout
+
+\family typewriter
 \begin_inset Formula $\sigma:$
 \end_inset
 
@@ -49324,6 +49207,8 @@ constant: posterior mean -0.573306
 \end_layout
 
 \begin_layout Plain Layout
+
+\family typewriter
 acceptance rate 0.245800
 \end_layout
 
@@ -49334,7 +49219,7 @@ acceptance rate 0.245800
 
 \begin_layout Standard
 The acceptance rate is pretty good.
- The chains are in Figure 
+ The last 500 draws of the chains are in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Bayesian-estimation-of"
@@ -49342,7 +49227,7 @@ reference "fig:Bayesian-estimation-of"
 \end_inset
 
 .
- The chains look a little too smooth (too autocorrelated).
+ The chains look a little too blocky (too autocorrelated).
  One could play with the tuning, but probably the problem is in the simple
  proposal density, which doesn't allow for making correlated draws for parameter
 s.
@@ -49388,13 +49273,13 @@ Bayesian estimation of Nerlove model
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-MCMC chain after burnin
+last part of MCMC chains
 \end_layout
 
 \end_inset
@@ -49419,7 +49304,7 @@ MCMC chain after burnin
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -49459,6 +49344,9 @@ Marginal posterior for
 \end_layout
 
 \begin_layout Subsection
+\begin_inset Newpage newpage
+\end_inset
+
 Bayesian estimation of DSGE model
 \end_layout
 
@@ -49479,37 +49367,144 @@ status open
 
  
 \backslash
-htmladdnormallink{EstimateRBC
+htmladdnormallink{EstimateCGHK
 \backslash
-_Bayesian.mod}{file:///home/michael/Mystuff/Econometrics/Examples/RBC/EstimateRBC
+_Bayes.m}{file:///home/michael/Mystuff/Econometrics/Examples/DSGE/Bayesian/Estima
+teCGHK
 \backslash
-_Bayesian.mod} 
+_Bayes.m} 
 \end_layout
 
 \end_inset
 
- is a Dynare .mod file that lets you do the same thing using Bayesian methods,
- with MCMC.
+ is a script which estimates the same model, using Bayesian methods, with
+ MCMC or particle filtering.
+ Adjust the .mod file mentioned in the script to change options.
+\end_layout
+
+\begin_layout Standard
+Some results one can obtain by playing with this:
+\end_layout
+
+\begin_layout Itemize
+We cannot estimate beta and delta successfully.
+\end_layout
+
+\begin_layout Itemize
+Estimation of the other parameters is quite good, when order=1 (linearized,
+ which allows for Kalman filtering), giving the results in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:MCMC-results-for"
+
+\end_inset
+
+.
+ The true parameter valyes are inside the 90% HPD intervals, for all of
+ the estimated parameters.
+ Note, though, that these results assume that the true values of the other
+ parameters are known.
  
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:MCMC-results-for"
+
+\end_inset
+
+MCMC results for simple DSGE example model
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Examples/DSGE/Bayesian/MCMC.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-ML is not able to successfully estimate all parameters
-\end_layout
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CGHK-model,-posteriors"
 
-\begin_layout Itemize
-The Bayesian method does manage to estimate all parameters: the prior is
- helping
-\end_layout
+\end_inset
 
-\begin_layout Itemize
-note that the posterior is substantially different than the prior: we learn
+ plots the priors and posteriors.
+ Note that the posterior is substantially different than the prior: we learn
  a lot from the sample
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
 \end_layout
 
-\begin_layout Itemize
-both ML and Bayesian are using the same likelihood function, calculated
- using Kalman filtering on a linearized model, assuming Gaussian errors.
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:CGHK-model,-posteriors"
+
+\end_inset
+
+CGHK model, posteriors
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Examples/DSGE/Bayesian/posterior.png
+	width 22cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -49519,15 +49514,15 @@ if the model is solved using a higher order solution, the Kalman filter
 \end_layout
 
 \begin_layout Standard
-Another example of Bayesian estimation of a DSGE model is given in Section
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Indirect-likelihood-inference"
+For tips on using Dynare for MCMC estimation, see 
+\begin_inset CommandInset href
+LatexCommand href
+name "these notes by Wouter den Haan."
+target "http://www.wouterdenhaan.com/numerical/slidesdynareestimation.pdf"
 
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Standard
@@ -49586,6 +49581,10 @@ ty, GMM, Hausman test) come into play.
  There has been much work in this area, and the intention is not to give
  a complete overview, but rather to highlight the issues and see how the
  tools we have studied can be applied.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -49595,12 +49594,26 @@ Generalities
 \begin_layout Standard
 Panel data combines cross sectional and time series data: we have a time
  series for each of the agents observed in a cross section.
- The addition of temporal information can in principle allow us to investigate
- issues such as persistence, habit formation, and dynamics.
- Starting from the perspective of a single time series, the addition of
- cross-sectional information allows investigation of heterogeneity.
- In both cases, if parameters are common across units or over time, the
- additional data allows for more precise estimation.
+\end_layout
+
+\begin_layout Itemize
+The addition of temporal information to a cross sectional model can in principle
+ allow us to investigate issues such as persistence, habit formation, and
+ dynamics.
+\end_layout
+
+\begin_layout Itemize
+Starting from the perspective of a single time series, the addition of cross-sec
+tional information allows investigation of heterogeneity.
+\end_layout
+
+\begin_layout Itemize
+In both cases, if parameters are common across units or over time, the additiona
+l data allows for more precise estimation.
+ This is simply an example of estimation subject to restrictions, which
+ improves efficiency 
+\emph on
+if the restrictions are correct
 \end_layout
 
 \begin_layout Standard
@@ -49665,6 +49678,10 @@ There is a lot of room for playing around here.
  are fixed or growing.
  We'll need at least one of them to be growing in order to do asymptotics.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -49677,6 +49694,10 @@ y_{it}=\alpha_{i}+x_{it}\beta+\epsilon_{it}\label{eq:simple linear panel model}
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Itemize
 I will refer to this as the 
 \begin_inset Quotes sld
 \end_inset
@@ -49686,7 +49707,10 @@ simple linear panel model
 \end_inset
 
 .
- This is the model most often encountered in the applied literature.
+\end_layout
+
+\begin_layout Itemize
+This is the model most often encountered in the applied literature.
  It is like the original cross-sectional model, in that the 
 \begin_inset Formula $\beta's$
 \end_inset
@@ -49705,7 +49729,10 @@ simple linear panel model
 \end_inset
 
  are fixed over time, which is a testable restriction, of course.
- We can consider what happens as 
+\end_layout
+
+\begin_layout Itemize
+We can consider what happens as 
 \begin_inset Formula $n\rightarrow\infty$
 \end_inset
 
@@ -49717,7 +49744,11 @@ simple linear panel model
  This would be relevant for microeconometric panels, (e.g., the PSID data)
  where a survey of a large number of individuals may be done for a limited
  number of time periods.
- Macroeconometric applications might look at longer time series for a small
+ 
+\end_layout
+
+\begin_layout Itemize
+Macroeconometric applications might look at longer time series for a small
  number of cross-sectional units (e.g., 40 years of quarterly data for 15
  European countries).
  For that case, we could keep 
@@ -49730,10 +49761,16 @@ s as
 \end_inset
 
  increases, as is normal for time series.
- The asymptotic results depend on how we do this, of course.
+\end_layout
+
+\begin_layout Itemize
+The asymptotic results depend on how we do this, of course.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 
 \series bold
 Why bother using panel data, what are the benefits?
@@ -49825,6 +49862,9 @@ Exercise: write the form of the regressor matrix for the above model, under
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
 
 \series bold
 The main issues are:
@@ -49886,6 +49926,10 @@ does the presence of
 what about the covariance stucture? We're likely to have HET and AUT, so
  GLS issue will probably be relevant.
  Potential for efficiency gains.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -49935,8 +49979,8 @@ then the basic problem we have in the panel data model
  Or, possibly more accurately, they can be thought of as individual-specific
  variables that are not observed (latent variables).
  The reason for thinking of them as variables is because the agent may choose
- their values following some process.
- 
+ their values following some process, or may choose other variable taking
+ these ones as given.
 \end_layout
 
 \begin_layout Standard
@@ -50056,7 +50100,20 @@ For example, if
 
 \end_layout
 
-\begin_deeper
+\begin_layout Itemize
+Another example: consider returns to education, modeling wage as a function
+ of education.
+ 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ could be an individual specific measure of ability.
+ Ability could affect wages, but it could also affect the number of year
+ of education.
+ When education is a regressor and ability is a component of the error,
+ we expect an endogeneity problem.
+\end_layout
+
 \begin_layout Itemize
 Thus, there may be correlation between 
 \begin_inset Formula $\alpha_{i}$
@@ -50066,7 +50123,7 @@ Thus, there may be correlation between
 \begin_inset Formula $x_{it}$
 \end_inset
 
-, which means that 
+, in which case 
 \begin_inset Formula $E(x_{it}\eta_{it})\ne$
 \end_inset
 
@@ -50074,6 +50131,7 @@ Thus, there may be correlation between
  
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
 This means that OLS estimation of the model would lead to biased and inconsisten
 t estimates.
@@ -50105,6 +50163,9 @@ However, it is possible (but unlikely for economic data) that
 \begin_layout Standard
 
 \series bold
+\begin_inset Newpage newpage
+\end_inset
+
 Fixed effects
 \series default
 : when 
@@ -50198,6 +50259,12 @@ fixed effects
 \end_inset
 
 .
+\series bold
+
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -50335,6 +50402,27 @@ strongly
  In this case, OLS will give consistent estimates of the parameters of this
  model, 
 \begin_inset Formula $\beta.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Explain why we need strong exogeneity of the 
+\begin_inset Formula $x_{it}$
+\end_inset
+
+ with respect to 
+\begin_inset Formula $\epsilon_{it}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -50512,6 +50600,12 @@ One needs to estimate the covariance matrix of the parameter estimates taking
 \end_inset
 
  See Cameron and Trivedi, Section 21.2.3.
+\series bold
+
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -50600,6 +50694,12 @@ random effects
  is discouraged, even if your statistical package offers it as an option.
  Think carefully about whether the assumption is warranted before trusting
  the results of this estimator.
+\series bold
+
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -50709,6 +50809,10 @@ Applied Economics,
 
 \series bold
 In class, do the first part of the example at the end of the chapter
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -50813,1456 +50917,6 @@ For this reason, OLS estimation is inconsistent even for the random effects
 When regressors are correlated with the errors, the natural thing to do
  is start thinking of instrumental variables estimation, or GMM.
  
-\end_layout
-
-\begin_layout Standard
-To illustrate, consider a simple linear dynamic panel model
-\begin_inset Formula 
-\begin{equation}
-y_{it}=\alpha_{i}+\phi_{0}y_{it-1}+\epsilon_{it}\label{eq:AR1 panel model}
-\end{equation}
-
-\end_inset
-
-where 
-\begin_inset Formula $\epsilon_{it}\sim N(0,1),$
-\end_inset
-
- 
-\begin_inset Formula $\alpha_{i}\sim N(0,1)$
-\end_inset
-
-, 
-\begin_inset Formula $\phi_{0}=0,\,0.3,\,0.6,\,0.9$
-\end_inset
-
- and 
-\begin_inset Formula $\alpha_{i}$
-\end_inset
-
- and 
-\begin_inset Formula $\epsilon_{i}$
-\end_inset
-
- are independently distributed.
- Tables 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:DPDBias"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:DPDRMSE"
-
-\end_inset
-
- present bias and RMSE for the 
-\begin_inset Quotes sld
-\end_inset
-
-within
-\begin_inset Quotes srd
-\end_inset
-
- estimator (labeled as ML) and some simulation-based estimators.
- Note that the 
-\begin_inset Quotes sld
-\end_inset
-
-within
-\begin_inset Quotes srd
-\end_inset
-
- estimator is very biased, and has a large RMSE.
- The overidentified SBIL estimator (see Creel and Kristensen, 
-\begin_inset Quotes sld
-\end_inset
-
-Indirect Likelihood Inference
-\begin_inset Quotes srd
-\end_inset
-
-) has the lowest RMSE.
- Simulation-based estimators are discussed in a later Chapter.
- Perhaps these results will stimulate your interest.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:DPDBias"
-
-\end_inset
-
-Dynamic panel data model.
- Bias.
- Source for ML and II is Gouriéroux, Phillips and Yu, 2010, Table 2.
- SBIL, SMIL and II are exactly identified, using the ML auxiliary statistic.
- SBIL(OI) and SMIL(OI) are overidentified, using both the naive and ML auxiliary
- statistics.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="7">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $T$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $N$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\phi$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ML
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-II
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-SBIL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-SBIL(OI)
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-100
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--0.199
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.001
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.004 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
- -0.000
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-100
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--0.274
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--0.001
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.003
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
- -0.001
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-100
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.6
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--0.362
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.000
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.004
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
- -0.001
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-100
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--0.464
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.000
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--0.022 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
- -0.000
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-200
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--0.200
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.000
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.001
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
- 0.000
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-200
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--0.275
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--0.010
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.001
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
- -0.001
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-200
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.6
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--0.363
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--0.000
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.001
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
- -0.001
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-200
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--0.465
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--0.003
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--0.010
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
- 0.001
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:DPDRMSE"
-
-\end_inset
-
-Dynamic panel data model.
- RMSE.
- Source for ML and II is Gouriéroux, Phillips and Yu, 2010, Table 2.
- SBIL, SMIL and II are exactly identified, using the ML auxiliary statistic.
- SBIL(OI) and SMIL(OI) are overidentified, using both the naive and ML auxiliary
- statistics.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="7">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $T$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $N$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\phi$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ML
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-II
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-SBIL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-SBIL(OI)
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-100
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.204
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.057
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.059
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
- 0.044
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-100
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.278
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.081
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.065
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
- 0.041
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-100
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.6
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.365
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.070
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.071
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
- 0.036
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-100
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.467
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.076
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.059
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
- 0.033
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-200
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.203
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.041
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.041
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
- 0.031
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-200
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.277
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.074
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.046
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
- 0.029
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-200
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.6
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.365
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.050
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.050
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
- 0.025
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-200
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.467
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.054
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.046
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
- 0.027
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection

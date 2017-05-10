@@ -37,6 +37,7 @@ printf("matrix norm of A1-A1hat\n");
 norm(A1-b(1:3,:)')
 printf("matrix norm of A2-A2hat\n");
 norm(A2-b(4:6,:)')
+printf("\n");
 
 % VAR(2) with Minnesota priors
 maxlag = 2;

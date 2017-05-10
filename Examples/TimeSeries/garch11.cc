@@ -22,15 +22,15 @@ DEFUN_DLD(garch11, args, ,"garch11")
 
 	c = -log(sqrt(2.0*pi)); // constant part of log likelihood
 
-	elag = 0.0;
+	elag = y(0) - mu;
 
 	// initialize variance as variance of first 10 obs.
-        hlag = 0.0;
-        for (t=0; t<10;t++) hlag += (y(t)-mu)*(y(t)-mu);
-        hlag = hlag/9.0;
+    hlag = 0.0;
+    for (t=0; t<10;t++) hlag += (y(t)-mu)*(y(t)-mu);
+    hlag = hlag/9.0;
 
-	for (t=0; t < n; t++) { // loop over time
-                e = y(t) - mu;
+	for (t=1; t < n; t++) { // loop over time
+        e = y(t) - mu;
 		h = omega + alpha*elag*elag + beta*hlag;
 		logdensity += c -0.5*log(h) - 0.5*e*e/h;
 		hlag = h;

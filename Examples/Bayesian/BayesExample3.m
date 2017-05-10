@@ -8,13 +8,13 @@
 function BayesExample3
 	close all;
 	load nerlove.data;
-	data = data(:,2:end);
+	data = nerlove(:,2:end);
 	data = log(data);
 	n = rows(data);
 	y = data(:,1);
 	x = [ones(n,1) data(:,2:5)];
 
-	S = 10000;
+	S = 20000;
 	theta = [-5; 0.7; 0.45; .45; 0.38];  % initial parameter values (use OLS with HOD1 to get these)
 	tuning = [3; 0.4; 0.4; 0.4; 0.5];  % tunes the acceptance rate
 
@@ -44,7 +44,7 @@ function BayesExample3
 
     thetas = thetas(1001:end,:); # drop burnin
 	thetas(:,1) = thetas(:,1)/10; % scale constant to make a nice plot
-	plot(thetas);
+    plot(thetas(end-500:end,:));
 	legend('const10', 'bq', 'bL','bF','sig', 'location', 'southwestoutside');
 	thetas = thetas(1001:end,:);
 	pm = mean(thetas);

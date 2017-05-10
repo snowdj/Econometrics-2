@@ -30,6 +30,7 @@ e = @(theta) theta(1,:)*r.*c.^(theta(2,:) - 1) -1;
 
 % instruments
 inst = [ones(n,1) c1 r1];
+%inst = [ones(n,1) c1 r1 c2 r2];
 
 % initial weight matrix
 W = eye(size(inst,2));

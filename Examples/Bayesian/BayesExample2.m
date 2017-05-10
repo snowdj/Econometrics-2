@@ -1,4 +1,4 @@
-% Example of Bayesian estimation
+% Example of Bayesian estimation by MCMC
 % sampling from exponential(theta) distribution
 % lognormal prior
 
@@ -9,13 +9,14 @@
 
 function BayesExample2
 	close all;
-	n = 100;   % sample size
+	n = 30;    % sample size. NOTE: likelihood is computed directly, below. When sample size grows, 
+                % IT DISAPPEARS! So, keep <= 2000
 	truetheta = 3; % true theta
 	y = exprnd(ones(n,1)*truetheta); % sample from exponential(theta)
 
-	S = 1000;
-	theta = 2; % start value for theta
-	tuning = 0.25; % tunes the acceptance rate. Lowering increases acceptance 
+	S = 5000;
+	theta = 2.8; % start value for theta
+	tuning = 0.5; % tunes the acceptance rate. Lowering increases acceptance 
                 % try to get acceptance rate to be about 0.4 or so
 	thetas = zeros(S,1);
 	accepts = zeros(S,1);
@@ -50,8 +51,13 @@ end
 
 % the likelihood function
 function dens = likelihood(y, theta)
-	dens = (1./theta).*exp(-y./theta);
-	dens = prod(dens); % independent obsn
+	% scale is used to try keep the likelihood from going to zero
+    % as the sample size increases. Professional software would do
+    % this better.
+    % it cancels out of the acceptance formula
+    scale = 1/0.165;
+    dens = scale*(1./theta).*exp(-y./theta);
+    dens = prod(dens); % independent obsn
 end
 
 % the proposal density: random walk lognormal

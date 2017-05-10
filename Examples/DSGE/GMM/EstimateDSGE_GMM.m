@@ -25,9 +25,9 @@ function m = dsgemoments(theta, data, momentargs)
     % one way or another
     % ============ OPTION 1 ========================
     % this option gives exact identification, and works
-    % if the start values are the true parameters
+    % (at least sometimes) if the start values are the true parameters
     m0 = [e 10*(e(:,1).^2 - 1) e(:,3).^2-1 e(:,4).^2 - 1]; % dim is 8 at this point
-    m = [m0 10*(m0(:,1).*m0(:,3))];
+    m = [m0 10*(m0(:,1).*m0(:,2))];
     %V = NeweyWest(m,1);
     %s = sqrt(1 ./ diag(V));
     %m = m.*s';
@@ -54,8 +54,8 @@ weight = eye(size(m,2));
 lb = lb_param_ub(:,1);
 ub = lb_param_ub(:,3);
 %thetastart = (ub+lb)/2; % prior mean as start
-thetastart = theta0;    % true values as start
-%thetastart = (ub+lb)/2;
+#thetastart = theta0;    % true values as start
+thetastart = (ub+lb)/2;
 % options for simulated annealing
 
 nt = 5;
@@ -73,5 +73,5 @@ control = { lb, ub, nt, ns, rt, maxevals, neps, functol, paramtol, verbosity, 1}
 thetahat
 % options for bfgs
 control = {Inf, 2};
-[thetahat, obj_value, convergence] = gmm_estimate(thetahat, dsgedata, weight, "dsgemoments", {}, control);
+[thetahat, obj_value, convergence] = gmm_estimate(thetastart, dsgedata, weight, "dsgemoments", {}, control);
 thetahat 

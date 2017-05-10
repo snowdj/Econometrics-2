@@ -21,9 +21,9 @@ fprintf('GARCH(1,1) results for NYSEWK data set (fminunc)\n');
 fprintf('the estimate\n');
 disp(thetahat);
 
-fprintf('the logL value');
+fprintf('the logL value: ');
 disp(logL);
 
 BIC = -2*logL + size(thetahat,1)*log(size(y,1));
-fprintf('BIC value');
+fprintf('BIC value: ');
 disp(BIC);
