@@ -57458,7 +57458,7 @@ reference "sec:Application:-Simple-DSGE"
 , we can obtain the results in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:DSGE-model"
+reference "tab:DSGE-model.-Monte"
 
 \end_inset
 
