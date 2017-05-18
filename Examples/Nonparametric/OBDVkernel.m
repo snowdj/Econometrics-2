@@ -35,7 +35,6 @@ n = rows(x);
 evalp = mean(x);
 evalp = repmat(evalp, 48,1);
 evalp(:,4) = (18:65)';
-
 ww = "";
 fit = kernel_regression(evalp, y, x, ww);
 plot(evalp(:,4),fit);
@@ -45,3 +44,20 @@ grid("on");
 legend("off");
 axis([18 65]);
 %print("kernelfit.png", "-dpng");
+
+# evaluation points for plot: vbls at means, except INCOME goes from 0 - 17
+figure();
+evalp = mean(x);
+evalp = repmat(evalp, 18,1);
+evalp(:,5) = (0:17)';
+ww = "";
+fit = kernel_regression(evalp, y, x, ww);
+plot(evalp(:,5),fit);
+title("Kernel fit, dep. var. versus INCOME");
+xlabel("INCOME");
+grid("on");
+legend("off");
+axis([0 17]);
+print("OBDVvsIncome.png", "-dpng");
+
+

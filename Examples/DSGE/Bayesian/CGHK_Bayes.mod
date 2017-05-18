@@ -66,7 +66,7 @@ varobs c n;  // experiment choosing one or two from y c n MPK MPL
 estimation(datafile=dsgedata, nobs=160, order=1, mh_replic=1000, mh_nblocks=1, mh_jscale=0.8, mh_init_scale=5, irf=40) y c n MPK MPL;
 
 // generate data
-stoch_simul(order=3, periods=260, irf=1) y c n MPK MPL;
+stoch_simul(order=3, periods=260, irf=30) y c n MPK MPL;
 
 
 

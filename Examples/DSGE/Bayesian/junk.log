@@ -1,0 +1,47 @@
+Starting Dynare (version 4.4.3).
+Starting preprocessing of the model file ...
+Found 11 equation(s).
+Evaluating expressions...done
+Computing static model derivatives:
+ - order 1
+Computing dynamic model derivatives:
+ - order 1
+ - order 2
+ - order 3
+Processing outputs ...done
+Preprocessing completed.
+Starting MATLAB/Octave computing.
+warning: delete: no such file: junk_static.mex
+warning: called from
+    delete at line 47 column 9
+    erase_compiled_function at line 23 column 5
+    junk at line 120 column 1
+    dynare at line 188 column 1
+    EstimateCGHK_Bayes at line 3 column 1
+warning: delete: no such file: junk_dynamic.mex
+
+Estimation using a non linear filter!
+
+You are using a gradient-based mode-finder. Particle filtering introduces discontinuities in the
+objective function w.r.t the parameters. Thus, should use a non-gradient based optimizer.
+
+Please choose a mode-finder:
+	 0 - Continue using gradient-based method (it is most likely that you will no get any sensible result).
+	 6 - Monte Carlo based algorithm
+	 7 - Nelder-Mead simplex based optimization routine (Matlab optimization toolbox required)
+	 8 - Nelder-Mead simplex based optimization routine (Dynare's implementation)
+	 9 - CMA-ES (Covariance Matrix Adaptation Evolution Strategy) algorithm
+Please enter your choice: 9
+warning: print.m: epstool binary is not available.
+Some output formats are not available.
+Loading 160 observations from dsgedata.m
+
+Initial value of the log posterior (or likelihood): 877.412
+  n=7: (4,9)-CMA-ES(w=[53 29 14 4]%, mu_eff=2.6) on function non_linear_dsge_likelihood
+Iterat, #Fevals:   Function Value    (median,worst) |Axis Ratio|idx:Min SD idx:Max SD
+    1 ,     10 : -8.7852504061058e+02 +(1e+00,3e+00) | 1.02e+00 |  3:8.3e-05  7:8.4e-05
+
+octave:1> eit
+error: 'eit' undefined near line 1 column 1
+octave:1> exit
+

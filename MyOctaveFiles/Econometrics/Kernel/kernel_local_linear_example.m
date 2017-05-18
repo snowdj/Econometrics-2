@@ -22,7 +22,7 @@
 # bw: the bandwidth to use
 # n: sample size (default n = 1000)
 # use_mpi: (default false) Use MPI or not. To use MPI, you should execute
-#	mpirun -np X octave --eval "kernel_example(0.1, 1000, true);"
+#	mpirun -np X octave --eval "kernel_local_linear_example(0.1, 1000, true);"
 #	where X is an integer number of ranks to use.
 #	requires open_mpi extensions from Octave Forge
 # show_plot (default true) display plot?
@@ -64,7 +64,9 @@ function kernel_local_linear_example(bw, n, use_mpi, show_plot)
 			printf("time for kernel regression example using %d data points on %d nodes: %f\n", n, nodes, t);
 			if show_plot
 				plot(x, fit, ";local linear;", x, fit2, ";kernel;", x, trueline,";true;");
-				grid("on");
+                hold on;
+                plot(x,y,".");
+                grid("on");
 				title("Example 1: Kernel regression fit");
 			endif
 		endif
@@ -74,6 +76,8 @@ function kernel_local_linear_example(bw, n, use_mpi, show_plot)
 		printf("time for kernel regression example using %d data points: %f\n", n, t);
 		if show_plot
 			plot(x, fit, ";local linear;", x, fit2, ";kernel;", x, trueline,";true;");
+            hold on;
+            plot(x,y,".");
 			grid("on");
 			title("Example 1: Kernel regression fit");
 		endif

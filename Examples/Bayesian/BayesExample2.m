@@ -16,8 +16,8 @@ function BayesExample2
 
 	S = 5000;
 	theta = 2.8; % start value for theta
-	tuning = 0.5; % tunes the acceptance rate. Lowering increases acceptance 
-                % try to get acceptance rate to be about 0.4 or so
+	tuning = 0.7; % tunes the acceptance rate. Lowering increases acceptance 
+                % try to get acceptance rate to be about 0.25 or so
 	thetas = zeros(S,1);
 	accepts = zeros(S,1);
 	for s = 1:S
@@ -35,10 +35,12 @@ function BayesExample2
 	plot(thetas);
 	hold on;
 	pm = mean(thetas(500:S,:));
+	ps = std(thetas(500:S,:));
 	plot([0; S], [pm; pm], 'g');
 	plot([0; S], [truetheta; truetheta], 'r');
 	legend('chain', 'posterior mean', 'true theta');
 	fprintf('posterior mean %f\n', pm);
+	fprintf('posterior std. dev.  %f\n', ps);
 	fprintf('acceptance rate %f\n', mean(accepts));
 	%print -dpng BayesExample2.png;
 end
