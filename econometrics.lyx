@@ -766,25 +766,14 @@ status open
 
 
 \backslash
-htmladdnormallink{econometrics.iso}{http://pareto.uab.cat/mcreel/econometrics.iso}
+htmladdnormallink{econometrics.iso}{http://pareto.uab.cat/~mcreel/Econometrics/econ
+ometrics.iso}
 \end_layout
 
 \end_inset
 
  file is an ISO image file.
- To download it from the repo, click on it, and then R-click on the RAW
- button, and select 
-\begin_inset Quotes sld
-\end_inset
-
-save as
-\begin_inset Quotes srd
-\end_inset
-
-.
- By default, this file will not be downloaded if you check out the repository,
- because it is about 1.5GB in size.
- It contains a bootable-from-CD or USB GNU/Linux system.
+  It contains a bootable-from-CD or USB GNU/Linux system.
  These notes, in source form and as a PDF, together with all of the examples
  and the software needed to run them are available on econometrics.iso.
  I recommend starting off by using virtualization, to run the Linux system
