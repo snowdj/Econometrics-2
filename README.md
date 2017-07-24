@@ -8,5 +8,7 @@ Michael Creel's graduate level econometrics notes, example code, and support pro
 - they contain links that point to example programs using the Julia language. An older version (release 1.0)
 used GNU Octave, and was copyrighted GPL. The current version is being adapted to use Julia for the majority of the examples, and uses the MIT license.
 
+MOVING TO JULIA is a work in progress! It should be done by the end of the year.
+
 
 
