@@ -1,4 +1,4 @@
-using Plots
+using Econometrics, Plots
 pyplot()
 function GridExample(points, doprint=false)
     # plot the line
@@ -15,4 +15,3 @@ function GridExample(points, doprint=false)
     gui()
     if doprint savefig("gridsearch.svg") end
 end
-
