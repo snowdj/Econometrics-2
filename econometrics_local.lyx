@@ -12,7 +12,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{dcolumn}
-%\usepackage[ps2pdf,pdftitle={Econometrics},urlcolor=blue,linktocpage,a4paper,colorlinks=true]{hyperref}
+\usepackage[ps2pdf,pdftitle={Econometrics},urlcolor=blue,linktocpage,a4paper,colorlinks=true]{hyperref}
 \usepackage{listings}
 \usepackage{color}
 \usepackage{setspace}
@@ -134,16 +134,6 @@ theorems-ams-extended
 
 \begin_layout Title
 Econometrics
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TAKE CARE OF LICENSE
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Date
@@ -24411,16 +24401,6 @@ target "https://github.com/mcreel/Econometrics.jl/blob/master/src/samin.jl"
 \end_layout
 
 \begin_layout Section
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-JULIA CONVERSION DONE TO HERE
-\end_layout
-
-\end_inset
-
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:MEPS data"
@@ -24432,7 +24412,7 @@ A practical example: Maximum likelihood estimation using count data: The
 \end_layout
 
 \begin_layout Standard
-To show optimazation methods in practice, using real economic data, this
+To show optimization methods in practice, using real economic data, this
  section presents maximum likelihood estimation results for a particular
  model using real data.
  The focus at present is simply on numeric optimization.
@@ -24463,7 +24443,7 @@ name "The-,-meps1996.data,"
 
 The 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -24517,14 +24497,14 @@ meps1996.data
 \begin_layout Standard
 The program 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
 
 \backslash
-htmladdnormallink{ExploreMEPS.m}{file:///home/michael/Mystuff/Econometrics/Exampl
-es/MEPS-I/ExploreMEPS.m} 
+htmladdnormallink{ExploreMEPS.jl}{file:///home/michael/Mystuff/Econometrics/Examp
+les/MEPS-I/ExploreMEPS.jl} 
 \end_layout
 
 \end_inset
@@ -24615,14 +24595,14 @@ the elasticity of the conditional mean of
 \begin_layout Standard
 The program 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{EstimatePoisson.m}{file:///home/michael/Mystuff/Econometrics/Ex
-amples/MEPS-I/EstimatePoisson.m}
+htmladdnormallink{EstimatePoisson.jl}{file:///home/michael/Mystuff/Econometrics/E
+xamples/MEPS-I/EstimatePoisson.jl}
 \end_layout
 
 \end_inset
@@ -24669,29 +24649,7 @@ Poor scaling of the data
 \begin_layout Standard
 When the data is scaled so that the magnitudes of the first and second derivativ
 es are of different orders, problems can easily result.
- If we uncomment the appropriate line in 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{EstimatePoisson.m}{file:///home/michael/Mystuff/Econometrics/Ex
-amples/MEPS-I/EstimatePoisson.m}
-\end_layout
-
-\end_inset
-
-, the data will not be scaled, and the estimation program will have difficulty
- converging (it seems to take an infinite amount of time).
- With unscaled data, the elements of the score vector have very different
- magnitudes at the initial value of 
-\begin_inset Formula $\theta$
-\end_inset
-
- (all zeros).
- To see this run 
+ If we comment the appropriate line in 
 \begin_inset ERT
 status open
 
@@ -24699,20 +24657,14 @@ status open
 
  
 \backslash
-htmladdnormallink{CheckScore.m}{file:///home/michael/Mystuff/Econometrics/Example
-s/MEPS-I/CheckScore.m}
+htmladdnormallink{EstimatePoisson.jl}{file:///home/michael/Mystuff/Econometrics/E
+xamples/MEPS-I/EstimatePoisson.jl}
 \end_layout
 
 \end_inset
 
-.
- With unscaled data, one element of the gradient is very large, and the
- maximum and minimum elements are 5 orders of magnitude apart.
- This causes convergence problems due to serious numerical inaccuracy when
- doing inversions to calculate the BFGS direction of search.
- With scaled data, none of the elements of the gradient are very large,
- and the maximum difference in orders of magnitude is 3.
- Convergence is quick.
+, the data will not be scaled, and the estimation program will have difficulty
+ converging (note that the likelihood value is lower with poor scaling).
 \end_layout
 
 \begin_layout Subsection
@@ -24793,7 +24745,7 @@ Mountains with low fog
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -24855,8 +24807,8 @@ status open
 
  
 \backslash
-htmladdnormallink{FoggyMountain.m}{file:///home/michael/Mystuff/Econometrics/Exam
-ples/NonlinearOptimization/FoggyMountain.m}
+htmladdnormallink{FoggyMountain.jl}{file:///home/michael/Mystuff/Econometrics/Exa
+mples/NonlinearOptimization/FoggyMountain.jl}
 \end_layout
 
 \end_inset
@@ -24873,9 +24825,7 @@ filename "Examples/NonlinearOptimization/FoggyMountain.out"
 \end_inset
 
 In that run, the single BFGS run with bad start values converged to a point
- far from the true minimizer, while simulated annealing and BFGS using a
- battery of random start values both found the true minimizer.
- Using a battery of random start values, we managed to find the global min.
+ far from the true minimizer, while simulated annealing found the true minimizer.
  The moral of the story is to be cautious and don't publish your results
  too quickly.
 \end_layout
@@ -24892,46 +24842,29 @@ Exercises
 \end_layout
 
 \begin_layout Enumerate
-In octave, type 
-\begin_inset Quotes sld
-\end_inset
-
-
+In Julia (with the 
 \family typewriter
-help bfgsmin_example
+Econometrics.jl
 \family default
-
-\begin_inset Quotes srd
-\end_inset
-
-, to find out the location of the file.
- Edit the file to examine it and learn how to call 
+ package installed), type fminunc(), to learn a bit more about the 
 \family typewriter
-bfgsmin
+fminunc
 \family default
-.
- Run it, and examine the output.
+ function for unconstrained minimization, and to see a simple example.
+ .
 \end_layout
 
 \begin_layout Enumerate
-In octave, type 
-\begin_inset Quotes sld
-\end_inset
-
-
+In Julia, examine the file 
 \family typewriter
-help samin_example
+examples/samin_example
 \family default
-
-\begin_inset Quotes srd
-\end_inset
-
-, to find out the location of the file.
- Edit the file to examine it and learn how to call 
+ in the install location of the Econometrics.jl package, to learn how to
+ call the 
 \family typewriter
-samin
+samin.jl
 \family default
-.
+ routine.
  Run it, and examine the output.
 \end_layout
 
@@ -24989,7 +24922,15 @@ Numerically compute the OLS estimator of the Nerlove model
 
 \end_inset
 
-by using Octave's (or Matlab's) fminunc to minimize the sum of squared residuals.
+by using the fminunc function in the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Econometrics.jl"
+target "https://github.com/mcreel/Econometrics.jl"
+
+\end_inset
+
+ package to minimize the sum of squared residuals.
  The data is at the link 
 \begin_inset ERT
 status open
