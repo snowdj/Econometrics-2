@@ -583,8 +583,16 @@ target "https://github.com/mcreel/Econometrics"
  sources, which will allow you to
  create your own version, if you like, or send error corrections and contributio
 ns.
- To run the examples embedded in the document, you also need the support
- code in the archive 
+ To run the examples embedded in the document, you need to install the Julia
+ language
+\begin_inset CommandInset href
+LatexCommand href
+name "Julia language"
+target "https://julialang.org/"
+
+\end_inset
+
+, and you also need the support code in the archive 
 \begin_inset CommandInset href
 LatexCommand href
 name "Econometrics.jl"
@@ -593,10 +601,14 @@ target "https://github.com/mcreel/Econometrics.jl"
 \end_inset
 
 .
- To use that code, download the archive to some location, then link the
- destination location into your Julia package directory (e.g., ~/.julia/v0.6/
- for a Linux installation, running v0.6).
- Then, when running Julia, access the code by 
+ To use that code, from the Julia prompt, execute the following command:
+ 
+\family typewriter
+Pkg.clone("https://github.com/mcreel/Econometrics.jl.git")
+\family default
+.
+ This will install the code to your Julia home directory.
+ Then, when running Julia, access the code by typing 
 \family typewriter
 using Econometrics.
  
