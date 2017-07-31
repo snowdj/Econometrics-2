@@ -12,7 +12,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{dcolumn}
-%\usepackage[ps2pdf,pdftitle={Econometrics},urlcolor=blue,linktocpage,a4paper,colorlinks=true]{hyperref}
+\usepackage[ps2pdf,pdftitle={Econometrics},urlcolor=blue,linktocpage,a4paper,colorlinks=true]{hyperref}
 \usepackage{listings}
 \usepackage{color}
 \usepackage{setspace}
@@ -219,7 +219,7 @@ https://github.com/mcreel/Econometrics/blob/master
 \end_layout
 
 \begin_layout Standard
-
+file:///home/user/Econometrics
 \end_layout
 
 \begin_layout Section
@@ -583,8 +583,16 @@ target "https://github.com/mcreel/Econometrics"
  sources, which will allow you to
  create your own version, if you like, or send error corrections and contributio
 ns.
- To run the examples embedded in the document, you also need the support
- code in the archive 
+ To run the examples embedded in the document, you need to install the Julia
+ language
+\begin_inset CommandInset href
+LatexCommand href
+name "Julia language"
+target "https://julialang.org/"
+
+\end_inset
+
+, and you also need the support code in the archive 
 \begin_inset CommandInset href
 LatexCommand href
 name "Econometrics.jl"
@@ -593,10 +601,14 @@ target "https://github.com/mcreel/Econometrics.jl"
 \end_inset
 
 .
- To use that code, download the archive to some location, then link the
- destination location into your Julia package directory (e.g., ~/.julia/v0.6/
- for a Linux installation, running v0.6).
- Then, when running Julia, access the code by 
+ To use that code, from the Julia prompt, execute the following command:
+ 
+\family typewriter
+Pkg.clone("https://github.com/mcreel/Econometrics.jl.git")
+\family default
+.
+ This will install the code to your Julia home directory.
+ Then, when running Julia, access the code by typing 
 \family typewriter
 using Econometrics.
  
@@ -3934,9 +3946,7 @@ We will estimate the Cobb-Douglas model
 
 \end_inset
 
- using OLS.
- To do this yourself, you need the data file mentioned above, as well as
- 
+ by OLS, using the Julia script 
 \begin_inset ERT
 status collapsed
 
@@ -3944,32 +3954,21 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{Nerlove.m}{https://github.com/mcreel/Econometrics/blob/master/Ex
-amples/OLS/Nerlove.m} 
+htmladdnormallink{Nerlove.jl}{https://github.com/mcreel/Econometrics/blob/master/E
+xamples/OLS/Nerlove.jl} 
 \end_layout
 
 \end_inset
 
- (the estimation program), and the library of Octave functions mentioned
- in the introduction to Octave that forms section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Introduction-to-Octave"
+, which uses 
+\begin_inset CommandInset href
+LatexCommand href
+name "ols.jl"
+target "https://github.com/mcreel/Econometrics.jl/blob/master/src/LinearRegression/ols.jl"
 
 \end_inset
 
- of this document.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-If you are running the bootable CD, you have all of this installed and ready
- to run.
-\end_layout
-
-\end_inset
-
- 
+.
 \end_layout
 
 \begin_layout Standard
@@ -22842,6 +22841,16 @@ name "cha:Numeric-optimization-methods"
 \end_inset
 
 Numeric optimization methods
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+conversion to Julia is done
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -24402,16 +24411,6 @@ target "https://github.com/mcreel/Econometrics.jl/blob/master/src/samin.jl"
 \end_layout
 
 \begin_layout Section
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-JULIA CONVERSION DONE TO HERE
-\end_layout
-
-\end_inset
-
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:MEPS data"
@@ -24423,7 +24422,7 @@ A practical example: Maximum likelihood estimation using count data: The
 \end_layout
 
 \begin_layout Standard
-To show optimazation methods in practice, using real economic data, this
+To show optimization methods in practice, using real economic data, this
  section presents maximum likelihood estimation results for a particular
  model using real data.
  The focus at present is simply on numeric optimization.
@@ -24454,7 +24453,7 @@ name "The-,-meps1996.data,"
 
 The 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -24508,14 +24507,14 @@ meps1996.data
 \begin_layout Standard
 The program 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
 
 \backslash
-htmladdnormallink{ExploreMEPS.m}{https://github.com/mcreel/Econometrics/blob/maste
-r/Examples/MEPS-I/ExploreMEPS.m} 
+htmladdnormallink{ExploreMEPS.jl}{https://github.com/mcreel/Econometrics/blob/mast
+er/Examples/MEPS-I/ExploreMEPS.jl} 
 \end_layout
 
 \end_inset
@@ -24606,14 +24605,14 @@ the elasticity of the conditional mean of
 \begin_layout Standard
 The program 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{EstimatePoisson.m}{https://github.com/mcreel/Econometrics/blob/m
-aster/Examples/MEPS-I/EstimatePoisson.m}
+htmladdnormallink{EstimatePoisson.jl}{https://github.com/mcreel/Econometrics/blob/
+master/Examples/MEPS-I/EstimatePoisson.jl}
 \end_layout
 
 \end_inset
@@ -24660,29 +24659,7 @@ Poor scaling of the data
 \begin_layout Standard
 When the data is scaled so that the magnitudes of the first and second derivativ
 es are of different orders, problems can easily result.
- If we uncomment the appropriate line in 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{EstimatePoisson.m}{https://github.com/mcreel/Econometrics/blob/m
-aster/Examples/MEPS-I/EstimatePoisson.m}
-\end_layout
-
-\end_inset
-
-, the data will not be scaled, and the estimation program will have difficulty
- converging (it seems to take an infinite amount of time).
- With unscaled data, the elements of the score vector have very different
- magnitudes at the initial value of 
-\begin_inset Formula $\theta$
-\end_inset
-
- (all zeros).
- To see this run 
+ If we comment the appropriate line in 
 \begin_inset ERT
 status open
 
@@ -24690,20 +24667,14 @@ status open
 
  
 \backslash
-htmladdnormallink{CheckScore.m}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/MEPS-I/CheckScore.m}
+htmladdnormallink{EstimatePoisson.jl}{https://github.com/mcreel/Econometrics/blob/
+master/Examples/MEPS-I/EstimatePoisson.jl}
 \end_layout
 
 \end_inset
 
-.
- With unscaled data, one element of the gradient is very large, and the
- maximum and minimum elements are 5 orders of magnitude apart.
- This causes convergence problems due to serious numerical inaccuracy when
- doing inversions to calculate the BFGS direction of search.
- With scaled data, none of the elements of the gradient are very large,
- and the maximum difference in orders of magnitude is 3.
- Convergence is quick.
+, the data will not be scaled, and the estimation program will have difficulty
+ converging (note that the likelihood value is lower with poor scaling).
 \end_layout
 
 \begin_layout Subsection
@@ -24784,7 +24755,7 @@ Mountains with low fog
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -24846,8 +24817,8 @@ status open
 
  
 \backslash
-htmladdnormallink{FoggyMountain.m}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/NonlinearOptimization/FoggyMountain.m}
+htmladdnormallink{FoggyMountain.jl}{https://github.com/mcreel/Econometrics/blob/ma
+ster/Examples/NonlinearOptimization/FoggyMountain.jl}
 \end_layout
 
 \end_inset
@@ -24864,9 +24835,7 @@ filename "Examples/NonlinearOptimization/FoggyMountain.out"
 \end_inset
 
 In that run, the single BFGS run with bad start values converged to a point
- far from the true minimizer, while simulated annealing and BFGS using a
- battery of random start values both found the true minimizer.
- Using a battery of random start values, we managed to find the global min.
+ far from the true minimizer, while simulated annealing found the true minimizer.
  The moral of the story is to be cautious and don't publish your results
  too quickly.
 \end_layout
@@ -24883,47 +24852,51 @@ Exercises
 \end_layout
 
 \begin_layout Enumerate
-In octave, type 
-\begin_inset Quotes sld
-\end_inset
-
-
+In Julia (with the 
 \family typewriter
-help bfgsmin_example
+Econometrics.jl
 \family default
-
-\begin_inset Quotes srd
-\end_inset
-
-, to find out the location of the file.
- Edit the file to examine it and learn how to call 
+ package installed), type 
 \family typewriter
-bfgsmin
+fminunc()
 \family default
-.
- Run it, and examine the output.
+, to learn a bit more about the 
+\family typewriter
+fminunc
+\family default
+ function for unconstrained minimization, and to see a simple example.
 \end_layout
 
 \begin_layout Enumerate
-In octave, type 
-\begin_inset Quotes sld
-\end_inset
-
-
+In Julia (with the 
 \family typewriter
-help samin_example
+Econometrics.jl
 \family default
+ package installed), type 
+\family typewriter
+fmincon()
+\family default
+, to learn a bit more about the 
+\family typewriter
+fmincon
+\family default
+ function for unconstrained minimization, and to see a simple example.
+\end_layout
 
-\begin_inset Quotes srd
-\end_inset
-
-, to find out the location of the file.
- Edit the file to examine it and learn how to call 
+\begin_layout Enumerate
+In Julia (with the 
+\family typewriter
+Econometrics.jl
+\family default
+ package installed), type 
+\family typewriter
+samin()
+\family default
+, to learn a bit more about the 
 \family typewriter
 samin
 \family default
-.
- Run it, and examine the output.
+ function for minimization by simulated annealing, and to see a simple example.
 \end_layout
 
 \begin_layout Enumerate
@@ -24980,7 +24953,15 @@ Numerically compute the OLS estimator of the Nerlove model
 
 \end_inset
 
-by using Octave's (or Matlab's) fminunc to minimize the sum of squared residuals.
+by using the fminunc function in the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Econometrics.jl"
+target "https://github.com/mcreel/Econometrics.jl"
+
+\end_inset
+
+ package to minimize the sum of squared residuals.
  The data is at the link 
 \begin_inset ERT
 status open
@@ -25147,6 +25128,16 @@ name "cha:Asymptotic-properties-of"
 \end_inset
 
 Asymptotic properties of extremum estimators
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Conversion to Julia is done
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -27928,7 +27919,7 @@ reference "fig:Consistency-of-OLS"
 \end_layout
 
 \begin_layout Enumerate
-Verify your results using Octave by generating data that follows the above
+Verify your results using Julia by generating data that follows the above
  model, and calculating the OLS estimator.
  When the sample size is very large the estimator should be very close to
  the analytical results you obtained in question 
@@ -27987,6 +27978,16 @@ Use the asymptotic normality theorem to find the asymptotic distribution
 
 \begin_layout Chapter
 Maximum likelihood estimation
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+done converting to Julia
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -28926,8 +28927,8 @@ ML
 \end_layout
 
 \begin_layout Itemize
-A Octave/Matlab example that shows how to compute the maximum likelihood
- estimator for data that follows the CLRM with normality is in 
+A Julia example that shows how to compute the maximum likelihood estimator
+ for data that follows the CLRM with normality is in 
 \begin_inset ERT
 status open
 
@@ -28935,27 +28936,14 @@ status open
 
  
 \backslash
-htmladdnormallink{NormalExample.m}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/MLE/NormalExample.m} 
-\end_layout
-
-\end_inset
-
-, which makes use of 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{NormalLF.m}{https://github.com/mcreel/Econometrics/blob/master/E
-xamples/MLE/NormalLF.m} 
+htmladdnormallink{NormalExample.jl}{https://github.com/mcreel/Econometrics/blob/ma
+ster/Examples/MLE/NormalExample.jl} 
 \end_layout
 
 \end_inset
 
 .
+ Examine the code, and figure out how the likelihood function is defined.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -29147,6 +29135,32 @@ reference "Consistency of ee"
  So, the ML estimator is consistent for the true parameter value.
  In practice, we will need to check identification for the specific model
  under consideration.
+\end_layout
+
+\begin_layout Exercise
+Verify consistency of the ML estimator of the CLRM with normality by increasing
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ in the example 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{NormalExample.jl}{https://github.com/mcreel/Econometrics/blob/ma
+ster/Examples/MLE/NormalExample.jl} 
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -30100,15 +30114,16 @@ status open
 
  
 \backslash
-htmladdnormallink{EstimatePoisson.m}{https://github.com/mcreel/Econometrics/blob/m
-aster/Examples/MEPS-I/EstimatePoisson.m}
+htmladdnormallink{EstimatePoisson.jl}{https://github.com/mcreel/Econometrics/blob/
+master/Examples/MEPS-I/EstimatePoisson.jl}
 \end_layout
 
 \end_inset
 
  to figure out how the variance-covariance of the parameters has been estimated.
- Change that to try the three options given above, and note the important
- changes in the estimated standard errors and t statistics.
+ Change the code that computes the covariance matrix to try the three options
+ given above, and note the important changes in the estimated standard errors
+ and t statistics.
  Interpret these findings: do you believe that the Poisson model is adequate?
 \end_layout
 
@@ -30896,14 +30911,14 @@ reference "exa:Likelihood-function-of"
 
 , 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{LikelihoodRatioTest.m}{https://github.com/mcreel/Econometrics/bl
-ob/master/Examples/MLE/LikelihoodRatioTest.m} 
+htmladdnormallink{LikelihoodRatioTest.jl}{https://github.com/mcreel/Econometrics/b
+lob/master/Examples/MLE/LikelihoodRatioTest.jl} 
 \end_layout
 
 \end_inset
@@ -30913,7 +30928,7 @@ ob/master/Examples/MLE/LikelihoodRatioTest.m}
 \end_inset
 
 .
- This uses the Octave function sqp() to perform the restricted estimation.
+ This uses the Julia function fmincon to perform the restricted estimation.
 \end_layout
 
 \begin_layout Itemize
@@ -31005,7 +31020,7 @@ reference "sec:Asymptotic-efficiency"
 
  is assumed to be i.i.d.
  normally distributed.
- The Octave script 
+ The Julia script 
 \begin_inset ERT
 status collapsed
 
@@ -31014,7 +31029,7 @@ status collapsed
  
 \backslash
 htmladdnormallink{NerloveMLE.m}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/MLE/NerloveMLE.m} 
+/Examples/MLE/NerloveMLE.jl} 
 \end_layout
 
 \end_inset
@@ -31056,9 +31071,17 @@ amples/OLS/Nerlove.m}
  The script also provides a basic example of how to use the MLE estimation
  routine 
 \family typewriter
-mle_results.m
+mleresults.jl
 \family default
+, which is in the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Econometrics.jl"
+target "https://github.com/mcreel/Econometrics.jl"
 
+\end_inset
+
+ package.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -31612,7 +31635,7 @@ p(x,\theta)=\frac{1}{1+\exp(-x^{\prime}\theta)}
 \begin_layout Standard
 You should download and examine 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -31626,7 +31649,7 @@ Examples/MLE/LogitDGP.jl}
 
 , which generates data according to the logit model, 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -31640,7 +31663,7 @@ mples/MLE/logit.jl}
 
 , which calculates the loglikelihood, and 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -32315,6 +32338,11 @@ Estimation of a simple DSGE model
 \end_layout
 
 \begin_layout Standard
+Note: this section will not be converted to the Julia language at the present
+ time, as there is presently no Julia language full equivalent of Dynare.
+\end_layout
+
+\begin_layout Standard
 Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -32325,7 +32353,7 @@ reference "sec:Application:-Simple-DSGE"
  introduces a simple dynamic stochastic general equilibrium model.
  The file 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -32699,7 +32727,7 @@ reference "subsec:Coin-flipping,-again"
 \series bold
 d)
 \series default
- Write an Octave program that does a Monte Carlo study that shows that 
+ Write an Julia program that does a Monte Carlo study that shows that 
 \begin_inset Formula $\sqrt{n}\left(\bar{y}-p_{0}\right)$
 \end_inset
 
@@ -32920,21 +32948,6 @@ Comment on the results
 
 \end_deeper
 \begin_layout Enumerate
-There is an ML estimation routine in the provided software that accompanies
- these notes.
- Edit (to see what it does) then run the script 
-\begin_inset CommandInset href
-LatexCommand href
-name "mle_example.m"
-target "https://github.com/mcreel/Econometrics/blob/master/MyOctaveFiles/Econometrics/MLE/mle_example.m"
-
-\end_inset
-
-.
- Interpret the output.
-\end_layout
-
-\begin_layout Enumerate
 Estimate the simple Nerlove model discussed in section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -32955,8 +32968,8 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{Nerlove.m}{https://github.com/mcreel/Econometrics/blob/master/Ex
-amples/OLS/Nerlove.m} 
+htmladdnormallink{Nerlove.jl}{https://github.com/mcreel/Econometrics/blob/master/E
+xamples/OLS/Nerlove.jl} 
 \end_layout
 
 \end_inset
@@ -32965,7 +32978,7 @@ amples/OLS/Nerlove.m}
 \end_layout
 
 \begin_layout Enumerate
-Using fmincon (Matlab) or sqp (Octave)
+Using the fmincon routinge in Econometrics.jl
 \begin_inset Separator latexpar
 \end_inset
 
@@ -32998,29 +33011,23 @@ test homogeneity of degree 1 and constant returns to scale jointly, using
 \end_deeper
 \begin_layout Enumerate
 Using 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{logit.m}{https://github.com/mcreel/Econometrics/blob/master/MyOc
-taveFiles/Count/Logit.m} 
-\end_layout
+\begin_inset CommandInset href
+LatexCommand href
+name "logit.jl"
+target "https://github.com/mcreel/Econometrics.jl/blob/master/src/ML/Likelihoods/logit.jl"
 
 \end_inset
 
  and 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
 
 \backslash
-htmladdnormallink{EstimateLogit.m}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/NonlinearOptimization/EstimateLogit.m} 
+htmladdnormallink{EstimateLogit.jl}{https://github.com/mcreel/Econometrics/blob/ma
+ster/Examples/NonlinearOptimization/EstimateLogit.jl} 
 \end_layout
 
 \end_inset
@@ -33034,15 +33041,23 @@ ter/Examples/NonlinearOptimization/EstimateLogit.m}
 \begin_layout Enumerate
 Study 
 \family typewriter
-mle_results.m
+
+\begin_inset CommandInset href
+LatexCommand href
+name "mleresults.jl"
+target "https://github.com/mcreel/Econometrics.jl/blob/master/src/ML/mleresults.jl"
+
+\end_inset
+
+
 \family default
  to see what it does.
- Examine the functions that 
+ Examine the functions that
 \family typewriter
-mle_results.m
+ it 
 \family default
- calls, and in turn the functions that those functions call.
- Write a complete description of how the whole chain works.
+calls.
+ Write a complete description of how thechain works.
 \end_layout
 
 \begin_layout Enumerate
@@ -33053,7 +33068,7 @@ reference "subsec:MEPS data"
 
 \end_inset
 
- a model is presented for data on health care usage, along with some Octave
+ a model is presented for data on health care usage, along with some Julia
  scripts.
  Look at the Poisson estimation results for the OBDV measure of health care
  use and give an economic interpretation.
@@ -33308,7 +33323,7 @@ For the Poisson model, the density
 \end_inset
 
 .
- The example EstimatePoisson.m, in the notes, should be helpful
+ The example EstimatePoisson.jl, in the notes, should be helpful
 \begin_inset Separator latexpar
 \end_inset
 
@@ -33329,8 +33344,7 @@ find the score function
 \end_layout
 
 \begin_layout Enumerate
-write a Matlab function that computes the log-likelihood function, using
- the form obj=loglik(theta, data)
+write a Julia function that computes the log-likelihood function.
 \end_layout
 
 \begin_layout Enumerate
