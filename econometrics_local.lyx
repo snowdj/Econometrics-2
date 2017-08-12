@@ -207,15 +207,17 @@ About this document
 \end_layout
 
 \begin_layout Standard
-Note to self: for different versions, these are the strings to replace
-\end_layout
-
-\begin_layout Standard
-https://github.com/mcreel/Econometrics/blob/master
-\end_layout
-
-\begin_layout Standard
+Note to self: for the public version, replace all instances of 
+\family typewriter
+\color blue
 file:///home/michael/Mystuff/Econometrics
+\family default
+\color inherit
+ with
+\family typewriter
+ 
+\color blue
+https://github.com/mcreel/Econometrics/blob/master
 \end_layout
 
 \begin_layout Section
@@ -610,6 +612,52 @@ using Econometrics.
  
 \family default
 Having done that, the examples will be runnable.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+To make a local version of the pdf file
+\series default
+, so that the links open the example code from your hard drive, rather than
+ from the github page:
+\end_layout
+
+\begin_layout Itemize
+install LyX
+\begin_inset CommandInset href
+LatexCommand href
+name " LyX"
+target "https://www.lyx.org/"
+
+\end_inset
+
+ on your computer
+\end_layout
+
+\begin_layout Itemize
+in the econometrics_local.lyx file, while editing using LyX, search for all
+ instances of 
+\family typewriter
+file:///home/michael/Mystuff/Econometrics
+\family default
+, and replace them with 
+\family typewriter
+file:///<directory where the econometrics_local.lyx file is installed>
+\end_layout
+
+\begin_layout Itemize
+build a local pdf by executing, from the command prompt, 
+\family typewriter
+lyx -e pdf2 econometrics_local.lyx
+\end_layout
+
+\begin_layout Itemize
+the result will be an econometrics_local.pdf file
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
