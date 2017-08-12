@@ -6,7 +6,6 @@
 
 using Econometrics
 include("LogitDGP.jl")
-include("logit.jl")
 n = 30 # sample size
 theta = [0, 0.5] # true theta for generating data
 (y, x) = LogitDGP(n, theta) # generate the data

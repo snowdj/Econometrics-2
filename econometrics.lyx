@@ -218,10 +218,6 @@ https://github.com/mcreel/Econometrics/blob/master
 https://github.com/mcreel/Econometrics/blob/master
 \end_layout
 
-\begin_layout Standard
-file:///home/user/Econometrics
-\end_layout
-
 \begin_layout Section
 Prerequisites
 \end_layout
@@ -33864,8 +33860,8 @@ name "exa:chi2 mm"
 
 \end_inset
 
-Try some MM estimation yourself: here's an Octave script that implements
- the two MM estimators discussed above: 
+Try some MM estimation yourself: here's a Julia script that implements the
+ two MM estimators discussed above: 
 \begin_inset ERT
 status open
 
@@ -33873,8 +33869,8 @@ status open
 
  
 \backslash
-htmladdnormallink{GMM/chi2mm.m}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/GMM/chi2mm.m}
+htmladdnormallink{GMM/chi2mm.jl}{https://github.com/mcreel/Econometrics/blob/maste
+r/Examples/GMM/chi2mm.jl}
 \end_layout
 
 \end_inset
@@ -34088,7 +34084,7 @@ Feasibility: in some cases the MLE estimator is not available, because we
 \end_layout
 
 \begin_layout Example
-The Octave script 
+The Julia script 
 \begin_inset ERT
 status open
 
@@ -34096,8 +34092,8 @@ status open
 
  
 \backslash
-htmladdnormallink{GMM/chi2gmm.m}{https://github.com/mcreel/Econometrics/blob/maste
-r/Examples/GMM/chi2gmm.m}
+htmladdnormallink{GMM/chi2gmm.jl}{https://github.com/mcreel/Econometrics/blob/mast
+er/Examples/GMM/chi2gmm.jl}
 \end_layout
 
 \end_inset
@@ -34439,7 +34435,7 @@ To take second derivatives, let
 \end_inset
 
  This is a 
-\begin_inset Formula $1\times G$
+\begin_inset Formula $1\times g$
 \end_inset
 
  row vector, and 
@@ -34779,16 +34775,16 @@ We would probably like to know how to choose both
 \end_layout
 
 \begin_layout Example
-The Octave script 
+The Julia script 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{GMM/AsymptoticNormalityGMM.m}{https://github.com/mcreel/Economet
-rics/blob/master/Examples/GMM/AsymptoticNormalityGMM.m}
+htmladdnormallink{GMM/AsymptoticNormalityGMM.jl}{https://github.com/mcreel/Econome
+trics/blob/master/Examples/GMM/AsymptoticNormalityGMM.jl}
 \end_layout
 
 \end_inset
@@ -34877,7 +34873,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/GMM/AsNorm_n10.png
+	filename Examples/GMM/Asnorm_n30.svg
 	lyxscale 50
 	width 10cm
 
@@ -34915,7 +34911,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/GMM/AsNorm_n1000.png
+	filename Examples/GMM/Asnorm_n1000.svg
 	lyxscale 50
 	width 10cm
 
@@ -35341,17 +35337,17 @@ The obvious estimator of
 \end_layout
 
 \begin_layout Example
-To see the effect of using an efficient weight matrix, consider the Octave
+To see the effect of using an efficient weight matrix, consider the Julia
  script 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{GMM/EfficientGMM.m}{https://github.com/mcreel/Econometrics/blob/
-master/Examples/GMM/EfficientGMM.m}
+htmladdnormallink{GMM/EfficientGMM.jl}{https://github.com/mcreel/Econometrics/blob
+/master/Examples/GMM/EfficientGMM.jl}
 \end_layout
 
 \end_inset
@@ -35422,7 +35418,11 @@ Inefficient and Efficient GMM estimators,
 \begin_inset Formula $\chi^{2}$
 \end_inset
 
- data
+ data, 
+\begin_inset Formula $n=30$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -35434,11 +35434,7 @@ Inefficient and Efficient GMM estimators,
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -35454,7 +35450,7 @@ inefficient
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/GMM/Inefficient.png
+	filename Examples/GMM/Inefficient.svg
 	lyxscale 50
 	width 10cm
 
@@ -35473,7 +35469,7 @@ inefficient
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -35489,7 +35485,7 @@ efficient
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/GMM/Efficient.png
+	filename Examples/GMM/Efficient.svg
 	lyxscale 50
 	width 10cm
 
@@ -35817,67 +35813,6 @@ A disadvantage of this estimator is that it may not be positive definite.
 \end_inset
 
  statistic, for example!
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Note: the formula for 
-\begin_inset Formula $\hat{\Omega}$
-\end_inset
-
- requires an estimate of the 
-\begin_inset Formula $m_{t}(\theta^{0}),$
-\end_inset
-
- which in turn requires an estimate of 
-\begin_inset Formula $\theta,$
-\end_inset
-
- which is based upon an estimate of 
-\begin_inset Formula $\Omega!$
-\end_inset
-
- The solution to this circularity is to set the weighting matrix 
-\begin_inset Formula $W$
-\end_inset
-
- arbitrarily (for example to an identity matrix), obtain a first consistent
- but inefficient estimate of 
-\begin_inset Formula $\theta^{0},$
-\end_inset
-
- then use this estimate to form 
-\begin_inset Formula $\hat{\Omega},$
-\end_inset
-
- then re-estimate 
-\begin_inset Formula $\theta^{0}.$
-\end_inset
-
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-This is the 
-\emph on
-two-step GMM estimator, 
-\emph default
-which is probably the most commonly encountered version of GMM in applied
- work.
-\end_layout
-
-\begin_layout Itemize
-The process can be iterated until neither 
-\begin_inset Formula $\hat{\Omega}$
-\end_inset
-
- nor 
-\begin_inset Formula $\hat{\theta}$
-\end_inset
-
- change appreciably between iterations.
- 
 \begin_inset Newpage newpage
 \end_inset
 
@@ -35965,6 +35900,22 @@ key "white1980heteroskedasticity"
 \end_layout
 
 \begin_layout Itemize
+A Julia implementation is in the 
+\family typewriter
+Econometrics.jl
+\family default
+ package, at 
+\begin_inset CommandInset href
+LatexCommand href
+name "NeweyWest.jl"
+target "https://github.com/mcreel/Econometrics.jl/blob/master/src/NP/NeweyWest.jl"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
 see Gretl User Manual additional information, and use Gretl for examples
  of both:
 \end_layout
@@ -35984,6 +35935,163 @@ aut: NYSE data, square of log difference of closing price: test for AUT,
 
 \end_deeper
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Two step and continuously updated GMM estimators
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Two step GMM estimator:
+\end_layout
+
+\begin_layout Standard
+The most common way to do efficient GMM estimation is the two step GMM estimator
+:
+\end_layout
+
+\begin_layout Enumerate
+Set the weight matrix to some positive definite matrix.
+ Most commonly, one uses an identity matrix of order 
+\begin_inset Formula $g.$
+\end_inset
+
+ Obtain the GMM estimator that minimizes 
+\begin_inset Formula $s_{n}(\theta)=m_{n}(\theta)^{\prime}Wm_{n}(\theta)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Based on this initial estimate, 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+, say, compute the moment contributions 
+\begin_inset Formula $m_{t}(\hat{\theta}),\,t=1,2,...,n$
+\end_inset
+
+.
+ Compute an estimate of 
+\begin_inset Formula $\Omega_{\infty}$
+\end_inset
+
+ based on the moment contributions, say 
+\begin_inset Formula $\hat{\Omega}^{-1}$
+\end_inset
+
+.
+ The exact way to do this will depend upon the assumptions of the model.
+ For example, if moment conditions are autocorrelated, one might use the
+ Newey-West estimator.
+ Given the estimate, compute the efficient GMM estimator which minimizes
+\begin_inset Formula 
+\[
+s_{n}(\theta)=m_{n}(\theta)^{\prime}\hat{\Omega}^{-1}m_{n}(\theta).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Note that 
+\begin_inset Formula $\hat{\Omega}^{-1}$
+\end_inset
+
+ is fixed while numeric minimization finds the second step estimator.
+ The result is the two step estimator.
+ 
+\end_layout
+
+\begin_layout Itemize
+An example of this is given by running 
+\family typewriter
+gmmresults()
+\family default
+, which is included in the 
+\family typewriter
+Econometrics.jl
+\family default
+ package.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Continuously updated GMM estimator:
+\end_layout
+
+\begin_layout Standard
+The continuously updated estimator (
+\begin_inset CommandInset citation
+LatexCommand citet
+key "HansenHeatonYaron1996"
+
+\end_inset
+
+) solves a minimization problem where the efficient weight matrix is estimated
+ at each iteration of the numeric optimization process.
+ The CUE estimator solves the minimization problem 
+\begin_inset Formula 
+\[
+s_{n}(\theta)=m_{n}(\theta)^{\prime}\hat{\Omega}(\theta)^{-1}m_{n}(\theta).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Note that the covariance of the moment conditions will be updated at each
+ trial value of the objective function during the course of minimization.
+ 
+\end_layout
+
+\begin_layout Itemize
+This estimator is equivalent to an iterated version of the two step estimator.
+ 
+\end_layout
+
+\begin_layout Itemize
+The CUE estimator can be shown to have a smaller bias than does the two
+ step estimator, which may have a large small sample bias (
+\begin_inset CommandInset citation
+LatexCommand citet
+key "NeweySmith2003"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Itemize
+An example of CUE estimation is given by running 
+\family typewriter
+gmmresults()
+\family default
+, which is included in the 
+\family typewriter
+Econometrics.jl
+\family default
+ package.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -37210,7 +37318,7 @@ reference "exa:Measurement-error-in"
 .
  Thus, these are legitimate instruments.
  As we have 4 instruments and 3 parameters, this is an overidentified situation.
- The Octave script  
+ The Julia script  
 \begin_inset ERT
 status open
 
@@ -37218,8 +37326,8 @@ status open
 
  
 \backslash
-htmladdnormallink{GMM/MeasurementErrorIV.m}{https://github.com/mcreel/Econometrics
-/blob/master/Examples/GMM/MeasurementErrorIV.m} 
+htmladdnormallink{GMM/MeasurementErrorIV.jl}{https://github.com/mcreel/Econometric
+s/blob/master/Examples/GMM/MeasurementErrorIV.jl} 
 \end_layout
 
 \end_inset
@@ -37234,7 +37342,8 @@ reference "exa:Measurement-error-in"
 \end_inset
 
 .
- Using the GIV estimator, descriptive statistics for 1000 replications are
+ Using the GIV estimator, descriptive statistics for 1000 replications of
+ are
 \begin_inset CommandInset include
 LatexCommand verbatiminput
 filename "Examples/GMM/MeasurementErrorIV.out"
@@ -37301,7 +37410,7 @@ GIV estimation results for
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/GMM/givrho.png
+	filename Examples/GMM/givrho.svg
 	lyxscale 25
 	width 12cm
 
@@ -37452,7 +37561,7 @@ status open
  
 \backslash
 htmladdnormallink{Simeq/KleinGMM.m}{https://github.com/mcreel/Econometrics/blob/ma
-ster/Examples/Simeq/KleinGMM.m}
+ster/Examples/Simeq/KleinGMM.jl}
 \end_layout
 
 \end_inset
@@ -37881,16 +37990,16 @@ minimum chi-square
 \end_layout
 
 \begin_layout Standard
-The Octave script 
+The Julia script 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{GMM/SpecTest.m}{https://github.com/mcreel/Econometrics/blob/mast
-er/Examples/GMM/SpecTest.m} 
+htmladdnormallink{GMM/SpecTest.jl}{https://github.com/mcreel/Econometrics/blob/mas
+ter/Examples/GMM/SpecTest.jl} 
 \end_layout
 
 \end_inset
@@ -37915,90 +38024,20 @@ reference "exa:GIV-example.-Recall"
  For example, if the significance level is set to 10%, the test rejects
  about 16% of the time.
  This is a common result for this test.
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Example
-GMM for Nerlove model (runs on Matlab) Examine and run 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{TwoStepGMM.m}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/GMM/TwoStepGMM.m} 
-\end_layout
-
-\end_inset
-
-, which illustrates how to do two step GMM for the Nerlove data.
- The Octave script 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{NerloveGMM.m}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/OLS/NerloveGMM.m} 
-\end_layout
-
-\end_inset
-
- does the same thing, with nicer formatting of outout, but with the inner
- workings of GMM estimation somewhat hidden from view.
+ Results from a run are:
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "Examples/GMM/SpecTest.out"
+
 \end_inset
 
 
 \end_layout
 
-\begin_layout Example
-GMM using Poisson model.
- Examine and run 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{gmm
-\backslash
-_example.m}{https://github.com/mcreel/Econometrics/blob/master/Examples/GMM/gmm
-\backslash
-_example.m} 
-\end_layout
-
-\end_inset
-
-.
- Does the Hansen-Sargan test reject? Keep in mind that the moment conditions
- 
-\emph on
-are 
-\emph default
-correctly specified in the example.
- Run it a few times to do a crude Monte Carlo.
- Compare the exact identification results to those you get from ML estimation
- using the same data (a bit of programming is required).
- You should see that the GMM and ML results are identical.
- This is because the GMM moments are the ML first order conditions.
- Note that we can estimate an overidentified GMM estimator, using moment
- conditions based on the mean-variance equality of the Poisson model.
- The numeric results are different between the overidentified and exactly
- identified estimators.
- In this case, adding moment conditions adds no asymptotic efficiency, because
- the just identified estimator is fully efficient (why?).
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -38188,6 +38227,31 @@ Also, the fact that the scores of ML are uncorrelated suggests a means of
 OLS as a GMM estimator - the Nerlove model again
 \end_layout
 
+\begin_layout Example
+Matlab/Octave code for GMM for Nerlove model.
+ Examine and run 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{TwoStepGMM.m}{https://github.com/mcreel/Econometrics/blob/master
+/Examples/GMM/TwoStepGMM.m} 
+\end_layout
+
+\end_inset
+
+, which illustrates how to do two step GMM for the Nerlove data.
+ Note that the GMM results are the same as what you get estimating by OLS.
+\end_layout
+
+\begin_layout Exercise
+Adapt the Matlab/Octave code for two step GMM for the Nerlove model to the
+ Julia language.
+\end_layout
+
 \begin_layout Standard
 The simple Nerlove model can be estimated using GMM, as we've seen.
  So, OLS is a special case of GMM.
@@ -38227,7 +38291,7 @@ Consider the simple linear regression model
 \end_layout
 
 \begin_layout Itemize
-if some regressors are endogeneous
+if some regressors are endogenous
 \end_layout
 
 \begin_layout Itemize
@@ -38255,8 +38319,8 @@ status open
 
  
 \backslash
-htmladdnormallink{OLSvsIV.m}{https://github.com/mcreel/Econometrics/blob/master/Ex
-amples/GMM/Hausman/OLSvsIV.m} 
+htmladdnormallink{OLSvsIV.jl}{https://github.com/mcreel/Econometrics/blob/master/E
+xamples/GMM/Hausman/OLSvsIV.jl} 
 \end_layout
 
 \end_inset
@@ -38930,7 +38994,7 @@ reference "Standard Omnibus"
 Applied Economics
 \emph default
 , 2004, for more details, including simulation results.
- The Octave script 
+ The Julia script 
 \begin_inset ERT
 status open
 
@@ -38938,8 +39002,8 @@ status open
 
  
 \backslash
-htmladdnormallink{hausman.m}{https://github.com/mcreel/Econometrics/blob/master/Ex
-amples/GMM/Hausman/hausman.m} 
+htmladdnormallink{hausman.jl}{https://github.com/mcreel/Econometrics/blob/master/E
+xamples/GMM/Hausman/hausman.jl} 
 \end_layout
 
 \end_inset
@@ -39495,7 +39559,7 @@ Empirical example: a portfolio model
 \end_layout
 
 \begin_layout Standard
-The Octave program 
+The Julia program 
 \begin_inset ERT
 status open
 
@@ -39503,8 +39567,8 @@ status open
 
 
 \backslash
-htmladdnormallink{portfolio.m}{https://github.com/mcreel/Econometrics/blob/master/
-Examples/GMM/portfolio.m}
+htmladdnormallink{portfolio.jl}{https://github.com/mcreel/Econometrics/blob/master
+/Examples/GMM/portfolio.jl}
 \end_layout
 
 \end_inset
@@ -39570,6 +39634,9 @@ filename "Examples/GMM/portfolio2.out"
 \end_inset
 
 Pretty clearly, the results are sensitive to the choice of instruments.
+ Also, if you examine the objective function values, it seems unlikely that
+ the global minimum was found in all cases, probably multiple start values
+ or global minimization are needed.
  Maybe there is some problem here: poor instruments, or possibly a conditional
  moment that is not very informative.
  Moment conditions formed from Euler conditions sometimes do not identify
@@ -39611,6 +39678,14 @@ target "http://ricardo.ecn.wfu.edu/pub/gretl/manual/en/gretl-guide-a4.pdf"
 .
  I encourage you to verify that you can obtain the same results using Gretl
  and Octave.
+ 
+\end_layout
+
+\begin_layout Exercise
+Translate the HallGMM.m code to run on Julia.
+\end_layout
+
+\begin_layout Exercise
 \begin_inset Newpage newpage
 \end_inset
 
@@ -40252,7 +40327,7 @@ The shock evolves according to
 \begin_inset Newpage newpage
 \end_inset
 
-The competitive firm mazimizes profits 
+The competitive firm maximizes profits 
 \begin_inset Formula $y_{t}-w_{t}n_{t}-r_{t}k_{t-1}$
 \end_inset
 
@@ -42672,8 +42747,8 @@ status open
 
 
 \backslash
-htmladdnormallink{dsgedata}{https://github.com/mcreel/Econometrics/blob/master/Ex
-amples/DSGE/GenData/dsgedata.txt}
+htmladdnormallink{dsgedata.txt}{https://github.com/mcreel/Econometrics/blob/master
+/Examples/DSGE/GenData/dsgedata.txt}
 \end_layout
 
 \end_inset
@@ -42684,7 +42759,7 @@ amples/DSGE/GenData/dsgedata.txt}
 \end_layout
 
 \begin_layout Standard
-An Octave function to compute the errors discussed above is at 
+An Julia function to compute the errors discussed above is at 
 \begin_inset ERT
 status open
 
@@ -42692,15 +42767,13 @@ status open
 
 
 \backslash
-htmladdnormallink{GetErrors.m}{https://github.com/mcreel/Econometrics/blob/master/
-Examples/DSGE/GMM/GetErrors.m}
+htmladdnormallink{GetErrors.jl}{https://github.com/mcreel/Econometrics/blob/master
+/Examples/DSGE/GMM/GetErrors.jl}
 \end_layout
 
 \end_inset
 
 .
- This should be useful to Matlab users who would like to try some estimation.
- 
 \end_layout
 
 \begin_layout Standard
@@ -42714,10 +42787,10 @@ status open
 \backslash
 htmladdnormallink{EstimateDSGE
 \backslash
-_GMM.m}{https://github.com/mcreel/Econometrics/blob/master/Examples/DSGE/GMM/Estim
-ateDSGE
+_GMM.jl}{https://github.com/mcreel/Econometrics/blob/master/Examples/DSGE/GMM/Esti
+mateDSGE
 \backslash
-_GMM.m}
+_GMM.jl}
 \end_layout
 
 \end_inset
@@ -42736,28 +42809,9 @@ it is very difficult to obtain convergence to a global minimum.
 \end_layout
 
 \begin_layout Itemize
-for advanced users, you can change the minimizer that is used by setting
- 
-\begin_inset Quotes sld
-\end_inset
-
-control
-\begin_inset Quotes srd
-\end_inset
-
-.
- You can try BFGS or SA.
+You can try a gradient-based method, or simulated annealing.
  Even with SA, it's hard to obtain a global minimum.
- Also, if you really want to explore the details, from Octave, type 
-\begin_inset Quotes sld
-\end_inset
-
-edit gmm_estimate
-\begin_inset Quotes srd
-\end_inset
-
- and you can try out 3 different BFGS implementations, bfgsmin, fminunc,
- and lbfgsb.
+ 
 \end_layout
 
 \begin_layout Itemize
