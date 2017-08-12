@@ -8,7 +8,7 @@ Graduate level econometrics notes and example code
 
 
 ## There are a couple of unusual thing about these notes:
-- they are available in editable form (econometrics.lyx), so that you can modify them to suit your needs: seethe first chapter for more information, and get LyX from  www.lyx.org. 
+- they are available in editable form (econometrics.lyx), so that you can modify them to suit your needs: see the first chapter for more information, and get LyX from  www.lyx.org. 
 - they contain links that point to example programs using the Julia language. An older version (release 1.0)
 used GNU Octave, and was copyrighted GPL. The current version is being adapted to use Julia for the majority of the examples, and uses the MIT license.
 
