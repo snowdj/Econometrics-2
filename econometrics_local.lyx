@@ -1339,14 +1339,14 @@ reference "cap:Typical-data,-Classical"
 
 , obtained by running 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{TypicalData.m}{file:///home/michael/Mystuff/Econometrics/Exampl
-es/OLS/TypicalData.m}
+htmladdnormallink{TypicalData.jl}{file:///home/michael/Mystuff/Econometrics/Examp
+les/OLS/TypicalData.jl}
 \end_layout
 
 \end_inset
@@ -1356,7 +1356,7 @@ es/OLS/TypicalData.m}
 \end_inset
 
 .
- The green line is the 
+ The blue line is the 
 \begin_inset Quotes sld
 \end_inset
 
@@ -1368,7 +1368,7 @@ true
 \begin_inset Formula $\beta_{1}+\beta_{2}x_{t2}$
 \end_inset
 
-, and the red crosses are the data points 
+, and the orange dots are the data points 
 \begin_inset Formula $(x_{t2},y_{t}),$
 \end_inset
 
@@ -1381,8 +1381,8 @@ true
 \end_inset
 
 .
- Exactly how the green line is defined will become clear later.
- In practice, we only have the data, and we don't know where the green line
+ Exactly how the blue line is defined will become clear later.
+ In practice, we only have the data, and we don't know where the blue line
  lies.
  We need to gain information about the straight line that best fits the
  data points.
@@ -1667,16 +1667,16 @@ reference "fitted in X,Y space"
 
  shows a typical fit to data, along with the true regression line.
  Note that the true line and the estimated line are different.
- This figure was created by running the Octave program 
+ This figure was created by running the Julia program 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{OlsFit.m}{file:///home/michael/Mystuff/Econometrics/Examples/OL
-S/OlsFit.m} 
+htmladdnormallink{OlsFit.jl}{file:///home/michael/Mystuff/Econometrics/Examples/O
+LS/OlsFit.jl} 
 \end_layout
 
 \end_inset
@@ -2300,7 +2300,7 @@ reference "cap:Detection-of-influential"
 \end_inset
 
  gives an example plot of data, fit, leverage and influence.
- The Octave program is 
+ The Julia program is 
 \begin_inset ERT
 status collapsed
 
@@ -2308,19 +2308,13 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{InfluentialObservation.m}{file:///home/michael/Mystuff/Economet
-rics/Examples/OLS/InfluentialObservation.m}
+htmladdnormallink{InfluentialObservation.jl}{file:///home/michael/Mystuff/Econome
+trics/Examples/OLS/InfluentialObservation.jl}
 \end_layout
 
 \end_inset
 
 .
- 
-\series bold
-(note to self when lecturing: load the data ../OLS/influencedata into Gretl
- and reproduce this).
-
-\series default
  If you re-run the program you will see that the leverage of the last observatio
 n (an outlying value of x) is always high, and the influence is sometimes
  high.
@@ -2998,14 +2992,14 @@ reference "figure-unbiasedness"
  appears to be estimated without bias.
  The program that generates the plot is 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{Unbiased.m}{file:///home/michael/Mystuff/Econometrics/Examples/
-OLS/Unbiased.m} 
+htmladdnormallink{Unbiased.jl}{file:///home/michael/Mystuff/Econometrics/Examples
+/OLS/Unbiased.jl} 
 \end_layout
 
 \end_inset
@@ -3029,7 +3023,15 @@ name "figure-unbiasedness"
 
 \end_inset
 
-Unbiasedness of OLS under classical assumptions
+Unbiasedness of OLS under classical assumptions: replications of 
+\begin_inset Formula $\hat{\beta}$
+\end_inset
+
+ minus true 
+\begin_inset Formula $\beta$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3105,7 +3107,15 @@ name "figure-biasedness"
 
 \end_inset
 
-Biasedness of OLS when an assumption fails
+Biasedness of OLS when an assumption fails: : replications of 
+\begin_inset Formula $\hat{\beta}$
+\end_inset
+
+ minus true 
+\begin_inset Formula $\beta$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3126,14 +3136,14 @@ Biasedness of OLS when an assumption fails
 
 The program that generates the plot is 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{Biased.m}{file:///home/michael/Mystuff/Econometrics/Examples/OL
-S/Biased.m} 
+htmladdnormallink{Biased.jl}{file:///home/michael/Mystuff/Econometrics/Examples/O
+LS/Biased.jl} 
 \end_layout
 
 \end_inset
@@ -3192,11 +3202,11 @@ reference "figure-unbiasedness"
  Many variables in economics can take on only nonnegative values, which,
  strictly speaking, rules out normality.
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Normality may be a good model nonetheless, as long as the probability of
- a negative value occuring is negligable under the model.
+ a negative value occurring is negligible under the model.
  This depends upon the mean being large enough in relation to the variance.
 \end_layout
 
@@ -3435,8 +3445,8 @@ status open
 
  
 \backslash
-htmladdnormallink{Efficiency.m}{file:///home/michael/Mystuff/Econometrics/Example
-s/OLS/Efficiency.m} 
+htmladdnormallink{Efficiency.jl}{file:///home/michael/Mystuff/Econometrics/Exampl
+es/OLS/Efficiency.jl} 
 \end_layout
 
 \end_inset
@@ -3494,7 +3504,7 @@ Gauss-Markov Result: The OLS estimator
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/OLS/efficiency-1.png
+	filename Examples/OLS/efficiency-1.svg
 	lyxscale 25
 	width 12cm
 
@@ -3532,7 +3542,7 @@ name "cap:Gauss-Markov-Result: split sample"
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/OLS/efficiency-2.png
+	filename Examples/OLS/efficiency-2.svg
 	lyxscale 25
 	width 12cm
 
@@ -4137,7 +4147,7 @@ reference "cap:Gauss-Markov-Result: split sample"
 \end_layout
 
 \begin_layout Enumerate
-Calculate the OLS estimates of the Nerlove model using Octave and GRETL,
+Calculate the OLS estimates of the Nerlove model using Julia and GRETL,
  and provide printouts of the results.
  Interpret the results.
  
@@ -4178,7 +4188,7 @@ For a random vector
 \end_layout
 
 \begin_layout Enumerate
-Using Octave, write a little program that verifies that 
+Using Julia, write a little program that verifies that 
 \begin_inset Formula $Tr(AB)=Tr(BA)$
 \end_inset
 
@@ -4191,9 +4201,9 @@ Using Octave, write a little program that verifies that
 \end_inset
 
  4x4 matrices of random numbers.
- Note: there is an Octave function 
+ Note: there is a Julia function 
 \family typewriter
-trace.
+trace().
 \end_layout
 
 \begin_layout Enumerate
@@ -43075,7 +43085,7 @@ reference "sec:Example:-Generalized-instrumental"
 \begin_layout Enumerate
 The Octave script 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -43114,17 +43124,17 @@ MM/Hausman/hausman.m}
 \end_layout
 
 \begin_layout Enumerate
-Using Octave, generate data from the logit dgp.
+Using Julia, generate data from the logit dgp.
  The script 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{EstimateLogit.m}{file:///home/michael/Mystuff/Econometrics/Exam
-ples/NonlinearOptimization/EstimateLogit.m} 
+htmladdnormallink{EstimateLogit.jl}{file:///home/michael/Mystuff/Econometrics/Exa
+mples/NonlinearOptimization/EstimateLogit.jl} 
 \end_layout
 
 \end_inset
@@ -43151,7 +43161,7 @@ Recall that
 .
  Estimate by GMM (using 
 \family typewriter
-gmm_results
+gmmresults
 \family default
 ), using these moments.
 \end_layout
@@ -43159,14 +43169,14 @@ gmm_results
 \begin_layout Enumerate
 Estimate by ML (using 
 \family typewriter
-mle_results
+mleresults
 \family default
 ).
 \end_layout
 
 \begin_layout Enumerate
 The two estimators should coincide.
- Prove analytically that the estimators coicide.
+ Prove analytically that the estimators coincide.
 \end_layout
 
 \end_deeper
@@ -43238,16 +43248,16 @@ Comment on the results.
 
 \end_deeper
 \begin_layout Enumerate
-Run the Octave script 
+Run the Julia script 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
 htmladdnormallink{GMM/chi2gmm.m}{file:///home/michael/Mystuff/Econometrics/Exampl
-es/GMM/chi2gmm.m}
+es/GMM/chi2gmm.jl}
 \end_layout
 
 \end_inset
@@ -43632,14 +43642,14 @@ y_{t}=\alpha+\rho y_{t-1}+\beta x_{t}+\nu_{t}
 using GIV, as was done above.
  The Octave script 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{GMM/SpecTest.m}{file:///home/michael/Mystuff/Econometrics/Examp
-les/GMM/SpecTest.m} 
+htmladdnormallink{GMM/SpecTest.jl}{file:///home/michael/Mystuff/Econometrics/Exam
+ples/GMM/SpecTest.jl} 
 \end_layout
 
 \end_inset
@@ -43990,7 +44000,7 @@ propose at least 2 moment conditions, using the mean and the variance you
 \end_layout
 
 \begin_layout Enumerate
-write a Matlab function that computes the GMM estimator using your two moment
+write a Julia function that computes the GMM estimator using your two moment
  conditions
 \end_layout
 
@@ -44316,7 +44326,7 @@ where
 \end_inset
 
  white noise error.
- This is an autogressive model of order 2 (AR2) model, with an additional
+ This is an autoregressive model of order 2 (AR2) model, with an additional
  exogenous regressor.
  Suppose that data is generated from the AR2 model, but the econometrician
  mistakenly decides to estimate an AR1 model, 
@@ -44399,7 +44409,7 @@ embed the simulations and estimations in a loop, to do a Monte Carlo study
 
 \end_deeper
 \begin_layout Enumerate
-discuss all results thoroughly, focussing on bias and standard errors of
+discuss all results thoroughly, focusing on bias and standard errors of
  the estimators of the autoregressive parameters
 \end_layout
 
