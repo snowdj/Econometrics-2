@@ -6707,7 +6707,7 @@ The region is an ellipse, since the CI for an individual coefficient defines
 \end_layout
 
 \begin_layout Itemize
-From the pictue we can see that:
+From the picture we can see that:
 \begin_inset Separator latexpar
 \end_inset
 
@@ -6721,7 +6721,7 @@ Rejection of hypotheses individually does not imply that the joint test
 \end_layout
 
 \begin_layout Itemize
-Joint rejection does not imply individal tests will reject.
+Joint rejection does not imply individual tests will reject.
  
 \end_layout
 
@@ -7198,7 +7198,7 @@ y=x^{\prime}\beta+\varepsilon.
 
 \end_inset
 
- To calculate the estimated standard errors of all five elasticites, use
+ To calculate the estimated standard errors of all five elasticities, use
  
 \begin_inset Formula 
 \begin{eqnarray*}
@@ -7229,14 +7229,14 @@ To get a consistent estimator just substitute in
 
  The program 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{ExampleDeltaMethod.m}{file:///home/michael/Mystuff/Econometrics
-/Examples/Restrictions/ExampleDeltaMethod.m}
+htmladdnormallink{ExampleDeltaMethod.jl}{file:///home/michael/Mystuff/Econometric
+s/Examples/Restrictions/ExampleDeltaMethod.jl}
 \end_layout
 
 \end_inset
@@ -7253,7 +7253,7 @@ In many cases, nonlinear restrictions can also involve the data, not just
 \begin_inset Formula $x(p,m)$
 \end_inset
 
- be a demand funcion, where 
+ be a demand function, where 
 \begin_inset Formula $p$
 \end_inset
 
@@ -7384,8 +7384,8 @@ status open
 
  
 \backslash
-htmladdnormallink{NerloveRestrictions.m}{file:///home/michael/Mystuff/Econometric
-s/Examples/Restrictions/NerloveRestrictions.m} 
+htmladdnormallink{NerloveRestrictions.jl}{file:///home/michael/Mystuff/Econometri
+cs/Examples/Restrictions/NerloveRestrictions.jl} 
 \end_layout
 
 \end_inset
@@ -7455,7 +7455,7 @@ From the point of view of neoclassical economic theory, these results are
 \end_layout
 
 \begin_layout Exercise
-Modify the NerloveRestrictions.m program to impose and test the restrictions
+Modify the NerloveRestrictions.jl program to impose and test the restrictions
  jointly.
 \end_layout
 
@@ -7613,16 +7613,16 @@ X_{1} & 0 & \cdots &  & 0\\
 \end_layout
 
 \begin_layout Standard
-The Octave program 
+The Julia program 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{Restrictions/ChowTest.m}{file:///home/michael/Mystuff/Econometr
-ics/Examples/Restrictions/ChowTest.m}
+htmladdnormallink{Restrictions/ChowTest.jl}{file:///home/michael/Mystuff/Economet
+rics/Examples/Restrictions/ChowTest.jl}
 \end_layout
 
 \end_inset
@@ -7652,7 +7652,7 @@ test.
 
 \begin_layout Itemize
 There are 20 restrictions.
- If that's not clear to you, look at the Octave program.
+ If that's not clear to you, look at the Julia program.
 \end_layout
 
 \begin_layout Itemize
@@ -7774,7 +7774,6 @@ Estimate this model but imposing the HOD1 restriction,
 using an OLS
 \emph default
  estimation program.
- Don't use mc_olsr or any other restricted OLS estimation program.
  Give estimated standard errors for all coefficients.
 \end_layout
 

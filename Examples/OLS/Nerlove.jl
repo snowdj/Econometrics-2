@@ -8,3 +8,4 @@ x = data[:,2:end]
 x = [ones(n,1) x]
 names = ["constant", "output", "labor", "fuel", "capital"]
 b, junk, junk, junk = ols(y, x, names=names)
+
