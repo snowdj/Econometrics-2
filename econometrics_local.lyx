@@ -150,7 +150,7 @@ July 2017
 
 \begin_inset Graphics
 	filename logoUAB.jpg
-	width 10cm
+	width 8cm
 
 \end_inset
 
@@ -161,7 +161,7 @@ July 2017
 
 \begin_inset Graphics
 	filename bgselogo.jpg
-	width 10cm
+	width 8cm
 
 \end_inset
 
@@ -8764,7 +8764,7 @@ name "sec:Motivation:-Data-on"
 \begin_layout Standard
 The data set 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -8844,7 +8844,7 @@ Consider estimation results for several models:
 
 \begin_layout Standard
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -10216,7 +10216,7 @@ objective function in the case of no correlation between regressors with
 \end_layout
 
 \begin_layout Example
-The Octave script 
+The Julia script 
 \begin_inset ERT
 status open
 
@@ -10224,8 +10224,8 @@ status open
 
  
 \backslash
-htmladdnormallink{DataProblems/collinearity.m}{file:///home/michael/Mystuff/Econo
-metrics/Examples/DataProblems/collinearity.m} 
+htmladdnormallink{DataProblems/collinearity.jl}{file:///home/michael/Mystuff/Econ
+ometrics/Examples/DataProblems/collinearity.jl} 
 \end_layout
 
 \end_inset
@@ -10276,6 +10276,11 @@ reference "fig:Collinearity:-Monte-Carlo"
 \end_inset
 
  for each of the three estimators.
+ 
+\end_layout
+
+\begin_layout Itemize
+Check the biases and variances.
 \end_layout
 
 \begin_layout Itemize
@@ -10331,7 +10336,7 @@ OLS,
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/DataProblems/collin_ols.png
+	filename Examples/DataProblems/collin_ols.svg
 	lyxscale 20
 	width 10cm
 
@@ -10346,7 +10351,7 @@ OLS,
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -10366,7 +10371,7 @@ OLS,
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/DataProblems/collin_drop.png
+	filename Examples/DataProblems/collin_drop.svg
 	lyxscale 20
 	width 10cm
 
@@ -10408,7 +10413,7 @@ Restricted LS,
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/DataProblems/collin_rls.png
+	filename Examples/DataProblems/collin_rls.svg
 	lyxscale 20
 	width 10cm
 
@@ -10487,16 +10492,16 @@ reference "subsec:The-Nerlove-data"
 \end_inset
 
 ).
- This may be due to collinearity.The Octave script 
+ Maybe this is due to collinearity? The Julia script 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{DataProblems/NerloveCollinearity.m}{file:///home/michael/Mystuf
-f/Econometrics/Examples/DataProblems/NerloveCollinearity.m} 
+htmladdnormallink{DataProblems/NerloveCollinearity.jl}{file:///home/michael/Mystu
+ff/Econometrics/Examples/DataProblems/NerloveCollinearity.jl} 
 \end_layout
 
 \end_inset
@@ -10939,7 +10944,7 @@ In summary, the ridge estimator offers some hope, but it is impossible to
 \end_layout
 
 \begin_layout Standard
-The Octave script 
+The Julia script 
 \begin_inset ERT
 status open
 
@@ -10947,8 +10952,8 @@ status open
 
  
 \backslash
-htmladdnormallink{DataProblems/RidgeRegression.m}{file:///home/michael/Mystuff/Ec
-onometrics/Examples/DataProblems/RidgeRegression.m} 
+htmladdnormallink{DataProblems/RidgeRegression.jl}{file:///home/michael/Mystuff/E
+conometrics/Examples/DataProblems/RidgeRegression.jl} 
 \end_layout
 
 \end_inset
@@ -11003,9 +11008,9 @@ OLS
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/DataProblems/ridge_example_ols.png
+	filename Examples/DataProblems/ridge_example_ols.svg
 	lyxscale 25
-	width 7cm
+	width 10cm
 
 \end_inset
 
@@ -11038,9 +11043,9 @@ Ridge
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/DataProblems/ridge_example_ridge.png
+	filename Examples/DataProblems/ridge_example_ridge.svg
 	lyxscale 25
-	width 7cm
+	width 10cm
 
 \end_inset
 
@@ -11426,16 +11431,16 @@ y_{t}=\alpha+\rho y_{t-1}+\beta x_{t}+\eta_{t}
 \end_layout
 
 \begin_layout Example
-The Octave script 
+The Julia script 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{DataProblems/MeasurementError.m}{file:///home/michael/Mystuff/E
-conometrics/Examples/DataProblems/MeasurementError.m} 
+htmladdnormallink{DataProblems/MeasurementError.jl}{file:///home/michael/Mystuff/
+Econometrics/Examples/DataProblems/MeasurementError.jl} 
 \end_layout
 
 \end_inset
@@ -11555,7 +11560,7 @@ with measurement error:
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/DataProblems/ylag_n100.png
+	filename Examples/DataProblems/ylag_n100.svg
 	lyxscale 25
 	width 10cm
 
@@ -11590,7 +11595,7 @@ without measurement error:
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/DataProblems/ylag_n100_no_error.png
+	filename Examples/DataProblems/ylag_n100_no_error.svg
 	lyxscale 25
 	width 10cm
 
@@ -11960,16 +11965,16 @@ reference "cap:Sample-selection-bias"
 \end_inset
 
  illustrates the bias.
- The Octave program is 
+ The Julia program is 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{sampsel.m}{file:///home/michael/Mystuff/Econometrics/Examples/F
-igures/sampsel.m} 
+htmladdnormallink{sampsel.jl}{file:///home/michael/Mystuff/Econometrics/Examples/
+DataProblems/sampsel.jl} 
 \end_layout
 
 \end_inset
@@ -12003,7 +12008,7 @@ Sample selection bias
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/Figures/sampsel.pdf
+	filename Examples/DataProblems/sampsel.svg
 
 \end_inset
 
@@ -12100,8 +12105,8 @@ ad hoc
 \end_layout
 
 \begin_layout Itemize
-In the case that there is only one regressor other than the constant, subtitutio
-n of 
+In the case that there is only one regressor other than the constant, substituti
+on of 
 \begin_inset Formula $\bar{x}$
 \end_inset
 
@@ -65357,417 +65362,6 @@ Computational Economics
 19
 \series default
 , 145-178.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Chapter
-Introduction to Octave
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Introduction-to-Octave"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Why is Octave being used here, since it's not that well-known by econometricians
-? Well, because it is a high quality environment that is easily extensible,
- uses well-tested and high performance numerical libraries, it is licensed
- under the GNU GPL, so you can get it for free and modify it if you like,
- and it runs on both GNU/Linux, Mac OSX and Windows systems.
- It's also quite easy to learn.
-\end_layout
-
-\begin_layout Section
-Getting started
-\end_layout
-
-\begin_layout Standard
-Get the 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{ParallelKnoppix CD}{http://pareto.uab.es/mcreel/ParallelKnoppix}
-\end_layout
-
-\end_inset
-
-, as was described in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:BootableCD"
-
-\end_inset
-
- .
- Then boot up the image using virtualization software.
- This will give you this same PDF file, but with all of the example programs
- ready to run.
- The editor is configure with a macro to execute the programs using Octave,
- which is of course installed.
- From this point, I assume you are running the CD (or sitting in the computer
- room across the hall from my office), or that you have configured your
- computer to be able to run the 
-\family typewriter
-*.m
-\family default
- files mentioned below.
- 
-\end_layout
-
-\begin_layout Section
-A short introduction
-\end_layout
-
-\begin_layout Standard
-The objective of this introduction is to learn just the basics of Octave.
- There are other ways to use Octave, which I encourage you to explore.
- These are just some rudiments.
- After this, you can look at the example programs scattered throughout the
- document (and edit them, and run them) to learn more about how Octave can
- be used to do econometrics.
- Students of mine: your problem sets will include exercises that can be
- done by modifying the example programs in relatively minor ways.
- So study the examples!
-\end_layout
-
-\begin_layout Standard
-Octave can be used interactively, or it can be used to run programs that
- are written using a text editor.
- We'll use this second method, preparing programs with NEdit, and calling
- Octave from within the editor.
- The program 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{first.m}{file:///home/michael/Mystuff/Econometrics/Examples/Oct
-aveIntro/first.m} 
-\end_layout
-
-\end_inset
-
- gets us started.
- Start up Octave, and type 
-\begin_inset Quotes sld
-\end_inset
-
-edit first
-\begin_inset Quotes srd
-\end_inset
-
-, which will open up the script in the editor, you'll see something likeFigure
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cap:Running-an-Octave"
-
-\end_inset
-
-.
- Then, run it, by clicking on the appropriate icon, or by going to the command
- window and typing 
-\begin_inset Quotes sld
-\end_inset
-
-first
-\begin_inset Quotes srd
-\end_inset
-
-.
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "cap:Running-an-Octave"
-
-\end_inset
-
-Running an Octave program
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /home/michael/Mystuff/Econometrics/Examples/OctaveIntro/runoctave.png
-	width 6in
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Note that the output is not formatted in a pleasing way.
- That's because 
-\family typewriter
-printf()
-\family default
- doesn't automatically start a new line.
- Edit 
-\family typewriter
-first.m
-\family default
- so that the 8th line reads 
-\begin_inset Quotes sld
-\end_inset
-
-
-\family typewriter
-printf(
-\begin_inset Quotes sld
-\end_inset
-
-hello world
-\backslash
-n
-\begin_inset Quotes srd
-\end_inset
-
-);
-\family default
-
-\begin_inset Quotes srd
-\end_inset
-
- and re-run the program.
- 
-\end_layout
-
-\begin_layout Standard
-We need to know how to load and save data.
- The program 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-  
-\backslash
-htmladdnormallink{second.m}{file:///home/michael/Mystuff/Econometrics/Examples/Oc
-taveIntro/second.m} 
-\end_layout
-
-\end_inset
-
- shows how.
- Once you have run this, you will find the file 
-\begin_inset Quotes sld
-\end_inset
-
-
-\family typewriter
-x
-\family default
-
-\begin_inset Quotes srd
-\end_inset
-
- in the current working directory.
- You might have a look at it with a text editor to see Octave's default
- format for saving data.
- Basically, if you have data in an ASCII text file, named for example 
-\begin_inset Quotes sld
-\end_inset
-
-
-\family typewriter
-myfile.data
-\family default
-
-\begin_inset Quotes srd
-\end_inset
-
-, formed of numbers separated by spaces, just use the command 
-\begin_inset Quotes sld
-\end_inset
-
-
-\family typewriter
-load myfile.data
-\family default
-
-\begin_inset Quotes srd
-\end_inset
-
-.
- After having done so, the matrix 
-\begin_inset Quotes sld
-\end_inset
-
-
-\family typewriter
-myfile
-\family default
-
-\begin_inset Quotes srd
-\end_inset
-
- (without extension) will contain the data.
-\end_layout
-
-\begin_layout Standard
-Please have a look at 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{CommonOperations.m}{file:///home/michael/Mystuff/Econometrics/E
-xamples/OctaveIntro/CommonOperations.m}
-\end_layout
-
-\end_inset
-
- for examples of how to do some basic things in Octave.
- Now that we're done with the basics, have a look at the Octave programs
- that are included as examples.
- If you are looking at the browsable PDF version of this document, then
- you should be able to click on links to open them.
- If not, the example programs are available 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{here}{file:///home/michael/Mystuff/Econometrics/Examples/Econo
-metricsOctaveFiles.html}
-\end_layout
-
-\end_inset
-
- and the support files needed to run these are available 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{here}{file:///home/michael/Mystuff/Econometrics/MyOctaveFiles}
-\end_layout
-
-\end_inset
-
-.
- Those pages will allow you to examine individual files, out of context.
- To actually use these files (edit and run them), you should go to the 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{home page}{file:///home/michael/Mystuff/Econometrics}
-\end_layout
-
-\end_inset
-
- of this document, since you will probably want to download the pdf version
- together with all the support files and examples.
- Or get the bootable CD.
-\end_layout
-
-\begin_layout Standard
-There are some other resources for doing econometrics with Octave.
- You might like to check the article 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{Econometrics with Octave }{http://ideas.repec.org/a/jae/japmet/v
-15y2000i5p531-542.html}
-\end_layout
-
-\end_inset
-
- and the 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{Econometrics Toolbox }{http://www.spatial-econometrics.com/}
-\end_layout
-
-\end_inset
-
-, which is for Matlab, but much of which could be easily used with Octave.
-\end_layout
-
-\begin_layout Section
-If you're running a Linux installation...
-\end_layout
-
-\begin_layout Standard
-Then to get the same behavior as found on the CD, you need to:
-\end_layout
-
-\begin_layout Itemize
-Get the collection of support programs and the examples, from the document
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{home page}{file:///home/michael/Mystuff/Econometrics/Examples/
-}
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Put them somewhere, and tell Octave how to find them, e.g., by putting a link
- to the MyOctaveFiles directory in 
-\family typewriter
-/usr/local/share/octave/site-m
 \end_layout
 
 \begin_layout Standard

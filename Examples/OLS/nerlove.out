@@ -1,6 +1,7 @@
+
 **************************************************
   OLS estimation, 145 observations
-  R^2: 0.925955   Sig^2: 0.153943
+  R²: 0.925955   σ²: 0.153943
   White's covariance estimator
 
                 coef        se         t         p

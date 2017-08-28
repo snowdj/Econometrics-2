@@ -12,7 +12,8 @@ Graduate level econometrics notes and example code
 - they contain links that point to example programs using the Julia language. An older version (release 1.0)
 used GNU Octave, and was copyrighted GPL. The current version is being adapted to use Julia for the majority of the examples, and uses the MIT license.
 
-MOVING TO JULIA is a work in progress! It should be done by the end of the year.
+MOVING TO JULIA is a work in progress!
+Chapters 1-8 and 11-14 have already been adapted. The rest should be completed in a month or two.
 
 
 
