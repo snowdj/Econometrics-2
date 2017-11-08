@@ -12,7 +12,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{dcolumn}
-\usepackage[ps2pdf,pdftitle={Econometrics},urlcolor=blue,linktocpage,a4paper,colorlinks=true]{hyperref}
+%\usepackage[ps2pdf,pdftitle={Econometrics},urlcolor=blue,linktocpage,a4paper,colorlinks=true]{hyperref}
 \usepackage{listings}
 \usepackage{color}
 \usepackage{setspace}
@@ -136,14 +136,14 @@ theorems-ams-extended
 Econometrics
 \end_layout
 
-\begin_layout Date
+\begin_layout Author
 
 \size small
 Michael Creel
 \begin_inset Newline newline
 \end_inset
 
-July 2017
+Nov 2017
 \begin_inset Newline newline
 \end_inset
 
@@ -152,10 +152,6 @@ July 2017
 	filename logoUAB.jpg
 	width 8cm
 
-\end_inset
-
-
-\begin_inset Newline newline
 \end_inset
 
 
@@ -204,20 +200,6 @@ LatexCommand tableofcontents
 
 \begin_layout Chapter
 About this document
-\end_layout
-
-\begin_layout Standard
-Note to self: for the public version, replace all instances of 
-\family typewriter
-\color blue
-https://github.com/mcreel/Econometrics/blob/master
-\family default
-\color inherit
- with
-\family typewriter
- 
-\color blue
-https://github.com/mcreel/Econometrics/blob/master
 \end_layout
 
 \begin_layout Section
@@ -4086,7 +4068,7 @@ htmladdnormallink{Gretl}{http://gretl.sourceforge.net}
  include the results into this document, no muss, no fuss.
  Here is the Nerlove data in the form of a GRETL data set: 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -13787,7 +13769,7 @@ or occasionally
 
 \end_inset
 
-Now we'll investigate the consequences of nonidentically and/or dependently
+Now we'll investigate the consequences of non-identically and/or dependently
  distributed errors.
  We'll assume fixed regressors for now, to keep the presentation simple,
  and later we'll look at the consequences of relaxing this admittedly unrealisti
@@ -13822,7 +13804,7 @@ The case where
 \begin_inset Formula $\Sigma$
 \end_inset
 
- is a diagonal matrix gives uncorrelated, nonidentically distributed errors.
+ is a diagonal matrix gives uncorrelated, non-identically distributed errors.
  This is known as 
 \emph on
 heteroscedasticity
@@ -13859,7 +13841,7 @@ The general case combines heteroscedasticity and autocorrelation.
 \begin_inset Quotes eld
 \end_inset
 
-nonspherical
+non-spherical
 \begin_inset Quotes erd
 \end_inset
 
@@ -13878,7 +13860,7 @@ nonspherical
 \end_layout
 
 \begin_layout Section
-Effects of nonspherical disturbances on the OLS estimator
+Effects of non-spherical disturbances on the OLS estimator
 \end_layout
 
 \begin_layout Standard
@@ -14008,7 +13990,7 @@ to take it into account.
 
 \begin_layout Standard
 To see the invalidity of test procedures that are correct under the classical
- assumptions, when we have nonspherical errors, consider the Octave script
+ assumptions, when we have non-spherical errors, consider the Julia script
  
 \begin_inset ERT
 status open
@@ -14017,8 +13999,8 @@ status open
 
  
 \backslash
-htmladdnormallink{GLS/EffectsOLS.m}{https://github.com/mcreel/Econometrics/blob/ma
-ster/Examples/GLS/EffectsOLS.m}
+htmladdnormallink{GLS/EffectsOLS.jl}{https://github.com/mcreel/Econometrics/blob/m
+aster/Examples/GLS/EffectsOLS.jl}
 \end_layout
 
 \end_inset
@@ -14070,7 +14052,7 @@ Rejection frequency of 10% t-test, H0 is true.
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/GLS/EffectsOLS.png
+	filename Examples/GLS/EffectsOLS.svg
 	lyxscale 50
 	width 15cm
 
@@ -14187,18 +14169,18 @@ status open
 
  
 \backslash
-htmladdnormallink{GLS/cholesky.m}{https://github.com/mcreel/Econometrics/blob/mast
-er/Examples/GLS/cholesky.m}
+htmladdnormallink{GLS/cholesky.jl}{https://github.com/mcreel/Econometrics/blob/mas
+ter/Examples/GLS/cholesky.jl}
 \end_layout
 
 \end_inset
 
- Octave script to see that the above claims are true, and also to see how
+ Julia script to see that the above claims are true, and also to see how
  one can generate data from a 
 \begin_inset Formula $N(0,V)$
 \end_inset
 
- distribition.
+ distribution.
 \end_layout
 
 \begin_layout Standard
@@ -14336,10 +14318,6 @@ To get the variance of the estimator, we have
 
 \begin_layout Standard
 Either of these last formulas can be used.
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \begin_layout Itemize
@@ -14618,7 +14596,7 @@ Asymptotic efficiency
 if
 \emph default
  the errors are normally distributed.
- (Cramer-Rao).
+ (Cramér-Rao).
 \end_layout
 
 \begin_layout Enumerate
@@ -14696,7 +14674,7 @@ Heteroscedasticity is the case where
  data, though there is absolutely no reason why time series data cannot
  also be heteroscedastic.
  Actually, the popular ARCH (autoregressive conditionally heteroscedastic)
- models explicitly assume that a time series is heteroscedastic.
+ models explicitly assume that a time series is conditionally heteroscedastic.
 \end_layout
 
 \begin_layout Standard
@@ -14854,70 +14832,6 @@ n\left(R\hat{\beta}-r\right)^{\prime}\left(R\left(\frac{X^{\prime}X}{n}\right)^{
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-To see the effects of ignoring HET when doing OLS, and the good effect of
- using a HET consistent covariance estimator, consider the script 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{bootstrap
-\backslash
-_example1.m}{https://github.com/mcreel/Econometrics/blob/master/Examples/Parallel/
-bootstrap/bootstrap
-\backslash
-_example1.m}
-\end_layout
-
-\end_inset
-
-.
- This script generates data from a linear model with HET, then computes
- standard errors using the ordinary OLS formula, the Eicker-White formula,
- and also bootstrap standard errors.
- Note that Eicker-White and bootstrap pretty much agree, while the OLS formula
- gives standard errors that are quite different.
- Typical output of this script follows:
-\begin_inset Newpage newpage
-\end_inset
-
- 
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "Examples/Parallel/bootstrap/bootstrap_example1.out"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-If you run this several times, you will notice that the OLS standard error
- for the last parameter appears to be biased downward, at least comparing
- to the other two methods, which are asymptotically valid.
-\end_layout
-
-\begin_layout Itemize
-The true coefficients 
-\emph on
-are
-\emph default
- zero.
- With a standard error biased downward, the t-test for lack of significance
- will reject more often than it should (the variables really are not significant
-, but we will find that they seem to be more often than is due to Type-I
- error.
-\end_layout
-
-\begin_layout Itemize
-For example, you should see that the p-value for the last coefficient is
- smaller than 0.10 more than 10% of the time.
- Run the script 20 times and you'll see.
 \end_layout
 
 \begin_layout Subsection
@@ -15240,11 +15154,54 @@ Correcting for heteroscedasticity requires that a parametric form for
 \end_inset
 
  consistently be determined.
- The estimation method will be specific to the for supplied for 
+ The estimation method will be specific to the assumed form 
 \begin_inset Formula $\Sigma(\theta).$
 \end_inset
 
- We'll consider two examples.
+ In recent years, there has been a trend toward simply estimating by OLS,
+ and using robust standard errors.
+ This may be somewhat unfortunate, as the weighted least squares estimator
+ (GLS when there is only HET) is still consistent even if the specification
+ of 
+\begin_inset Formula $\Sigma(\theta)$
+\end_inset
+
+ is incorrect, and it may be a good deal more efficient than OLS.
+ Also, robust standard errors don't always work so well.
+ 
+\end_layout
+
+\begin_layout Example
+The GRETL script 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{GLS/Heteroscedasticity.inp}{https://github.com/mcreel/Econometri
+cs/blob/master/Examples/GLS/Heteroscedasticity.inp}
+\end_layout
+
+\end_inset
+
+ illustrates these points.
+ 
+\end_layout
+
+\begin_layout Standard
+Perhaps a middle ground is to attempt to use GLS when severe HET is detected,
+ but to continue to use robust standard errors, to account for misspecifications
+ in the modeling of 
+\begin_inset Formula $\Sigma(\theta).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We'll consider two examples.
  Before this, let's consider the general nature of GLS
 \begin_inset ERT
 status collapsed
@@ -15259,11 +15216,7 @@ status collapsed
 \end_inset
 
 when there is heteroscedasticity.
- 
-\end_layout
-
-\begin_layout Standard
-When we have HET but no AUT, 
+ When we have HET but no AUT, 
 \begin_inset Formula $\Sigma$
 \end_inset
 
@@ -15747,320 +15700,45 @@ With each of these, transform the model as usual:
 \end_layout
 
 \begin_layout Subsection
-Example: the Nerlove model (again!)
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Nerlove GLS by groups"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Remember the Nerlove data - see sections 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Example:-The-Nerlove"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Example: Nerlove restrictions"
-
-\end_inset
-
-.
- Let's check the Nerlove data for evidence of heteroscedasticity.
- In what follows, we're going to use the model with the constant and output
- coefficient varying across 5 groups, but with the input price coefficients
- fixed (see Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Nerlove, favorite model"
-
-\end_inset
-
- for the rationale behind this).
- Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cap:Residuals,-Nerlove-model,"
-
-\end_inset
-
-, which is generated by the Octave program 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{GLS/NerloveResiduals.m}{https://github.com/mcreel/Econometrics/b
-lob/master/Examples/GLS/NerloveResiduals.m}
-\end_layout
-
-\end_inset
-
- plots the residuals.
- We can see pretty clearly that the error variance is larger for small firms
- than for larger firms.
- 
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "cap:Residuals,-Nerlove-model,"
-
-\end_inset
-
-Residuals, Nerlove model, sorted by firm size
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Examples/GLS/NerloveResiduals.pdf
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Now let's try out some tests to formally check for heteroscedasticity.
- The Octave program 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{GLS/HetTests.m}{https://github.com/mcreel/Econometrics/blob/mast
-er/Examples/GLS/HetTests.m}
-\end_layout
-
-\end_inset
-
- performs the White and Goldfeld-Quandt tests, using the above model.
- The results are
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "Examples/GLS/HetTests.out"
-
-\end_inset
-
-All in all, it is very clear that the data are heteroscedastic.
- That means that OLS estimation is not efficient, and tests of restrictions
- that ignore heteroscedasticity are not valid.
- The previous tests (CRTS, HOD1 and the Chow test) were calculated assuming
- homoscedasticity.
- The Octave program 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{GLS/NerloveRestrictions-Het.m}{https://github.com/mcreel/Econome
-trics/blob/master/Examples/GLS/NerloveRestrictionsHet.m}
-\end_layout
-
-\end_inset
-
- uses the Wald test to check for CRTS and HOD1, but using a heteroscedastic-cons
-istent covariance estimator.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-By the way, notice that 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{GLS/NerloveResiduals.m}{https://github.com/mcreel/Econometrics/b
-lob/master/Examples/GLS/NerloveResiduals.m}
-\end_layout
-
-\end_inset
-
- and 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{GLS/HetTests.m}{https://github.com/mcreel/Econometrics/blob/mast
-er/Examples/GLS/HetTests.m}
-\end_layout
-
-\end_inset
-
- use the restricted LS estimator directly to restrict the fully general
- model with all coefficients varying to the model with only the constant
- and the output coefficient varying.
- But 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{GLS/NerloveRestrictions-Het.m}{https://github.com/mcreel/Econome
-trics/blob/master/Examples/GLS/NerloveRestrictions-Het.m}
-\end_layout
-
-\end_inset
-
- estimates the model by substituting the restrictions into the model.
- The methods are equivalent, but the second is more convenient and easier
- to understand.
-\end_layout
-
-\end_inset
-
- The results are
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "Examples/GLS/CRTS_HOD1.out"
-
-\end_inset
-
-We see that the previous conclusions are altered - both CRTS is and HOD1
- are rejected at the 5% level.
- Maybe the rejection of HOD1 is due to to Wald test's tendency to over-reject?
- 
-\end_layout
-
-\begin_layout Standard
-From the previous plot, it seems that the variance of 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- is a decreasing function of output.
- Suppose that the 5 size groups have different error variances (heteroscedastici
-ty by groups):
-\begin_inset Formula 
-\[
-Var(\epsilon_{i})=\sigma_{j}^{2},
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula $j=1$
-\end_inset
-
- if 
-\begin_inset Formula $i=1,2,...,29$
-\end_inset
-
-, 
-\emph on
-etc.,
-\emph default
- as before.
- The Octave script 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{GLS/NerloveGLS.m}{https://github.com/mcreel/Econometrics/blob/ma
-ster/Examples/GLS/NerloveGLS.m}
-\end_layout
-
-\end_inset
-
- estimates the model using GLS (through a transformation of the model so
- that OLS can be applied).
- The estimation results are i
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "Examples/GLS/NerloveGLS.out"
-
-\end_inset
-
-The first panel of output are the OLS estimation results, which are used
- to consistently estimate the 
-\begin_inset Formula $\sigma_{j}^{2}$
-\end_inset
-
-.
- The second panel of results are the GLS estimation results.
- Some comments:
+Example: the Nerlove model
 \end_layout
 
 \begin_layout Itemize
-The 
-\begin_inset Formula $R^{2}$
-\end_inset
+Here's the data in Gretl format: 
+\begin_inset ERT
+status collapsed
 
- measures are not comparable - the dependent variables are not the same.
- The measure for the GLS results uses the transformed dependent variable.
- One could calculate a comparable 
-\begin_inset Formula $R^{2}$
-\end_inset
+\begin_layout Plain Layout
 
- measure, but I have not done so.
-\end_layout
-
-\begin_layout Itemize
-The differences in estimated standard errors (smaller in general for GLS)
  
-\emph on
-can
-\emph default
- be interpreted as evidence of improved efficiency of GLS, since the OLS
- standard errors are calculated using the Huber-White estimator.
- They would not be comparable if the ordinary (inconsistent) estimator had
- been used.
+\backslash
+htmladdnormallink{nerlove.gdt}{https://github.com/mcreel/Econometrics/blob/master/
+Examples/Data/nerlove.gdt} 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-Note that the previously noted pattern in the output coefficients persists.
- The nonconstant CRTS result is robust.
+estimate the basic Nerlove model by OLS, using Gretl, and plot the residuals:
+ evidence of HET and AUT
 \end_layout
 
 \begin_layout Itemize
-The coefficient on capital is now negative and significant at the 3% level.
- That seems to indicate some kind of problem with the model or the data,
- or economic theory.
+include square of 
+\begin_inset Formula $\ln Q$
+\end_inset
+
+, now there's no AUT, but still HET.
+ Conclusion: apparent AUT may be evidence of misspecification, rather than
+ true autocorrelation.
+ 
 \end_layout
 
 \begin_layout Itemize
-Note that HOD1 is now rejected.
- Problem of Wald test over-rejecting? Specification error in model? 
+estimate using HET correction, and compare standard error estimates.
 \end_layout
 
 \begin_layout Section
@@ -16175,6 +15853,20 @@ reference "fig:Residuals-from-time"
  Note that there is a very predictable pattern.
  This is pretty strong evidence that the errors of the model are not independent
  of one another, which means there seems to be autocorrelation.
+ 
+\end_layout
+
+\begin_layout Itemize
+this data is clearly nonstationary.
+ The very large t-statistics that you get from OLS are suspicious, no?
+\end_layout
+
+\begin_layout Itemize
+What is the limit of 
+\begin_inset Formula $X^{\prime}X/n$
+\end_inset
+
+ when there is a time trend in the regressor matrix?
 \end_layout
 
 \begin_layout Standard
@@ -16272,12 +15964,13 @@ y_{t}=x_{t}^{\prime}\beta+\varepsilon_{t},
 \end_inset
 
  positive, which induces a correlation.
+ 
 \end_layout
 
 \begin_layout Enumerate
 Unobserved factors that are correlated over time.
  The error term is often assumed to correspond to unobservable factors.
- If these factors are correlated, there will be autocorrelation.
+ If these factors are correlated over time, there will be autocorrelation.
 \end_layout
 
 \begin_layout Enumerate
@@ -16344,6 +16037,13 @@ Autocorrelation induced by misspecification
 
 \end_layout
 
+\begin_layout Enumerate
+Neglecting to include dynamics in a model.
+ Lags of the dependent variable may be relevant regressors, and if they
+ are omitted, their effects go into the error term, which will be autocorrelated.
+ 
+\end_layout
+
 \begin_layout Subsection
 Effects on the OLS estimator
 \end_layout
@@ -16360,24 +16060,20 @@ reference "OLS covariance with nonspaerical"
 
 .
  Next we discuss two GLS corrections for OLS.
- These will potentially induce inconsistency when the regressors are nonstochast
-ic (see Chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cha:Stochastic-regressors"
-
-\end_inset
-
-) and should either not be used in that case (which is usually the relevant
- case) or used with caution.
- The more recommended procedure is discussed in section 
+ This sort of solution may lead to inconsistent estimation of betas in some
+ cases, and it has definitely gone completely out of style.
+ The standard procedure is to include enough lags of the dependent variable
+ so that detectable AUT disappears, and then to use robust covariance estimation
+ to take care of residual effects (see section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Asymptotically-valid-inferences"
 
 \end_inset
 
-.
+).
+ For reference, a couple of examples of the old-fashioned GLS corrections
+ follow, but I will not discuss this in class.
 \end_layout
 
 \begin_layout Subsection
@@ -17634,6 +17330,79 @@ Testing for autocorrelation
 \begin_layout Standard
 
 \series bold
+Breusch-Godfrey test
+\end_layout
+
+\begin_layout Standard
+This test uses an auxiliary regression, as does the White test for heteroscedast
+icity.
+ The regression is 
+\begin_inset Formula 
+\[
+\hat{\varepsilon}_{t}=x_{t}^{\prime}\delta+\gamma_{1}\hat{\varepsilon}_{t-1}+\gamma_{2}\hat{\varepsilon}_{t-2}+\cdots+\gamma_{P}\hat{\varepsilon}_{t-P}+v_{t}
+\]
+
+\end_inset
+
+ and the test statistic is the 
+\begin_inset Formula $nR^{2}$
+\end_inset
+
+ statistic, just as in the White test.
+ There are 
+\begin_inset Formula $P$
+\end_inset
+
+ restrictions, so the test statistic is asymptotically distributed as a
+ 
+\begin_inset Formula $\chi^{2}(P).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The intuition is that the lagged errors shouldn't contribute to explaining
+ the current error if there is no autocorrelation.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{t}$
+\end_inset
+
+ is included as a regressor to account for the fact that the 
+\begin_inset Formula $\hat{\varepsilon}_{t}$
+\end_inset
+
+ are not independent even if the 
+\begin_inset Formula $\varepsilon_{t}$
+\end_inset
+
+ are.
+ This is a technicality that we won't go into here.
+\end_layout
+
+\begin_layout Itemize
+This test is valid even if the regressors are stochastic and contain lagged
+ dependent variables, so it is considerably more useful than the DW test
+ for typical time series data.
+\end_layout
+
+\begin_layout Itemize
+The alternative is not that the model is an AR(P), following the argument
+ above.
+ The alternative is simply that some or all of the first 
+\begin_inset Formula $P\;$
+\end_inset
+
+autocorrelations are different from zero.
+ This is compatible with many specific forms of autocorrelation.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
 Durbin-Watson test
 \end_layout
 
@@ -17641,7 +17410,8 @@ Durbin-Watson test
 The Durbin-Watson test is not strictly valid in most situations where we
  would like to use it.
  Nevertheless, it is encountered often enough so that one should know something
- about it.
+ about it (perhaps: I'm no longer teaching this, but I'll leave it in the
+ notes for reference).
  The Durbin-Watson test statistic is 
 \begin_inset Formula 
 \begin{eqnarray*}
@@ -17775,7 +17545,7 @@ The DW test is based upon the assumption that the matrix
  valid without strict exogeneity.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Verse
 \begin_inset Float figure
 wide false
 sideways false
@@ -17809,79 +17579,6 @@ Durbin-Watson critical values
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Breusch-Godfrey test
-\end_layout
-
-\begin_layout Standard
-This test uses an auxiliary regression, as does the White test for heteroscedast
-icity.
- The regression is 
-\begin_inset Formula 
-\[
-\hat{\varepsilon}_{t}=x_{t}^{\prime}\delta+\gamma_{1}\hat{\varepsilon}_{t-1}+\gamma_{2}\hat{\varepsilon}_{t-2}+\cdots+\gamma_{P}\hat{\varepsilon}_{t-P}+v_{t}
-\]
-
-\end_inset
-
- and the test statistic is the 
-\begin_inset Formula $nR^{2}$
-\end_inset
-
- statistic, just as in the White test.
- There are 
-\begin_inset Formula $P$
-\end_inset
-
- restrictions, so the test statistic is asymptotically distributed as a
- 
-\begin_inset Formula $\chi^{2}(P).$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-The intuition is that the lagged errors shouldn't contribute to explaining
- the current error if there is no autocorrelation.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $x_{t}$
-\end_inset
-
- is included as a regressor to account for the fact that the 
-\begin_inset Formula $\hat{\varepsilon}_{t}$
-\end_inset
-
- are not independent even if the 
-\begin_inset Formula $\varepsilon_{t}$
-\end_inset
-
- are.
- This is a technicality that we won't go into here.
-\end_layout
-
-\begin_layout Itemize
-This test is valid even if the regressors are stochastic and contain lagged
- dependent variables, so it is considerably more useful than the DW test
- for typical time series data.
-\end_layout
-
-\begin_layout Itemize
-The alternative is not that the model is an AR(P), following the argument
- above.
- The alternative is simply that some or all of the first 
-\begin_inset Formula $P\;$
-\end_inset
-
-autocorrelations are different from zero.
- This is compatible with many specific forms of autocorrelation.
- 
 \end_layout
 
 \begin_layout Subsection
@@ -18198,315 +17895,6 @@ status open
 
 \end_layout
 
-\begin_layout Subsection
-Examples
-\end_layout
-
-\begin_layout Paragraph
-Nerlove model, yet again
-\end_layout
-
-\begin_layout Standard
-The Nerlove model uses cross-sectional data, so one may not think of performing
- tests for autocorrelation.
- However, specification error can induce autocorrelated errors.
- Consider the simple Nerlove model 
-\begin_inset Formula 
-\[
-\ln C=\beta_{1}+\beta_{2}\ln Q+\beta_{3}\ln P_{L}+\beta_{4}\ln P_{F}+\beta_{5}\ln P_{K}+\epsilon
-\]
-
-\end_inset
-
- and the extended Nerlove model 
-\begin_inset Formula 
-\[
-\ln C=\sum_{j=1}^{5}\alpha_{j}D_{j}+\sum_{j=1}^{5}\gamma_{j}D_{j}\ln Q+\beta_{L}\ln P_{L}+\beta_{F}\ln P_{F}+\beta_{K}\ln P_{K}+\epsilon
-\]
-
-\end_inset
-
-discussed around equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Nerlove, favorite model"
-
-\end_inset
-
-.
- If you have done the exercises, you have seen evidence that the extended
- model is preferred.
- So if it is in fact the proper model, the simple model is misspecified.
- Let's check if this misspecification might induce autocorrelated errors.
-\end_layout
-
-\begin_layout Standard
-The Octave program 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{GLS/NerloveAR.m}{https://github.com/mcreel/Econometrics/blob/mas
-ter/Examples/GLS/NerloveAR.m}
-\end_layout
-
-\end_inset
-
- estimates the simple Nerlove model, and plots the residuals as a function
- of 
-\begin_inset Formula $\ln Q$
-\end_inset
-
-, and it calculates a Breusch-Godfrey test statistic.
- The residual plot is in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Nerlove - misspec induces autocorrelation"
-
-\end_inset
-
- , and the test results are: 
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "Examples/GLS/BGTest.out"
-
-\end_inset
-
-Clearly, there is a problem of autocorrelated residuals.
-\end_layout
-
-\begin_layout Standard
-Repeat the autocorrelation tests using the extended Nerlove model (Equation
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Nerlove, favorite model"
-
-\end_inset
-
-) to see the problem is solved.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "Nerlove - misspec induces autocorrelation"
-
-\end_inset
-
-Residuals of simple Nerlove model
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Examples/GLS/NerloveAR.pdf
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph
-Klein model
-\end_layout
-
-\begin_layout Standard
-Klein's Model I is a simple macroeconometric model.
- One of the equations in the model explains consumption (
-\begin_inset Formula $C$
-\end_inset
-
-) as a function of profits (
-\begin_inset Formula $P$
-\end_inset
-
-), both current and lagged, as well as the sum of wages in the private sector
- (
-\begin_inset Formula $W^{p}$
-\end_inset
-
-) and wages in the government sector (
-\begin_inset Formula $W^{g}$
-\end_inset
-
-).
- Have a look at the 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{README}{https://github.com/mcreel/Econometrics/blob/master/Exam
-ples/Data/klein_readme.txt} 
-\end_layout
-
-\end_inset
-
- file for this data set.
- This gives the variable names and other information.
-\end_layout
-
-\begin_layout Standard
-Consider the model
-\begin_inset Formula 
-\[
-C_{t}=\alpha_{0}+\alpha_{1}P_{t}+\alpha_{2}P_{t-1}+\alpha_{3}(W_{t}^{p}+W_{t}^{g})+\epsilon_{1t}
-\]
-
-\end_inset
-
-The Octave program 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{GLS/Klein.m}{https://github.com/mcreel/Econometrics/blob/master/
-Examples/GLS/Klein.m}
-\end_layout
-
-\end_inset
-
- estimates this model by OLS, plots the residuals, and performs the Breusch-Godf
-rey test, using 1 lag of the residuals.
- The estimation and test results are:
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "Examples/GLS/Klein.out"
-
-\end_inset
-
- and the residual plot is in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cap:OLS-residuals,-Klein"
-
-\end_inset
-
-.
- The test does not reject the null of nonautocorrelatetd errors, but we
- should remember that we have only 21 observations, so power is likely to
- be fairly low.
- The residual plot leads me to suspect that there may be autocorrelation
- - there are some significant runs below and above the x-axis.
- Your opinion may differ.
- 
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "cap:OLS-residuals,-Klein"
-
-\end_inset
-
-OLS residuals, Klein consumption equation
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Examples/GLS/KleinResiduals.pdf
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Since it seems that there 
-\emph on
-may
-\emph default
- be autocorrelation, lets's try an AR(1) correction.
- The Octave program 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{GLS/KleinAR1.m}{https://github.com/mcreel/Econometrics/blob/mast
-er/Examples/GLS/KleinAR1.m}
-\end_layout
-
-\end_inset
-
- estimates the Klein consumption equation assuming that the errors follow
- the AR(1) pattern.
- The results, with the Breusch-Godfrey test for remaining autocorrelation
- are: 
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "Examples/GLS/KleinAR1.out"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-The test is farther away from the rejection region than before, and the
- residual plot is a bit more favorable for the hypothesis of nonautocorrelated
- residuals, IMHO.
- For this reason, it seems that the AR(1) correction might have improved
- the estimation.
-\end_layout
-
-\begin_layout Itemize
-Nevertheless, there has not been much of an effect on the estimated coefficients
- nor on their estimated standard errors.
- This is probably because the estimated AR(1) coefficient is not very large
- (around 0.2)
-\end_layout
-
-\begin_layout Itemize
-The existence or not of autocorrelation in this model will be important
- later, in the section on simultaneous equations.
-\end_layout
-
 \begin_layout Section
 Exercises
 \end_layout
@@ -18656,93 +18044,6 @@ Define the
 
 \end_layout
 
-\begin_layout Enumerate
-For the Nerlove model with dummies and interactions discussed above (see
- Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Nerlove GLS by groups"
-
-\end_inset
-
- and equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Nerlove, favorite model"
-
-\end_inset
-
-) 
-\begin_inset Formula 
-\[
-\ln C=\sum_{j=1}^{5}\alpha_{j}D_{j}+\sum_{j=1}^{5}\gamma_{j}D_{j}\ln Q+\beta_{L}\ln P_{L}+\beta_{F}\ln P_{F}+\beta_{K}\ln P_{K}+\epsilon
-\]
-
-\end_inset
-
-above, we did a GLS correction based on the assumption that there is HET
- by groups (
-\begin_inset Formula $V(\epsilon_{t}|x_{t})=\sigma_{j}^{2}$
-\end_inset
-
-).
- Let's assume that this model is correctly specified, except that there
- may or may not be HET, and if it is present it may be of the form assumed,
- or perhaps of some other form.
- What happens if the assumed form of HET is incorrect?
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Is the 
-\begin_inset Quotes sld
-\end_inset
-
-FGLS
-\begin_inset Quotes srd
-\end_inset
-
- based on the assumed form of HET consistent?
-\end_layout
-
-\begin_layout Enumerate
-Is it efficient? Is it likely to be efficient with respect to OLS?
-\end_layout
-
-\begin_layout Enumerate
-Are hypothesis tests using the 
-\begin_inset Quotes sld
-\end_inset
-
-FGLS
-\begin_inset Quotes srd
-\end_inset
-
- estimator valid? If not, can they be made valid following some procedure?
- Explain.
-\end_layout
-
-\begin_layout Enumerate
-Are the t-statistics reported in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Nerlove GLS by groups"
-
-\end_inset
-
- valid?
-\end_layout
-
-\begin_layout Enumerate
-Which estimator do you prefer, the OLS estimator or the FGLS estimator?
- Discuss.
-\end_layout
-
-\end_deeper
 \begin_layout Enumerate
 Perhaps we can be a little more parsimonious with the Nerlove data (
 \begin_inset ERT
@@ -19388,6 +18689,27 @@ estimation of the demand equation will be biased and inconsistent.
 \end_layout
 
 \begin_layout Standard
+A GRETL script which generates data according to this simple supply-demand
+ system is here: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{Simeq/simeq.inp}{https://github.com/mcreel/Econometrics/blob/mas
+ter/Examples/Simeq/simeq.inp}
+\end_layout
+
+\end_inset
+
+.
+ It does a Monte Carlo study which verifies that the OLS estimator is inconsiste
+nt, and that the IV estimator is consistent.
+\end_layout
+
+\begin_layout Standard
 In this model, 
 \begin_inset Formula $q_{t}$
 \end_inset
@@ -19400,7 +18722,7 @@ In this model,
 \emph on
 endogenous
 \emph default
- varibles (endogs), that are determined within the system.
+ variables (endogs), that are determined within the system.
  
 \begin_inset Formula $y_{t}$
 \end_inset
@@ -19445,7 +18767,7 @@ exogenous
 \begin_inset Formula $E_{t}.$
 \end_inset
 
- The model, with additional assumtions, can be written as 
+ The model, with additional assumptions, can be written as 
 \begin_inset Formula 
 \begin{eqnarray}
 Y_{t}^{\prime}\Gamma & = & X_{t}^{\prime}B+E_{t}^{\prime}\nonumber \\
@@ -19707,11 +19029,9 @@ q_{t} & = & \frac{\beta_{2}\alpha_{1}-\alpha_{2}\beta_{1}}{\beta_{2}-\alpha_{2}}
 
 \end_inset
 
- Similarly, the rf for price is 
+ Similarly, the rf for price, as we've seen above, is 
 \begin_inset Formula 
 \begin{eqnarray*}
-\beta_{1}+\beta_{2}p_{t}+\varepsilon_{2t} & = & \alpha_{1}+\alpha_{2}p_{t}+\alpha_{3}y_{t}+\varepsilon_{1t}\\
-\beta_{2}p_{t}-\alpha_{2}p_{t} & = & \alpha_{1}-\beta_{1}+\alpha_{3}y_{t}+\varepsilon_{1t}-\varepsilon_{2t}\\
 p_{t} & = & \frac{\alpha_{1}-\beta_{1}}{\beta_{2}-\alpha_{2}}+\frac{\alpha_{3}y_{t}}{\beta_{2}-\alpha_{2}}+\frac{\varepsilon_{1t}-\varepsilon_{2t}}{\beta_{2}-\alpha_{2}}\\
  & = & \pi_{12}+\pi_{22}y_{t}+V_{2t}
 \end{eqnarray*}
@@ -19813,7 +19133,7 @@ V(V_{2t}) & = & \mathcal{E}\left[\left(\frac{\varepsilon_{1t}-\varepsilon_{2t}}{
 
 \begin_layout Itemize
 In summary the rf equations individually satisfy the classical assumptions,
- under the assumtions we've made, but they are contemporaneously correlated.
+ under the assumptions we've made, but they are contemporaneously correlated.
  
 \end_layout
 
@@ -20373,8 +19693,29 @@ So the OLS estimator of a structural equation is inconsistent.
  whether due to measurement error, simultaneity, or omitted regressors.
 \end_layout
 
+\begin_layout Standard
+A GRETL script which generates data according to a simple supply-demand
+ system is here: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{Simeq/simeq.inp}{https://github.com/mcreel/Econometrics/blob/mas
+ter/Examples/Simeq/simeq.inp}
+\end_layout
+
+\end_inset
+
+.
+ It does a Monte Carlo study which verifies that the OLS estimator is inconsiste
+nt, and that the IV estimator is consistent.
+\end_layout
+
 \begin_layout Section
-Note about the rest of this chaper
+Note about the rest of this chapter
 \end_layout
 
 \begin_layout Standard
@@ -22828,7 +22169,7 @@ The equation is over-identified by three restrictions, according to the
 \begin_layout Standard
 The Octave program 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -22901,16 +22242,6 @@ name "cha:Numeric-optimization-methods"
 \end_inset
 
 Numeric optimization methods
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-conversion to Julia is done
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -32413,7 +31744,7 @@ reference "sec:Application:-Simple-DSGE"
  introduces a simple dynamic stochastic general equilibrium model.
  The file 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -32515,134 +31846,6 @@ The intention of presenting this example is to show that ML may be used
  You can also modify the script to do this, by setting order=2 in the code,
  as Dynare supports the particle filter option.
  
-\end_layout
-
-\begin_layout Subsubsection
-Another example
-\end_layout
-
-\begin_layout Standard
-This is the example I used in the past, based on code from the Dynare web
- site.
- I have now standardized on a slightly more complicated model to illustrate
- estimation methods.
- The code still works, though, and I'll leave this here for those who might
- be interested).
-\end_layout
-
-\begin_layout Standard
-Dynamic stochastic general equilibrium (DSGE) models are widely used tools
- in macroeconomics.
- These are models in which current decisions depend upon expectations of
- future events.
- An example is the simple real business cycle model discussed in 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{Fernández-Villaverde's RBC example}{http://www.dynare.org/docume
-ntation-and-support/examples/rbc.pdf}
-\end_layout
-
-\end_inset
-
-, which is available on the Dynare web page 
-\begin_inset Flex URL
-status collapsed
-
-\begin_layout Plain Layout
-
-www.dynare.org
-\end_layout
-
-\end_inset
-
-.
- The file 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{EstimateRBC
-\backslash
-_ML.mod}{https://github.com/mcreel/Econometrics/blob/master/Examples/RBC/EstimateR
-BC
-\backslash
-_ML.mod} 
-\end_layout
-
-\end_inset
-
- shows how this model may be estimated, using maximum likelihood methods.
- The estimation process involves forming a linear approximation to the true
- model, which means that the estimator is not actually the true maximum
- likelihood estimator, it is actually a 
-\begin_inset Quotes sld
-\end_inset
-
-quasi-ML
-\begin_inset Quotes srd
-\end_inset
-
- estimator.
- The quasi-likelihood is computed by putting the linearized model in state-space
- form, and then computing the likelihood iteratively using Kalman filtering,
- which relies on the assumption that shocks to the model are normally distribute
-d.
- State space models and Kalman filtering are introduced in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:State-space-models"
-
-\end_inset
-
-.
- Once the likelihood function is available, the methods studied in this
- Chapter may be applied.
- 
-\end_layout
-
-\begin_layout Itemize
-The linearization of the model, combined with the fact that it has only
- one shock, leads to a problem of 
-\begin_inset Quotes sld
-\end_inset
-
-stochastic singularity
-\begin_inset Quotes srd
-\end_inset
-
-, which means that only a single observed variable may be used to compute
- the likelihood function.
- If interested, do a Google search for this term, along with DSGE, and you'll
- find more information.
-\end_layout
-
-\begin_layout Itemize
-Not using all of the observed variables for estimation is very likely to
- cause problems of lack of identification and inefficiency.
- This can be confirmed if you experiment with the estimation script.
- This is not a problem of the ML method, it is a problem due to the fact
- that we are not really estimating the true model, we're working with a
- linear approximation.
- 
-\end_layout
-
-\begin_layout Itemize
-The intention of presenting this example is to show that ML may be used
- for estimation of complex models.
- The problem here is that the model is not complex enough: the linearization
- throws away so much information so that estimation becomes impossible.
- A better solution is to try to actually to ML estimation for the true nonlinear
- model: see papers by Fernandez-Villaverde and Rubio-Ramirez which use particle
- filtering for that.
- You can also modify the script to do this, as Dynare supports this option.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -42347,43 +41550,64 @@ Given the above model, we can derive some moment conditions for estimation
 
 \begin_layout Subsubsection
 MRS and wage
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:MRS-and-wage"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-We have 
+From the FOC for the model, we have 
 \begin_inset Formula 
 \begin{eqnarray*}
 w_{t} & = & \psi\eta_{t}c_{t}^{\gamma}\\
 \eta_{t} & = & \frac{w_{t}}{\psi c_{t}^{\gamma}}\\
-\ln\eta_{t} & = & \ln w_{t}-\ln\psi-\gamma\ln c_{t}\\
-\ln\eta_{t}-\rho_{\eta}\ln\eta_{t-1} & = & \sigma_{\eta}\epsilon_{t}=\ln w_{t}-\rho_{\eta}\ln w_{t-1}-\ln\psi(1-\rho_{\eta})-\gamma\left(\ln c_{t}-\rho_{\eta}\ln c_{t-1}\right).
+\ln\eta_{t} & = & \ln w_{t}-\ln\psi-\gamma\ln c_{t}
 \end{eqnarray*}
 
 \end_inset
 
-So finally, we have
+The real values of this shock are not observed, but, given a guess for the
+ parameters and the data, the left hand side of the above equation can be
+ calculated.
+ Also, we have
 \begin_inset Formula 
-\begin{equation}
-\epsilon_{t}=\frac{\ln w_{t}-\rho_{\eta}\ln w_{t-1}-\ln\psi(1-\rho_{\eta})-\gamma\left(\ln c_{t}-\rho_{\eta}\ln c_{t-1}\right)}{\sigma_{\eta}}\label{eq:MRSError}
-\end{equation}
+\[
+\ln\eta_{t}=\rho\ln\eta_{t-1}+\sigma_{\eta}\epsilon_{t}.
+\]
 
 \end_inset
 
-The LHS is IID standard normal, according to the model.
- The RHS depends only on parameters and observed variables.
- Some possible moment conditions: mean zero, variance 1, skew 0, excess
- kurtosis zero.
- Simple averages of 
-\begin_inset Formula $\epsilon_{t}$
+So, we can regress the calculated 
+\begin_inset Formula $\ln\eta_{t}$
 \end_inset
 
- or 
-\begin_inset Formula $\epsilon_{t}^{2}-1$
+ on their lags.
+ The FOC for the OLS estimator set the mean of 
+\begin_inset Formula 
+\[
+u_{t}=\ln\eta_{t-1}[\ln\eta_{t}-\rho_{\eta}\ln\eta_{t-1}]
+\]
+
 \end_inset
 
- would work.
- The error could also be crossed with lagged observable variables.
- Moment conditions that use this error should be informative for 
+ to zero.
+ At the true parameter values, this expression has mean zero, so it can
+ be used to define a moment condition.
+ We also have that 
+\begin_inset Formula 
+\[
+E\left(u_{t}^{2}-\sigma_{\eta}^{2}\right)=0
+\]
+
+\end_inset
+
+ at the true parameters, so this gives us a second moment condition.
+ These two moment conditions are informative for all of the parameters that
+ enter into their definitions: 
 \begin_inset Formula $\gamma,\rho_{\eta},\sigma_{\eta}$
 \end_inset
 
@@ -42495,6 +41719,12 @@ Production function
 \end_layout
 
 \begin_layout Standard
+Capital is not observed, but we can come up with a value for it, given a
+ guess on the parameters.
+ Dividing MPL by MPK, we eliminate the unobserved shock:
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
 \frac{w}{r} & = & \frac{\left(1-\alpha\right)z_{t}k_{t-1}^{\alpha}n_{t}^{-\alpha}}{\alpha z_{t}k_{t-1}^{\alpha-1}n_{t}^{1-\alpha}}\\
@@ -42511,19 +41741,6 @@ k_{t-1}=\frac{\alpha n_{t}w_{t}}{(1-\alpha)r_{t}}
 
 \end_inset
 
-
-\emph on
-Important note
-\emph default
-: We do not observe the actual level of capital, but, given the other variables,
- and a guess for the value of 
-\begin_inset Formula $\alpha$
-\end_inset
-
-, we can compute this imputed value for capital in the previous period.
-\end_layout
-
-\begin_layout Standard
 Next, from the production function, use the above expression for 
 \begin_inset Formula $k$
 \end_inset
@@ -42532,34 +41749,26 @@ Next, from the production function, use the above expression for
 \begin_inset Formula 
 \begin{eqnarray*}
 z & = & \frac{y}{k^{\alpha}n^{(1-\alpha)}}\\
-\ln z & = & \ln y-\alpha\ln k-(1-\alpha)\ln n\\
-\ln z_{t}-\rho_{z}\ln z_{t-1} & = & \ln y_{t}-\rho_{z}\ln y_{t-1}-\alpha\left(\ln k_{t-1}-\rho_{z}\ln k_{t-2}\right)-(1-\alpha)\left(\ln n_{t}-\rho_{z}\ln n_{t-1}\right)
+\ln z & = & \ln y-\alpha\ln k-(1-\alpha)\ln n
 \end{eqnarray*}
 
 \end_inset
 
-so
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-u_{t}=\frac{\ln y_{t}-\rho_{z}\ln y_{t-1}-\alpha\left(\ln k_{t}-\rho_{z}\ln k_{t-1}\right)-(1-\alpha)\left(\ln n_{t}-\rho_{z}\ln n_{t-1}\right)}{\sigma_{z}}\label{eq:ProductionError}
-\end{equation}
-
-\end_inset
-
-is IID standard normal, and we can create moments as in the case of eqn
- 
+We can generate two more moment conditions using this, in the same way as
+ was done in Subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:MRSError"
+reference "subsec:MRS-and-wage"
 
 \end_inset
 
 .
- Moment conditions using this error should be informative for 
+ These moment conditions should be informative for 
 \begin_inset Formula $\alpha,\rho_{z}$
+\end_inset
+
+, 
+\begin_inset Formula $\psi$
 \end_inset
 
  and 
@@ -42581,7 +41790,7 @@ Law of motion for
 \end_layout
 
 \begin_layout Standard
-Given the expression for 
+Given the previous expression for 
 \begin_inset Formula $k$
 \end_inset
 
@@ -42599,63 +41808,17 @@ we can put this into the law of motion for capital, to get
 \begin_layout Standard
 \begin_inset Formula 
 \[
-k_{t}=i_{t}+(1-\delta)k_{t-i}
+u_{t}=i_{t}+(1-\delta)k_{t-i}-k_{t}
 \]
 
 \end_inset
 
-so
-\begin_inset Formula 
-\begin{equation}
-q_{t}=y_{t}-c_{t}+(1-\delta)k_{t-1}-k_{t}\label{eq:LawMotionError}
-\end{equation}
-
-\end_inset
-
-is an error that is equal to zero at the true parameter values.
- 
-\end_layout
-
-\begin_layout Itemize
-Remember that the actual 
-\begin_inset Formula $k$
-\end_inset
-
- is not observed, we're using a 
-\begin_inset Formula $k$
-\end_inset
-
- that depends on other observed variables, and on the guess of 
-\begin_inset Formula $\alpha$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Itemize
-So, this equation will not hold exactly except at the true parameter values.
-\end_layout
-
-\begin_layout Itemize
-Thus, it should be informative for both 
+This error should be zero, so it's expectation is zero at the true parameters.
+ It should serve to identify 
 \begin_inset Formula $\delta$
 \end_inset
 
- and 
-\begin_inset Formula $\alpha$
-\end_inset
-
- (the value of 
-\begin_inset Formula $k$
-\end_inset
-
- that is in the expression depends on 
-\begin_inset Formula $\alpha$
-\end_inset
-
- and on observed variables).
- 
+ very well.
 \end_layout
 
 \begin_layout Subsubsection
@@ -42673,44 +41836,32 @@ MPL
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{eqnarray}
-w & = & \left(1-\alpha\right)z_{t}k_{t-1}^{\alpha}n_{t}^{-\alpha}\nonumber \\
-z & = & \frac{wk_{t-1}^{-\alpha}n_{t}^{\alpha}}{1-\alpha}\nonumber \\
-\ln z_{t} & = & \ln w_{t}+\alpha(\ln n_{t}-\ln k_{t-1})-\ln(1-\alpha)\nonumber \\
-u_{t} & = & \frac{\ln z_{t}-\rho_{z}\ln z_{t-1}}{\sigma_{z}}\label{eq:MPL_error}
-\end{eqnarray}
+\begin{eqnarray*}
+w & = & \left(1-\alpha\right)z_{t}k_{t-1}^{\alpha}n_{t}^{-\alpha}\\
+z & = & \frac{wk_{t-1}^{-\alpha}n_{t}^{\alpha}}{1-\alpha}\\
+\ln z_{t} & = & \ln w_{t}+\alpha(\ln n_{t}-\ln k_{t-1})-\ln(1-\alpha)
+\end{eqnarray*}
 
 \end_inset
 
-This last expression is an IIN shock, when evaluated at the true parameter
- values.
- Moment conditions using this error should be informative for 
+We can generate two more moment conditions using this, in the same way as
+ was done in Subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:MRS-and-wage"
+
+\end_inset
+
+.
+ These moment conditions should be informative for 
 \begin_inset Formula $\alpha,\rho_{z}$
 \end_inset
 
- and 
-\begin_inset Formula $\sigma_{z}$
+, and 
+\begin_inset Formula $\sigma_{z}.$
 \end_inset
 
-.
- At the true parameter values, the error in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:MPL_error"
 
-\end_inset
-
- will be identical to the error in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:ProductionError"
-
-\end_inset
-
-.
- However, at different parameter values, they will be different, so they
- carry different information for the estimation of the parameters, and using
- both of them may be beneficial.
 \end_layout
 
 \begin_layout Subsubsection
@@ -42739,36 +41890,19 @@ Collecting the moment conditions
 \end_layout
 
 \begin_layout Itemize
-We have 5 different error functions: two expressions for the iid technology
- shock, 
-\begin_inset Formula $u,$
-\end_inset
-
- one expression for the iid preference shock, 
-\begin_inset Formula $\epsilon.$
-\end_inset
-
- plus the Euler error and the law of motion error.
- 
-\end_layout
-
-\begin_layout Itemize
-The 3 iid shocks give at least two moments each: the mean are zero, and
- the variances are 1.
- We could also work with skew=0 and kurtosis=3, due to the normality of
- the shocks.
- 
+We have a number of error functions, each of which has expectation zero,
+ and thus can serve as a moment condition.
 \end_layout
 
 \begin_layout Itemize
 All of these errors have conditional expectation zero, at the true parameter
  values.
- We can cross any of the errors with variables known in period 
+ Also, we can cross any of the errors with variables known in period 
 \begin_inset Formula $t,$
 \end_inset
 
  which include all observed variables indexed 
-\begin_inset Formula $t$
+\begin_inset Formula $t-1$
 \end_inset
 
  or before, following the ideas of Section 
@@ -42823,7 +41957,8 @@ htmladdnormallink{dsgedata.txt}{https://github.com/mcreel/Econometrics/blob/mast
 \end_layout
 
 \begin_layout Standard
-An Julia function to compute the errors discussed above is at 
+A Julia function to compute the moment conditions discussed above is at
+ 
 \begin_inset ERT
 status open
 
@@ -42831,13 +41966,14 @@ status open
 
 
 \backslash
-htmladdnormallink{GetErrors.jl}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/DSGE/GMM/GetErrors.jl}
+htmladdnormallink{DSGEmoments.jl}{https://github.com/mcreel/Econometrics/blob/mast
+er/Examples/DSGE/GMM/DSGEmoments.jl}
 \end_layout
 
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Standard
@@ -42849,44 +41985,163 @@ status open
 
 
 \backslash
-htmladdnormallink{EstimateDSGE
-\backslash
-_GMM.jl}{https://github.com/mcreel/Econometrics/blob/master/Examples/DSGE/GMM/Esti
-mateDSGE
-\backslash
-_GMM.jl}
+htmladdnormallink{DoGMM.jl}{https://github.com/mcreel/Econometrics/blob/master/Exa
+mples/DSGE/GMM/DoGMM.jl}
 \end_layout
 
 \end_inset
 
  can be used to discover several facts about GMM estimation of nonlinear
  models.
- If you work with the script, you will discover that
+ If you work with the script, you may discover that
 \end_layout
 
 \begin_layout Itemize
-it is very difficult to obtain convergence to a global minimum.
- To see this, choose moments that give exact identification, and try to
- obtain a solution that has the objective function equal to zero.
- Can you do this without use of the true parameter values, which are not
- known when we do estimation?
+the estimates, standard errors, and 95% CI bounds are 
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+estimates, st.
+ errors, and 95% CI bounds
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+Est.
+\begin_inset space \qquad{}
+\end_inset
+
+se
+\begin_inset space \qquad{}
+\end_inset
+
+lower
+\begin_inset space \qquad{}
+\end_inset
+
+ upper
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0.3305 0.0008 0.3289 0.3321
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0.9902 0.0003 0.9896 0.9909
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0.0249 0.0003 0.0243 0.0256
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+1.9303 0.0544 1.8236 2.0370
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0.8786 0.0200 0.8394 0.9177
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0.0196 0.0011 0.0173 0.0218
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0.6519 0.0489 0.5561 0.7477
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0.0094 0.0005 0.0083 0.0104
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0.3328 0.0017 0.3294 0.3361
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-You can try a gradient-based method, or simulated annealing.
- Even with SA, it's hard to obtain a global minimum.
+care is needed to obtain a real global minimum.
+ If the estimation is run several times, you will observe that it sometimes
+ does not converge to the global minimum (function value 0.0000311331), even
+ when using simulated annealing with a conservative cooling schedule (ns
+ = 20, rt = 0.9).
+\end_layout
+
+\begin_layout Itemize
+using this conservative cooling schedule is time consuming, requiring hundreds
+ of thousands of function evaluations.
+\end_layout
+
+\begin_layout Itemize
+when estimation is successful, the estimates are close to the true parameter
+ values (see above): the model is well identified by the chosen moment condition
+s.
+ Estimation is precise, and estimated standard errors are small.
+ The true parameter values are inside the 95% confidence intervals, except
+ for the depreciation rate, 
+\begin_inset Formula $\delta$
+\end_inset
+
+.
+ There appears to be a small upward bias in estimation of this parameter.
+ Given the sample size, 
+\begin_inset Formula $n=160$
+\end_inset
+
+, this is not too surprising, perhaps.
+ This may also be associated with the used of a 3rd order perturbation solution,
+ which perhaps is not accurate enough to avoid this bias.
  
 \end_layout
 
 \begin_layout Itemize
-when the model is overidentified, the numerical problems become worse.
- 
-\end_layout
-
-\begin_layout Itemize
-the parameter estimates are sensitive to the moments that are chosen.
- Play around with the function that selects the moment conditions, and see
- what happens.
+if you attempt to use a less conservative cooling schedule, e.g., ns = 5,
+ rt = 0.75 estimation will rarely be successful.
+ If one tries to estimate using gradient-based methods directly (by commenting
+ out the SA part), estimation will never be successful.
+ A person who tried these methods might conclude that the moments don't
+ identify the parameters well, but this is not the case, as we have seen.
 \end_layout
 
 \begin_layout Itemize
@@ -42905,8 +42160,8 @@ key "HansenHeatonYaron1996"
 \end_layout
 
 \begin_layout Itemize
-the difficulties with extremum estimation motivate other computational methods,
- such as using a Bayesian approach to classical estimators: 
+the difficulties with extremum estimation may motivate other computational
+ methods, such as using a Bayesian approach to classical estimators: 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ChernozhukovHong2003"

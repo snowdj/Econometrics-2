@@ -1,5 +1,5 @@
 # Econometrics
-Graduate level econometrics notes and example code
+Graduate level econometrics notes with embedded examples using the Julia language.
 - to get just the notes, click on econometrics.pdf, and then on Download, at the upper R of the page, which will download only the pdf. Links in the pdf point to files here on github, and will open in your browser.
 - to run the examples:
     * get this repo
@@ -9,11 +9,9 @@ Graduate level econometrics notes and example code
 
 ## There are a couple of unusual thing about these notes:
 - they are available in editable form (econometrics.lyx), so that you can modify them to suit your needs: see the first chapter for more information, and get LyX from  www.lyx.org. 
-- they contain links that point to example programs using the Julia language. An older version (release 1.0)
-used GNU Octave, and was copyrighted GPL. The current version is being adapted to use Julia for the majority of the examples, and uses the MIT license.
+- they contain links that point to example programs using the Julia language. The examples show how to use the methods and illustrate properties of estimators. The example code can be modified to allow exploration.
 
-MOVING TO JULIA is a work in progress!
-Chapters 1-8 and 11-14 have already been adapted. The rest should be completed in a month or two.
+Chapters 1-8 and 11-14 have already been adapted to use Julia. The rest should be completed in a month or two.
 
 
 
