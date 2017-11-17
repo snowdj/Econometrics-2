@@ -1,5 +1,5 @@
 # Econometrics
-Graduate level econometrics notes with embedded examples using the Julia language.
+Graduate level econometrics notes with embedded examples using the Julia language. (release 1 has an older version with the examples witten for Octave).
 - to get just the notes, click on econometrics.pdf, and then on Download, at the upper R of the page, which will download only the pdf. Links in the pdf point to files here on github, and will open in your browser.
 - to run the examples:
     * get this repo
