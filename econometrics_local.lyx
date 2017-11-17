@@ -203,7 +203,12 @@ About this document
 \end_layout
 
 \begin_layout Standard
-Note to self: for the public version, replace all instances of 
+Note to self: 
+\end_layout
+
+\begin_layout Itemize
+For econometrics.pdf on the github page, save to econometrics.lyx, , replace
+ all instances of 
 \family typewriter
 \color blue
 file:///home/michael/Mystuff/Econometrics
@@ -214,6 +219,21 @@ file:///home/michael/Mystuff/Econometrics
  
 \color blue
 https://github.com/mcreel/Econometrics/blob/master
+\end_layout
+
+\begin_layout Itemize
+For the live CD version, save to econometrics_pelican.lyx, replace all instances
+ of 
+\family typewriter
+\color blue
+file:///home/michael/Mystuff/Econometrics
+\family default
+\color inherit
+ with
+\family typewriter
+ 
+\color blue
+file:///home/user/Econometrics
 \end_layout
 
 \begin_layout Section

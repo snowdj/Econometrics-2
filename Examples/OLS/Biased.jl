@@ -2,7 +2,6 @@
 # the OLS estimator is biased when we have an autoregressive model
 # with weak exogeneity
 using Plots
-pyplot()
 reps = 1000 # number of Monte Carlo reps.
 n = 20 # sample size
 betas = zeros(reps)
@@ -16,14 +15,13 @@ for i = 1:reps
 		x[t] = truebetas[1] + truebetas[2]*x[t-1] + randn()
 	end
 	y = x[2:n+1]    # dependent variable
-	x = x[1:n]      # explanatory variable is the lagged dep var.   
+	x = x[1:n]      # explanatory variable is the lagged dep var.
 	x = [ones(n,1) x]
 	beta = y\x
 	betas[i] = beta[2]
-end	
+end
 
 betas = betas .- truebetas[2]
 histogram(betas, label="")
-gui()
+#gui()
 #savefig("Biased.svg")
-	

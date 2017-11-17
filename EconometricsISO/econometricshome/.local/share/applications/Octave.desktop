@@ -1,0 +1,22 @@
+[Desktop Entry]
+Categories=Education;Science;Math;
+Comment[en_US]=Scientific Computing using GNU Octave
+Comment=Scientific Computing using GNU Octave
+Exec=octave --force-gui
+GenericName[en_US]=
+GenericName=
+Icon=/usr/share/octave/3.8.2/imagelib/octave-logo.svg
+MimeType=
+Name[en_US]=GNU Octave
+Name=GNU Octave
+Path=
+StartupNotify=false
+Terminal=false
+TerminalOptions=
+TryExec=/usr/bin/octave
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=none
+X-Desktop-File-Install-Version=0.22
+X-KDE-SubstituteUID=false
+X-KDE-Username=

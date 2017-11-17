@@ -1,0 +1,6 @@
+[History]
+CompletionItems=unused
+
+[Location Bar]
+ComboContents[$e]=http://mail.google.com,http://mail.google.com/
+ComboIconCache[$e]=http://mail.google.com,favicons/mail.google.com,http://mail.google.com/,favicons/ssl.gstatic.com_ui_v1_icons_mail_favicon

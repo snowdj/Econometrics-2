@@ -1,0 +1,20 @@
+[Desktop Entry]
+Comment[en_US]=
+Comment=
+Exec=octave --force-gui --persist --eval "edit %f"
+GenericName[en_US]=
+GenericName=
+Icon=/home/user/Econometrics/octave.png
+MimeType=text/x-matlab;
+Name[en_US]=octave
+Name=octave
+NoDisplay=true
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
