@@ -1,9 +1,0 @@
-[Default Applications]
-application/pdf=kde4-okularApplication_pdf.desktop
-text/x-matlab=userapp-octave-ZZ9ONX.desktop
-text/x-objcsrc=userapp-octave-FEPSNX.desktop
-
-[Added Associations]
-application/pdf=kde4-okularApplication_pdf.desktop;
-text/x-matlab=userapp-octave-JSFLNX.desktop;userapp-octave-ZZ9ONX.desktop;gvim.desktop;
-text/x-objcsrc=userapp-octave-FEPSNX.desktop;

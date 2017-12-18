@@ -1,1 +1,0 @@
-[ { "enabled" : true, "id" : "5590f5d7033654f2010363dba5ae585b", "metadata" : { "fullname" : "xrandr-VBOX monitor-90442240", "name" : "VBOX0" }, "mode" : { "refresh" : 59.9998, "size" : { "height" : 1380, "width" : 2560 } }, "pos" : { "x" : 0, "y" : 0 }, "primary" : true, "rotation" : 1 } ]

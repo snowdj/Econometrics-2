@@ -1,8 +1,0 @@
-warning ( "off", "Octave:shadowed-function" ) ;
-warning ( "off", "Octave:broadcast" ) ;
-edit mode async
-EDITOR("gvim %s");
-page_screen_output(0);
-addpath(genpath("/home/user/Econometrics"));
-
-
