@@ -21,12 +21,12 @@ function main()
                     # try to get acceptance rate to be about 0.25 or so
     chain = makechain(theta, chainlength, burnin, tuning, y)
 	thetas = chain[:,1]    
-    plot(thetas[end-1000:end],show=true)
-    #savefig("chain.svg")
-    x, d = npdensity(thetas)
-    plot(x,d, show=true)
+    p = npdensity(thetas)
+    display(p)
     #savefig("posterior.svg")
-	dstats(chain)
+    plot(thetas[end-1000:end],show=true, reuse=false)
+    #savefig("chain.svg")
+    dstats(chain)
 end
 
 # the prior is lognormal(1,1)

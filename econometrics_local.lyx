@@ -236,6 +236,20 @@ file:///home/michael/Mystuff/Econometrics
 file:///home/user/Econometrics
 \end_layout
 
+\begin_layout Itemize
+to do: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+add quantile IV via MCMC
+\end_layout
+
+\begin_layout Itemize
+add updated DSGE via GMM
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Prerequisites
 \end_layout
@@ -46968,7 +46982,7 @@ Bayesian methods
 \end_layout
 
 \begin_layout Standard
-This chatper provides a brief introduction to Bayesian methods, which form
+This chapter provides a brief introduction to Bayesian methods, which form
  a large part of econometric research, especially in the last two decades.
  Advances in computational methods (e.g., MCMC, particle filtering), combined
  with practical advantages of Bayesian methods (e.g., no need for minimization
@@ -47036,7 +47050,7 @@ Definitions
 \end_layout
 
 \begin_layout Standard
-The Bayesian approach summarizes beliefs about parameter using a density
+The Bayesian approach summarizes beliefs about parameters using a density
  function:
 \end_layout
 
@@ -47132,8 +47146,8 @@ f(\theta|y)=\frac{f(y,\theta)}{f(y)}=\frac{f(y|\theta)\pi(\theta)}{f(y)}
 \end_layout
 
 \begin_layout Itemize
-The posterior reflects the learning that occurs about the parameter when
- one receives the sample information.
+The movement from the prior to the posterior reflects the learning that
+ occurs about the parameter when one receives the sample information.
 \end_layout
 
 \begin_layout Itemize
@@ -47177,7 +47191,7 @@ We can define regions analogous to confidence intervals by using quantiles
 \end_deeper
 \begin_layout Standard
 So far, this is pretty straightforward.
- The complications are often computational.
+ The complications are mostly computational.
  To illustrate, the posterior mean is
 \begin_inset Formula 
 \[
@@ -47186,9 +47200,21 @@ E(\theta|y)=\int_{\Theta}\theta f(\theta|y)d\theta=\frac{\int_{\Theta}\theta f(y
 
 \end_inset
 
- One can see that a means of integrating will be needed.
- Only in very special cases will the integrals have analytic solutions.
- Otherwise, computational methods will be needed.
+ 
+\end_layout
+
+\begin_layout Itemize
+One can see that a means of integrating will be needed.
+\end_layout
+
+\begin_layout Itemize
+Only in very special cases will the integrals have analytic solutions.
+\end_layout
+
+\begin_layout Itemize
+Otherwise, computational methods will be needed.
+ Advances in computational methods are what have lead to the increased use
+ of Bayesian methods.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -47306,10 +47332,27 @@ There are Bayesian methods for choosing between models
 \end_layout
 
 \begin_layout Itemize
-There are also recent Bayesian inspired methods that attempt to work without
+There are also recent Bayesian-inspired methods that attempt to work without
  knowledge of the likelihood function.
- Nevertheless, if the model is required to be simulable, then essentially
- the same strong assumptions as underlie ML are being used.
+ For instance, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "ChernozhukovHong2003"
+
+\end_inset
+
+ use Bayesian methods to compute a GMM estimator.
+ Some such methods, e.g.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "Approximate Bayesian Computing"
+target "http://en.wikipedia.org/wiki/Approximate_Bayesian_computation"
+
+\end_inset
+
+ require the model to be simulable, in which case, essentially the same
+ strong assumptions as underlie ML are being used.
 \end_layout
 
 \begin_layout Standard
@@ -48535,6 +48578,19 @@ target "http://www.wouterdenhaan.com/numerical/slidesdynareestimation.pdf"
 \end_inset
 
 
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+An example of Bayesian GMM for quantile instrumental variables estimation
+\end_layout
+
+\begin_layout Standard
+Add the results from ABCGMM, for simulated data and for the Card returns
+ to schooling data.
 \end_layout
 
 \begin_layout Standard
@@ -55817,6 +55873,15 @@ key "LeCun2012"
 \end_inset
 
 .
+ A good 
+\begin_inset CommandInset href
+LatexCommand href
+name "practical introduction is here"
+target "https://www.hackerearth.com/practice/machine-learning/machine-learning-algorithms/understanding-deep-learning-parameter-tuning-with-mxnet-h2o-package-in-r/tutorial/"
+
+\end_inset
+
+.
  Papers by 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -56467,6 +56532,15 @@ One can use the NN estimator as a statistic for indirect inference or related
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+We use a NN to identify which are the important variables for explaining
+ 
+\begin_inset Formula $y$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
