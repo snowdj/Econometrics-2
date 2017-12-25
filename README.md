@@ -12,3 +12,5 @@ Graduate level econometrics notes with embedded examples using the Julia languag
 - they contain links that point to example programs using the Julia language. The examples show how to use the methods and illustrate properties of estimators. The example code can be modified to allow exploration.
 
 ![OLS](https://raw.githubusercontent.com/mcreel/Econometrics/ols.png)
+![GMM](https://raw.githubusercontent.com/mcreel/Econometrics/gmm.png)
+![Posterior](https://raw.githubusercontent.com/mcreel/Econometrics/posterior.svg)
