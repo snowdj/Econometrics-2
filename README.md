@@ -11,6 +11,6 @@ Graduate level econometrics notes with embedded examples using the Julia languag
 - they are available in editable form (econometrics.lyx), so that you can modify them to suit your needs: see the first chapter for more information, and get LyX from  www.lyx.org. 
 - they contain links that point to example programs using the Julia language. The examples show how to use the methods and illustrate properties of estimators. The example code can be modified to allow exploration.
 
-![OLS](https://raw.githubusercontent.com/mcreel/Econometrics/ols.png)
-![GMM](https://raw.githubusercontent.com/mcreel/Econometrics/gmm.png)
-![Posterior](https://raw.githubusercontent.com/mcreel/Econometrics/posterior.svg)
+![OLS](https://github.com/mcreel/Econometrics/ols.png)
+![GMM](https://github.com/mcreel/Econometrics/gmm.png)
+![Posterior](https://github.com/mcreel/Econometrics/posterior.svg)
