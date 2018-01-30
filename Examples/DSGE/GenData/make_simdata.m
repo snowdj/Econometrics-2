@@ -38,5 +38,5 @@ dynare CGHK.mod noclearall;
 % get a simulation of length 160 and compute aux. statistic
 data = [y c n MPK MPL];
 data = data(101:260,:);
-save -ascii dsgedata data;
+# save -ascii dsgedata data;
 system("./cleanup"); % remove Dynare leftovers
