@@ -48,25 +48,22 @@ end;
 % trying to estimate other parameters (e.g., beta, delta) shows problems
 
 estimated_params;
-alppha, uniform_pdf, , ,  0.3,  0.4; 
-//betta, uniform_pdf, , ,  0.95, 1.0; 
-//delta, uniform_pdf, , ,  0.01, 0.1; 
-gam, uniform_pdf, , ,    0.0,  5.0;
-rho1, uniform_pdf, , ,   0.0,  1.0; 
-sigma1, uniform_pdf, , , 0.0,  0.1;
-rho2, uniform_pdf, , ,   0.0,  1.0; 
-sigma2, uniform_pdf, , , 0.0,  0.1;
-nss, uniform_pdf, , ,    6/24, 9/24; 
+alppha, uniform_pdf, , 0.33,  0.3,  0.4; 
+%betta, uniform_pdf, , 0.99,  0.95, 1.0; 
+%delta, uniform_pdf, , 0.024,  0.01, 0.1; 
+gam, uniform_pdf, , 2.0, 0.0,  5.0;
+rho1, uniform_pdf, , 0.9, 0.0,  1.0; 
+sigma1, uniform_pdf, , 0.02, 0.0,  0.1;
+rho2, uniform_pdf, , 0.7,   0.0,  1.0; 
+sigma2, uniform_pdf, , 0.01, 0.0,  0.1;
+nss, uniform_pdf, , 0.33, 6/24, 9/24; 
 end;
 
-varobs c n;  // experiment choosing one or two from y c n MPK MPL
+varobs c n;  // experiment choosing one or two from y c n MPK MPL (c and n work well)
 
 // short MCMC for illustration only 
 // set order=2 to see particle filter option
-estimation(datafile=dsgedata, nobs=160, order=1, mh_replic=1000, mh_nblocks=1, mh_jscale=0.8, mh_init_scale=5, irf=40) y c n MPK MPL;
-
-// generate data
-stoch_simul(order=3, periods=260, irf=30) y c n MPK MPL;
+estimation(datafile=dsgedata, nobs=160, order=1, mh_replic=10000, mh_nblocks=5, mh_jscale=0.8, mh_init_scale=5, irf=40) y c n MPK MPL;
 
 
 

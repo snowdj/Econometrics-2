@@ -8,4 +8,5 @@ plot(y, leg=false, show=true)
 histogram(y, normed=true)
 plot!(Distributions.Normal(mean(y),std(y)), show=true, leg=false)
 #savefig("nysefreq.svg")
-
+display(npdensity(y))
+savefig("density.svg")
