@@ -58,4 +58,11 @@ function proposal(current, tuning)
     return trial
 end
 
+function proposal2(current, cholV)
+    i = rand(1:size(current,1))
+    trial = copy(current)
+    trial = trial + cholV'*randn(size(trial))
+    return trial
+end
+
 

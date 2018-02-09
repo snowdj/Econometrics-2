@@ -8,8 +8,8 @@ Remember to re-set threads to 1 before using MPI
 include("QIVmodel.jl")
 LNW, X, Z = getdata()
 n = size(LNW,1)
-mcmcreps = 500000
-burnin = 100000
+mcmcreps = 100000
+burnin = 10000
 # use st. errs. from ordinary QR as quide to setting tuning.
 basetuning = [0.1, 0.05, 0.03, 0.005, 0.3, 0.2, 0.2]
 # adjust this up or down to achieve decent acceptance rate
@@ -27,6 +27,7 @@ for i = 1:9
     Proposal = θ -> proposal(θ, tuning)
     Prior = θ -> prior(θ)
     chain = mcmc(θ, mcmcreps, burnin, Prior, lnL, Proposal)
+    V = cov(chain[:,1:end-1])
     d = dstats(chain)
     Constant[i,:] = d[1,[1,7,8]] # save posterior mean, 5% and 95% quantile
     EducEffect[i,:] = d[2,[1,7,8]] # save posterior mean, 5% and 95% quantile
@@ -42,7 +43,7 @@ lb = EducEffect[:,2]
 ub = EducEffect[:,3]
 plot!(τ, [educ educ], fillrange=[lb ub], fillalpha=0.3, c=:green, legend=:none)
 xticks!((1:9)/10)
-savefig("Educ.svg")
+savefig("EducJUNK.svg")
 # constant
 τ = (1:9)/10
 plot(reuse=false)
@@ -51,5 +52,5 @@ lb = Constant[:,2]
 ub = Constant[:,3]
 plot!(τ, [c c], fillrange=[lb ub], fillalpha=0.3, c=:green, legend=:none)
 xticks!((1:9)/10)
-savefig("Constant.svg")
+savefig("ConstantJUNK.svg")
 

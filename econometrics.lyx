@@ -58609,6 +58609,134 @@ xamples/Quantile/QIVbyMCMC.jl}
  90% confidence intervals are computed using the Chernozhukhov-Hong method.
 \end_layout
 
+\begin_layout Itemize
+For those of you interested in MCMC, there is the file 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink{PlayWithMCMC.jl}{https://github.com/mcreel/Econometrics/blob/mas
+ter/Examples/Quantile/PlayWithMCMC.jl} 
+\end_layout
+
+\end_inset
+
+, which studies the MCMC chain a bit.
+ The basic proposal draws the parameter from independent normal densities.
+ The second proposal draws the parameters from a joint normal density that
+ accounts for correlations in the posterior.
+ The empirical results reported below don't depend on which proposal is
+ used, though, as a long enough chain was used so that the difference washes
+ out.
+ This is an issue of computational efficiency, not one of statistical reliabilit
+y.
+ To obtain reliable results with a shorter chain, the proposal density should
+ be chosen to ensure good mixing (sampling from the whole support of the
+ posterior).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Two-chains-for"
+
+\end_inset
+
+Two chains for 
+\begin_inset Formula $\beta_{0}(\tau=0.5),$
+\end_inset
+
+ independent and correlated proposals
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Independent proposals, poor mixing
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Examples/Quantile/chain1.svg
+	width 20cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Correlated proposals, better mixing
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Examples/Quantile/chain2.svg
+	width 20cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
@@ -58731,7 +58859,7 @@ IV-QR results
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -58769,7 +58897,7 @@ Estimated
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -58828,41 +58956,54 @@ key "cameron2005microeconometrics"
 \end_inset
 
 , Ch.
- 12; Gourieroux and Monfort (1996) 
-\emph on
-Simulation-Based Econometric Methods
-\emph default
- (Oxford University Press).
+ 12; 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "gourieroux1996simulation"
+
+\end_inset
+
+.
  There are many articles.
  Some of the seminal papers are 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "emm"
+key "McFadden1989MSM"
 
 \end_inset
 
-;  
-\begin_inset CommandInset citation
-LatexCommand cite
-key "GourierouxMonfortIndirect"
-
-\end_inset
-
-
-\emph on
-;
-\emph default
- 
+, 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PakesPollard"
 
 \end_inset
 
-; 
+, 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "McFadden1989MSM"
+key "GourierouxMonfortIndirect"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "smith1993estimating"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "duffie1993simulated"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "emm"
 
 \end_inset
 
@@ -58873,15 +59014,74 @@ key "McFadden1989MSM"
 \end_layout
 
 \begin_layout Standard
-Simulation-based methods use computer power as a major input to do econometrics.
- Of course, computer power has always been used, but when intensive use
- of computer power is contemplated, it is possible to do things that are
- otherwise infeasible.
- Examples include obtaining more accurate results that what asymptotic theory
- gives us, using methods like bootstrapping, or to perform estimation using
- simulation, when analytic expressions for objective functions that define
- estimators are not available.
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Human brain power is perhaps growing over time, but not as fast as thumb
+ dexterity, I would argue.
  
+\end_layout
+
+\begin_layout Itemize
+On the other hand, computing power is growing more or less exponentially,
+ according to 
+\begin_inset CommandInset href
+LatexCommand href
+name "Moore's Law"
+target "https://en.wikipedia.org/wiki/Moore%27s_law"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Any economist would argue that we need to use inputs in proportion to their
+ relative prices, which means that we should increasingly be using computers
+ to make advancements in econometrics (and, maybe, our thumbs).
+ 
+\end_layout
+
+\begin_layout Itemize
+Simulation-based methods do just that.
+ When intensive use of computer power is contemplated, it is possible to
+ do things that are otherwise infeasible:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+obtaining more accurate results that what asymptotic theory gives us, using
+ methods like bootstrapping,
+\end_layout
+
+\begin_layout Itemize
+performing estimation of models that are complex enough so that analytic
+ expressions for objective functions that define conventional estimators
+ (e.g., ML, GMM) are not available.
+ Once you go down this rabbit hole, you can estimate 
+\emph on
+very 
+\emph default
+complex models.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Simulation based estimation, especially the simulated method of moments,
+ has become quite standard in applied research, so it is important to understand
+ how it works
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
