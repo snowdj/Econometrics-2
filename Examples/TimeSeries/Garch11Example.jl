@@ -13,6 +13,8 @@ y = 100.0 * log.(data[2:end] ./ data[1:end-1])
 thetastart = [mean(y); 0.0; var(y); 0.1; 0.1]
 obj = theta -> -sum(garch11(theta, y))
 thetahat, logL, junk  = fmincon(obj, thetastart, [], [], [-Inf, -1.0, 0.0, 0.0, 0.0], [Inf, 1.0, Inf, 1.0, 1.0])
-# now do MLE to see formatted results
+# now do MLE to see formatted results.
+# NOTE TO SELF: this won't work when the constraints are binding
+# should add a method to mle for constrained problems.
 model = theta -> garch11(theta, y)
 thetahat, logL, junk, converged = mleresults(model, thetahat, "GARCH(1,1) example")

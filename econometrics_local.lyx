@@ -4055,7 +4055,7 @@ We will estimate the Cobb-Douglas model
 
  by OLS, using the Julia script 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -47341,6 +47341,12 @@ Journal of Econometrics
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Stochastic-volatility"
+
+\end_inset
+
 Stochastic volatility
 \end_layout
 
@@ -47352,13 +47358,13 @@ In ARCH and GARCH models, the same shocks that affect the level also affect
  A simple example is
 \begin_inset Formula 
 \begin{align*}
-y_{t} & =\exp(h_{t})\epsilon_{t}\\
+y_{t} & =\exp(h_{t}/2)\epsilon_{t}\\
 h_{t} & =\alpha+\rho h_{t-1}+\sigma\eta_{t}
 \end{align*}
 
 \end_inset
 
-In this model, the log of the standard error of the observed sequence follows
+In this model, the log of the variance of the observed sequence follows
  an AR(1) model.
  Once can introduce leverage by allowing correlation between 
 \begin_inset Formula $\epsilon_{t}$
@@ -47368,7 +47374,126 @@ In this model, the log of the standard error of the observed sequence follows
 \begin_inset Formula $\eta_{t}.$
 \end_inset
 
+ Code to generate data from this model is here: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
  
+\backslash
+htmladdnormallink{EstimateStochasticVolatilityModel.jl}{file:///home/michael/Myst
+uff/Econometrics/Examples/SBEM/EstimateStochasticVolatilityModel.jl}
+\end_layout
+
+\end_inset
+
+.
+ Typical data look like what we see in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:SV-model,-typical"
+
+\end_inset
+
+.
+ Note the volatility clusters and the fat tails of the density.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:SV-model,-typical"
+
+\end_inset
+
+SV model, typical data and density
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Examples/TimeSeries/sv1.svg
+	width 10cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Density
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Examples/TimeSeries/sv2.svg
+	width 10cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -47398,6 +47523,8 @@ The latent shocks complicate estimation.
  and Rossi, P.E., 2002.
  Bayesian analysis of stochastic volatility models.
  Journal of Business & Economic Statistics, 20(1), pp.69-87.
+ We will see an example of estimation in the chapter on simulation-based
+ estimation.
 \end_layout
 
 \begin_layout Itemize
@@ -47407,7 +47534,6 @@ Variants of this sort of model are widely used to model financial data,
 \end_layout
 
 \begin_layout Standard
-exit
 \begin_inset Newpage newpage
 \end_inset
 
@@ -53210,15 +53336,6 @@ The standard normal density is a popular choice for
  
 \end_layout
 
-\begin_layout Exercise*
-Using the live CD image, run 
-\family typewriter
-kernel_local_linear_example(bw, 200, false, true)
-\family default
- for bw = 10, 0.5 and 0.05.
- 
-\end_layout
-
 \begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
@@ -53501,13 +53618,16 @@ Because we don't specify the form of
 
 \begin_layout Itemize
 Let's model this using a neural net.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
 
 \end_layout
 
-\end_deeper
 \begin_layout Itemize
 Consider a simple feed forward neural net for regression of an output in
  
@@ -53978,6 +54098,16 @@ iterate gradient/learning, with the learning rate (step size) getting smaller
 \end_deeper
 \begin_layout Standard
 Modern software exists to make this quite easy to do.
+ For Julia, 
+\begin_inset CommandInset href
+LatexCommand href
+name "see this page"
+target "https://juliacomputing.com/domains/ml-and-ai.html"
+
+\end_inset
+
+ to get started.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -53994,56 +54124,6 @@ For this to work well, you need a lot of data, to train the net.
 \begin_layout Itemize
 Simulation based econometric methods can give us a lot of simulated data,
  so using neural nets when doing simulation based estimation is very natural
-\end_layout
-
-\begin_layout Itemize
-For an example of neural nets used to compute an indirect inference estimator,
- see 
-\begin_inset CommandInset href
-LatexCommand href
-name "this repository"
-target "https://github.com/mcreel/NeuralNetsForIndirectInference.jl"
-
-\end_inset
-
-.
- Part of that repository has been copied into the ./Examples/DSGE/NNII directory
- of the example files that accompany these notes.
- See especially 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{this file}{file:///home/michael/Mystuff/Econometrics/Examples/
-DSGE/NNII/NN
-\backslash
-_estimate.m} 
-\end_layout
-
-\end_inset
-
-for an example that shows that shows that an accurate neural net estimator
- can be computed in extremely little time.
- Using these methods to estimate the model discussed in Chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:Application:-a-simple"
-
-\end_inset
-
-, we can obtain the results in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:DSGE-model.-Monte"
-
-\end_inset
-
-.
- (note to self: the program isn't translated to Julia because it uses Dynare
- to draw from the true model).
 \end_layout
 
 \begin_layout Itemize
@@ -54077,6 +54157,73 @@ We use a NN to identify which are the important variables for explaining
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Neural net indirect inference
+\series default
+: see 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "creel2017neural"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+see 
+\begin_inset CommandInset href
+LatexCommand href
+name "this repository"
+target "https://github.com/mcreel/NeuralNetsForIndirectInference.jl"
+
+\end_inset
+
+.
+ Part of that repository has been copied into the ./Examples/DSGE/NNII directory
+ of the example files that accompany these notes.
+ See especially 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{this file}{file:///home/michael/Mystuff/Econometrics/Examples/
+DSGE/NNII/NN
+\backslash
+_estimate.m} 
+\end_layout
+
+\end_inset
+
+ for an example that shows that shows that an accurate neural net estimator
+ can be computed in extremely little time.
+ Using these methods to estimate the model discussed in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Application:-a-simple"
+
+\end_inset
+
+, we can obtain the results in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:DSGE-model.-Monte"
+
+\end_inset
+
+.
+ (note to self: the program isn't translated to Julia because it uses Dynare
+ to draw from the true model).
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement H
 wide false
@@ -56011,6 +56158,48 @@ where we obtain the expressions for the joint and marginal densities from
  the section on kernel regression.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+The Julia script 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{ExampleKernelDensity.jl}{file:///home/michael/Mystuff/Econometr
+ics/Examples/Nonparametric/ExampleKernelDensity.jl}
+\end_layout
+
+\end_inset
+
+ draws data from a 
+\begin_inset Formula $\chi^{2}(3)$
+\end_inset
+
+ distribution and plots a kernel density fit, plus the true density.
+ We see that they're pretty close, when the sample size is large enough
+ for the kernel estimate to be precise.
+ Try playing around with a smaller sample, and see what happens.
+\end_layout
+
+\begin_layout Example
+\begin_inset Graphics
+	filename Examples/Nonparametric/NPdensity.svg
+	width 10cm
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Semi-nonparametric maximum likelihood
 \begin_inset CommandInset label
@@ -56971,10 +57160,6 @@ Yen/Dollar
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -57007,10 +57192,6 @@ Euro/Dollar
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -58331,14 +58512,14 @@ The Card data set is provided with the Wooldridge data set for GRETL, see
  the GRETL web page.
  A version prepared for the model used here is 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
 
 \backslash
-htmladdnormallink{card.gdt}{file:///home/michael/Mystuff/Econometrics/Examples/Qu
-antile/card.gdt} 
+htmladdnormallink{card.gdt}{file:///home/michael/Mystuff/Econometrics/Examples/Da
+ta/card.gdt} 
 \end_layout
 
 \end_inset
@@ -59135,11 +59316,22 @@ status collapsed
 is fully characterized by a parameter vector, so that simulated data can
  be generated, but the likelihood function and analytic moments of the observabl
 e variables are not calculable, so that MLE or GMM estimation is not possible.
- Many moderately complex models result in intractable likelihoods or moments,
+ 
+\end_layout
+
+\begin_layout Itemize
+Many moderately complex models result in intractable likelihoods or moments,
  as we will see.
- Simulation-based estimation methods open up the possibility to estimate
+\end_layout
+
+\begin_layout Itemize
+Simulation-based estimation methods open up the possibility to estimate
  truly complex models.
- The desirability introducing a great deal of complexity may be an issue
+ 
+\end_layout
+
+\begin_layout Itemize
+The desirability introducing a great deal of complexity may be an issue
 \begin_inset Foot
 status collapsed
 
@@ -59151,6 +59343,13 @@ Remember that a model is an abstraction from reality, and abstraction helps
 \end_inset
 
 , but it least it becomes a possibility.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -59165,7 +59364,8 @@ key "McFadden1989MSM"
 
 \end_inset
 
-)
+, which is one of the seminal articles behind the simulation-based estimation
+ boom)
 \end_layout
 
 \begin_layout Standard
@@ -59279,7 +59479,7 @@ Let
  observation to the likelihood function is 
 \begin_inset Formula 
 \[
-p_{i}(\theta)=\int_{A_{i}}n(y_{i}^{*}-X_{i}\beta,\Omega)dy_{i}^{*}
+p_{i}(\theta)=\int_{A_{i}}\phi(y_{i}^{*}-X_{i}\beta,\Omega)dy_{i}^{*}
 \]
 
 \end_inset
@@ -59287,7 +59487,7 @@ p_{i}(\theta)=\int_{A_{i}}n(y_{i}^{*}-X_{i}\beta,\Omega)dy_{i}^{*}
  where 
 \begin_inset Formula 
 \[
-n(\varepsilon,\Omega)=(2\pi)^{-M/2}\left|\Omega\right|^{-1/2}\exp\left[\frac{-\varepsilon^{\prime}\Omega^{-1}\varepsilon}{2}\right]
+\phi(\varepsilon,\Omega)=(2\pi)^{-M/2}\left|\Omega\right|^{-1/2}\exp\left[\frac{-\varepsilon^{\prime}\Omega^{-1}\varepsilon}{2}\right]
 \]
 
 \end_inset
@@ -59300,24 +59500,12 @@ n(\varepsilon,\Omega)=(2\pi)^{-M/2}\left|\Omega\right|^{-1/2}\exp\left[\frac{-\v
  The log-likelihood function is 
 \begin_inset Formula 
 \[
-\ln\mathcal{L}(\theta)=\frac{1}{n}\sum_{i=1}^{n}\ln p_{i}(\theta)
+\ln\mathcal{L}(\theta)=\frac{1}{n}\sum_{i=1}^{n}\ln p_{i}(\theta).
 \]
 
 \end_inset
 
- and the MLE 
-\begin_inset Formula $\hat{\theta}$
-\end_inset
-
- solves the score equations 
-\begin_inset Formula 
-\[
-\frac{1}{n}\sum_{i=1}^{n}g_{i}(\hat{\theta})=\frac{1}{n}\sum_{i=1}^{n}\frac{D_{\theta}p_{i}(\hat{\theta})}{p_{i}(\hat{\theta})}\equiv0.
-\]
-
-\end_inset
-
-
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -59341,6 +59529,13 @@ y infeasible when
 
  is higher than 3 or 4 (as long as there are no restrictions on 
 \begin_inset Formula $\Omega).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -59465,6 +59660,13 @@ y=1\left[y^{*}>0\right],
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Example:
 \begin_inset ERT
@@ -59568,11 +59770,11 @@ V(y)>\mathcal{E}(y).
 \begin_inset Formula $\eta_{i}.$
 \end_inset
 
- In some cases, the marginal density of 
+ The marginal density of 
 \begin_inset Formula $y$
 \end_inset
 
-
+ is
 \begin_inset Formula 
 \[
 \Pr(Y=y_{i}|X_{i})=\int_{S}\frac{\exp\left[-\exp(X_{i}\beta+\eta_{i})\right]\left[\exp(X_{i}\beta+\eta_{i})\right]^{y_{i}}}{y_{i}!}d\mu(\eta_{i})
@@ -59580,8 +59782,12 @@ V(y)>\mathcal{E}(y).
 
 \end_inset
 
- will have a closed-form solution (one can derive the negative binomial
- distribution in this way if 
+
+\end_layout
+
+\begin_layout Itemize
+In some cases, this will have a closed-form solution (one can derive the
+ negative binomial distribution in this way if 
 \begin_inset Formula $\eta$
 \end_inset
 
@@ -59592,7 +59798,11 @@ reference "eq:negbindensity"
 
 \end_inset
 
-), but often this will not be possible.
+)
+\end_layout
+
+\begin_layout Itemize
+Often this will not be possible.
  In this case, simulation is a means of calculating 
 \begin_inset Formula $\Pr(Y=y_{i}|X_{i}),$
 \end_inset
@@ -59618,25 +59828,15 @@ estimation.
 \begin_layout Itemize
 In this case, since there is only one latent variable, quadrature is probably
  a better choice.
- However, a more flexible model with heterogeneity would allow all parameters
- (not just the constant) to vary.
- For example
-\begin_inset Formula 
-\[
-\Pr(Y=y_{i})=\int_{S}\frac{\exp\left[-\exp(X_{i}\beta_{i})\right]\left[\exp(X_{i}\beta_{i})\right]^{y_{i}}}{y_{i}!}d\mu(\beta_{i})
-\]
+ But with more random parameters, quadrature becomes too costly and/or inaccurat
+e.
+\end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
-entails a 
-\begin_inset Formula $K=\dim\beta_{i}$
-\end_inset
 
--dimensional integral, which will not be evaluable by quadrature when 
-\begin_inset Formula $K$
-\end_inset
-
- gets large.
 \end_layout
 
 \begin_layout Subsection
@@ -59736,8 +59936,15 @@ The function
 \begin_inset Formula $h(\theta,y_{t})$
 \end_inset
 
- determines the variance of the shocks.
+ determines the instantaneous variance of the shocks.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -59754,11 +59961,14 @@ To estimate a model of this sort, we typically have data that are assumed
 \begin_inset Formula $y_{2},...y_{T}.$
 \end_inset
 
- That is, though 
+ That is, although 
 \begin_inset Formula $y_{t}$
 \end_inset
 
- is a continuous process it is observed in discrete time.
+ is a continuous process, it is observed in discrete time.
+ 
+\emph on
+(make a drawing)
 \end_layout
 
 \begin_layout Standard
@@ -59767,7 +59977,7 @@ To perform inference on
 \end_inset
 
  direct ML or GMM estimation is not usually feasible, because one cannot,
- in general, deduce the transition density 
+ in general, deduce the discrete time transition density 
 \begin_inset Formula $f(y_{t}|y_{t-1},\theta).$
 \end_inset
 
@@ -59911,13 +60121,13 @@ status collapsed
 estimator solves 
 \begin_inset Formula 
 \[
-\hat{\theta}_{ML}=\arg\max s_{n}(\theta)=\frac{1}{n}\sum_{t=1}^{n}\ln p(y_{t}|X_{t},\theta)
+\hat{\theta}_{ML}=\arg\max s_{n}(\theta)=\frac{1}{n}\sum_{t=1}^{n}\ln f(y_{t}|X_{t},\theta)
 \]
 
 \end_inset
 
  where 
-\begin_inset Formula $p(y_{t}|X_{t},\theta)$
+\begin_inset Formula $f(y_{t}|X_{t},\theta)$
 \end_inset
 
  is the density function of the 
@@ -59926,7 +60136,7 @@ estimator solves
 
  observation.
  When 
-\begin_inset Formula $p(y_{t}|X_{t},\theta)$
+\begin_inset Formula $f(y_{t}|X_{t},\theta)$
 \end_inset
 
  does not have a known closed form, 
@@ -59937,7 +60147,7 @@ estimator solves
  However, it may be possible to define a random function such that 
 \begin_inset Formula 
 \[
-\mathcal{E}_{\nu}f(\nu,y_{t},X_{t},\theta)=p(y_{t}|X_{t},\theta)
+\mathcal{E}_{\nu}p(\nu,y_{t}|X_{t},\theta)=f(y_{t}|X_{t},\theta)
 \]
 
 \end_inset
@@ -59950,13 +60160,13 @@ estimator solves
  If this is the case, the simulator 
 \begin_inset Formula 
 \[
-\tilde{p}\left(y_{t},X_{t},\theta\right)=\frac{1}{H}\sum_{s=1}^{H}f(\nu_{ts},y_{t},X_{t},\theta)
+\tilde{f}\left(y_{t}|X_{t},\theta\right)=\frac{1}{H}\sum_{s=1}^{H}p(\nu_{ts},y_{t}|X_{t},\theta)
 \]
 
 \end_inset
 
  is unbiased for 
-\begin_inset Formula $p(y_{t}|X_{t},\theta).$
+\begin_inset Formula $f(y_{t}|X_{t},\theta).$
 \end_inset
 
 
@@ -59964,352 +60174,22 @@ estimator solves
 
 \begin_layout Itemize
 The SML simply substitutes 
-\begin_inset Formula $\tilde{p}\left(y_{t},X_{t},\theta\right)$
+\begin_inset Formula $\tilde{f}\left(y_{t}|X_{t},\theta\right)$
 \end_inset
 
  in place of 
-\begin_inset Formula $p(y_{t}|X_{t},\theta)$
+\begin_inset Formula $f(y_{t}|X_{t},\theta)$
 \end_inset
 
  in the log-likelihood function, that is 
 \begin_inset Formula 
 \[
-\hat{\theta}_{SML}=\arg\max s_{n}(\theta)=\frac{1}{n}\sum_{i=1}^{n}\ln\tilde{p}\left(y_{t},X_{t},\theta\right)
+\hat{\theta}_{SML}=\arg\max s_{n}(\theta)=\frac{1}{n}\sum_{i=1}^{n}\ln\tilde{f}\left(y_{t}|X_{t},\theta\right)
 \]
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-Example: multinomial probit
-\end_layout
-
-\begin_layout Standard
-Recall that the utility of alternative 
-\begin_inset Formula $j$
-\end_inset
-
- is 
-\begin_inset Formula 
-\[
-u_{j}=X_{j}\beta+\varepsilon_{j}
-\]
-
-\end_inset
-
- and the vector 
-\begin_inset Formula $y$
-\end_inset
-
- is formed of elements 
-\begin_inset Formula 
-\[
-y_{j}=1\left[u_{j}>u_{k},k\in m,k\neq j\right]
-\]
-
-\end_inset
-
- The problem is that 
-\begin_inset Formula $\Pr(y_{j}=1|\theta)$
-\end_inset
-
- can't be calculated when 
-\begin_inset Formula $m$
-\end_inset
-
- is larger than 4 or 5.
- However, it is easy to simulate this probability.
-\end_layout
-
-\begin_layout Itemize
-Draw 
-\begin_inset Formula $\tilde{\varepsilon}_{i}$
-\end_inset
-
- from the distribution 
-\begin_inset Formula $N(0,\Omega)$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-Calculate 
-\begin_inset Formula $\tilde{u}_{i}=X_{i}\beta+\tilde{\varepsilon}_{i}$
-\end_inset
-
- (where 
-\begin_inset Formula $X_{i}$
-\end_inset
-
- is the matrix formed by stacking the 
-\begin_inset Formula $X_{ij})$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Define 
-\begin_inset Formula $\tilde{y}_{ij}=1\left[u_{ij}>u_{ik},\forall k\in m,k\neq j\right]$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Repeat this 
-\begin_inset Formula $H$
-\end_inset
-
- times and define 
-\begin_inset Formula 
-\[
-\widetilde{\pi}_{ij}=\frac{\sum_{h=1}^{H}\tilde{y}_{ijh}}{H}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Define 
-\begin_inset Formula $\widetilde{\pi}_{i}$
-\end_inset
-
- as the 
-\begin_inset Formula $m$
-\end_inset
-
--vector formed of the 
-\begin_inset Formula $\widetilde{\pi}_{ij}$
-\end_inset
-
-.
- Each element of 
-\begin_inset Formula $\widetilde{\pi}_{i}$
-\end_inset
-
- is between 0 and 1, and the elements sum to one.
-\end_layout
-
-\begin_layout Itemize
-Now 
-\begin_inset Formula $\tilde{p}\left(y_{i},X_{i},\theta\right)=y_{i}'\widetilde{\pi}_{i}$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-The SML multinomial probit log-likelihood function is 
-\begin_inset Formula 
-\[
-\ln\mathcal{L}(\beta,\Omega)=\frac{1}{n}\sum_{i=1}^{n}\ln\tilde{p}\left(y_{i},X_{i},\theta\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This is to be maximized w.r.t.
- 
-\begin_inset Formula $\beta$
-\end_inset
-
- and 
-\begin_inset Formula $\Omega.$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\emph on
-Notes:
-\end_layout
-
-\begin_layout Itemize
-The 
-\begin_inset Formula $H$
-\end_inset
-
- draws of 
-\begin_inset Formula $\tilde{\varepsilon}_{i}$
-\end_inset
-
- are draw 
-\emph on
-only once
-\emph default
- and are used repeatedly during the iterations used to find 
-\begin_inset Formula $\hat{\beta}$
-\end_inset
-
- and 
-\begin_inset Formula $\hat{\Omega}.$
-\end_inset
-
- The draws are different for each 
-\begin_inset Formula $i.$
-\end_inset
-
- If the 
-\begin_inset Formula $\tilde{\varepsilon}_{i}$
-\end_inset
-
- are re-drawn at every iteration the estimator will not converge.
-\end_layout
-
-\begin_layout Itemize
-The log-likelihood function with this simulator is a discontinuous function
- of 
-\begin_inset Formula $\beta$
-\end_inset
-
- and 
-\begin_inset Formula $\Omega.$
-\end_inset
-
- This does not cause problems from a theoretical point of view since it
- can be shown that 
-\begin_inset Formula $\ln\mathcal{L}(\beta,\Omega)$
-\end_inset
-
- is stochastically equicontinuous.
- However, it does cause problems if one attempts to use a gradient-based
- optimization method such as BFGS.
-\end_layout
-
-\begin_layout Itemize
-It may be the case, particularly if few simulations, 
-\begin_inset Formula $H$
-\end_inset
-
-, are used, that some elements of 
-\begin_inset Formula $\widetilde{\pi}_{i}$
-\end_inset
-
- are zero.
- If the corresponding element of 
-\begin_inset Formula $y_{i}$
-\end_inset
-
- is equal to 1, there will be a 
-\begin_inset Formula $\log(0)$
-\end_inset
-
- problem.
-\end_layout
-
-\begin_layout Itemize
-Solutions to discontinuity:
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-1)
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
- 
-\end_layout
-
-\end_inset
-
-use an estimation method that doesn't require a continuous and differentiable
- objective function, for example, simulated annealing.
- This is computationally costly.
-\end_layout
-
-\begin_layout Itemize
-2) Smooth the simulated probabilities so that they are continuous functions
- of the parameters.
- For example, apply a kernel transformation such as 
-\begin_inset Formula 
-\[
-\tilde{y}_{ij}=\Phi\left(A\times\left[u_{ij}-\max_{k=1}^{m}u_{ik}\right]\right)+.5\times1\left[u_{ij}=\max_{k=1}^{m}u_{ik}\right]
-\]
-
-\end_inset
-
- where 
-\begin_inset Formula $A$
-\end_inset
-
- is a large positive number.
- This approximates a step function such that 
-\begin_inset Formula $\tilde{y}_{ij}$
-\end_inset
-
- is very close to zero if 
-\begin_inset Formula $u_{ij}$
-\end_inset
-
- is not the maximum, and 
-\begin_inset Formula $\tilde{y}_{ij}$
-\end_inset
-
- is very close to 1 if 
-\begin_inset Formula $u_{ij}$
-\end_inset
-
- is the maximum.
- This makes 
-\begin_inset Formula $\tilde{y}_{ij}$
-\end_inset
-
- a continuous function of 
-\begin_inset Formula $\beta$
-\end_inset
-
- and 
-\begin_inset Formula $\Omega,$
-\end_inset
-
- so that 
-\begin_inset Formula $\tilde{p}_{ij}$
-\end_inset
-
- and therefore 
-\begin_inset Formula $\ln\mathcal{L}(\beta,\Omega)$
-\end_inset
-
- will be continuous and differentiable.
- Consistency requires that 
-\begin_inset Formula $A(n)\stackrel{p}{\rightarrow}\infty,$
-\end_inset
-
- so that the approximation to a step function becomes arbitrarily close
- as the sample size increases.
- There are alternative methods (e.g., Gibbs sampling) that may work better,
- but this is too technical to discuss here.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-To solve to log(0) problem, one possibility is to search the web for the
- slog function.
- Also, increase 
-\begin_inset Formula $H$
-\end_inset
-
- if this is a serious problem.
 \end_layout
 
 \begin_layout Standard
@@ -60329,25 +60209,14 @@ The properties of the SML estimator depend on how
 \end_inset
 
  is set.
- The following is taken from Lee (1995) 
-\begin_inset Quotes eld
+ The following is taken from 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "lee1995asymptotic"
+
 \end_inset
 
-Asymptotic Bias in Simulated Maximum Likelihood Estimation of Discrete Choice
- Models,
-\begin_inset Quotes erd
-\end_inset
-
- 
-\emph on
-Econometric Theory,
-\emph default
- 
-\series bold
-11,
-\series default
- pp.
- 437-83.
+.
 \end_layout
 
 \begin_layout Theorem
@@ -60425,6 +60294,14 @@ The varcov is the typical inverse of the information matrix, so that as
  grows fast enough the estimator is consistent and fully asymptotically
  efficient.
  
+\end_layout
+
+\begin_layout Itemize
+SML is actually not used nearly as often as is the method of simulated moments,
+ in one of its variations.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -60593,9 +60470,21 @@ Properties
 
 \begin_layout Standard
 Suppose that the optimal weighting matrix is used.
- McFadden (ref.
- above) and Pakes and Pollard (refs.
- above) show that the asymptotic distribution of the MSM
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "McFadden1989MSM"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "PakesPollard"
+
+\end_inset
+
+ show that the asymptotic distribution of the MSM
 \begin_inset ERT
 status collapsed
 
@@ -60667,20 +60556,31 @@ If one doesn't use the optimal weighting matrix, the asymptotic varcov is
 The above presentation is in terms of a specific moment condition based
  upon the conditional mean.
  The MSM can be applied to moment conditions of other forms, too.
-\begin_inset Separator latexpar
+\begin_inset Newpage newpage
 \end_inset
 
 
 \end_layout
 
-\begin_deeper
 \begin_layout Itemize
 A leading example is Indirect Inference, where we set 
 \begin_inset Formula $\bar{m}_{n}(\theta)=\text{\hat{\phi}-\ensuremath{\frac{1}{S}\sum\tilde{\phi^{s}}(\theta)}}$
 \end_inset
 
 , and then we just do ordinary GMM.
- Here, 
+ Note that this is an average over 
+\begin_inset Formula $S$
+\end_inset
+
+, not over 
+\begin_inset Formula $n$
+\end_inset
+
+, so this is a departure from the standard presentation of GMM.
+\end_layout
+
+\begin_layout Itemize
+Here, 
 \begin_inset Formula $\hat{\phi}$
 \end_inset
 
@@ -60751,11 +60651,30 @@ a drawback of the II estimator is that the auxiliary model must be estimated
  problem if it's more complicated.
  For efficiency, we need a good fit, and a simple linear model may not provide
  this.
- The EMM estimator discussed below is asymptotically equivalent to II, and
- it requires the auxiliary model to be estimated only once.
+ The EMM (
+\begin_inset CommandInset citation
+LatexCommand citet
+key "emm"
+
+\end_inset
+
+) estimator discussed below is asymptotically equivalent to II, and it requires
+ the auxiliary model to be estimated only once.
 \end_layout
 
-\end_deeper
+\begin_layout Itemize
+So, as Gallant and Tauchen ask, 
+\begin_inset Quotes sld
+\end_inset
+
+Which Moments to Match?
+\begin_inset Quotes srd
+\end_inset
+
+ is the fundamental question when doing MSM or EMM (or ordinary GMM, for
+ that matter).
+\end_layout
+
 \begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
@@ -60768,12 +60687,8 @@ Comments
 \end_layout
 
 \begin_layout Standard
-Why is SML inconsistent if 
-\begin_inset Formula $H$
-\end_inset
-
- is finite, while MSM is? The reason is that SML is based upon an average
- of 
+Why is SML inconsistent when the number of simulations is finite, while
+ MSM is? The reason is that SML is based upon an average of 
 \series bold
 logarithms
 \series default
@@ -60842,6 +60757,13 @@ is if
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -60933,698 +60855,11 @@ reference "simulated moments"
 .
 \end_layout
 
-\begin_layout Section
-Efficient method of moments (EMM)
-\end_layout
-
 \begin_layout Standard
-The choice of which moments upon which to base a GMM estimator can have
- very pronounced effects upon the efficiency of the estimator.
-\end_layout
-
-\begin_layout Itemize
-A poor choice of moment conditions may lead to very inefficient estimators,
- and can even cause identification problems (as we've seen with the GMM
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
- 
-\end_layout
-
-\end_inset
-
-problem set).
-\end_layout
-
-\begin_layout Itemize
-The drawback of the above approach MSM is that the moment conditions used
- in estimation are selected arbitrarily.
- The asymptotic efficiency of the estimator may be low.
-\end_layout
-
-\begin_layout Itemize
-The asymptotically optimal choice of moments would be the score vector of
- the likelihood function, 
-\begin_inset Formula 
-\[
-m_{t}(\theta)=D_{\theta}\ln p_{t}(\theta\mid I_{t})
-\]
-
-\end_inset
-
- As before, this choice is unavailable.
-\end_layout
-
-\begin_layout Standard
-The efficient method of moments (EMM) (see 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "emm"
-
-\end_inset
-
-) seeks to provide moment conditions that closely mimic the score vector.
- If the approximation is very good, the resulting estimator will be very
- nearly fully efficient.
- 
-\end_layout
-
-\begin_layout Standard
-The DGP is characterized by random sampling from the density 
-\begin_inset Formula 
-\[
-p(y_{t}|x_{t},\theta^{0})\equiv p_{t}(\theta^{0})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We can define an auxiliary model, called the 
-\begin_inset Quotes eld
-\end_inset
-
-score generator
-\begin_inset Quotes erd
-\end_inset
-
-, which simply provides a (misspecified) parametric density 
-\begin_inset Formula 
-\[
-f(y|x_{t},\lambda)\equiv f_{t}(\lambda)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-This density is known up to a parameter 
-\begin_inset Formula $\lambda.$
-\end_inset
-
- We assume that this density function 
-\emph on
-is
-\emph default
- calculable.
- Therefore quasi-ML estimation is possible.
- Specifically, 
-\begin_inset Formula 
-\[
-\hat{\lambda}=\arg\max_{\Lambda}s_{n}(\lambda)=\frac{1}{n}\sum_{t=1}^{n}\ln f_{t}(\lambda).
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-After determining 
-\begin_inset Formula $\hat{\lambda}$
-\end_inset
-
- we can calculate the score functions 
-\begin_inset Formula $D_{\lambda}\ln f(y_{t}|x_{t},\hat{\lambda})$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-The important point is that even if the density is misspecified, there is
- a pseudo-true 
-\begin_inset Formula $\lambda^{0}$
-\end_inset
-
- for which the true expectation, taken with respect to the true but unknown
- density of 
-\begin_inset Formula $y,$
-\end_inset
-
- 
-\begin_inset Formula $p(y|x_{t},\theta^{0}),$
-\end_inset
-
- and then marginalized over 
-\begin_inset Formula $x$
-\end_inset
-
- is zero: 
-\begin_inset Formula 
-\[
-\exists\lambda^{0}:\mathcal{E}_{X}\mathcal{E}_{Y|X}\left[D_{\lambda}\ln f(y|x,\lambda^{0})\right]=\int_{X}\int_{Y|X}D_{\lambda}\ln f(y|x,\lambda^{0})p(y|x,\theta^{0})dyd\mu(x)=0
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-We have seen in the section on QML that 
-\begin_inset Formula $\hat{\lambda}\stackrel{p}{\rightarrow}\lambda^{0}$
-\end_inset
-
-; this suggests using the moment conditions 
-\begin_inset Formula 
-\begin{equation}
-\bar{m}_{n}(\theta,\hat{\lambda})=\frac{1}{n}\sum_{t=1}^{n}\int D_{\lambda}\ln f_{t}(\hat{\lambda})p_{t}(\theta)dy\label{iimomcond}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-These moment conditions are not calculable, since 
-\begin_inset Formula $p_{t}(\theta)$
-\end_inset
-
- is not available, but they are simulable using 
-\begin_inset Formula 
-\[
-\widetilde{\bar{m}_{n}}(\theta,\hat{\lambda})=\frac{1}{n}\sum_{t=1}^{n}\frac{1}{H}\sum_{h=1}^{H}D_{\lambda}\ln f(\widetilde{y}_{t}^{h}|x_{t},\hat{\lambda})
-\]
-
-\end_inset
-
- where 
-\begin_inset Formula $\tilde{y}_{t}^{h}$
-\end_inset
-
- is a draw from 
-\begin_inset Formula $DGP(\theta),$
-\end_inset
-
- holding 
-\begin_inset Formula $x_{t}$
-\end_inset
-
- fixed.
- By the LLN and the fact that 
-\begin_inset Formula $\hat{\lambda}$
-\end_inset
-
- converges to 
-\begin_inset Formula $\lambda^{0}$
-\end_inset
-
-, 
-\begin_inset Formula 
-\[
-\widetilde{m}_{\infty}(\theta^{0},\lambda^{0})=0.
-\]
-
-\end_inset
-
- This is not the case for other values of 
-\begin_inset Formula $\theta$
-\end_inset
-
-, assuming that 
-\begin_inset Formula $\lambda^{0}$
-\end_inset
-
- is identified.
-\end_layout
-
-\begin_layout Itemize
-The advantage of this procedure is that if 
-\begin_inset Formula $f(y_{t}|x_{t},\lambda)$
-\end_inset
-
- closely approximates 
-\begin_inset Formula $p(y|x_{t},\theta),$
-\end_inset
-
- then 
-\begin_inset Formula $\widetilde{m}_{n}(\theta,\hat{\lambda})$
-\end_inset
-
- will closely approximate the optimal moment conditions which characterize
- maximum likelihood estimation, which is fully efficient.
-\end_layout
-
-\begin_layout Itemize
-If one has prior information that a certain density approximates the data
- well, it would be a good choice for 
-\begin_inset Formula $f(\cdot).$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-If one has no density in mind, there exist good ways of approximating unknown
- distributions parametrically: Philips' ERA's (
-\shape italic
-Econometrica
-\shape default
-, 1983) and Gallant and Nychka's (
-\shape italic
-Econometrica, 1987)
-\shape default
- SNP density estimator which we saw before.
- Since the SNP density is consistent, the efficiency of the indirect estimator
- is the same as the infeasible ML
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
- 
-\end_layout
-
-\end_inset
-
-estimator.
- 
-\end_layout
-
-\begin_layout Subsection
-Optimal weighting matrix
-\end_layout
-
-\begin_layout Standard
-I will present the theory for 
-\begin_inset Formula $H$
-\end_inset
-
- finite, and possibly small.
- This is done because it is sometimes impractical to estimate with 
-\begin_inset Formula $H$
-\end_inset
-
- very large.
- Gallant and Tauchen give the theory for the case of 
-\begin_inset Formula $H$
-\end_inset
-
- so large that it may be treated as infinite (the difference being irrelevant
- given the numerical precision of a computer).
- The theory for the case of 
-\begin_inset Formula $H$
-\end_inset
-
- infinite follows directly from the results presented here.
-\end_layout
-
-\begin_layout Standard
-The moment condition 
-\begin_inset Formula $\widetilde{m}(\theta,\hat{\lambda})$
-\end_inset
-
- depends on the pseudo-ML estimate 
-\begin_inset Formula $\hat{\lambda}.$
-\end_inset
-
- We can apply Theorem 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Normality of ee"
-
-\end_inset
-
- to conclude that 
-\begin_inset Formula 
-\begin{equation}
-\sqrt{n}\left(\hat{\lambda}-\lambda^{0}\right)\stackrel{d}{\rightarrow}N\left[0,\mathcal{J}(\lambda^{0})^{-1}\mathcal{I}(\lambda^{0})\mathcal{J}(\lambda^{0})^{-1}\right]\label{lamdist}
-\end{equation}
-
-\end_inset
-
- If the density 
-\begin_inset Formula $f(y_{t}|x_{t},\hat{\lambda})$
-\end_inset
-
- were in fact the true density 
-\begin_inset Formula $p(y|x_{t},\theta),$
-\end_inset
-
- then 
-\begin_inset Formula $\hat{\lambda}$
-\end_inset
-
- would be the maximum likelihood estimator, and 
-\begin_inset Formula $\mathcal{J}(\lambda^{0})^{-1}\mathcal{I}(\lambda^{0})$
-\end_inset
-
- would be an identity matrix, due to the information matrix equality.
- However, in the present case we assume that 
-\begin_inset Formula $f(y_{t}|x_{t},\hat{\lambda})$
-\end_inset
-
- is only an approximation to 
-\begin_inset Formula $p(y|x_{t},\theta),$
-\end_inset
-
- so there is no cancellation.
-\end_layout
-
-\begin_layout Standard
-Recall that 
-\begin_inset Formula $\mathcal{J}(\lambda^{0})\equiv p\lim\left(\frac{\partial^{2}}{\partial\lambda\partial\lambda^{\prime}}s_{n}(\lambda^{0})\right).$
-\end_inset
-
- Comparing the definition of 
-\begin_inset Formula $s_{n}(\lambda)$
-\end_inset
-
- with the definition of the moment condition in Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "iimomcond"
-
-\end_inset
-
-, we see that 
-\begin_inset Formula 
-\[
-\mathcal{J}(\lambda^{0})=D_{\lambda^{\prime}}m(\theta^{0},\lambda^{0}).
-\]
-
-\end_inset
-
- As in Theorem 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Normality of ee"
-
-\end_inset
-
-, 
-\begin_inset Formula 
-\[
-\mathcal{I}(\lambda^{0})=\lim_{n\rightarrow\infty}\mathcal{E}\left[n\left.\frac{\partial s_{n}(\lambda)}{\partial\lambda}\right|_{\lambda^{0}}\left.\frac{\partial s_{n}(\lambda)}{\partial\lambda^{\prime}}\right|_{\lambda^{0}}\right].
-\]
-
-\end_inset
-
- In this case, this is simply the asymptotic variance covariance matrix
- of the moment conditions, 
-\begin_inset Formula $\Omega.$
-\end_inset
-
- Now take a first order Taylor's series approximation to 
-\begin_inset Formula $\sqrt{n}\bar{m}_{n}(\theta^{0},\hat{\lambda})$
-\end_inset
-
- about 
-\begin_inset Formula $\lambda^{0}$
-\end_inset
-
- :
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\sqrt{n}\tilde{m}_{n}(\theta^{0},\hat{\lambda})=\sqrt{n}\tilde{m}_{n}(\theta^{0},\lambda^{0})+\sqrt{n}D_{\lambda^{\prime}}\tilde{m}(\theta^{0},\lambda^{0})\left(\hat{\lambda}-\lambda^{0}\right)+o_{p}(1)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-First consider 
-\begin_inset Formula $\sqrt{n}\tilde{m}_{n}(\theta^{0},\lambda^{0})$
-\end_inset
-
-.
- It is straightforward but somewhat tedious to show that the asymptotic
- variance of this term is 
-\begin_inset Formula $\frac{1}{H}I_{\infty}(\lambda^{0})$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-Next consider the second term 
-\begin_inset Formula $\sqrt{n}D_{\lambda^{\prime}}\tilde{m}(\theta^{0},\lambda^{0})\left(\hat{\lambda}-\lambda^{0}\right)$
-\end_inset
-
-.
- Note that 
-\begin_inset Formula $D_{\lambda^{\prime}}\tilde{m}_{n}(\theta^{0},\lambda^{0})\stackrel{a.s.}{\rightarrow}\mathcal{J}(\lambda^{0}),$
-\end_inset
-
- so we have
-\begin_inset Formula 
-\[
-\sqrt{n}D_{\lambda^{\prime}}\tilde{m}(\theta^{0},\lambda^{0})\left(\hat{\lambda}-\lambda^{0}\right)=\sqrt{n}\mathcal{J}(\lambda^{0})\left(\hat{\lambda}-\lambda^{0}\right),a.s.
-\]
-
-\end_inset
-
- But noting equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lamdist"
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\sqrt{n}\mathcal{J}(\lambda^{0})\left(\hat{\lambda}-\lambda^{0}\right)\stackrel{a}{\sim}N\left[0,\mathcal{I}(\lambda^{0})\right]
-\]
-
-\end_inset
-
-Now, combining the results for the first and second terms, 
-\begin_inset Formula 
-\[
-\sqrt{n}\tilde{m}_{n}(\theta^{0},\hat{\lambda})\stackrel{a}{\sim}N\left[0,\left(1+\frac{1}{H}\right)\mathcal{I}(\lambda^{0})\right]
-\]
-
-\end_inset
-
- Suppose that 
-\begin_inset Formula $\widehat{\mathcal{I}(\lambda^{0})}$
-\end_inset
-
- is a consistent estimator of the asymptotic variance-covariance matrix
- of the moment conditions.
- This may be complicated if the score generator is a poor approximator,
- since the individual score contributions may not have mean zero in this
- case (see the section on QML) .
- Even if this is the case, the individuals means can be calculated by simulation
-, so it is always possible to consistently estimate 
-\begin_inset Formula $\mathcal{I}(\lambda^{0})$
-\end_inset
-
- when the model is simulable.
- On the other hand, if the score generator is taken to be correctly specified,
- the ordinary estimator of the information matrix is consistent.
- Combining this with the result on the efficient GMM
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
- 
-\end_layout
-
-\end_inset
-
-weighting matrix in Theorem 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "efficient weighting matrix"
-
-\end_inset
-
-, we see that defining 
-\begin_inset Formula $\hat{\theta}$
-\end_inset
-
- as 
-\begin_inset Formula 
-\[
-\hat{\theta}=\arg\min_{\Theta}\bar{m}_{n}(\theta,\hat{\lambda})^{\prime}\left[\left(1+\frac{1}{H}\right)\widehat{\mathcal{I}(\lambda^{0})}\right]^{-1}\bar{m}_{n}(\theta,\hat{\lambda})
-\]
-
-\end_inset
-
- is the GMM estimator with the efficient choice of weighting matrix.
-\end_layout
-
-\begin_layout Itemize
-If one has used the Gallant-Nychka ML estimator as the auxiliary model,
- the appropriate weighting matrix is simply the information matrix of the
- auxiliary model, since the scores are uncorrelated.
- (e.g., it really is ML
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
- 
-\end_layout
-
-\end_inset
-
-estimation asymptotically, since the score generator can approximate the
- unknown density arbitrarily well).
- 
-\end_layout
-
-\begin_layout Subsection
-Asymptotic distribution
-\end_layout
-
-\begin_layout Standard
-Since we use the optimal weighting matrix, the asymptotic distribution is
- as in Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "gmm distribution with optimal weighting matrix"
-
-\end_inset
-
-, so we have (using the result in Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lamdist"
-
-\end_inset
-
-): 
-\begin_inset Formula 
-\[
-\sqrt{n}\left(\hat{\theta}-\theta^{0}\right)\stackrel{d}{\rightarrow}N\left[0,\left(D_{\infty}\left[\left(1+\frac{1}{H}\right)\mathcal{I}(\lambda^{0})\right]^{-1}D_{\infty}^{\prime}\right)^{-1}\right],
-\]
-
-\end_inset
-
- where 
-\begin_inset Formula 
-\[
-D_{\infty}=\lim_{n\rightarrow\infty}\mathcal{E}\left[D_{\theta}\bar{m}_{n}(\theta^{0},\lambda^{0})\right].
-\]
-
-\end_inset
-
- This can be consistently estimated using 
-\begin_inset Formula 
-\[
-\hat{D}=D_{\theta}\bar{m}_{n}(\hat{\theta},\hat{\lambda})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Diagnostic testing
-\end_layout
-
-\begin_layout Standard
-The fact that 
-\begin_inset Formula 
-\[
-\sqrt{n}\bar{m}_{n}(\theta^{0},\hat{\lambda})\stackrel{a}{\sim}N\left[0,\left(1+\frac{1}{H}\right)\mathcal{I}(\lambda^{0})\right]
-\]
-
-\end_inset
-
- implies that 
-\begin_inset Formula 
-\[
-n\bar{m}_{n}(\hat{\theta},\hat{\lambda})^{\prime}\left[\left(1+\frac{1}{H}\right)\mathcal{I}(\hat{\lambda})\right]^{-1}\bar{m}_{n}(\hat{\theta},\hat{\lambda})\stackrel{a}{\sim}\chi^{2}(q)
-\]
-
-\end_inset
-
- where 
-\begin_inset Formula $q$
-\end_inset
-
- is 
-\begin_inset Formula $\dim(\lambda)-\dim(\theta),$
-\end_inset
-
- since without 
-\begin_inset Formula $\dim(\theta)$
-\end_inset
-
- moment conditions the model is not identified, so testing is impossible.
- One test of the model is simply based on this statistic: if it exceeds
- the 
-\begin_inset Formula $\chi^{2}(q)$
-\end_inset
-
- critical point, something may be wrong (the small sample performance of
- this sort of test would be a topic worth investigating).
-\end_layout
-
-\begin_layout Itemize
-Information about what is wrong can be gotten from the pseudo-t-statistics:
- 
-\begin_inset Formula 
-\[
-\left(\text{diag}\left[\left(1+\frac{1}{H}\right)\mathcal{I}(\hat{\lambda})\right]^{1/2}\right)^{-1}\sqrt{n}\bar{m}_{n}(\hat{\theta},\hat{\lambda})
-\]
-
-\end_inset
-
- can be used to test which moments are not well modeled.
- Since these moments are related to parameters of the score generator, which
- are usually related to certain features of the model, this information
- can be used to revise the model.
- These aren't actually distributed as 
-\begin_inset Formula $N(0,1),$
-\end_inset
-
- since 
-\begin_inset Formula $\sqrt{n}\bar{m}_{n}(\theta^{0},\hat{\lambda})$
-\end_inset
-
- and 
-\begin_inset Formula $\sqrt{n}\bar{m}_{n}(\hat{\theta},\hat{\lambda})$
-\end_inset
-
- have different distributions (that of 
-\begin_inset Formula $\sqrt{n}\bar{m}_{n}(\hat{\theta},\hat{\lambda})$
+\begin_inset Newpage pagebreak
 \end_inset
-
- is somewhat more complicated).
- It can be shown that the pseudo-t statistics are biased toward nonrejection.
- See Gourieroux 
-\emph on
-et.
- al.
-
-\emph default
- or Gallant and Long, 1995, for more details.
- 
-\end_layout
 
-\begin_layout Section
-Indirect likelihood inference and Approximate Bayesian Computing (ABC)
-\end_layout
 
-\begin_layout Standard
-to be added
 \end_layout
 
 \begin_layout Section
@@ -61632,32 +60867,14 @@ Examples
 \end_layout
 
 \begin_layout Subsection
-SML of a Poisson model with latent heterogeneity
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:SML-Poisson-Latent"
-
-\end_inset
-
-
+MSM and II
 \end_layout
 
 \begin_layout Standard
-We have seen (see equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:negbindensity"
 
-\end_inset
+The Julia script 
+\lang english
 
-) that a Poisson model with latent heterogeneity that follows an exponential
- distribution leads to the negative binomial model.
- To illustrate SML, we can integrate out the latent heterogeneity using
- Monte Carlo, rather than the analytical approach which leads to the negative
- binomial model.
- In actual practice, one would not want to use SML in this case, but it
- is a nice example since it allows us to compare SML to the actual ML estimator.
- The Octave function defined by 
 \begin_inset ERT
 status collapsed
 
@@ -61665,78 +60882,32 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{PoissonLatentHet.m}{file:///home/michael/Mystuff/Econometrics/E
-xamples/SBEM/PoissonLatentHet.m}
+htmladdnormallink{EstimateStochasticVolatilityModel.jl}{file:///home/michael/Myst
+uff/Econometrics/Examples/SBEM/EstimateStochasticVolatilityModel.jl}
 \end_layout
 
 \end_inset
 
- calculates the simulated log likelihood for a Poisson model where 
-\begin_inset Formula $\lambda=\exp x_{t}^{\prime}\beta+\sigma\eta)$
-\end_inset
-
-, where 
-\begin_inset Formula $\eta\sim N(0,1)$
-\end_inset
-
-.
- This model is similar to the negative binomial model, except that the latent
- variable is normally distributed rather than gamma distributed.
- The Octave script 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{EstimatePoissonLatentHet.m}{file:///home/michael/Mystuff/Econom
-etrics/Examples/SBEM/EstimatePoissonLatentHet.m}
-\end_layout
-
-\end_inset
-
- estimates this model using the MEPS OBDV data that has already been discussed.
- Note that simulated annealing is used to maximize the log likelihood function.
- Attempting to use BFGS leads to trouble.
- I suspect that the log likelihood is approximately non-differentiable in
- places, around which it is very flat, though I have not checked if this
- is true.
- If you run this script, you will see that it takes a long time to get the
- estimation results, which are:
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "Examples/SBEM/plh.out"
-
-\end_inset
-
-If you compare these results to the results for the negative binomial model,
- given in subsection (
+ estimates the stochastic volatility model considered in Subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Infinite-mixture-models:"
+reference "subsec:Stochastic-volatility"
 
 \end_inset
 
-), you can see that the present model fits better according to the CAIC
- criterion.
- It also fits better than the seminonparametric negative binomial model,
- presented in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Semi-nonparametric-maximum-likel"
-
-\end_inset
-
-, which has more parameters.
- The present model is considerably less convenient to work with, however,
- due to the computational requirements.
- The chapter on parallel computing is relevant if you wish to use models
- of this sort.
+ by indirect inference and by MSM, using ad-hoc moments.
+ It illustrates the fact that the choice of moments is important.
 \end_layout
 
-\begin_layout Subsection
-MSM (Indirect inference, CU-GMM)
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+MA model, AR auxiliary model 
 \end_layout
 
 \begin_layout Standard
@@ -61841,10 +61012,10 @@ We estimate
 \end_layout
 
 \begin_layout Subsection
-Example: EMM estimation of a discrete choice model
+SML of a Poisson model with latent heterogeneity
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:EMM-estimation-of"
+name "subsec:SML-Poisson-Latent"
 
 \end_inset
 
@@ -61852,23 +61023,21 @@ name "subsec:EMM-estimation-of"
 \end_layout
 
 \begin_layout Standard
-In this section consider EMM estimation.
- There is a 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{sophisticated package}{http://www.econ.duke.edu/~get/emm.html}
-\end_layout
+We have seen (see equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:negbindensity"
 
 \end_inset
 
- by Gallant and Tauchen for this, but here we'll look at some simple, but
- hopefully didactic code.
- The file 
+) that a Poisson model with latent heterogeneity that follows an exponential
+ distribution leads to the negative binomial model.
+ To illustrate SML, we can integrate out the latent heterogeneity using
+ Monte Carlo, rather than the analytical approach which leads to the negative
+ binomial model.
+ In actual practice, one would not want to use SML in this case, but it
+ is a nice example since it allows us to compare SML to the actual ML estimator.
+ The Octave function defined by 
 \begin_inset ERT
 status collapsed
 
@@ -61876,268 +61045,71 @@ status collapsed
 
  
 \backslash
-htmladdnormallink{probitdgp.m}{file:///home/michael/Mystuff/Econometrics/MyOctave
-Files/Count/ProbitDGP.m}
+htmladdnormallink{PoissonLatentHet.m}{file:///home/michael/Mystuff/Econometrics/E
+xamples/SBEM/PoissonLatentHet.m}
 \end_layout
 
 \end_inset
 
- generates data that follows the probit model.
- The file 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{emm
-\backslash
-_moments.m}{file:///home/michael/Mystuff/Econometrics/Examples/Parallel/gmm/emm
-\backslash
-_moments.m}
-\end_layout
-
+ calculates the simulated log likelihood for a Poisson model where 
+\begin_inset Formula $\lambda=\exp x_{t}^{\prime}\beta+\sigma\eta)$
 \end_inset
 
- defines EMM moment conditions, where the DGP and score generator can be
- passed as arguments.
- Thus, it is a general purpose moment condition for EMM estimation.
- This file is interesting enough to warrant some discussion.
- A listing appears in Listing 19.1.
- Line 3 defines the DGP, and the arguments needed to evaluate it are defined
- in line 4.
- The score generator is defined in line 5, and its arguments are defined
- in line 6.
- The QML estimate of the parameter of the score generator is read in line
- 7.
- Note in line 10 how the random draws needed to simulate data are passed
- with the data, and are thus fixed during estimation, to avoid 
-\begin_inset Quotes sld
-\end_inset
-
-chattering
-\begin_inset Quotes srd
+, where 
+\begin_inset Formula $\eta\sim N(0,1)$
 \end_inset
 
 .
- The simulated data is generated in line 16, and the derivative of the score
- generator using the simulated data is calculated in line 18.
- In line 20 we average the scores of the score generator, which are the
- moment conditions that the function returns.
-\end_layout
-
-\begin_layout Standard
+ This model is similar to the negative binomial model, except that the latent
+ variable is normally distributed rather than gamma distributed.
+ The Octave script 
 \begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{lstlisting}[language=Octave,caption=emm
-\backslash
-_moments.m]
-\end_layout
-
-\begin_layout Plain Layout
-
-function scores = emm_moments(theta, data, momentargs)
-\end_layout
-
-\begin_layout Plain Layout
-
-  k = momentargs{1};
-\end_layout
-
-\begin_layout Plain Layout
-
-  dgp = momentargs{2}; # the data generating process (DGP)
-\end_layout
-
-\begin_layout Plain Layout
-
-  dgpargs = momentargs{3}; # its arguments (cell array)
-\end_layout
-
-\begin_layout Plain Layout
-
-  sg = momentargs{4}; # the score generator (SG)
-\end_layout
-
-\begin_layout Plain Layout
-
-  sgargs = momentargs{5}; # SG arguments (cell array)
-\end_layout
-
-\begin_layout Plain Layout
-
-  phi = momentargs{6}; # QML estimate of SG parameter
-\end_layout
-
-\begin_layout Plain Layout
-
-  y = data(:,1);
-\end_layout
-
-\begin_layout Plain Layout
-
-  x = data(:,2:k+1);
-\end_layout
-
-\begin_layout Plain Layout
-
-  rand_draws = data(:,k+2:columns(data));  # passed with data to ensure
- fixed across iterations
-\end_layout
-
-\begin_layout Plain Layout
-
-  n = rows(y);
-\end_layout
-
-\begin_layout Plain Layout
-
-  scores = zeros(n,rows(phi)); # container for moment contributions
-\end_layout
-
-\begin_layout Plain Layout
-
-  reps = columns(rand_draws); # how many simulations?
-\end_layout
-
-\begin_layout Plain Layout
-
-  for i = 1:reps
-\end_layout
-
-\begin_layout Plain Layout
-
-    e = rand_draws(:,i);
-\end_layout
-
-\begin_layout Plain Layout
-
-    y = feval(dgp, theta, x, e, dgpargs); # simulated data
-\end_layout
-
-\begin_layout Plain Layout
-
-    sgdata = [y x]; # simulated data for SG
-\end_layout
-
-\begin_layout Plain Layout
-
-    scores = scores + numgradient(sg, {phi, sgdata, sgargs}); # gradient
- of SG
-\end_layout
-
-\begin_layout Plain Layout
-
-  endfor
-\end_layout
-
-\begin_layout Plain Layout
-
-  scores = scores / reps; # average over number of simulations
-\end_layout
-
-\begin_layout Plain Layout
-
-endfunction
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{lstlisting}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The file 
-\begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{emm
-\backslash
-_example.m}{file:///home/michael/Mystuff/Econometrics/MyOctaveFiles/ParallelKnopp
-ix/gmm/emm
-\backslash
-_example.m}
+htmladdnormallink{EstimatePoissonLatentHet.m}{file:///home/michael/Mystuff/Econom
+etrics/Examples/SBEM/EstimatePoissonLatentHet.m}
 \end_layout
 
 \end_inset
 
- performs EMM estimation of the probit model, using a logit model as the
- score generator.
- The results we obtain are
-\end_layout
-
-\begin_layout Standard
-\paragraph_spacing single
+ estimates this model using the MEPS OBDV data that has already been discussed.
+ Note that simulated annealing is used to maximize the log likelihood function.
+ Attempting to use BFGS leads to trouble.
+ If you run this script, you will see that it takes a long time to get the
+ estimation results, which are:
 \begin_inset CommandInset include
 LatexCommand verbatiminput
-filename "Examples/SBEM/emm.out"
+filename "Examples/SBEM/plh.out"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-It might be interesting to compare the standard errors with those obtained
- from ML estimation, to check efficiency of the EMM estimator.
- One could even do a Monte Carlo study.
-\end_layout
-
-\begin_layout Subsection
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Indirect-likelihood-inference"
+If you compare these results to the results for the negative binomial model,
+ given in subsection (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Infinite-mixture-models:"
 
 \end_inset
 
-Indirect likelihood inference
-\end_layout
-
-\begin_layout Standard
-A simple script that does SBIL estimation of the same DSGE model as discussed
- above is at 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- 
-\backslash
-htmladdnormallink{DSGE by SBIL}{file:///home/michael/Mystuff/Econometrics/MyOcta
-veFiles/Econometrics/IL/DSGE
-\backslash
-_SBIL
-\backslash
-_Simple/DSGE
-\backslash
-_SBIL
-\backslash
-_Simple.m}
-\end_layout
+), you can see that the present model fits better according to the CAIC
+ criterion.
+ It also fits better than the seminonparametric negative binomial model,
+ presented in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Semi-nonparametric-maximum-likel"
 
 \end_inset
 
-.
- This implements a less sophisticated verion of the estimator than was used
- to make the tables presented here (less careful choice of auxiliary statistics,
- no bias correction, etc), but it conveys the main ideas.
+, which has more parameters.
+ The present model is considerably less convenient to work with, however,
+ due to the computational requirements.
+ The chapter on parallel computing is relevant if you wish to use models
+ of this sort.
 \end_layout
 
 \begin_layout Standard
@@ -63851,6 +62823,713 @@ help numgradient
 help numhessian
 \family default
  inside octave.
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Introduction to Julia
+\end_layout
+
+\begin_layout Standard
+This chapter gives a brief introduction to Julia, explaining how to get
+ running, and giving some basic examples relevant to econometrics.
+ There are also some pointers to sources of additional information.
+ This is written for Julia version 0.6.x, and will be updated (hopefully)
+ to keep up with developments.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Why Julia?
+\end_layout
+
+\begin_layout Itemize
+free: free in terms of $$$, and also, source code is free, so you can know
+ exactly what it does, and you can modify it and contribute to it
+\end_layout
+
+\begin_layout Itemize
+multi-platform: runs on all the popular operating systems
+\end_layout
+
+\begin_layout Itemize
+fast: speed of well-written code is close to C or Fortan.
+ Code relatively easy to write, similar to Matlab.
+\end_layout
+
+\begin_layout Itemize
+these 3 considerations are essentially necessary for a language for modern
+ science that seeks to be verifiable and open
+\end_layout
+
+\begin_layout Itemize
+also, it's fun: the ecosystem is still developing rapidly, plenty of room
+ to contribute
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Why not Julia?
+\end_layout
+
+\begin_layout Itemize
+JIT requires warming up, first calls to functions take a bit of time.
+ Interactive use may frustrate, unless you work around this.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+will get better in time, as support for pre-compilation improves
+\end_layout
+
+\begin_layout Itemize
+can be dealt with quite easily by warming up functions with toy usages
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+the speed is only needed if your work is computationally demanding.
+ For getting fast results for linear models, you may prefer a more complete
+ canned package, e.g., Stata, etc.
+\end_layout
+
+\begin_layout Itemize
+the ecosystem is still developing, some features like DataFrames and plotting
+ are not as complete stable as in other languages.
+ However, I have been using it happily since 2014, and have been getting
+ work done.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Resources
+\end_layout
+
+\begin_layout Itemize
+Julia language: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://junolab.org/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Juno editor :
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://junolab.org/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+packages: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://pkg.julialang.org/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Quantitative Economics: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://lectures.quantecon.org/jl/index.html
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Julia Economics blog: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://juliaeconomics.com/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+comparison of programming languages for economics: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://economics.sas.upenn.edu/~jesusfv/comparison_languages.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+get from my bookmarks
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Installation of Julia and packages
+\end_layout
+
+\begin_layout Itemize
+install Julia stable version from 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://julialang.org/downloads/
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+main commands for packages: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+Pkg.update()
+\family default
+.
+ Find out what has been updated.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+Pkg.add() 
+\family default
+Add a new package.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+Pkg.checkout()
+\family default
+ Get the 
+\begin_inset Quotes srd
+\end_inset
+
+main
+\begin_inset Quotes srd
+\end_inset
+
+ git branch version, instead of the last release.
+ Could have new features, or might not work!
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+Pkg.clone() 
+\family default
+Obtain a package that is not registered in the Julia package system.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+install PyPlot.jl.
+ It needs a pre-existing python installation.
+ On Linux, use it by executing
+\family typewriter
+ ENV["PYTHON"]="/usr/bin/python";Pkg.build("PyCall")
+\end_layout
+
+\begin_layout Itemize
+get the support software from 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/mcreel/Econometrics.jl
+\end_layout
+
+\end_inset
+
+ Execute, from the Julia prompt
+\family typewriter
+ Pkg.clone("https://github.com/mcreel/Econometrics.jl.git") 
+\family default
+which will pull in a lot of required packages.
+ TAKES QUITE A BIT OF TIME!
+\end_layout
+
+\begin_layout Itemize
+install Juno from 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://junolab.org/
+\end_layout
+
+\end_inset
+
+.
+ This is a GUI editor environment which has some nice features for combining
+ scripted and interactive usage.
+ I will use it in my explanation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Running Julia and the work flow
+\end_layout
+
+\begin_layout Subsection
+REPL and text editor
+\end_layout
+
+\begin_layout Itemize
+My main way of working for research.
+ Simple and easy to replicate.
+ 
+\end_layout
+
+\begin_layout Itemize
+Show it.
+\end_layout
+
+\begin_layout Subsection
+IJulia/Jupyter notebooks
+\end_layout
+
+\begin_layout Itemize
+Good for presentations, but I find it cumbersome for research.
+\end_layout
+
+\begin_layout Itemize
+Show it by doing 
+\family typewriter
+using IJulia; notebook()
+\end_layout
+
+\begin_layout Subsection
+Juno/Atom
+\end_layout
+
+\begin_layout Standard
+This is what I will use to present this introduction.
+ Nice, because it allows evaluation line-by-line, or by blocks of code.
+\end_layout
+
+\begin_layout Subsection
+JuliaBox
+\end_layout
+
+\begin_layout Standard
+A way to try Julia out, without installation .
+ Uses IJulia.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Loading/saving data
+\end_layout
+
+\begin_layout Standard
+Example data sets:
+\end_layout
+
+\begin_layout Standard
+CSV with names: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/mcreel/Econometrics/blob/master/Examples/Data/card.csv
+\end_layout
+
+\end_inset
+
+, and
+\end_layout
+
+\begin_layout Standard
+plain text, space delimited: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/mcreel/Econometrics/blob/master/Examples/Data/nerlove.data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+readdlm, writedlm.
+ 
+\end_layout
+
+\begin_layout Itemize
+CSV.jl: readtable() for reading CSV files with variable names in the first
+ row
+\end_layout
+
+\begin_layout Itemize
+writeldlm, CSV.write
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Lab 1
+\end_layout
+
+\begin_layout Itemize
+get into REPL, and do some basic operations
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+add a package
+\end_layout
+
+\begin_layout Itemize
+define an array
+\end_layout
+
+\begin_layout Itemize
+extract a column
+\end_layout
+
+\begin_layout Itemize
+etc.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Exploratory analysis and plotting
+\end_layout
+
+\begin_layout Itemize
+Using DataFrames and StatPlots for exploratory analysis: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{BasicDataAnalysis.jl}{file:///home/michael/Mystuff/Econometrics
+/Examples/Julia/BasicDataAnalysis.jl} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Data wrangling: transforming, adding variables, etc.: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{DataWrangling.jl}{file:///home/michael/Mystuff/Econometrics/Exa
+mples/Julia/DataWrangling.jl} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.juliabloggers.com/data-wrangling-in-julia-based-on-dplyr-flights-tutor
+ials/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Lab 2
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Optimization
+\end_layout
+
+\begin_layout Itemize
+unconstrained: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/JuliaNLSolvers/Optim.jl
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+constrained: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/JuliaOpt/NLopt.jl
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+global: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Modeling
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Lab 3
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Performance considerations
+\end_layout
+
+\begin_layout Itemize
+Basic info: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://docs.julialang.org/en/stable/manual/performance-tips/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Some more details: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.stochasticlifestyle.com/7-julia-gotchas-handle/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Several examples
+\end_layout
+
+\begin_layout Itemize
+neural nets (MLP) 
+\end_layout
+
+\begin_layout Itemize
+MCMC and Chernozhukov-Hong Laplace-type estimation of QIV model 
+\end_layout
+
+\begin_layout Itemize
+MSM 
+\end_layout
+
+\begin_layout Itemize
+NN Indirect inference
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Lab 4
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Case studies
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -63862,6 +63541,700 @@ This holds material that is not really ready to be incorporated into the
  main body, or that I believe distracts from the flow, but that I don't
  want to lose.
  Basically, ignore it.
+\end_layout
+
+\begin_layout Section
+Efficient method of moments (EMM)
+\end_layout
+
+\begin_layout Standard
+The choice of which moments upon which to base a GMM estimator can have
+ very pronounced effects upon the efficiency of the estimator.
+\end_layout
+
+\begin_layout Itemize
+A poor choice of moment conditions may lead to very inefficient estimators,
+ and can even cause identification problems (as we've seen with the GMM
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+ 
+\end_layout
+
+\end_inset
+
+problem set).
+\end_layout
+
+\begin_layout Itemize
+The drawback of the above approach MSM is that the moment conditions used
+ in estimation are selected arbitrarily.
+ The asymptotic efficiency of the estimator may be low.
+\end_layout
+
+\begin_layout Itemize
+The asymptotically optimal choice of moments would be the score vector of
+ the likelihood function, 
+\begin_inset Formula 
+\[
+m_{t}(\theta)=D_{\theta}\ln p_{t}(\theta\mid I_{t})
+\]
+
+\end_inset
+
+ As before, this choice is unavailable.
+\end_layout
+
+\begin_layout Standard
+The efficient method of moments (EMM) (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "emm"
+
+\end_inset
+
+) seeks to provide moment conditions that closely mimic the score vector.
+ If the approximation is very good, the resulting estimator will be very
+ nearly fully efficient.
+ 
+\end_layout
+
+\begin_layout Standard
+The DGP is characterized by random sampling from the density 
+\begin_inset Formula 
+\[
+p(y_{t}|x_{t},\theta^{0})\equiv p_{t}(\theta^{0})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can define an auxiliary model, called the 
+\begin_inset Quotes eld
+\end_inset
+
+score generator
+\begin_inset Quotes erd
+\end_inset
+
+, which simply provides a (misspecified) parametric density 
+\begin_inset Formula 
+\[
+f(y|x_{t},\lambda)\equiv f_{t}(\lambda)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+This density is known up to a parameter 
+\begin_inset Formula $\lambda.$
+\end_inset
+
+ We assume that this density function 
+\emph on
+is
+\emph default
+ calculable.
+ Therefore quasi-ML estimation is possible.
+ Specifically, 
+\begin_inset Formula 
+\[
+\hat{\lambda}=\arg\max_{\Lambda}s_{n}(\lambda)=\frac{1}{n}\sum_{t=1}^{n}\ln f_{t}(\lambda).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+After determining 
+\begin_inset Formula $\hat{\lambda}$
+\end_inset
+
+ we can calculate the score functions 
+\begin_inset Formula $D_{\lambda}\ln f(y_{t}|x_{t},\hat{\lambda})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The important point is that even if the density is misspecified, there is
+ a pseudo-true 
+\begin_inset Formula $\lambda^{0}$
+\end_inset
+
+ for which the true expectation, taken with respect to the true but unknown
+ density of 
+\begin_inset Formula $y,$
+\end_inset
+
+ 
+\begin_inset Formula $p(y|x_{t},\theta^{0}),$
+\end_inset
+
+ and then marginalized over 
+\begin_inset Formula $x$
+\end_inset
+
+ is zero: 
+\begin_inset Formula 
+\[
+\exists\lambda^{0}:\mathcal{E}_{X}\mathcal{E}_{Y|X}\left[D_{\lambda}\ln f(y|x,\lambda^{0})\right]=\int_{X}\int_{Y|X}D_{\lambda}\ln f(y|x,\lambda^{0})p(y|x,\theta^{0})dyd\mu(x)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+We have seen in the section on QML that 
+\begin_inset Formula $\hat{\lambda}\stackrel{p}{\rightarrow}\lambda^{0}$
+\end_inset
+
+; this suggests using the moment conditions 
+\begin_inset Formula 
+\begin{equation}
+\bar{m}_{n}(\theta,\hat{\lambda})=\frac{1}{n}\sum_{t=1}^{n}\int D_{\lambda}\ln f_{t}(\hat{\lambda})p_{t}(\theta)dy\label{iimomcond}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+These moment conditions are not calculable, since 
+\begin_inset Formula $p_{t}(\theta)$
+\end_inset
+
+ is not available, but they are simulable using 
+\begin_inset Formula 
+\[
+\widetilde{\bar{m}_{n}}(\theta,\hat{\lambda})=\frac{1}{n}\sum_{t=1}^{n}\frac{1}{H}\sum_{h=1}^{H}D_{\lambda}\ln f(\widetilde{y}_{t}^{h}|x_{t},\hat{\lambda})
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $\tilde{y}_{t}^{h}$
+\end_inset
+
+ is a draw from 
+\begin_inset Formula $DGP(\theta),$
+\end_inset
+
+ holding 
+\begin_inset Formula $x_{t}$
+\end_inset
+
+ fixed.
+ By the LLN and the fact that 
+\begin_inset Formula $\hat{\lambda}$
+\end_inset
+
+ converges to 
+\begin_inset Formula $\lambda^{0}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\widetilde{m}_{\infty}(\theta^{0},\lambda^{0})=0.
+\]
+
+\end_inset
+
+ This is not the case for other values of 
+\begin_inset Formula $\theta$
+\end_inset
+
+, assuming that 
+\begin_inset Formula $\lambda^{0}$
+\end_inset
+
+ is identified.
+\end_layout
+
+\begin_layout Itemize
+The advantage of this procedure is that if 
+\begin_inset Formula $f(y_{t}|x_{t},\lambda)$
+\end_inset
+
+ closely approximates 
+\begin_inset Formula $p(y|x_{t},\theta),$
+\end_inset
+
+ then 
+\begin_inset Formula $\widetilde{m}_{n}(\theta,\hat{\lambda})$
+\end_inset
+
+ will closely approximate the optimal moment conditions which characterize
+ maximum likelihood estimation, which is fully efficient.
+\end_layout
+
+\begin_layout Itemize
+If one has prior information that a certain density approximates the data
+ well, it would be a good choice for 
+\begin_inset Formula $f(\cdot).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If one has no density in mind, there exist good ways of approximating unknown
+ distributions parametrically: Philips' ERA's (
+\shape italic
+Econometrica
+\shape default
+, 1983) and Gallant and Nychka's (
+\shape italic
+Econometrica, 1987)
+\shape default
+ SNP density estimator which we saw before.
+ Since the SNP density is consistent, the efficiency of the indirect estimator
+ is the same as the infeasible ML
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\end_inset
+
+estimator.
+ 
+\end_layout
+
+\begin_layout Subsection
+Optimal weighting matrix
+\end_layout
+
+\begin_layout Standard
+I will present the theory for 
+\begin_inset Formula $H$
+\end_inset
+
+ finite, and possibly small.
+ This is done because it is sometimes impractical to estimate with 
+\begin_inset Formula $H$
+\end_inset
+
+ very large.
+ Gallant and Tauchen give the theory for the case of 
+\begin_inset Formula $H$
+\end_inset
+
+ so large that it may be treated as infinite (the difference being irrelevant
+ given the numerical precision of a computer).
+ The theory for the case of 
+\begin_inset Formula $H$
+\end_inset
+
+ infinite follows directly from the results presented here.
+\end_layout
+
+\begin_layout Standard
+The moment condition 
+\begin_inset Formula $\widetilde{m}(\theta,\hat{\lambda})$
+\end_inset
+
+ depends on the pseudo-ML estimate 
+\begin_inset Formula $\hat{\lambda}.$
+\end_inset
+
+ We can apply Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Normality of ee"
+
+\end_inset
+
+ to conclude that 
+\begin_inset Formula 
+\begin{equation}
+\sqrt{n}\left(\hat{\lambda}-\lambda^{0}\right)\stackrel{d}{\rightarrow}N\left[0,\mathcal{J}(\lambda^{0})^{-1}\mathcal{I}(\lambda^{0})\mathcal{J}(\lambda^{0})^{-1}\right]\label{lamdist}
+\end{equation}
+
+\end_inset
+
+ If the density 
+\begin_inset Formula $f(y_{t}|x_{t},\hat{\lambda})$
+\end_inset
+
+ were in fact the true density 
+\begin_inset Formula $p(y|x_{t},\theta),$
+\end_inset
+
+ then 
+\begin_inset Formula $\hat{\lambda}$
+\end_inset
+
+ would be the maximum likelihood estimator, and 
+\begin_inset Formula $\mathcal{J}(\lambda^{0})^{-1}\mathcal{I}(\lambda^{0})$
+\end_inset
+
+ would be an identity matrix, due to the information matrix equality.
+ However, in the present case we assume that 
+\begin_inset Formula $f(y_{t}|x_{t},\hat{\lambda})$
+\end_inset
+
+ is only an approximation to 
+\begin_inset Formula $p(y|x_{t},\theta),$
+\end_inset
+
+ so there is no cancellation.
+\end_layout
+
+\begin_layout Standard
+Recall that 
+\begin_inset Formula $\mathcal{J}(\lambda^{0})\equiv p\lim\left(\frac{\partial^{2}}{\partial\lambda\partial\lambda^{\prime}}s_{n}(\lambda^{0})\right).$
+\end_inset
+
+ Comparing the definition of 
+\begin_inset Formula $s_{n}(\lambda)$
+\end_inset
+
+ with the definition of the moment condition in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "iimomcond"
+
+\end_inset
+
+, we see that 
+\begin_inset Formula 
+\[
+\mathcal{J}(\lambda^{0})=D_{\lambda^{\prime}}m(\theta^{0},\lambda^{0}).
+\]
+
+\end_inset
+
+ As in Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Normality of ee"
+
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\mathcal{I}(\lambda^{0})=\lim_{n\rightarrow\infty}\mathcal{E}\left[n\left.\frac{\partial s_{n}(\lambda)}{\partial\lambda}\right|_{\lambda^{0}}\left.\frac{\partial s_{n}(\lambda)}{\partial\lambda^{\prime}}\right|_{\lambda^{0}}\right].
+\]
+
+\end_inset
+
+ In this case, this is simply the asymptotic variance covariance matrix
+ of the moment conditions, 
+\begin_inset Formula $\Omega.$
+\end_inset
+
+ Now take a first order Taylor's series approximation to 
+\begin_inset Formula $\sqrt{n}\bar{m}_{n}(\theta^{0},\hat{\lambda})$
+\end_inset
+
+ about 
+\begin_inset Formula $\lambda^{0}$
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sqrt{n}\tilde{m}_{n}(\theta^{0},\hat{\lambda})=\sqrt{n}\tilde{m}_{n}(\theta^{0},\lambda^{0})+\sqrt{n}D_{\lambda^{\prime}}\tilde{m}(\theta^{0},\lambda^{0})\left(\hat{\lambda}-\lambda^{0}\right)+o_{p}(1)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+First consider 
+\begin_inset Formula $\sqrt{n}\tilde{m}_{n}(\theta^{0},\lambda^{0})$
+\end_inset
+
+.
+ It is straightforward but somewhat tedious to show that the asymptotic
+ variance of this term is 
+\begin_inset Formula $\frac{1}{H}I_{\infty}(\lambda^{0})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Next consider the second term 
+\begin_inset Formula $\sqrt{n}D_{\lambda^{\prime}}\tilde{m}(\theta^{0},\lambda^{0})\left(\hat{\lambda}-\lambda^{0}\right)$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $D_{\lambda^{\prime}}\tilde{m}_{n}(\theta^{0},\lambda^{0})\stackrel{a.s.}{\rightarrow}\mathcal{J}(\lambda^{0}),$
+\end_inset
+
+ so we have
+\begin_inset Formula 
+\[
+\sqrt{n}D_{\lambda^{\prime}}\tilde{m}(\theta^{0},\lambda^{0})\left(\hat{\lambda}-\lambda^{0}\right)=\sqrt{n}\mathcal{J}(\lambda^{0})\left(\hat{\lambda}-\lambda^{0}\right),a.s.
+\]
+
+\end_inset
+
+ But noting equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lamdist"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sqrt{n}\mathcal{J}(\lambda^{0})\left(\hat{\lambda}-\lambda^{0}\right)\stackrel{a}{\sim}N\left[0,\mathcal{I}(\lambda^{0})\right]
+\]
+
+\end_inset
+
+Now, combining the results for the first and second terms, 
+\begin_inset Formula 
+\[
+\sqrt{n}\tilde{m}_{n}(\theta^{0},\hat{\lambda})\stackrel{a}{\sim}N\left[0,\left(1+\frac{1}{H}\right)\mathcal{I}(\lambda^{0})\right]
+\]
+
+\end_inset
+
+ Suppose that 
+\begin_inset Formula $\widehat{\mathcal{I}(\lambda^{0})}$
+\end_inset
+
+ is a consistent estimator of the asymptotic variance-covariance matrix
+ of the moment conditions.
+ This may be complicated if the score generator is a poor approximator,
+ since the individual score contributions may not have mean zero in this
+ case (see the section on QML) .
+ Even if this is the case, the individuals means can be calculated by simulation
+, so it is always possible to consistently estimate 
+\begin_inset Formula $\mathcal{I}(\lambda^{0})$
+\end_inset
+
+ when the model is simulable.
+ On the other hand, if the score generator is taken to be correctly specified,
+ the ordinary estimator of the information matrix is consistent.
+ Combining this with the result on the efficient GMM
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+ 
+\end_layout
+
+\end_inset
+
+weighting matrix in Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "efficient weighting matrix"
+
+\end_inset
+
+, we see that defining 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\[
+\hat{\theta}=\arg\min_{\Theta}\bar{m}_{n}(\theta,\hat{\lambda})^{\prime}\left[\left(1+\frac{1}{H}\right)\widehat{\mathcal{I}(\lambda^{0})}\right]^{-1}\bar{m}_{n}(\theta,\hat{\lambda})
+\]
+
+\end_inset
+
+ is the GMM estimator with the efficient choice of weighting matrix.
+\end_layout
+
+\begin_layout Itemize
+If one has used the Gallant-Nychka ML estimator as the auxiliary model,
+ the appropriate weighting matrix is simply the information matrix of the
+ auxiliary model, since the scores are uncorrelated.
+ (e.g., it really is ML
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+ 
+\end_layout
+
+\end_inset
+
+estimation asymptotically, since the score generator can approximate the
+ unknown density arbitrarily well).
+ 
+\end_layout
+
+\begin_layout Subsection
+Asymptotic distribution
+\end_layout
+
+\begin_layout Standard
+Since we use the optimal weighting matrix, the asymptotic distribution is
+ as in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "gmm distribution with optimal weighting matrix"
+
+\end_inset
+
+, so we have (using the result in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lamdist"
+
+\end_inset
+
+): 
+\begin_inset Formula 
+\[
+\sqrt{n}\left(\hat{\theta}-\theta^{0}\right)\stackrel{d}{\rightarrow}N\left[0,\left(D_{\infty}\left[\left(1+\frac{1}{H}\right)\mathcal{I}(\lambda^{0})\right]^{-1}D_{\infty}^{\prime}\right)^{-1}\right],
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula 
+\[
+D_{\infty}=\lim_{n\rightarrow\infty}\mathcal{E}\left[D_{\theta}\bar{m}_{n}(\theta^{0},\lambda^{0})\right].
+\]
+
+\end_inset
+
+ This can be consistently estimated using 
+\begin_inset Formula 
+\[
+\hat{D}=D_{\theta}\bar{m}_{n}(\hat{\theta},\hat{\lambda})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Diagnostic testing
+\end_layout
+
+\begin_layout Standard
+The fact that 
+\begin_inset Formula 
+\[
+\sqrt{n}\bar{m}_{n}(\theta^{0},\hat{\lambda})\stackrel{a}{\sim}N\left[0,\left(1+\frac{1}{H}\right)\mathcal{I}(\lambda^{0})\right]
+\]
+
+\end_inset
+
+ implies that 
+\begin_inset Formula 
+\[
+n\bar{m}_{n}(\hat{\theta},\hat{\lambda})^{\prime}\left[\left(1+\frac{1}{H}\right)\mathcal{I}(\hat{\lambda})\right]^{-1}\bar{m}_{n}(\hat{\theta},\hat{\lambda})\stackrel{a}{\sim}\chi^{2}(q)
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $q$
+\end_inset
+
+ is 
+\begin_inset Formula $\dim(\lambda)-\dim(\theta),$
+\end_inset
+
+ since without 
+\begin_inset Formula $\dim(\theta)$
+\end_inset
+
+ moment conditions the model is not identified, so testing is impossible.
+ One test of the model is simply based on this statistic: if it exceeds
+ the 
+\begin_inset Formula $\chi^{2}(q)$
+\end_inset
+
+ critical point, something may be wrong (the small sample performance of
+ this sort of test would be a topic worth investigating).
+\end_layout
+
+\begin_layout Itemize
+Information about what is wrong can be gotten from the pseudo-t-statistics:
+ 
+\begin_inset Formula 
+\[
+\left(\text{diag}\left[\left(1+\frac{1}{H}\right)\mathcal{I}(\hat{\lambda})\right]^{1/2}\right)^{-1}\sqrt{n}\bar{m}_{n}(\hat{\theta},\hat{\lambda})
+\]
+
+\end_inset
+
+ can be used to test which moments are not well modeled.
+ Since these moments are related to parameters of the score generator, which
+ are usually related to certain features of the model, this information
+ can be used to revise the model.
+ These aren't actually distributed as 
+\begin_inset Formula $N(0,1),$
+\end_inset
+
+ since 
+\begin_inset Formula $\sqrt{n}\bar{m}_{n}(\theta^{0},\hat{\lambda})$
+\end_inset
+
+ and 
+\begin_inset Formula $\sqrt{n}\bar{m}_{n}(\hat{\theta},\hat{\lambda})$
+\end_inset
+
+ have different distributions (that of 
+\begin_inset Formula $\sqrt{n}\bar{m}_{n}(\hat{\theta},\hat{\lambda})$
+\end_inset
+
+ is somewhat more complicated).
+ It can be shown that the pseudo-t statistics are biased toward nonrejection.
+ See Gourieroux 
+\emph on
+et.
+ al.
+
+\emph default
+ or Gallant and Long, 1995, for more details.
+ 
+\end_layout
+
+\begin_layout Section
+Indirect likelihood inference and Approximate Bayesian Computing (ABC)
+\end_layout
+
+\begin_layout Standard
+to be added
 \end_layout
 
 \begin_layout Section
