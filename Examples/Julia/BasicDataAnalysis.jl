@@ -33,9 +33,7 @@ nw = @where(card, :south .== 0, :black .== 0)
 ##
 # violin and box plots
 @df card violin(:wage)
-@df card boxplot!(:wage)
-@df card violin(:educ)
-@df card boxplot!(:educ)
+@df card boxplot!(:wage) # puts is beside
 # violin plot of wage, by education
 @df card violin(:educ, :wage)
 # add a boxplot on top

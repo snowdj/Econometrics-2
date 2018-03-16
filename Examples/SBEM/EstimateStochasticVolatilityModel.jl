@@ -3,6 +3,11 @@
     using a HAR auxiliary model
 =#
 
+# to run in parallel, do export JULIA_NUM_THREADS=x
+# where x is the number of cores you'd like to use
+
+using StatPlots
+
 # the d.g.p.
 function SVmodel(n, θ = 0.0, randdraws = 0.0)
     # draw parameter from parameter space, if not provided
@@ -39,8 +44,8 @@ end
 # of realized volatility." Journal of Financial Econometrics 7,
 # no. 2 (2009): 174-196.
 function HAR(y,p)
-    RV = log.(0.00001 .+ y.^2.0)
-    #RV = abs.(y)
+    #RV = log.(0.00001 .+ y.^2.0)
+    RV = abs.(y)
     RVlags = lags(RV,p)
     X = [ones(size(y,1)) RVlags]
     # drop missings
@@ -58,23 +63,23 @@ function HAR(y,p)
 end
 
 function II_moments(θ, y, randdraws)
-    S = size(randdraws,3)
-    n = size(randdraws,1)-1000
+    S = size(randdraws,1)
+    n = size(y,1)
     p = 8 # number of lags for HAR model
     ϕhat = HAR(y,p) # this is being re-computed many times, needlessly, but I'm lazy
     ϕhatS = zeros(S, size(ϕhat,1))
-    Threads.@threads for s = 1:S
-        junkk, yₛ, junk = SVmodel(n, θ, randdraws[:,:,s])
+    @inbounds Threads.@threads for s = 1:S
+        junk, yₛ, junk = SVmodel(n, θ, randdraws[s,:,:])
         ϕhatS[s,:] = HAR(yₛ,p)
     end
-    return sqrt(n)*(ϕhat' .- ϕhatS)  # the moments, in a SxG matrix
+    ms = sqrt(n)*(ϕhat' .- ϕhatS)
+    W = inv(cov(ms))
+    m = mean(ms,1)
+    return  m, W # the moments, in a SxG matrix
 end
 
 function II_obj(θ, y, randdraws)
-    ms = II_moments(θ, y, randdraws)
-    n = size(y,1)
-    W = inv(cov(ms))
-    m = mean(ms,1)
+    m, W = II_moments(θ, y, randdraws)
     return ((m*W*m')[1,1])
 end
 
@@ -82,13 +87,14 @@ function MSM_moments(θ, y, randdraws)
     # define a few simple momments which hopefully will identify
     # this is often standard practice when doing MSM
     # note that there's nothing to identify ρ here
+    S = size(randdraws,1)
+    n = size(y,1)
     m = [y y.^2 y.^3 y.^4]
-    mm = zeros(size(m))
-    Threads.@threads for s = 1:S
-        junk, y, junk = SVmodel(n, θ, randdraws[:,:,s])
-        mm += [y y.^2 y.^3 y.^4]
+    @inbounds Threads.@threads for s = 1:S
+        junk, y, junk = SVmodel(n, θ, randdraws[s,:,:])
+        m -= [y y.^2.0 y.^3.0 y.^4.0]/S
     end
-    m = m - mm/S
+    return m
 end
 
 function main()
@@ -97,11 +103,10 @@ function main()
 n = 1000 # sample size
 junk, y, σ = SVmodel(n, θₒ) # generate the sample
 plot(y)
-using StatPlots
 density(y)
 # now to estimation by MSM
 S = 100 # number of simulation reps
-randdraws = randn(n+1000,2, S) # fix the shocks to control "chatter" (includes the burnin period)
+randdraws = randn(S,n+1000,2) # fix the shocks to control "chatter" (includes the burnin period)
 
 # Estimation by indirect inference
 # the auxiliary model is known to be reasonable for
@@ -121,3 +126,5 @@ println("obj. value: ", objvalue)
 # simple sample moments and hoping for the best
 moments = θ -> MSM_moments(θ, y, randdraws)
 gmmresults(moments, θhat, "", "GMM example, CUE");
+end
+main()

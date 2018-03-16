@@ -5,7 +5,7 @@ function GridExample(points, doprint=false)
     x = linspace(-pi,pi/2.0,1000)
     obj = theta-> 0.5*theta*sin(theta^2.0)
     y = obj.(x)
-    plot(x, y)
+    plot(x, y, legend=false)
     # plot the grid points
     x = linspace(-pi,pi/2.0,points)
     y = obj.(x)
