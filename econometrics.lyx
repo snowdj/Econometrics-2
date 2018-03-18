@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -69,6 +69,8 @@ theorems-ams-extended
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -100,13 +102,14 @@ theorems-ams-extended
 \use_package undertilde 1
 \cite_engine natbib
 \cite_engine_type authoryear
-\biblio_style 
+\biblio_style \use_bibtopic false
 \use_bibtopic false
 \use_indices false
 \paperorientation landscape
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -119,7 +122,10 @@ theorems-ams-extended
 \tocdepth 1
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language swedish
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swedish
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle empty
@@ -199,9 +205,38 @@ About this document
 \end_layout
 
 \begin_layout Standard
-
+Note to self: 
 \end_layout
 
+\begin_layout Itemize
+For econometrics.pdf on the github page, save to econometrics.lyx, , replace
+ all instances of 
+\family typewriter
+\color blue
+https://github.com/mcreel/Econometrics/blob/master
+\family default
+\color inherit
+ with
+\family typewriter
+ 
+\color blue
+https://github.com/mcreel/Econometrics/blob/master
+\end_layout
+
+\begin_layout Itemize
+to do: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Julia examples for nonparametric chapter
+\end_layout
+
+\begin_layout Itemize
+renew the simulation based chapter
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Prerequisites
 \end_layout
@@ -237,6 +272,7 @@ This document integrates lecture notes for a one year graduate level course
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cameron2005microeconometrics"
+literal "true"
 
 \end_inset
 
@@ -317,6 +353,7 @@ Stock and Watson,
 LatexCommand href
 name "Introduction to Econometrics"
 target "https://www.pearson.com/us/higher-education/program/Stock-Introduction-to-Econometrics-Update-Plus-NEW-My-Lab-Economics-with-Pearson-e-Text-Access-Card-Package-3rd-Edition/PGM214413.html"
+literal "false"
 
 \end_inset
 
@@ -346,13 +383,14 @@ The integrated examples and the support files (available online at the
 LatexCommand href
 name "github repository"
 target "https://github.com/mcreel/Econometrics"
+literal "false"
 
 \end_inset
 
 ) are an important part of these notes.
  Julia 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -574,6 +612,7 @@ The materials are available from a
 LatexCommand href
 name "github repository"
 target "https://github.com/mcreel/Econometrics"
+literal "false"
 
 \end_inset
 
@@ -583,12 +622,12 @@ target "https://github.com/mcreel/Econometrics"
  sources, which will allow you to
  create your own version, if you like, or send error corrections and contributio
 ns.
- To run the examples embedded in the document, you need to install the Julia
- language
+ To run the examples embedded in the document, you need to install the 
 \begin_inset CommandInset href
 LatexCommand href
 name "Julia language"
 target "https://julialang.org/"
+literal "false"
 
 \end_inset
 
@@ -597,6 +636,7 @@ target "https://julialang.org/"
 LatexCommand href
 name "Econometrics.jl"
 target "https://github.com/mcreel/Econometrics.jl"
+literal "false"
 
 \end_inset
 
@@ -613,7 +653,7 @@ Pkg.clone("https://github.com/mcreel/Econometrics.jl.git")
 using Econometrics.
  
 \family default
-Having done that, the examples will be runnable.
+Having done that, the examples will be executable.
 \end_layout
 
 \begin_layout Standard
@@ -626,11 +666,12 @@ To make a local version of the pdf file
 \end_layout
 
 \begin_layout Itemize
-install LyX
+install 
 \begin_inset CommandInset href
 LatexCommand href
 name " LyX"
 target "https://www.lyx.org/"
+literal "false"
 
 \end_inset
 
@@ -677,7 +718,8 @@ https://github.com/mcreel/Econometrics/tree/v1.0
 .
  This archive has all of the examples as .m files.
  The code may be of use to people who don't want to use Julia, but the contents
- of the text have not been updated since the transition to Julia.
+ of the text in that version have not been updated since the transition
+ to Julia.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -703,8 +745,19 @@ es/Intro/data.txt}
 
 \end_inset
 
-: 100 observations on 3 economic variables.
- Let's do some exploratory analysis using Gretl:
+: observations on 3 economic variables.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\emph on
+Draw a data block.
+\end_layout
+
+\begin_layout Standard
+Let's do some exploratory analysis using Gretl:
 \end_layout
 
 \begin_layout Itemize
@@ -721,23 +774,57 @@ x-y scatterplots
 
 \begin_layout Standard
 So, what can we say? Correlations? Yes.
- Causality? Who knows? This is economic data, generated by economic agents,
- following their own beliefs, technologies and preferences.
- It is not experimental data generated under controlled conditions.
- How can we determine causality if we don't have experimental data? So,
- data without theory has some limitations.
- 
+ Causality? Who knows?
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+What are these variables
+\emph default
+? So far, we don't know, so we have no mental model to sort out which variables
+ might be causing others.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
 
 \end_layout
 
+\begin_layout Itemize
+We are missing a theoretical model! 
+\end_layout
+
+\begin_layout Itemize
+A theoretical model is a key ingredient to assign causal relationships (which
+ we might subsequently try to test).
+ Without a model (or the ability to do experiments) we can't distinguish
+ correlation from causality.
+\end_layout
+
+\begin_layout Itemize
+It turns out that the variables we're looking at are QUANTITY (q), PRICE
+ (p), and INCOME (m), and the data were generated using 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{this script}{https://github.com/mcreel/Econometrics/blob/master
+/Examples/Intro/SupplyDemand.jl}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Standard
-Without a model, we can't distinguish correlation from causality.
- It turns out that the variables we're looking at are QUANTITY (q), PRICE
- (p), and INCOME (m).
- Economic theory tells us that the quantity of a good that consumers will
+Economic theory tells us that the quantity of a good that consumers will
  purchase (the demand function) is something like: 
 \begin_inset Formula 
 \[
@@ -820,7 +907,11 @@ q_{t} & =s(p_{t},z_{t})
 \begin_layout Standard
 
 \series bold
-(draw some graphs showing roles of 
+\emph on
+Draw a theory block.
+
+\emph default
+ (draw some graphs showing roles of 
 \begin_inset Formula $m$
 \end_inset
 
@@ -829,6 +920,13 @@ q_{t} & =s(p_{t},z_{t})
 \end_inset
 
 )
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -842,56 +940,172 @@ This is the basic economic model of supply and demand:
 
  are determined in the market equilibrium, given by the intersection of
  the two curves.
- These two variables are determined jointly by the model, and are the 
+ 
+\end_layout
+
+\begin_layout Itemize
+These two variables are determined jointly by the model, and are the 
 \emph on
 endogenous variables
 \emph default
 .
- Income (m) is not determined by this model, its value is determined independent
-ly of q and p by some other process.
- m is an 
+ Income (
+\begin_inset Formula $m$
+\end_inset
+
+) is not determined by this model, its value is determined independently
+ of 
+\begin_inset Formula $q$
+\end_inset
+
+ and 
+\begin_inset Formula $p$
+\end_inset
+
+ by some other process.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $m$
+\end_inset
+
+ is an 
 \emph on
 exogenous variable
 \emph default
 .
- So, m causes q, though the demand function.
- Because q and p are jointly determined, m also causes p.
- p and q do not cause m, according to this theoretical model.
- q and p have a joint causal relationship.
+ So, 
+\begin_inset Formula $m$
+\end_inset
+
+ causes 
+\begin_inset Formula $q$
+\end_inset
+
+, though the demand function.
+ Because 
+\begin_inset Formula $q$
+\end_inset
+
+ and 
+\begin_inset Formula $p$
+\end_inset
+
+ are jointly determined, 
+\begin_inset Formula $m$
+\end_inset
+
+ also causes 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $p$
+\end_inset
+
+ and 
+\begin_inset Formula $q$
+\end_inset
+
+ do not cause 
+\begin_inset Formula $m$
+\end_inset
+
+, according to this theoretical model.
+ 
+\begin_inset Formula $q$
+\end_inset
+
+ and 
+\begin_inset Formula $p$
+\end_inset
+
+ have a joint causal relationship.
 \end_layout
 
 \begin_layout Itemize
 Economic theory can help us to determine the causality relationships between
  correlated variables.
+ According to theory, income does not affect the supply equation, so when
+ income changes, supply stays the same.
+ You can see in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Price-and-Quantity,"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that when income increases, the upward movement of demand is tracing out
+ the slope of the supply equation.
+ 
 \end_layout
 
-\begin_layout Itemize
-If we had experimental data, we could control certain variables and observe
- the outcomes for other variables.
- If we see that variable 
-\begin_inset Formula $x$
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
- changes as the controlled value of variable 
-\begin_inset Formula $y$
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Price-and-Quantity,"
+
 \end_inset
 
- is changed, then we know that 
-\begin_inset Formula $y$
+Price and Quantity, colored by income (blue is low, violet is high)
+\end_layout
+
 \end_inset
 
- causes 
-\begin_inset Formula $x$
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Examples/Intro/PriceQuantity.svg
+	width 15cm
+
 \end_inset
 
-.
- With economic data, we are unable to control the values of the variables:
- for example in supply and demand, if price changes, then quantity changes,
- but quantity also affect price.
- We can't control the market price, because the market price changes as
- quantity adjusts.
- This is the reason we need a theoretical model to help us distinguish correlati
-on and causality.
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -952,6 +1166,13 @@ n.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 An econometric model attempts to 
 \series bold
 quantify
@@ -967,7 +1188,7 @@ q_{t} & =\beta_{1}+\beta_{2}p_{t}+\varepsilon_{t1}
 
 \end_inset
 
- We have imposed a number of restrictions on the theoretical model:
+
 \end_layout
 
 \begin_layout Itemize
@@ -995,8 +1216,7 @@ The parameters (
 \end_layout
 
 \begin_layout Itemize
-There is a single unobservable component in each equation, and we assume
- it is additive.
+There is a single unobservable component in each equation, and it is additive.
 \end_layout
 
 \begin_layout Standard
@@ -1015,10 +1235,21 @@ If we assume nothing about the error terms
 \begin_inset Formula $\beta$
 \end_inset
 
- coefficients to exist in a sense that has economic meaning, and in order
- to be able to use sample data to make reliable inferences about their values,
- we need to make additional assumptions.
- Such assumptions might be something like:
+ coefficients to exist in a sense that has 
+\emph on
+economic meaning
+\emph default
+, and in order to be able to use sample data to make reliable inferences
+ about their values, we need to make additional assumptions.
+ 
+\series bold
+\emph on
+Draw an assumptions block.
+
+\emph default
+ 
+\series default
+Such assumptions might be something like:
 \end_layout
 
 \begin_layout Itemize
@@ -1045,72 +1276,74 @@ If we assume nothing about the error terms
 \begin_layout Standard
 These are assertions that the errors are uncorrelated with the variables,
  and such assertions may or may not be reasonable.
- Later we will see how such assumption may be used and/or tested.
+ Later we will see how such assumptions may be used and/or tested.
+ 
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+
+\emph on
+We can now use econometric methods to learn about the parameters.
+ 
+\series bold
+Draw an econometric model block.
+ 
+\end_layout
+
+\begin_layout Itemize
 All of the last six bulleted points have 
 \series bold
 no theoretical basis
 \series default
 , in that the theory of supply and demand doesn't imply these conditions.
- The validity of any results we obtain using this model will be contingent
- on these additional restrictions being at least approximately correct.
- For this reason, 
+ 
+\end_layout
+
+\begin_layout Itemize
+The validity of any econometric results we obtain using an econometric model
+ will be contingent on these additional restrictions being at least approximatel
+y correct.
+ 
+\end_layout
+
+\begin_layout Itemize
+For this reason, 
 \emph on
 specification testing
 \emph default
  will be needed, to check that the model seems to be reasonable.
- Only when we are convinced that the model is at least approximately correct
+ 
+\end_layout
+
+\begin_layout Itemize
+Only when we are convinced that the model is at least approximately correct
  should we use it for economic analysis.
  
 \end_layout
 
 \begin_layout Standard
-When testing a hypothesis using an econometric model, at least three factors
- can cause a statistical test to reject the null hypothesis:
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
-\begin_layout Enumerate
-the hypothesis is false
-\end_layout
-
-\begin_layout Enumerate
-a type I error has occurred
-\end_layout
-
-\begin_layout Enumerate
-the econometric model is not correctly specified, and thus the test does
- not have the assumed distribution
-\end_layout
-
-\begin_layout Standard
-To be able to make scientific progress, we would like to ensure that the
- third reason is not contributing in a major way to rejections, so that
- rejection will be most likely due to either the first or second reasons.
- Hopefully the above example makes it clear that econometric models are
- necessarily more detailed than what we can obtain from economic theory,
- and that this additional detail introduces many possible sources of misspecific
-ation of econometric models.
- In the next few sections we will obtain results supposing that the econometric
- model is entirely correctly specified.
- Later we will examine the consequences of misspecification and see some
- methods for determining if a model is correctly specified.
- Later on, econometric methods that seek to minimize maintained assumptions
- are introduced.
+\begin_layout Exercise
+Given that we know the variable names of the above data, estimate the supply
+ equation by two stage least squares, if you know how to.
+ Compare the coefficient estimates with the values that generated the data.
+ Note that the estimates are not bad, and get very close to the true values
+ if you increase the sample size.
+ This is because the model is correctly specified, and the 2SLS estimator
+ is consistent in this case.
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-newpage
-\end_layout
-
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -4043,6 +4276,7 @@ xamples/OLS/Nerlove.jl}
 LatexCommand href
 name "ols.jl"
 target "https://github.com/mcreel/Econometrics.jl/blob/master/src/LinearRegression/ols.jl"
+literal "false"
 
 \end_inset
 
@@ -22254,6 +22488,7 @@ Here's a Gretl script to estimate Klein's model 1:
 LatexCommand href
 name "http://gretl.sourceforge.net/gretl-help/scripts/klein.inp"
 target "http://gretl.sourceforge.net/gretl-help/scripts/klein.inp"
+literal "false"
 
 \end_inset
 
@@ -22295,6 +22530,7 @@ Readings:
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cameron2005microeconometrics"
+literal "true"
 
 \end_inset
 
@@ -22377,6 +22613,7 @@ The general problem we consider is how to find the maximizing element
 LatexCommand href
 name "local maxima, minima"
 target "https://en.wikipedia.org/wiki/Maxima_and_minima"
+literal "false"
 
 \end_inset
 
@@ -22385,6 +22622,7 @@ target "https://en.wikipedia.org/wiki/Maxima_and_minima"
 LatexCommand href
 name "saddlepoints"
 target "https://en.wikipedia.org/wiki/Saddle_point"
+literal "false"
 
 \end_inset
 
@@ -23833,6 +24071,7 @@ _example.jl}
 LatexCommand href
 name "source code for samin.jl"
 target "https://github.com/mcreel/Econometrics.jl/blob/master/src/samin.jl"
+literal "false"
 
 \end_inset
 
@@ -24391,6 +24630,7 @@ by using the fminunc function in the
 LatexCommand href
 name "Econometrics.jl"
 target "https://github.com/mcreel/Econometrics.jl"
+literal "false"
 
 \end_inset
 
@@ -24561,16 +24801,6 @@ name "cha:Asymptotic-properties-of"
 \end_inset
 
 Asymptotic properties of extremum estimators
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Conversion to Julia is done
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -24582,6 +24812,7 @@ Readings
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cameron2005microeconometrics"
+literal "true"
 
 \end_inset
 
@@ -24596,6 +24827,7 @@ key "cameron2005microeconometrics"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "NeweyMcfadden"
+literal "true"
 
 \end_inset
 
@@ -24693,7 +24925,7 @@ extremum estimator
 \begin_inset Formula $s_{n}(\mathbf{Z}_{n},\theta)$
 \end_inset
 
- over a set 
+ over a compact set 
 \begin_inset Formula $\overline{\Theta}$
 \end_inset
 
@@ -24771,7 +25003,7 @@ OLS.
 
  where 
 \begin_inset Formula $\mathbf{X}_{n}=\left(\begin{array}{llll}
-x_{1} & x_{2} & \cdots & x_{n}\end{array}\right)^{\prime}.$
+\boldsymbol{x}_{1} & \boldsymbol{x}_{2} & \cdots & \boldsymbol{x}_{n}\end{array}\right)^{\prime}.$
 \end_inset
 
  Let 
@@ -24790,16 +25022,107 @@ x_{1} & x_{2} & \cdots & x_{n}\end{array}\right)^{\prime}.$
 where 
 \begin_inset Formula 
 \[
-s_{n}(\mathbf{Z}_{n},\theta)=1/n\sum_{t=1}^{n}\left(y_{t}-\mathbf{x}_{t}^{\prime}\theta\right)^{2}
+s_{n}(\mathbf{Z}_{n},\theta)=1/n\sum_{t=1}^{n}\left(y_{t}-\boldsymbol{x}_{t}^{\prime}\theta\right)^{2}
 \]
 
 \end_inset
 
  As you already know, 
-\begin_inset Formula $\hat{\theta}=(\mathbf{X}^{\prime}\mathbf{X})^{-1}\mathbf{X}^{\prime}\mathbf{y}.$
+\begin_inset Formula $\hat{\theta}=(\mathbf{X}^{\prime}\mathbf{X})^{-1}\mathbf{X}^{\prime}\mathbf{y},$
+\end_inset
+
+ as this is a case where we can solve the f.o.c.
+ analytically.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The contours of the OLS objective function are plotted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:OLS-objective-function"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, based on the Julia script 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink{OLScontours.jl}{https://github.com/mcreel/Econometrics/blob/mast
+er/Examples/NonlinearOptimization/OLScontours.jl} 
+\end_layout
+
+\end_inset
+
+.
+ This illustrates the idea that an extremum estimator minimizes or maximizes
+ a function, and that the estimate and parameters that we are trying to
+ estimate are distinct points.
+ As the sample gets large, the two points get close together, if the estimator
+ is consistent.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:OLS-objective-function"
+
+\end_inset
+
+OLS objective function contours
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Examples/NonlinearOptimization/OLScontours.svg
+	width 15cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -24856,7 +25179,7 @@ The maximum likelihood estimator is maximizes the joint density of the sample.
  is 
 \begin_inset Formula 
 \[
-\hat{\theta}\equiv\arg\max_{\Theta}\,\,\mathcal{L}_{n}(\theta)=\prod_{t=1}^{n}\left(2\pi\right)^{-1/2}(1/\sigma)\exp\left(-\frac{1}{2}\left(\frac{y_{t}-\theta}{\sigma}\right)^{2}\right)
+\hat{\theta}\equiv\arg\max_{\Theta}\,\,\mathcal{L}_{n}(\theta)=\prod_{t=1}^{n}f_{Y}(y_{t};\theta,\sigma)
 \]
 
 \end_inset
@@ -24881,9 +25204,10 @@ Because the natural logarithm is strictly increasing on
 
  where 
 \begin_inset Formula 
-\[
-s_{n}(\theta)=\left(1/n\right)\ln\mathcal{L}_{n}(\theta)=-\ln\sqrt{2\pi}-\text{\log}\sigma-\left(1/n\right)\sum_{t=1}^{n}\left(\frac{y_{t}-\theta}{\sigma}\right)^{2}
-\]
+\begin{align*}
+s_{n}(\theta) & =\left(1/n\right)\ln\mathcal{L}_{n}(\theta)=\left(1/n\right)\sum_{t=1}^{n}\ln f_{Y}(y_{t};\theta,\sigma)\\
+ & =-\ln\sqrt{2\pi}-\text{\log}\sigma-\left(1/n\right)\sum_{t=1}^{n}\left(\frac{y_{t}-\theta}{\sigma}\right)^{2}
+\end{align*}
 
 \end_inset
 
@@ -24933,10 +25257,6 @@ s_{n}(\zeta)=\int_{\Theta}\left(\theta-\zeta\right)^{2}f(Z_{n};\theta)\pi(\theta
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 where 
 \begin_inset Formula $f(Z_{n};\theta)$
 \end_inset
@@ -25014,8 +25334,9 @@ computing
 \emph default
  an extremum estimator, we condition on the observed data, and treat it
  as fixed.
- Then we compute estimators employing algorithms for optimization of nonstochast
-ic functions.
+ Then we compute estimators either by solving the f.o.c., as in the case of
+ OLS, or if that is not possible, by employing algorithms for optimization
+ of nonstochastic functions.
  How to do this is the topic of Chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -25103,8 +25424,8 @@ If
 \end_inset
 
  may not be continuous.
- Nevertheless, it may still converge to a continous function, in which case
- existence will not be a problem, at least asymptotically.
+ Nevertheless, it may still converge to a continuous function, in which
+ case existence will not be a problem, at least asymptotically.
  Henceforth in this course, we assume that 
 \begin_inset Formula $s_{n}(\theta)$
 \end_inset
@@ -25125,6 +25446,7 @@ The following theorem is patterned on a proof in
 \begin_inset CommandInset citation
 LatexCommand cite
 key "gallant_1987"
+literal "true"
 
 \end_inset
 
@@ -25177,7 +25499,7 @@ Assume
 \begin_inset Formula $\Re^{K}.$
 \end_inset
 
- So the closure of 
+ So, the closure of 
 \begin_inset Formula $\Theta,$
 \end_inset
 
@@ -28255,6 +28577,7 @@ We use a third-order perturbation solution, which combines good accuracy
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Aruoba2006"
+literal "true"
 
 \end_inset
 
@@ -29667,6 +29990,7 @@ Given a draw of the parameters other than
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Smets2007"
+literal "true"
 
 \end_inset
 
@@ -29674,6 +29998,7 @@ key "Smets2007"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Guerron2010"
+literal "true"
 
 \end_inset
 
@@ -30180,6 +30505,7 @@ Maximum likelihood estimation
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cameron2005microeconometrics"
+literal "true"
 
 \end_inset
 
@@ -31192,6 +31518,7 @@ Remember that
 LatexCommand href
 name "Jensen's inequality"
 target "http://en.wikipedia.org/wiki/Jensen's_inequality"
+literal "false"
 
 \end_inset
 
@@ -33068,6 +33395,7 @@ R\mathcal{I}_{\infty}(\theta_{0})^{-1}n^{1/2}g(\theta_{0})\overset{d}{\rightarro
 \begin_inset CommandInset citation
 LatexCommand citet
 key "gallant1997introduction"
+literal "true"
 
 \end_inset
 
@@ -33264,6 +33592,7 @@ mleresults.jl
 LatexCommand href
 name "Econometrics.jl"
 target "https://github.com/mcreel/Econometrics.jl"
+literal "false"
 
 \end_inset
 
@@ -33897,6 +34226,7 @@ mleresults
 LatexCommand href
 name "source code"
 target "https://github.com/mcreel/Econometrics.jl/blob/master/src/mleresults.jl"
+literal "false"
 
 \end_inset
 
@@ -34987,6 +35317,7 @@ _ML.m}
 LatexCommand href
 name "http://www.dynare.org/"
 target "http://www.dynare.org/"
+literal "false"
 
 \end_inset
 
@@ -35515,6 +35846,7 @@ Using
 LatexCommand href
 name "logit.jl"
 target "https://github.com/mcreel/Econometrics.jl/blob/master/src/ML/Likelihoods/logit.jl"
+literal "false"
 
 \end_inset
 
@@ -35546,6 +35878,7 @@ Study
 LatexCommand href
 name "mleresults.jl"
 target "https://github.com/mcreel/Econometrics.jl/blob/master/src/ML/mleresults.jl"
+literal "false"
 
 \end_inset
 
@@ -35889,6 +36222,7 @@ Readings
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cameron2005microeconometrics"
+literal "true"
 
 \end_inset
 
@@ -35905,6 +36239,7 @@ key "cameron2005microeconometrics"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "hansen1982"
+literal "true"
 
 \end_inset
 
@@ -35912,6 +36247,7 @@ key "hansen1982"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "HansenSingleton1982"
+literal "true"
 
 \end_inset
 
@@ -35919,6 +36255,7 @@ key "HansenSingleton1982"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "NeweyMcfadden"
+literal "true"
 
 \end_inset
 
@@ -38333,6 +38670,7 @@ The Newey-West estimator (
 \begin_inset CommandInset citation
 LatexCommand citealp
 key "NeweyWest1987"
+literal "true"
 
 \end_inset
 
@@ -38397,6 +38735,7 @@ If there is no autocorrelation of the moments, then all
 \begin_inset CommandInset citation
 LatexCommand citet
 key "white1980heteroskedasticity"
+literal "true"
 
 \end_inset
 
@@ -38413,6 +38752,7 @@ Econometrics.jl
 LatexCommand href
 name "NeweyWest.jl"
 target "https://github.com/mcreel/Econometrics.jl/blob/master/src/NP/NeweyWest.jl"
+literal "false"
 
 \end_inset
 
@@ -38546,6 +38886,7 @@ The continuously updated estimator (
 \begin_inset CommandInset citation
 LatexCommand citet
 key "HansenHeatonYaron1996"
+literal "true"
 
 \end_inset
 
@@ -38579,6 +38920,7 @@ The CUE estimator can be shown to have a smaller bias than does the two
 \begin_inset CommandInset citation
 LatexCommand citet
 key "NeweySmith2003"
+literal "true"
 
 \end_inset
 
@@ -40368,6 +40710,7 @@ o, a quadratic form on the r.h.s.
 \begin_inset CommandInset citation
 LatexCommand citet
 key "gallant1997introduction"
+literal "true"
 
 \end_inset
 
@@ -40774,6 +41117,7 @@ This section discusses the Hausman test (
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Hausman1978"
+literal "true"
 
 \end_inset
 
@@ -41547,6 +41891,7 @@ Readings:
 \begin_inset CommandInset citation
 LatexCommand citep
 key "HansenSingleton1982"
+literal "true"
 
 \end_inset
 
@@ -41554,6 +41899,7 @@ key "HansenSingleton1982"
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Tauchen1986"
+literal "true"
 
 \end_inset
 
@@ -42110,6 +42456,7 @@ htmladdnormallink{tauchen.data}{https://github.com/mcreel/Econometrics/blob/mast
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Tauchen1986"
+literal "true"
 
 \end_inset
 
@@ -42149,6 +42496,7 @@ Pretty clearly, the results are sensitive to the choice of instruments.
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HansenHeatonYaron1996"
+literal "true"
 
 \end_inset
 
@@ -42176,6 +42524,7 @@ amples/GMM/HallGMM.m}
 LatexCommand href
 name "Gretl Users Guide"
 target "http://ricardo.ecn.wfu.edu/pub/gretl/manual/en/gretl-guide-a4.pdf"
+literal "false"
 
 \end_inset
 
@@ -42594,6 +42943,7 @@ The question is, Which Moments to Match? (nod to
 \begin_inset CommandInset citation
 LatexCommand cite
 key "emm"
+literal "true"
 
 \end_inset
 
@@ -42974,6 +43324,7 @@ The take home conclusion here is that multiple local minima and irregular
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HansenHeatonYaron1996"
+literal "true"
 
 \end_inset
 
@@ -42986,6 +43337,7 @@ the difficulties with extremum estimation may motivate other computational
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ChernozhukovHong2003"
+literal "true"
 
 \end_inset
 
@@ -44863,6 +45215,7 @@ US quarterly macro data, used in
 \begin_inset CommandInset citation
 LatexCommand citet
 key "stock2011introduction"
+literal "true"
 
 \end_inset
 
@@ -45487,6 +45840,7 @@ F-\lambda I_{P}=\left[\begin{array}{ll}
 LatexCommand href
 name "can be factored as"
 target "http://en.wikipedia.org/wiki/Eigendecomposition_of_a_matrix"
+literal "false"
 
 \end_inset
 
@@ -46461,6 +46815,7 @@ fat tails, or
 LatexCommand href
 name "excess kurtosis"
 target "http://en.wikipedia.org/wiki/Kurtosis"
+literal "false"
 
 \end_inset
 
@@ -46475,6 +46830,7 @@ leverage (negative correlation between returns and volatility), which often
 LatexCommand href
 name " skewness"
 target "http://en.wikipedia.org/wiki/Skewness"
+literal "false"
 
 \end_inset
 
@@ -47951,6 +48307,7 @@ For Kalman filtering, see
 LatexCommand href
 name "Mikusheva's MIT Open Courseware notes"
 target "http://ocw.mit.edu/courses/economics/14-384-time-series-analysis-fall-2013/lecture-notes/"
+literal "false"
 
 \end_inset
 
@@ -47960,6 +48317,7 @@ target "http://ocw.mit.edu/courses/economics/14-384-time-series-analysis-fall-20
 \begin_inset CommandInset citation
 LatexCommand citet
 key "LopesTsayPArticleFilter2011"
+literal "true"
 
 \end_inset
 
@@ -47971,6 +48329,7 @@ key "LopesTsayPArticleFilter2011"
 LatexCommand href
 name "Fernández-Villaverde's Kalman filter notes"
 target "http://economics.sas.upenn.edu/~jesusfv/Chapter_4_Likelihood.pdf"
+literal "false"
 
 \end_inset
 
@@ -47981,6 +48340,7 @@ target "http://economics.sas.upenn.edu/~jesusfv/Chapter_4_Likelihood.pdf"
 LatexCommand href
 name "Quantitative Economics Kalman filter"
 target "http://quant-econ.net/jl/linear_models.html"
+literal "false"
 
 \end_inset
 
@@ -47997,6 +48357,7 @@ For nonlinear state space models, or non-Gaussian state space models, the
 \begin_inset CommandInset citation
 LatexCommand citet
 key "LopesTsayPArticleFilter2011"
+literal "true"
 
 \end_inset
 
@@ -48018,6 +48379,7 @@ I'm going to follow Karl Whelan's notes, which are available at
 LatexCommand href
 name "Whelan notes"
 target "http://www.karlwhelan.com/Teaching/MA%20Econometrics/part4.pdf"
+literal "false"
 
 \end_inset
 
@@ -48215,6 +48577,7 @@ This chapter provides a brief introduction to Bayesian methods, which form
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cameron2005microeconometrics"
+literal "true"
 
 \end_inset
 
@@ -48222,6 +48585,7 @@ key "cameron2005microeconometrics"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ChernozhukovHong2003"
+literal "true"
 
 \end_inset
 
@@ -48255,6 +48619,7 @@ Simulation Based Bayesian Econometric Inference: Principles and Some Recent
 LatexCommand href
 name "Bayesian notes"
 target "http://ocw.mit.edu/courses/economics/14-384-time-series-analysis-fall-2013/lecture-notes/"
+literal "false"
 
 \end_inset
 
@@ -48526,6 +48891,7 @@ As long as one takes the view that there is a fixed unknown parameter value
 LatexCommand href
 name "Approximate Bayesian Computing"
 target "http://en.wikipedia.org/wiki/Approximate_Bayesian_computation"
+literal "false"
 
 \end_inset
 
@@ -48561,6 +48927,7 @@ There are also recent Bayesian-inspired methods that attempt to work without
 \begin_inset CommandInset citation
 LatexCommand citet
 key "ChernozhukovHong2003"
+literal "true"
 
 \end_inset
 
@@ -48571,6 +48938,7 @@ key "ChernozhukovHong2003"
 LatexCommand href
 name "Approximate Bayesian Computing"
 target "http://en.wikipedia.org/wiki/Approximate_Bayesian_computation"
+literal "false"
 
 \end_inset
 
@@ -49432,6 +49800,7 @@ look at
 LatexCommand href
 name "Geoff Gordon's mh.h"
 target "http://www.cs.cmu.edu/~ggordon/MCMC/"
+literal "false"
 
 \end_inset
 
@@ -49773,6 +50142,7 @@ For tips on using Dynare for MCMC estimation, see
 LatexCommand href
 name "these notes by Wouter den Haan."
 target "http://www.wouterdenhaan.com/numerical/slidesdynareestimation.pdf"
+literal "false"
 
 \end_inset
 
@@ -49831,6 +50201,7 @@ Reference:
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cameron2005microeconometrics"
+literal "true"
 
 \end_inset
 
@@ -51913,6 +52284,7 @@ Nonparametric inference
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cameron2005microeconometrics"
+literal "true"
 
 \end_inset
 
@@ -51921,6 +52293,7 @@ key "cameron2005microeconometrics"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "li2007nonparametric"
+literal "true"
 
 \end_inset
 
@@ -52238,6 +52611,7 @@ The following results were obtained using the free computer algebra system
 LatexCommand href
 name "Maxima"
 target "http://maxima.sourceforge.net/"
+literal "false"
 
 \end_inset
 
@@ -52693,6 +53067,7 @@ Here, we will see two examples of methods of estimating regression functions
 LatexCommand href
 name "nearest neighbors"
 target "https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm"
+literal "false"
 
 \end_inset
 
@@ -52712,6 +53087,7 @@ Readings
 \begin_inset CommandInset citation
 LatexCommand cite
 key "li2007nonparametric"
+literal "true"
 
 \end_inset
 
@@ -52720,6 +53096,7 @@ key "li2007nonparametric"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cameron2005microeconometrics"
+literal "true"
 
 \end_inset
 
@@ -53259,6 +53636,7 @@ a weighted average of the
 LatexCommand href
 name "link for a graphic interpretation."
 target "http://en.wikipedia.org/wiki/File:NonparRegrGaussianKernel.png"
+literal "false"
 
 \end_inset
 
@@ -53482,6 +53860,7 @@ Neural networks are a well known tool in many fields, and there are many
 \begin_inset CommandInset citation
 LatexCommand citet
 key "KuanWhiteNNSurvey1994"
+literal "true"
 
 \end_inset
 
@@ -53490,6 +53869,7 @@ key "KuanWhiteNNSurvey1994"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "LeCun2012"
+literal "true"
 
 \end_inset
 
@@ -53499,6 +53879,7 @@ key "LeCun2012"
 LatexCommand href
 name "practical introduction is here"
 target "https://www.hackerearth.com/practice/machine-learning/machine-learning-algorithms/understanding-deep-learning-parameter-tuning-with-mxnet-h2o-package-in-r/tutorial/"
+literal "false"
 
 \end_inset
 
@@ -53507,6 +53888,7 @@ target "https://www.hackerearth.com/practice/machine-learning/machine-learning-a
 \begin_inset CommandInset citation
 LatexCommand cite
 key "GallantWhiteNeural88"
+literal "true"
 
 \end_inset
 
@@ -53514,6 +53896,7 @@ key "GallantWhiteNeural88"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Hornik1989MFN:70405.70408"
+literal "true"
 
 \end_inset
 
@@ -53532,6 +53915,7 @@ deep learning
 \begin_inset CommandInset citation
 LatexCommand cite
 key "creel2016neural"
+literal "true"
 
 \end_inset
 
@@ -53540,6 +53924,7 @@ key "creel2016neural"
 LatexCommand href
 name "https://github.com/mcreel/NeuralNetsForIndirectInference.jl"
 target "https://github.com/mcreel/NeuralNetsForIndirectInference.jl"
+literal "false"
 
 \end_inset
 
@@ -54077,6 +54462,7 @@ Modern software exists to make this quite easy to do.
 LatexCommand href
 name "see this page"
 target "https://juliacomputing.com/domains/ml-and-ai.html"
+literal "false"
 
 \end_inset
 
@@ -54142,6 +54528,7 @@ Neural net indirect inference
 \begin_inset CommandInset citation
 LatexCommand citet
 key "creel2017neural"
+literal "true"
 
 \end_inset
 
@@ -54154,6 +54541,7 @@ see
 LatexCommand href
 name "this repository"
 target "https://github.com/mcreel/NeuralNetsForIndirectInference.jl"
+literal "false"
 
 \end_inset
 
@@ -56073,6 +56461,7 @@ For simple code to get started with neural nets,
 LatexCommand href
 name "https://github.com/mcreel/Econometrics.jl"
 target "https://github.com/mcreel/Econometrics.jl"
+literal "false"
 
 \end_inset
 
@@ -56081,6 +56470,7 @@ target "https://github.com/mcreel/Econometrics.jl"
 LatexCommand href
 name "neural_net_example.jl"
 target "https://github.com/mcreel/Econometrics.jl/blob/master/examples/neural_net_example.jl"
+literal "false"
 
 \end_inset
 
@@ -57453,6 +57843,7 @@ References:
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cameron2005microeconometrics"
+literal "true"
 
 \end_inset
 
@@ -57460,6 +57851,7 @@ key "cameron2005microeconometrics"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "koenker1978"
+literal "true"
 
 \end_inset
 
@@ -57467,6 +57859,7 @@ key "koenker1978"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "koenker2001quantile"
+literal "true"
 
 \end_inset
 
@@ -57474,6 +57867,7 @@ key "koenker2001quantile"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "ChernozhukovHansen"
+literal "true"
 
 \end_inset
 
@@ -57484,6 +57878,7 @@ key "ChernozhukovHansen"
 LatexCommand href
 name "Chernozhukov's quantile reg notes"
 target "http://ocw.mit.edu/courses/economics/14-385-nonlinear-econometric-analysis-fall-2007/lecture-notes/lecture08.pdf"
+literal "false"
 
 \end_inset
 
@@ -58416,6 +58811,7 @@ Returns to schooling: quantile regression, quantile IV regression, and Bayesian
 \begin_inset CommandInset citation
 LatexCommand citet
 key "card1993using"
+literal "true"
 
 \end_inset
 
@@ -58669,6 +59065,7 @@ We may use an instrumental variables version of quantile regression, due
 \begin_inset CommandInset citation
 LatexCommand citet
 key "ChernozhukovHansen"
+literal "true"
 
 \end_inset
 
@@ -58725,6 +59122,7 @@ To deal with this problem, we can consider using the MCMC methods proposed
 \begin_inset CommandInset citation
 LatexCommand citet
 key "ChernozhukovHong2003"
+literal "true"
 
 \end_inset
 
@@ -58994,6 +59392,7 @@ The results are quite similar to those of
 \begin_inset CommandInset citation
 LatexCommand citet
 key "chernozhukovHansen2006instrumental"
+literal "true"
 
 \end_inset
 
@@ -59001,6 +59400,7 @@ key "chernozhukovHansen2006instrumental"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "angrist1991does"
+literal "true"
 
 \end_inset
 
@@ -59137,6 +59537,7 @@ Readings
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cameron2005microeconometrics"
+literal "true"
 
 \end_inset
 
@@ -59145,6 +59546,7 @@ key "cameron2005microeconometrics"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "gourieroux1996simulation"
+literal "true"
 
 \end_inset
 
@@ -59154,6 +59556,7 @@ key "gourieroux1996simulation"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "McFadden1989MSM"
+literal "true"
 
 \end_inset
 
@@ -59161,6 +59564,7 @@ key "McFadden1989MSM"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PakesPollard"
+literal "true"
 
 \end_inset
 
@@ -59168,6 +59572,7 @@ key "PakesPollard"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "GourierouxMonfortIndirect"
+literal "true"
 
 \end_inset
 
@@ -59175,6 +59580,7 @@ key "GourierouxMonfortIndirect"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "smith1993estimating"
+literal "true"
 
 \end_inset
 
@@ -59182,6 +59588,7 @@ key "smith1993estimating"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "duffie1993simulated"
+literal "true"
 
 \end_inset
 
@@ -59189,6 +59596,7 @@ key "duffie1993simulated"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "emm"
+literal "true"
 
 \end_inset
 
@@ -59218,6 +59626,7 @@ On the other hand, computing power is growing more or less exponentially,
 LatexCommand href
 name "Moore's Law"
 target "https://en.wikipedia.org/wiki/Moore%27s_law"
+literal "false"
 
 \end_inset
 
@@ -59335,6 +59744,7 @@ Example: Multinomial and/or dynamic discrete response models
 \begin_inset CommandInset citation
 LatexCommand cite
 key "McFadden1989MSM"
+literal "true"
 
 \end_inset
 
@@ -60187,6 +60597,7 @@ The properties of the SML estimator depend on how
 \begin_inset CommandInset citation
 LatexCommand citet
 key "lee1995asymptotic"
+literal "true"
 
 \end_inset
 
@@ -60448,6 +60859,7 @@ Suppose that the optimal weighting matrix is used.
 \begin_inset CommandInset citation
 LatexCommand citet
 key "McFadden1989MSM"
+literal "true"
 
 \end_inset
 
@@ -60455,6 +60867,7 @@ key "McFadden1989MSM"
 \begin_inset CommandInset citation
 LatexCommand citet
 key "PakesPollard"
+literal "true"
 
 \end_inset
 
@@ -60629,6 +61042,7 @@ a drawback of the II estimator is that the auxiliary model must be estimated
 \begin_inset CommandInset citation
 LatexCommand citet
 key "emm"
+literal "true"
 
 \end_inset
 
@@ -61201,6 +61615,7 @@ Notation for differentiation of vectors and matrices
 \begin_inset CommandInset citation
 LatexCommand citet
 key "GallantNonlinearStatisticalModels"
+literal "true"
 
 \end_inset
 
@@ -62662,6 +63077,7 @@ The following two theorems are important for getting the asymptotic distribution
 \begin_inset CommandInset citation
 LatexCommand citet
 key "gallant1997introduction"
+literal "true"
 
 \end_inset
 
@@ -62674,6 +63090,7 @@ key "gallant1997introduction"
 LatexCommand href
 name "Slutsky Theorem"
 target "https://en.wikipedia.org/wiki/Slutsky%27s_theorem"
+literal "false"
 
 \end_inset
 
@@ -62685,6 +63102,7 @@ target "https://en.wikipedia.org/wiki/Slutsky%27s_theorem"
 LatexCommand href
 name "Continuous Mapping Theorem"
 target "https://en.wikipedia.org/wiki/Continuous_mapping_theorem"
+literal "false"
 
 \end_inset
 
@@ -62806,7 +63224,7 @@ Introduction to Julia
 
 \begin_layout Standard
 This chapter gives a brief introduction to Julia, explaining how to get
- running, and giving some basic examples relevant to econometrics.
+ it running, and giving some basic examples relevant to econometrics.
  There are also some pointers to sources of additional information.
  This is written for Julia version 0.6.x, and will be updated (hopefully)
  to keep up with developments.
@@ -62885,6 +63303,15 @@ the ecosystem is still developing, some features like DataFrames and plotting
  are not as complete stable as in other languages.
  However, I have been using it happily since 2014, and have been getting
  work done.
+ Once the 1.0 release is out, 
+\begin_inset Quotes sld
+\end_inset
+
+real soon now
+\begin_inset Quotes srd
+\end_inset
+
+, things will stabilize.
 \end_layout
 
 \begin_layout Standard
@@ -62905,7 +63332,7 @@ status open
 
 \begin_layout Plain Layout
 
-http://junolab.org/
+http://julialang.org/
 \end_layout
 
 \end_inset
@@ -62943,6 +63370,55 @@ https://pkg.julialang.org/
 
 \end_layout
 
+\begin_layout Itemize
+tutorials:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/PaulSoderlind/JuliaTutorial
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://ucidatascienceinitiative.github.io/IntroToJulia/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.analyticsvidhya.com/blog/2017/10/comprehensive-tutorial-learn-data-sci
+ence-julia-from-scratch/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 Quantitative Economics: 
 \begin_inset Flex URL
@@ -62986,10 +63462,6 @@ http://economics.sas.upenn.edu/~jesusfv/comparison_languages.pdf
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-get from my bookmarks
 \end_layout
 
 \begin_layout Standard
@@ -63148,7 +63620,7 @@ Good for presentations, but I find it cumbersome for research.
 \begin_layout Itemize
 Show it by doing 
 \family typewriter
-using IJulia; notebook()
+Pkg.add("IJulia"); using IJulia; notebook()
 \end_layout
 
 \begin_layout Subsection
@@ -63167,6 +63639,18 @@ JuliaBox
 \begin_layout Standard
 A way to try Julia out, without installation .
  Uses IJulia.
+ See 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+www.juliabox.com
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -63565,6 +64049,7 @@ The efficient method of moments (EMM) (see
 \begin_inset CommandInset citation
 LatexCommand cite
 key "emm"
+literal "true"
 
 \end_inset
 
@@ -78188,6 +78673,8 @@ options "bibtotoc,plainnm"
 \begin_inset CommandInset index_print
 LatexCommand printindex
 type "idx"
+name "Index"
+literal "true"
 
 \end_inset
 

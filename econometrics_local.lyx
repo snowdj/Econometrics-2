@@ -1030,35 +1030,75 @@ exogenous variable
 \begin_layout Itemize
 Economic theory can help us to determine the causality relationships between
  correlated variables.
+ According to theory, income does not affect the supply equation, so when
+ income changes, supply stays the same.
+ You can see in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Price-and-Quantity,"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that when income increases, the upward movement of demand is tracing out
+ the slope of the supply equation.
+ 
 \end_layout
 
-\begin_layout Itemize
-If we had experimental data, we could control certain variables and observe
- the outcomes for other variables.
- If we see that variable 
-\begin_inset Formula $x$
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
- changes as the controlled value of variable 
-\begin_inset Formula $y$
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Price-and-Quantity,"
+
 \end_inset
 
- is changed, then we know that 
-\begin_inset Formula $y$
+Price and Quantity, colored by income (blue is low, violet is high)
+\end_layout
+
 \end_inset
 
- causes 
-\begin_inset Formula $x$
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Examples/Intro/PriceQuantity.svg
+	width 15cm
+
 \end_inset
 
-.
- With economic data, we are unable to control the values of the variables:
- for example in supply and demand, if price changes, then quantity changes,
- but quantity also affect price.
- We can't control the market price, because the market price changes as
- quantity adjusts.
- This is the reason we need a theoretical model to help us distinguish correlati
-on from causality.
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1149,16 +1189,6 @@ q_{t} & =\beta_{1}+\beta_{2}p_{t}+\varepsilon_{t1}
 \end_inset
 
 
-\series bold
-\emph on
-Draw and assumptions block.
-
-\emph default
- 
-\end_layout
-
-\begin_layout Standard
-We have imposed a number of restrictions on the theoretical model:
 \end_layout
 
 \begin_layout Itemize
@@ -1186,8 +1216,7 @@ The parameters (
 \end_layout
 
 \begin_layout Itemize
-There is a single unobservable component in each equation, and we assume
- it is additive.
+There is a single unobservable component in each equation, and it is additive.
 \end_layout
 
 \begin_layout Standard
@@ -1206,10 +1235,21 @@ If we assume nothing about the error terms
 \begin_inset Formula $\beta$
 \end_inset
 
- coefficients to exist in a sense that has economic meaning, and in order
- to be able to use sample data to make reliable inferences about their values,
- we need to make additional assumptions.
- Such assumptions might be something like:
+ coefficients to exist in a sense that has 
+\emph on
+economic meaning
+\emph default
+, and in order to be able to use sample data to make reliable inferences
+ about their values, we need to make additional assumptions.
+ 
+\series bold
+\emph on
+Draw an assumptions block.
+
+\emph default
+ 
+\series default
+Such assumptions might be something like:
 \end_layout
 
 \begin_layout Itemize
@@ -1236,8 +1276,12 @@ If we assume nothing about the error terms
 \begin_layout Standard
 These are assertions that the errors are uncorrelated with the variables,
  and such assertions may or may not be reasonable.
- Later we will see how such assumption may be used and/or tested.
+ Later we will see how such assumptions may be used and/or tested.
  
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1250,93 +1294,35 @@ Draw an econometric model block.
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 All of the last six bulleted points have 
 \series bold
 no theoretical basis
 \series default
 , in that the theory of supply and demand doesn't imply these conditions.
- The validity of any econometric results we obtain using this model will
- be contingent on these additional restrictions being at least approximately
- correct.
- For this reason, 
+ 
+\end_layout
+
+\begin_layout Itemize
+The validity of any econometric results we obtain using an econometric model
+ will be contingent on these additional restrictions being at least approximatel
+y correct.
+ 
+\end_layout
+
+\begin_layout Itemize
+For this reason, 
 \emph on
 specification testing
 \emph default
  will be needed, to check that the model seems to be reasonable.
- Only when we are convinced that the model is at least approximately correct
+ 
+\end_layout
+
+\begin_layout Itemize
+Only when we are convinced that the model is at least approximately correct
  should we use it for economic analysis.
  
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-When testing a hypothesis using an econometric model, at least three factors
- can cause a statistical test to reject the null hypothesis:
-\end_layout
-
-\begin_layout Enumerate
-the hypothesis is false
-\end_layout
-
-\begin_layout Enumerate
-a type I error has occurred
-\end_layout
-
-\begin_layout Enumerate
-the econometric model is not correctly specified, and thus the test does
- not have the assumed distribution
-\end_layout
-
-\begin_layout Standard
-To be able to make scientific progress, we would like to ensure that the
- third reason is not contributing in a major way to rejections, so that
- rejection will be most likely due to either the first or second reasons.
- 
-\end_layout
-
-\begin_layout Itemize
-Hopefully the above example makes it clear that econometric models are necessari
-ly more detailed than what we can obtain from economic theory
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-we need an economic model to tell us about causality
-\end_layout
-
-\begin_layout Itemize
-we need assumptions
-\end_layout
-
-\begin_layout Itemize
-we need data, to help us learn about the parts of the model that still unknown.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-and that this additional detail introduces many possible sources of misspecifica
-tion of econometric models.
- 
-\end_layout
-
-\begin_layout Itemize
-In the next few sections we will obtain results supposing that the econometric
- model is entirely correctly specified.
- Later we will examine the consequences of misspecification and see some
- methods for determining if a model is correctly specified.
- 
-\end_layout
-
-\begin_layout Itemize
-Later on, econometric methods that seek to minimize maintained assumptions
- are introduced.
 \end_layout
 
 \begin_layout Standard
@@ -1350,19 +1336,14 @@ Later on, econometric methods that seek to minimize maintained assumptions
 Given that we know the variable names of the above data, estimate the supply
  equation by two stage least squares, if you know how to.
  Compare the coefficient estimates with the values that generated the data.
+ Note that the estimates are not bad, and get very close to the true values
+ if you increase the sample size.
+ This is because the model is correctly specified, and the 2SLS estimator
+ is consistent in this case.
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-newpage
-\end_layout
-
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -24943,7 +24924,7 @@ extremum estimator
 \begin_inset Formula $s_{n}(\mathbf{Z}_{n},\theta)$
 \end_inset
 
- over a set 
+ over a compact set 
 \begin_inset Formula $\overline{\Theta}$
 \end_inset
 
@@ -25021,7 +25002,7 @@ OLS.
 
  where 
 \begin_inset Formula $\mathbf{X}_{n}=\left(\begin{array}{llll}
-x_{1} & x_{2} & \cdots & x_{n}\end{array}\right)^{\prime}.$
+\boldsymbol{x}_{1} & \boldsymbol{x}_{2} & \cdots & \boldsymbol{x}_{n}\end{array}\right)^{\prime}.$
 \end_inset
 
  Let 
@@ -25040,16 +25021,107 @@ x_{1} & x_{2} & \cdots & x_{n}\end{array}\right)^{\prime}.$
 where 
 \begin_inset Formula 
 \[
-s_{n}(\mathbf{Z}_{n},\theta)=1/n\sum_{t=1}^{n}\left(y_{t}-\mathbf{x}_{t}^{\prime}\theta\right)^{2}
+s_{n}(\mathbf{Z}_{n},\theta)=1/n\sum_{t=1}^{n}\left(y_{t}-\boldsymbol{x}_{t}^{\prime}\theta\right)^{2}
 \]
 
 \end_inset
 
  As you already know, 
-\begin_inset Formula $\hat{\theta}=(\mathbf{X}^{\prime}\mathbf{X})^{-1}\mathbf{X}^{\prime}\mathbf{y}.$
+\begin_inset Formula $\hat{\theta}=(\mathbf{X}^{\prime}\mathbf{X})^{-1}\mathbf{X}^{\prime}\mathbf{y},$
+\end_inset
+
+ as this is a case where we can solve the f.o.c.
+ analytically.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The contours of the OLS objective function are plotted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:OLS-objective-function"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, based on the Julia script 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink{OLScontours.jl}{file:///home/michael/Mystuff/Econometrics/Examp
+les/NonlinearOptimization/OLScontours.jl} 
+\end_layout
+
+\end_inset
+
+.
+ This illustrates the idea that an extremum estimator minimizes or maximizes
+ a function, and that the estimate and parameters that we are trying to
+ estimate are distinct points.
+ As the sample gets large, the two points get close together, if the estimator
+ is consistent.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:OLS-objective-function"
+
+\end_inset
+
+OLS objective function contours
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Examples/NonlinearOptimization/OLScontours.svg
+	width 15cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -25106,7 +25178,7 @@ The maximum likelihood estimator is maximizes the joint density of the sample.
  is 
 \begin_inset Formula 
 \[
-\hat{\theta}\equiv\arg\max_{\Theta}\,\,\mathcal{L}_{n}(\theta)=\prod_{t=1}^{n}\left(2\pi\right)^{-1/2}(1/\sigma)\exp\left(-\frac{1}{2}\left(\frac{y_{t}-\theta}{\sigma}\right)^{2}\right)
+\hat{\theta}\equiv\arg\max_{\Theta}\,\,\mathcal{L}_{n}(\theta)=\prod_{t=1}^{n}f_{Y}(y_{t};\theta,\sigma)
 \]
 
 \end_inset
@@ -25131,9 +25203,10 @@ Because the natural logarithm is strictly increasing on
 
  where 
 \begin_inset Formula 
-\[
-s_{n}(\theta)=\left(1/n\right)\ln\mathcal{L}_{n}(\theta)=-\ln\sqrt{2\pi}-\text{\log}\sigma-\left(1/n\right)\sum_{t=1}^{n}\left(\frac{y_{t}-\theta}{\sigma}\right)^{2}
-\]
+\begin{align*}
+s_{n}(\theta) & =\left(1/n\right)\ln\mathcal{L}_{n}(\theta)=\left(1/n\right)\sum_{t=1}^{n}\ln f_{Y}(y_{t};\theta,\sigma)\\
+ & =-\ln\sqrt{2\pi}-\text{\log}\sigma-\left(1/n\right)\sum_{t=1}^{n}\left(\frac{y_{t}-\theta}{\sigma}\right)^{2}
+\end{align*}
 
 \end_inset
 
@@ -25183,10 +25256,6 @@ s_{n}(\zeta)=\int_{\Theta}\left(\theta-\zeta\right)^{2}f(Z_{n};\theta)\pi(\theta
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 where 
 \begin_inset Formula $f(Z_{n};\theta)$
 \end_inset
@@ -25264,8 +25333,9 @@ computing
 \emph default
  an extremum estimator, we condition on the observed data, and treat it
  as fixed.
- Then we compute estimators employing algorithms for optimization of nonstochast
-ic functions.
+ Then we compute estimators either by solving the f.o.c., as in the case of
+ OLS, or if that is not possible, by employing algorithms for optimization
+ of nonstochastic functions.
  How to do this is the topic of Chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -25353,8 +25423,8 @@ If
 \end_inset
 
  may not be continuous.
- Nevertheless, it may still converge to a continous function, in which case
- existence will not be a problem, at least asymptotically.
+ Nevertheless, it may still converge to a continuous function, in which
+ case existence will not be a problem, at least asymptotically.
  Henceforth in this course, we assume that 
 \begin_inset Formula $s_{n}(\theta)$
 \end_inset
@@ -25428,7 +25498,7 @@ Assume
 \begin_inset Formula $\Re^{K}.$
 \end_inset
 
- So the closure of 
+ So, the closure of 
 \begin_inset Formula $\Theta,$
 \end_inset
 
