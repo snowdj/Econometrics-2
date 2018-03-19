@@ -1260,13 +1260,6 @@ Such assumptions might be something like:
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $E(p_{t}\epsilon_{tj})=0,\,j=1,2$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
 \begin_inset Formula $E(m_{t}\epsilon_{tj})=0,\,j=1,2$
 \end_inset
 
@@ -1274,8 +1267,8 @@ Such assumptions might be something like:
 \end_layout
 
 \begin_layout Standard
-These are assertions that the errors are uncorrelated with the variables,
- and such assertions may or may not be reasonable.
+These are assertions that the errors have mean zero and are uncorrelated
+ with income, and such assertions may or may not be reasonable.
  Later we will see how such assumptions may be used and/or tested.
  
 \begin_inset Newpage newpage
@@ -25131,7 +25124,7 @@ OLS objective function contours
 \begin_layout Example
 Maximum likelihood.
  Suppose that the continuous random variables 
-\begin_inset Formula $Y_{t}\sim IIN(\theta^{0},\sigma_{0}^{2}),\,t=1,2,...,n$
+\begin_inset Formula $Y_{t}\sim IIN(\mu^{0},\sigma_{0}^{2}),\,t=1,2,...,n$
 \end_inset
 
 .
@@ -25142,13 +25135,13 @@ Maximum likelihood.
  is a standard normal random variable, its density is 
 \begin_inset Formula 
 \[
-f_{\epsilon}(z;\theta)=\left(2\pi\right)^{-1/2}\exp\left(-\frac{z^{2}}{2}\right).
+f_{\epsilon}(z)=\left(2\pi\right)^{-1/2}\exp\left(-\frac{z^{2}}{2}\right).
 \]
 
 \end_inset
 
  We have that 
-\begin_inset Formula $\epsilon_{t}=(Y_{t}-\theta_{0})/\sigma_{0}$
+\begin_inset Formula $\epsilon_{t}=(Y_{t}-\mu_{0})/\sigma_{0}$
 \end_inset
 
  is standard normal, and the Jacobian 
@@ -25164,12 +25157,18 @@ f_{\epsilon}(z;\theta)=\left(2\pi\right)^{-1/2}\exp\left(-\frac{z^{2}}{2}\right)
  is
 \begin_inset Formula 
 \[
-f_{Y}(y_{t};\theta,\sigma)=\left(2\pi\right)^{-1/2}(1/\sigma)\exp\left(-\frac{1}{2}\left(\frac{y_{t}-\theta}{\sigma}\right)^{2}\right).
+f_{Y}(y_{t};\theta)=\left(2\pi\right)^{-1/2}(1/\sigma)\exp\left(-\frac{1}{2}\left(\frac{y_{t}-\mu}{\sigma}\right)^{2}\right).
 \]
 
 \end_inset
 
-The maximum likelihood estimator is maximizes the joint density of the sample.
+where 
+\begin_inset Formula $\theta=(\mu,\sigma$
+\end_inset
+
+).
+ The maximum likelihood estimator is maximizes the joint density of the
+ sample.
  Because the data are i.i.d., the joint density of the sample 
 \begin_inset Formula $\left\{ y_{1},y_{2},...,y_{n}\right\} $
 \end_inset
@@ -25178,7 +25177,7 @@ The maximum likelihood estimator is maximizes the joint density of the sample.
  is 
 \begin_inset Formula 
 \[
-\hat{\theta}\equiv\arg\max_{\Theta}\,\,\mathcal{L}_{n}(\theta)=\prod_{t=1}^{n}f_{Y}(y_{t};\theta,\sigma)
+\hat{\theta}\equiv\arg\max_{\Theta}\,\,\mathcal{L}_{n}(\theta)=\prod_{t=1}^{n}f_{Y}(y_{t};\theta)
 \]
 
 \end_inset
@@ -25204,8 +25203,8 @@ Because the natural logarithm is strictly increasing on
  where 
 \begin_inset Formula 
 \begin{align*}
-s_{n}(\theta) & =\left(1/n\right)\ln\mathcal{L}_{n}(\theta)=\left(1/n\right)\sum_{t=1}^{n}\ln f_{Y}(y_{t};\theta,\sigma)\\
- & =-\ln\sqrt{2\pi}-\text{\log}\sigma-\left(1/n\right)\sum_{t=1}^{n}\left(\frac{y_{t}-\theta}{\sigma}\right)^{2}
+s_{n}(\theta) & =\left(1/n\right)\ln\mathcal{L}_{n}(\theta)=\left(1/n\right)\sum_{t=1}^{n}\ln f_{Y}(y_{t};\theta)\\
+ & =-\ln\sqrt{2\pi}-\text{\log}\sigma-\left(1/n\right)\sum_{t=1}^{n}\left(\frac{y_{t}-\mu}{\sigma}\right)^{2}
 \end{align*}
 
 \end_inset
