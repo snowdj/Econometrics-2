@@ -22897,7 +22897,9 @@ In the following, the superscript
 \end_layout
 
 \begin_layout Standard
-Derivative-based methods are defined by
+We assume that the objective function is at least one time differentiable.
+ Otherwise, these methods are not applicable, obviously.
+ Derivative-based methods are defined by
 \end_layout
 
 \begin_layout Enumerate
@@ -22969,27 +22971,22 @@ A locally increasing direction of search
  is a direction such that 
 \begin_inset Formula 
 \[
-\frac{\partial s(\theta+ad)}{\partial a}>0
+\frac{\partial s(\theta+ad)}{\partial a}>0.
 \]
 
 \end_inset
 
-for 
-\begin_inset Formula $a$
-\end_inset
-
- positive but small.
  That is, if we go in direction 
 \begin_inset Formula $d$
 \end_inset
 
 , we will improve on the objective function, at least if we don't go too
- far in that direction.
+ far.
 \end_layout
 
 \begin_layout Itemize
 As long as the gradient at 
-\begin_inset Formula $\theta$
+\begin_inset Formula $\theta^{k}$
 \end_inset
 
  is not zero, there exist increasing directions, and they can all be represented
@@ -23173,7 +23170,7 @@ Conditional on
 \end_inset
 
  is a scalar.
- 
+ But there are other methods that may be better (bisection, golden, etc.).
 \end_layout
 
 \begin_layout Itemize
@@ -23194,16 +23191,16 @@ Note also that this gives no guarantees to find a global maximum.
 \end_layout
 
 \begin_layout Subsection
-Steepest descent
+Steepest ascent
 \end_layout
 
 \begin_layout Standard
-Steepest descent (ascent if we're maximizing) just sets 
+Steepest ascent (descent if we're minimizing) just sets 
 \begin_inset Formula $Q$
 \end_inset
 
- to and identity matrix, since the gradient provides the direction of maximum
- rate of change of the objective function.
+ to an identity matrix, since the gradient provides the direction of maximum
+ rate of increase of the objective function.
 \end_layout
 
 \begin_layout Itemize
@@ -23252,7 +23249,7 @@ http://en.wikipedia.org/wiki/Rosenbrock_function
 \end_layout
 
 \begin_layout Subsection
-Newton' s method
+Newton's method
 \end_layout
 
 \begin_layout Standard
@@ -23280,6 +23277,15 @@ s_{n}(\theta)\approx s_{n}(\theta^{k})+g(\theta^{k})^{\prime}\left(\theta-\theta
 
 \end_inset
 
+(
+\begin_inset Formula $g$
+\end_inset
+
+ is the gradient vector and 
+\begin_inset Formula $H$
+\end_inset
+
+ is the Hessian matrix).
  To attempt to maximize 
 \begin_inset Formula $s_{n}(\theta),$
 \end_inset
@@ -23834,8 +23840,8 @@ automatic differentiation
 
 \begin_deeper
 \begin_layout Itemize
-update as of 2017: the MXNet.jl package used to train neural nets, mentioned
- in the chapter on nonparametric methods, uses automatic differentiation.
+update as of 2017: the Optim.jl and MXNet.jl packages for Julia can use automatic
+ differentiation.
 \end_layout
 
 \end_deeper
@@ -24068,6 +24074,82 @@ literal "false"
 \end_inset
 
  to get an idea of how the algorithm works.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Paste this code into Julia to see an example of simulated annealing.
+ Try experimenting by passing rt=0.9 or rt=0.25 as arguments, and see what
+ happens.
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+	junk=2.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	# shows use of obj.
+ fun.
+ as a closure
+\end_layout
+
+\begin_layout Plain Layout
+
+	function sse(x) # very simple quadratic objective function
+\end_layout
+
+\begin_layout Plain Layout
+
+		objvalue = junk + sum(x.*x)
+\end_layout
+
+\begin_layout Plain Layout
+
+	end
+\end_layout
+
+\begin_layout Plain Layout
+
+    k = 5
+\end_layout
+
+\begin_layout Plain Layout
+
+    x = rand(k,1)
+\end_layout
+
+\begin_layout Plain Layout
+
+    lb = -ones(k,1)
+\end_layout
+
+\begin_layout Plain Layout
+
+    ub = -lb
+\end_layout
+
+\begin_layout Plain Layout
+
+    @time xopt = samin(sse, x, lb, ub, verbosity=2)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
