@@ -33,10 +33,10 @@
 # DGP: MA1
 function data = dgp(theta, randdraws)
 	n = rows(randdraws);
-	alpha = theta(1,:);
+	psi = theta(1,:);
 	sig = theta(2,:);
 	e = sig*randdraws;
-	data = e(2:n,:) + alpha*e(1:n-1,:);
+	data = e(2:n,:) + psi*e(1:n-1,:);
 endfunction
 
 # auxiliary statistic: fitted coefficients from AR(p) model
@@ -71,8 +71,8 @@ function [obj_value score] = ii_obj(theta, randdraws, Z)
 	score = "";
 endfunction
 
-n = 200; # number of obs
-S = 100; # replications for II
+n = 1000; # number of obs
+S = 5; # replications for II
 
 
 # draw data and get Z corresponding to the true sample 
@@ -80,14 +80,14 @@ randdraws = randn(n+1,1);
 psi = 0.5;
 sig = 0.5;
 theta = [psi; sig];
-p = 4; # AR order
+p = 2; # AR order
 Z = aux_stat(theta, randdraws, p);
 
 # get CUE-II
 randdraws = randn(n+1,S);
 % initial simulated annealing to get good start values
 thetastart = [0; 0.1];
-[thetahat, obj_value, convergence, iters] = samin("ii_obj", {thetastart, randdraws, Z}, {[-1; 0],[1;2],1,1,0.25,200,3,1e-5,1e-3,2,1});
+[thetahat, obj_value, convergence, iters] = samin("ii_obj", {thetastart, randdraws, Z}, {[-1; 0],[1;2],3,1,0.5,200,3,1e-5,1e-3,2,1});
 % now finish off with fminunc
 options = optimset('TolFun', 1e-5);
 options = optimset(options, 'TolX', 1e-5);
@@ -95,6 +95,5 @@ options = optimset(options, 'TolF', 1e-10);
 options = optimset(options, 'Display', 'iter');
 [thetahat, obj_value, convergence, iters] = fminunc(@(theta) ii_obj(theta, randdraws, Z), thetahat, options);
 thetahat
-
 
 

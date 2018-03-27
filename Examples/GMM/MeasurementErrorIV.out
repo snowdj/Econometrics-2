@@ -1,8 +1,4 @@
-octave:3> MeasurementErrorIV
-rm: cannot remove `meas_error.out': No such file or directory
-      mean  st. dev.       min       max
-     0.000     0.241    -1.250     1.541
-    -0.016     0.149    -0.868     0.827
-    -0.001     0.177    -0.757     0.876
-octave:4>
-
+                mean       std      skew      kurt       min       max
+         1    -0.004     0.242    -0.797     7.175    -1.914     1.051
+         2    -0.021     0.147    -0.113     2.573    -0.692     0.695
+         3     0.007     0.185     0.037     0.443    -0.635     0.776

@@ -1,0 +1,6 @@
+simdata.design.tgz is a file with 100 samples drawn from the model at the true
+parameter values. Each sample is in a row (160 obsns, 5 variables).
+
+To use this, uncompress the file, and get a single sample by extracting 
+a row and reshaping it to be 160X5.
+

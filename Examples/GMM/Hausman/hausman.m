@@ -9,9 +9,9 @@
 # to a positive definite covariance. You'll get an
 # error message if you set them too high.
 
-n = 500; # sample size
-good_inst = 0.5; # correlation btw. regressor and instrument
-rho = 0.2; # correlation btw. error and regressor
+n = 200; # sample size
+good_inst = 0.3; # correlation btw. regressor and instrument
+rho = 0.0; # correlation btw. error and regressor
 # when rho is not zero, the test should start to show power. When rho=0, the percentage
 # of times that the p-value is less than a given significance level should be equal to
 # the significance level. You can Monte Carlo this to verify the good behavior of the
@@ -97,6 +97,16 @@ weight = inv(omega);
 [theta2, obj_value, iterations, convergence] = gmm_estimate(theta, data, weight, moments, momentargs, control);
 
 vc = gmm_variance(theta2, data, weight, moments, momentargs);
+k = rows(vc)/2;
+mask = [ones(k,k) zeros(k,k); zeros(k,k) ones(k,k)];
+vc2 = vc.*mask;
+
+# Standar Hausman test using the masked covariance which ignores covariance of estimators
+R = [eye(k) ,  -eye(k)];
+H = theta2' * R' * inverse(R*vc2*R') * R * theta2;
+q = 1; # degrees of freedom (only 1 since model is linear and the OLS and IV estimators share a moment condition)
+pvalue = 1 - chi2cdf(H,q);
+printf("\nStandard Hausman test value: %f    P-value: %f\n", H, pvalue);
 
 # Modified Hausman test using the correct covariance and overall efficient weight matrix (H2 test)
 R = [eye(k) ,  -eye(k)];
