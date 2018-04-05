@@ -23995,7 +23995,7 @@ Switching between algorithms during iterations is sometimes useful.
 The Nerlove model via numeric minimization.
  The example code 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -24047,32 +24047,26 @@ Simulated annealing is an algorithm which can find an optimum in the presence
  respect to the search method.
  It does not require derivatives to be evaluated.
  Run 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{samin
-\backslash
-_example.jl}{file:///home/michael/Mystuff/Econometrics/Examples/NonlinearOptimiza
-tion/samin
-\backslash
-_example.jl} 
-\end_layout
-
-\end_inset
-
- to see and example, and see the 
+\family typewriter
+samin()
+\family default
+ (with the 
+\family typewriter
+Econometrics.jl
+\family default
+ package installed) to see an example, and see the 
 \begin_inset CommandInset href
 LatexCommand href
 name "source code for samin.jl"
-target "https://github.com/mcreel/Econometrics.jl/blob/master/src/samin.jl"
+target "https://github.com/mcreel/Econometrics.jl/blob/master/src/Optimization/samin.jl"
 literal "false"
 
 \end_inset
 
+, or run 
+\family typewriter
+edit(samin,())
+\family default
  to get an idea of how the algorithm works.
 \end_layout
 
@@ -24156,6 +24150,90 @@ status open
 
 \end_layout
 
+\begin_layout Standard
+An additional example is 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink{OLSviaSA.jl}{file:///home/michael/Mystuff/Econometrics/Examples
+/NonlinearOptimization/OLSviaSA.jl} 
+\end_layout
+
+\end_inset
+
+, which uses SA to compute the OLS estimator, and plots the trace of the
+ improvements as they are found.
+ You can see how SA narrows in on the solution, in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Trace-of-SA"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Trace-of-SA"
+
+\end_inset
+
+Trace of SA path to minimize sum of squared errors
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Examples/NonlinearOptimization/OLSviaSA.svg
+	width 15cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -24174,6 +24252,10 @@ To show optimization methods in practice, using real economic data, this
  The focus at present is simply on numeric optimization.
  Later, after studying maximum likelihood estimation, this section can be
  read again.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -24188,9 +24270,17 @@ Demand for health care is usually thought of a a derived demand: health
  to the stock in the form of accidents or illnesses.
  As such, individual demand will be a function of the parameters of the
  individuals' utility functions.
+ 
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
 \begin_inset CommandInset label
 LatexCommand label
 name "The-,-meps1996.data,"
@@ -24217,7 +24307,8 @@ meps1996.data,
 \family default
  contains 4564 observations on six measures of health care usage.
  The data is from the 1996 Medical Expenditure Panel Survey (MEPS).
- You can get more information at 
+ There are now more than 20 years of data! You can get more information
+ at 
 \begin_inset Flex URL
 status collapsed
 
@@ -24229,15 +24320,23 @@ http://www.meps.ahrq.gov/
 \end_inset
 
 .
- The six measures of use are are office-based visits (OBDV), outpatient
- visits (OPV), inpatient visits (IPV), emergency room visits (ERV), dental
- visits (VDV), and number of prescription drugs taken (PRESCR).
+ 
+\end_layout
+
+\begin_layout Itemize
+The six measures of use are are office-based visits (OBDV), outpatient visits
+ (OPV), inpatient visits (IPV), emergency room visits (ERV), dental visits
+ (VDV), and number of prescription drugs taken (PRESCR).
  These form columns 1 - 6 of 
 \family typewriter
 meps1996.data
 \family default
 .
- The conditioning variables are public insurance (PUBLIC), private insurance
+ 
+\end_layout
+
+\begin_layout Standard
+The conditioning variables are public insurance (PUBLIC), private insurance
  (PRIV), sex (SEX), age (AGE), years of education (EDUC), and income (INCOME).
  These form columns 7 - 12 of the file
 \family typewriter
@@ -24247,7 +24346,11 @@ meps1996.data
  PRIV and PUBLIC are 0/1 binary variables, where a 1 indicates that the
  person has access to public or private insurance coverage.
  SEX is also 0/1, where 1 indicates that the person is female.
- This data will be used in examples fairly extensively in what follows.
+ This data will be used in several examples in what follows.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -24267,10 +24370,105 @@ les/MEPS-I/ExploreMEPS.jl}
 
  shows how the data may be read in, and gives some descriptive information
  about variables, which follows:
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "MEPS-I/MepsStats.out"
+\end_layout
 
+\begin_layout Standard
+\begin_inset listings
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+MEPS data, 1996, complete data set statistics
+\end_layout
+
+\begin_layout Plain Layout
+
+4564 observations
+\end_layout
+
+\begin_layout Plain Layout
+
+            mean    st.
+ dev.
+         min         max  
+\end_layout
+
+\begin_layout Plain Layout
+
+OBDV       3.279       6.171       0.000     133.000
+\end_layout
+
+\begin_layout Plain Layout
+
+OPV        0.260       1.962       0.000      78.000
+\end_layout
+
+\begin_layout Plain Layout
+
+IPV        0.194       0.637       0.000      17.000
+\end_layout
+
+\begin_layout Plain Layout
+
+ERV        0.086       0.389       0.000       5.000
+\end_layout
+
+\begin_layout Plain Layout
+
+DV         1.054       1.875       0.000      32.000
+\end_layout
+
+\begin_layout Plain Layout
+
+RX         8.384      18.852       0.000     316.000
+\end_layout
+
+\begin_layout Plain Layout
+
+PUB        0.141       0.334       0.000       1.000
+\end_layout
+
+\begin_layout Plain Layout
+
+PRIV       0.674       0.449       0.000       1.000
+\end_layout
+
+\begin_layout Plain Layout
+
+SEX        0.517       0.500       0.000       1.000
+\end_layout
+
+\begin_layout Plain Layout
+
+AGE       39.354      12.198      18.000      65.000
+\end_layout
+
+\begin_layout Plain Layout
+
+EDUC      12.652       2.896       0.000      17.000
+\end_layout
+
+\begin_layout Plain Layout
+
+INC    42803.630   34108.362       0.000  250463.330
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -24346,6 +24544,13 @@ the elasticity of the conditional mean of
 \end_inset
 
  conditioning variable.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -24582,6 +24787,8 @@ filename "Examples/NonlinearOptimization/FoggyMountain.out"
 
 In that run, the single BFGS run with bad start values converged to a point
  far from the true minimizer, while simulated annealing found the true minimizer.
+ BFGS using multiple start values also gets the correct solution, and if
+ you check, you'll find that it's faster than SA.
  The moral of the story is to be cautious and don't publish your results
  too quickly.
 \end_layout
@@ -25692,7 +25899,6 @@ Select a
 \begin_inset Formula $s_{\infty}(\theta).$
 \end_inset
 
- This happens with probability one by assumption (b).
  
 \end_layout
 
@@ -25719,7 +25925,7 @@ eierstrass), say that
 \begin_inset Formula $\{\hat{\theta}_{n}\}.$
 \end_inset
 
- There is a subsequence 
+ As such, there is a subsequence 
 \begin_inset Formula $\{\hat{\theta}_{n_{m}}\}$
 \end_inset
 
@@ -25740,7 +25946,8 @@ eierstrass), say that
 \end_layout
 
 \begin_layout Itemize
-By uniform convergence and continuity, 
+By uniform convergence and continuity of the limiting objective function,
+ 
 \begin_inset Formula 
 \[
 \lim_{m\rightarrow\infty}s_{n_{m}}(\hat{\theta}_{n_{m}})=s_{\infty}(\hat{\theta}).
@@ -25950,6 +26157,23 @@ reference "fig:Why-uniform-convergence"
 \end_inset
 
 .
+ If the objective function is not converging at 
+\begin_inset Formula $\theta_{*},$
+\end_inset
+
+ there's no guarantee that 
+\begin_inset Formula $s_{n}(\theta_{*})$
+\end_inset
+
+ will be lower than 
+\begin_inset Formula $s_{\infty}(\theta_{0})$
+\end_inset
+
+ as 
+\begin_inset Formula $n$
+\end_inset
+
+ gets large.
  
 \emph on
 
@@ -26159,6 +26383,16 @@ name "eeolsexample"
 \end_inset
 
 Consistency of Least Squares
+\end_layout
+
+\begin_layout Standard
+Thus example shows how the above theorem can be used to show that the OLS
+ estimator under the classical assumptions is consistent.
+ Of course, this is not the easiest way to show that.
+ The purpose is to show that the theorem gives us a result that we already
+ know to be true.
+ This may help you to believe it in the cases where we do not have external
+ confirmation.
 \end_layout
 
 \begin_layout Standard
@@ -26882,7 +27116,11 @@ y_{i}=h(x^{0},\theta^{0})+\left(x_{i}-x_{0}\right)^{\prime}\frac{\partial h(x_{0
 \end_inset
 
  and the Taylor's series remainder.
- Note that 
+ 
+\end_layout
+
+\begin_layout Itemize
+Note that 
 \begin_inset Formula $\nu_{i}$
 \end_inset
 
@@ -26890,7 +27128,7 @@ y_{i}=h(x^{0},\theta^{0})+\left(x_{i}-x_{0}\right)^{\prime}\frac{\partial h(x_{0
  We should expect problems.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Define 
 \begin_inset Formula 
 \begin{eqnarray*}
@@ -26900,10 +27138,11 @@ Define
 
 \end_inset
 
+as the intercept and slope of the Taylor's series tangent line.
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Given this, one might try to estimate 
 \begin_inset Formula $\alpha^{*}$
 \end_inset
@@ -27825,11 +28064,19 @@ name "chap:Application:-a-simple"
 \begin_layout Standard
 This short chapter presents a simple DSGE model, which will be used to illustrat
 e several estimators: ML, GMM, VARs, and Bayesian methods.
- We will investigate structural estimation methods, which attempt to estimate
+ 
+\end_layout
+
+\begin_layout Itemize
+We will investigate structural estimation methods, which attempt to estimate
  the actual parameters of the data generating process, and reduced form
  methods, which characterize the data, but which do not recover the parameters
  of the data generating process.
- Knowing the true DGP will allow us to measure sensibly how well the different
+ 
+\end_layout
+
+\begin_layout Itemize
+Knowing the true DGP will allow us to measure sensibly how well the different
  methods work.
 \begin_inset Newpage newpage
 \end_inset
@@ -27840,16 +28087,23 @@ e several estimators: ML, GMM, VARs, and Bayesian methods.
 \begin_layout Standard
 
 \series bold
-The model
+The model is as follows: 
 \end_layout
 
-\begin_layout Standard
-The model is as follows: The consumer chooses consumption, hours of work,
- and investment to maximize expected discounted utility.
- Using capital and labor provided by the consumer, a competitive firm produces
+\begin_layout Itemize
+The consumer chooses consumption, hours of work, and investment to maximize
+ expected discounted utility.
+\end_layout
+
+\begin_layout Itemize
+Using capital and labor provided by the consumer, a competitive firm produces
  an output to maximize profits, and pays the consumer according to the marginal
  productivity of the inputs.
- The price of the consumption good is normalized to one.
+ 
+\end_layout
+
+\begin_layout Itemize
+The price of the consumption good is normalized to one.
  
 \begin_inset Newpage newpage
 \end_inset
@@ -28461,8 +28715,7 @@ There is a shock,
 \begin_inset Formula $\eta_{t}$
 \end_inset
 
-, that affects the desirability of leisure.
- 
+, that affects the desirability of leisure relative to consumption 
 \end_layout
 
 \begin_deeper

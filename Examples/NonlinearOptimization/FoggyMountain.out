@@ -1,45 +1,21 @@
-MPITB extensions found
+julia> include("FoggyMountain.jl")
 
-======================================================
-BFGSMIN final results
-
-Used numeric gradient
-
-------------------------------------------------------
-STRONG CONVERGENCE
-Function conv 1  Param conv 1  Gradient conv 1
-------------------------------------------------------
-Objective function value -0.0130329
-Stepsize 0.102833
-43 iterations
-------------------------------------------------------
-
- param    gradient  change
- 15.9999  -0.0000   0.0000
--28.8119   0.0000   0.0000
 The result with poor start values
-ans =
-
-   16.000  -28.812
-
+objective function value: -0.01303
+local minimizer: [15.9659, -28.8314]
 
 ================================================
-SAMIN final results
-NORMAL CONVERGENCE
+SAMIN results
+==> Normal convergence <==
+total number of objective function evaluations: 2150
 
-Func. tol. 1.000000e-10	Param. tol. 1.000000e-03
-Obj. fn. value -0.100023
+     Obj. value:     -0.1000233843
 
-	   parameter	    search width
-            0.037419            0.000018
-           -0.000000            0.000051
+       parameter      search width
+         0.03742           0.00001
+         0.00000           0.00001
 ================================================
-Now try a battery of random start values and 
-a short BFGS on each, then iterate to convergence
-The result using 20 randoms start values
-ans =
+the estimate using BFGS with multiple start values: [0.0374195, -1.65211e-6]
+the best objective function value: -0.10002338432956329
 
-   3.7417e-02   2.7628e-07
-
-The true maximizer is near (0.037,0)
-
+julia>
