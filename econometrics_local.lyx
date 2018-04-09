@@ -27815,7 +27815,11 @@ to keep this from happening, we can multiply by something that is converging
 \end_layout
 
 \begin_layout Standard
-Considering 
+Now, let's get the form of 
+\begin_inset Formula $\mathcal{I}_{\infty}$
+\end_inset
+
+ of Assumption (c): Considering 
 \begin_inset Formula $\sqrt{n}D_{\beta}s_{n}(\beta^{0})$
 \end_inset
 
@@ -27845,7 +27849,7 @@ where
 \end_inset
 
  is a finite p.d.
- matrix.
+ matrix (by the classical assumption of no perfect collinearity).
  
 \begin_inset Newpage newpage
 \end_inset
@@ -28064,6 +28068,20 @@ name "chap:Application:-a-simple"
 \begin_layout Standard
 This short chapter presents a simple DSGE model, which will be used to illustrat
 e several estimators: ML, GMM, VARs, and Bayesian methods.
+ DSGE models are quite widely used by central banks, etc., but they are not
+ without their critics: see 
+\begin_inset CommandInset href
+LatexCommand href
+name "Paul Romer's WP \"The Trouble with Macroeconomics\""
+target "https://paulromer.net/trouble-with-macroeconomics-update/"
+literal "false"
+
+\end_inset
+
+, for example.
+ I like the DSGE model as an example because it allow illustrating a variety
+ of econometric techniques and methods.
+ Any other structural nonlinear model could serve the same purpose.
  
 \end_layout
 
@@ -28847,6 +28865,26 @@ The representative agent chooses actions in period
 \end_inset
 
  and earlier.
+\end_layout
+
+\begin_layout Itemize
+In real data sets, the capital stock is not observed.
+ The variables available for estimation are 
+\begin_inset Formula $y,c,n,w,$
+\end_inset
+
+ and 
+\begin_inset Formula $r.$
+\end_inset
+
+ Because capital is not observed, we can't estimate the production function
+ directly, even using IV to account for endogeneity of hours worked.
+\end_layout
+
+\begin_layout Itemize
+the model is nonlinear in the parameters, equations depend on multiple endogenou
+s variables, and 4 of the endogenous variables are not observed by the econometr
+ician (the two shocks, capital and investment).
 \end_layout
 
 \begin_layout Standard
@@ -31102,7 +31140,15 @@ Exogenous variables
 \end_layout
 
 \begin_layout Standard
-The likelihood function can be factored as 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "engle1983exogeneity"
+literal "false"
+
+\end_inset
+
+ is a good reference for this part.
+ The likelihood function can be factored as 
 \begin_inset Formula 
 \[
 f_{YZ}(Y,Z,\psi)=f_{Y|Z}(Y|Z,\theta)f_{Z}(Z,\rho)

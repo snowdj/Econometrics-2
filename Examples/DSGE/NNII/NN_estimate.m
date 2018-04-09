@@ -53,4 +53,5 @@ endwhile
 thetahat = NNstat(Z');
 fprintf("   true       estimated\n");
 disp([theta0 thetahat']);
+plot(data);
 system("./cleanup");
