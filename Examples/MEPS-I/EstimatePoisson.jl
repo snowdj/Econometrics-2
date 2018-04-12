@@ -26,9 +26,10 @@ x = data[:,7:12]
 n = size(x,1)
 x = [ones(n,1) x]
 # to check effects of poor scaling, try commenting the next line
-#x[:,end] = x[:,end]/1000.0 # put income in thousands
+x[:,end] = x[:,end]/1000.0 # put income in thousands
 names = ["constant", "pub. ins.","priv. ins.", "sex", "age","edu","inc"]
 title = "Poisson model, "*dep* ",  MEPS 1996 full data set"
 model = theta -> poisson(theta, y, x)
 theta = zeros(size(x,2)) # start values for estimation
-thetahat, objvalue, V, converged = mleresults(model, theta, title, names);
+# try adding the option vc=2 for "Hessian" or vc=3 for OPG
+thetahat, objvalue, V, converged = mleresults(model, theta, title, names, vc=1);
