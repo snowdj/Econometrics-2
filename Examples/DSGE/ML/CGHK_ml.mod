@@ -54,7 +54,7 @@ estimated_params;
 // the numbers after the comment are the true 
 // values used to generate the data
 alppha, 0.33;   // 0.33 
-betta, 0.99;    // 0.99
+betta, 0.95;    // 0.99
 //delta, 0.025;   // 0.025
 gam, 2.0;       // 2.0
 rho1, 0.9;      // 0.9
@@ -64,7 +64,8 @@ sigma2, 0.01;   // 0.01
 nss, .33;       // 1/3
 end;
 
-varobs c n;  // experiment choosing one or two from y c n MPK MPL
+# using c and n gives good results, c and MPL, not so good
+varobs n c;  // experiment choosing one or two from y c n MPK MPL
 
 // computes only the posterior mode for demonstration. 
 estimation(datafile=dsgedata, nobs=160, order=1);

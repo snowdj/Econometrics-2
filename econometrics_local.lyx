@@ -26995,7 +26995,20 @@ s_{\infty}(\gamma)=\gamma^{2}E\left(W^{2}\right)-2\beta_{0}\gamma E(WX)+C
 
 \end_inset
 
- So, 
+where 
+\begin_inset Formula $C$
+\end_inset
+
+ holds all terms that do not depend on 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+ So, finding the minimizer with respect to 
+\begin_inset Formula $\gamma$
+\end_inset
+
+, we get 
 \begin_inset Formula $\gamma_{0}=\frac{\beta_{0}E(WX)}{E(W^{2})}$
 \end_inset
 
@@ -31612,7 +31625,7 @@ A LLN tells us that, for a given
 \begin_inset Formula $p,$
 \end_inset
 
- 
+ the objective function converges to the limit of its expectation:
 \begin_inset Formula 
 \[
 s_{n}(p)=\frac{1}{n}\sum_{t=1}^{n}y_{t}\ln p+\left(1-y_{t}\right)\ln\left(1-p\right)\rightarrow^{a.s.}p_{0}\ln p+(1-p_{0})\ln(1-p).
@@ -31664,7 +31677,7 @@ The consistency theorem for extremum estimators tells us that the ML estimator
 \begin_inset Formula $s_{\infty}(p)=p_{0}\ln p+(1-p_{0})\ln(1-p)$
 \end_inset
 
-, we can easily check that the maximizer is 
+, we can easily check that the unique maximizer is 
 \begin_inset Formula $p_{0}$
 \end_inset
 
@@ -31673,9 +31686,8 @@ The consistency theorem for extremum estimators tells us that the ML estimator
 \end_layout
 
 \begin_layout Itemize
-So, the ML estimator is consistent for the true probability, according to
- the consistency theorem for extremum estimators.
- 
+So, the three assumptions of the consistency theorem hold, and thus the
+ ML estimator is consistent for the true probability.
 \end_layout
 
 \begin_layout Standard
@@ -31697,7 +31709,7 @@ name "exa:Likelihood-function-of"
 Likelihood function and MLE of classical linear regression model
 \emph default
 .
- Let's suppose that a dependent variable is normally distributed:
+ Let's suppose that a dependent variable is normally distributed: 
 \begin_inset Formula $y\sim N(\mu_{0},\sigma_{0}^{2})$
 \end_inset
 
@@ -31844,7 +31856,7 @@ mples/MLE/NormalExample.jl}
 Consistency of MLE
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 The MLE is an extremum estimator, given basic assumptions it is consistent
  for the value that maximizes the limiting objective function, following
  Theorem 
@@ -31855,14 +31867,28 @@ reference "Consistency of ee"
 \end_inset
 
 .
- The question is: what is the value that maximizes 
+ 
+\end_layout
+
+\begin_layout Itemize
+The question is: what is the value that maximizes 
 \begin_inset Formula $s_{\infty}(\theta)?$
 \end_inset
 
- For two cases (Bernoulli trial and ML of the linear model with normality)
+ 
+\end_layout
+
+\begin_layout Itemize
+For two cases (Bernoulli trial and ML of the linear model with normality)
  we have seen that the ML estimator converges to the true parameter of the
  d.g.p.
- Is this a general result?
+\end_layout
+
+\begin_layout Itemize
+Is this a general result?
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -32405,7 +32431,7 @@ Also, since we know that
 \begin_inset Formula $\mathcal{J}(\theta^{*})$
 \end_inset
 
- converges to the limit of it's expectation: 
+ converges to the limit of its expectation: 
 \begin_inset Formula 
 \[
 \mathcal{J}(\theta^{*})\overset{a.s.}{\rightarrow}\lim_{n\rightarrow\infty}\mathcal{E}\left(D_{\theta}^{2}s_{n}(\theta_{0})\right)=\mathcal{J}_{\infty}(\theta_{0})<\infty
@@ -32614,14 +32640,19 @@ From the previous expression
 \begin_inset Formula $\mathcal{J}(\theta^{*})\overset{a.s.}{\rightarrow}\mathcal{J}_{\infty}(\theta_{0})$
 \end_inset
 
-, we see that 
-\begin_inset Formula $\sqrt{n}\left(\hat{\theta}-\theta_{0}\right)$
+, we see that, following the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Slutsky theorem"
+target "https://en.wikipedia.org/wiki/Slutsky%27s_theorem"
+literal "false"
+
 \end_inset
 
- is a 
+
 \begin_inset Formula 
 \[
-\sqrt{n}\left(\hat{\theta}-\theta_{0}\right)\overset{a}{\sim}N\left[0,\mathcal{J}_{\infty}(\theta_{0})^{-1}\mathcal{I}_{\infty}(\theta_{0})\mathcal{J}_{\infty}(\theta_{0})^{-1}\right].
+\sqrt{n}\left(\hat{\theta}-\theta_{0}\right)\rightarrow^{d}N\left[0,\mathcal{J}_{\infty}(\theta_{0})^{-1}\mathcal{I}_{\infty}(\theta_{0})\mathcal{J}_{\infty}(\theta_{0})^{-1}\right].
 \]
 
 \end_inset
@@ -32660,10 +32691,14 @@ The information matrix equality
 
 \begin_layout Standard
 We will show that 
-\begin_inset Formula $\mathcal{J}_{\infty}(\theta)=-I_{\infty}(\theta).$
+\begin_inset Formula $\mathcal{J}_{\infty}(\theta)=-\mathcal{I}_{\infty}(\theta).$
 \end_inset
 
- Let 
+ 
+\end_layout
+
+\begin_layout Standard
+Let 
 \begin_inset Formula $f_{t}(\theta)$
 \end_inset
 
@@ -33012,10 +33047,77 @@ xamples/MEPS-I/EstimatePoisson.jl}
 \end_inset
 
  to figure out how the variance-covariance of the parameters has been estimated.
- Change the code that computes the covariance matrix to try the three options
- given above, and note the important changes in the estimated standard errors
- and t statistics.
- Interpret these findings: do you believe that the Poisson model is adequate?
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Alternative-variance-computation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ show the results using the sandwich and OPG forms.
+ Note the radical changes in the t-statistics.
+ This probably indicates that the Poisson model is not well-specified, following
+ the logic of the information matrix test.
+ When the t-statistics change so much, it means that the estimates of 
+\begin_inset Formula $I_{\infty}$
+\end_inset
+
+ and 
+\begin_inset Formula $-J_{\infty}$
+\end_inset
+
+ are far from one another.
+\end_layout
+
+\begin_layout Exercise
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Alternative-variance-computation"
+
+\end_inset
+
+Alternative variance computations for the OBDV Poisson model
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Examples/MLE/AlternativeVariances.svg
+	width 15cm
+	height 15cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -33117,17 +33219,12 @@ s_{\infty}(p)=p^{0}\ln p+\left(1-p^{0}\right)\ln\left(1-p\right).
  A bit of calculation shows that
 \begin_inset Formula 
 \[
-\left.D_{\theta}^{2}s_{n}(p)\right|_{p=p^{0}}\equiv\mathcal{J}_{n}(\theta)=\frac{-1}{p^{0}\left(1-p^{0}\right)},
+\left.D_{\theta}^{2}s_{\infty}(p)\right|_{p=p^{0}}\equiv\mathcal{J}_{\infty}(p^{0})=\frac{-1}{p^{0}\left(1-p^{0}\right)}.
 \]
 
 \end_inset
 
-which doesn't depend upon 
-\begin_inset Formula $n$
-\end_inset
-
-.
- By results we've seen on MLE, 
+By results we've seen on MLE, 
 \begin_inset Formula $\lim Var\sqrt{n}\left(\hat{p}-p^{0}\right)=-\mathcal{J}_{\infty}^{-1}(p^{0}).$
 \end_inset
 
@@ -33947,14 +34044,14 @@ filename "Examples/MLE/NerloveMLE.out"
 
 Compare the output to that of 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{Nerlove.m}{file:///home/michael/Mystuff/Econometrics/Examples/O
-LS/Nerlove.m} 
+htmladdnormallink{Nerlove.jl}{file:///home/michael/Mystuff/Econometrics/Examples/
+OLS/Nerlove.jl} 
 \end_layout
 
 \end_inset
@@ -34025,7 +34122,7 @@ model results, where
 , where 
 \begin_inset Formula 
 \[
-\Phi(\bullet)=\int_{-\infty}^{x\beta}(2\pi)^{-1/2}\exp(-\frac{\varepsilon^{2}}{2})d\varepsilon
+\Phi(\cdot)=\int_{-\infty}^{x\beta}(2\pi)^{-1/2}\exp(-\frac{\varepsilon^{2}}{2})d\varepsilon
 \]
 
 \end_inset
@@ -34048,7 +34145,7 @@ model results if the errors
 
  are not normal, but rather have a logistic distribution.
  This distribution is similar to the standard normal, but has fatter tails.
- The probability has the following parameterization
+ The probability, in this case, has the following parameterization
 \end_layout
 
 \begin_layout Standard
@@ -34603,7 +34700,7 @@ mleresults
 \begin_inset CommandInset href
 LatexCommand href
 name "source code"
-target "https://github.com/mcreel/Econometrics.jl/blob/master/src/mleresults.jl"
+target "https://github.com/mcreel/Econometrics.jl/blob/master/src/ML/mleresults.jl"
 literal "false"
 
 \end_inset
@@ -34819,32 +34916,50 @@ The two measures seem to exhibit extra-Poisson variation.
 random parameters
 \emph default
  approach.
- Consider the possibility that the constant term in a Poisson model were
- random:
+ Consider the possibility that the parameter in a Poisson model were random:
 \begin_inset Formula 
 \begin{eqnarray*}
-f_{Y}(y|\mathbf{x},\varepsilon) & = & \frac{\exp(-\theta)\theta^{y}}{y!}\\
-\theta & = & \exp(\mathbf{x}\prime\beta+\varepsilon)\\
- & = & \exp(\mathbf{x}\prime\beta)\exp(\varepsilon)\\
- & = & \lambda\nu
+f_{Y}(y|\lambda,v) & = & \frac{\exp(-\theta)\theta^{y}}{y!}
 \end{eqnarray*}
 
 \end_inset
 
 where 
-\begin_inset Formula $\lambda=\exp(\mathbf{x}\prime\beta$
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\theta=\lambda v$
 \end_inset
 
-) and 
-\begin_inset Formula $\nu=\exp(\varepsilon)$
-\end_inset
 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
 .
  Now 
 \begin_inset Formula $\nu$
 \end_inset
 
- captures the randomness in the constant.
+ is a multiplicative random term.
  The problem is that we don't observe 
 \begin_inset Formula $\nu$
 \end_inset
@@ -34852,7 +34967,7 @@ where
 , so we will need to marginalize it to get a usable density
 \begin_inset Formula 
 \[
-f_{Y}(y|\mathbf{x})=\int_{-\infty}^{\infty}\frac{\exp[-\theta]\theta^{y}}{y!}f_{v}(z)dz
+f_{Y}(y|\lambda,\psi)=\int_{-\infty}^{\infty}\frac{\exp[-\lambda z]\left[\lambda z\right]^{y}}{y!}f_{v}(z;\psi)dz
 \]
 
 \end_inset
@@ -34871,7 +34986,7 @@ d function.
  follows a certain one parameter gamma density, then 
 \begin_inset Formula 
 \begin{equation}
-f_{Y}(y|\mathbf{x},\phi)=\frac{\Gamma(y+\psi)}{\Gamma(y+1)\Gamma(\psi)}\left(\frac{\psi}{\psi+\lambda}\right)^{\psi}\left(\frac{\lambda}{\psi+\lambda}\right)^{y}\label{eq:negbindensity}
+f_{Y}(y|\lambda,\phi)=\frac{\Gamma(y+\psi)}{\Gamma(y+1)\Gamma(\psi)}\left(\frac{\psi}{\psi+\lambda}\right)^{\psi}\left(\frac{\lambda}{\psi+\lambda}\right)^{y}\label{eq:negbindensity}
 \end{equation}
 
 \end_inset
@@ -34890,15 +35005,11 @@ where
 \end_layout
 
 \begin_layout Itemize
-For this density, 
-\begin_inset Formula $E(y|\mathbf{x})=\lambda$
-\end_inset
-
-, which we have parameterized 
+We usually parameterize 
 \begin_inset Formula $\lambda=\exp(\mathbf{x}'\beta)$
 \end_inset
 
-
+, as before.
 \end_layout
 
 \begin_layout Itemize
@@ -35699,12 +35810,28 @@ literal "false"
 \end_inset
 
  package.
+ Some output that can be obtained is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Examples/DSGE/ML/dsgeml.svg
+	width 15cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+this is pretty good! However...
 \end_layout
 
 \begin_layout Itemize
 Estimation works (taking delta as known) when the parameters start values
  are close enough to their true values, but it doesn't work when less informativ
-e start values are tried: nonconcave objective function.
+e start values are tried: probably the objective function is nonconcave,
+ so care must be taken to try enough start values.
  If you try to estimate delta, it doesn't work even using true values as
  start values for all parameters.
 \end_layout
@@ -35766,7 +35893,14 @@ stochastic singularity
 Not using all of the observed variables for estimation is very likely to
  cause problems of lack of identification and inefficiency.
  This can be confirmed if you experiment with the estimation script.
- This is not a problem of the ML method, it is a problem due to the fact
+ Using c and n, we get the above results.
+ Using other variables, we get results that aren't so good.
+ When you don't know the true parameters, how will you choose which results
+ to believe?
+\end_layout
+
+\begin_layout Itemize
+This is not a problem of the ML method, it is a problem due to the fact
  that we are not really estimating the true model, we're working with a
  linear approximation.
  Often, people artificially add measurement error to the variables, which
@@ -35783,8 +35917,8 @@ The intention of presenting this example is to show that ML may be used
  linearization throws away so much information so that estimation becomes
  impossible.
  A better solution is to try to actually do ML estimation for the true nonlinear
- model: see papers by Fernandez-Villaverde and Rubio-Ramirez which use particle
- filtering.
+ model: see papers by Fernández-Villaverde and Rubio-Ramírez, which use
+ particle filtering.
  You can also modify the script to do this, by setting order=2 in the code,
  as Dynare supports the particle filter option.
  This is very time-consuming, though.
@@ -37027,6 +37161,31 @@ m_{t}(\theta) & =\frac{n}{n-1}\left(y_{t}-\bar{y}\right)^{2}-2\theta
 \end_layout
 
 \begin_layout Example
+Then
+\begin_inset Formula 
+\[
+\bar{m}_{n}(\theta)=\frac{\sum_{t=1}^{n}\left(y_{t}-\bar{y}\right)^{2}}{n-1}-2\theta.
+\]
+
+\end_inset
+
+The first term is the unbiased formula for the sample variance, and thus
+ has expectation equal to 
+\begin_inset Formula $2\theta_{0}.$
+\end_inset
+
+ So if we evaluate 
+\begin_inset Formula $\bar{m}_{n}(\theta)$
+\end_inset
+
+ at 
+\begin_inset Formula $\theta_{0},$
+\end_inset
+
+ the expectation is zero.
+\end_layout
+
+\begin_layout Example
 The MM estimator using the variance would set 
 \begin_inset Formula 
 \[
@@ -37485,9 +37644,9 @@ Increase
 \begin_inset Formula $n$
 \end_inset
 
- in the Octave script 
+ in the Julia script 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
