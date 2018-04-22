@@ -204,6 +204,25 @@ LatexCommand tableofcontents
 About this document
 \end_layout
 
+\begin_layout Standard
+Note to self: 
+\end_layout
+
+\begin_layout Itemize
+For econometrics.pdf on the github page, save to econometrics.lyx, , replace
+ all instances of 
+\family typewriter
+\color blue
+https://github.com/mcreel/Econometrics/blob/master
+\family default
+\color inherit
+ with
+\family typewriter
+ 
+\color blue
+https://github.com/mcreel/Econometrics/blob/master
+\end_layout
+
 \begin_layout Section
 Prerequisites
 \end_layout
@@ -43607,67 +43626,7 @@ separation "3pt"
 shadowsize "4pt"
 framecolor "black"
 backgroundcolor "none"
-status collapsed
-
-\begin_layout Plain Layout
-
-\family typewriter
-samin: intermediate results before next temperature change
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-temperature: 0.0
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-current best function value: 0.06997
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-total evaluations so far: 369900
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-total moves since last temperature reduction: 900
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-downhill: 218
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-accepted uphill: 231
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-rejected uphill: 451
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-out of bounds trials: 0
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-new minima this temperature: 0
-\end_layout
+status open
 
 \begin_layout Plain Layout
 
@@ -43698,66 +43657,6 @@ total number of objective function evaluations: 369900
 \family typewriter
 Obj.
  value: 0.0699670387
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-parameter search width
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.33000 0.00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.98936 0.00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.02461 0.00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-1.92554 0.00001 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.79608 0.00001 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.01882 0.00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.65912 0.00001 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.00874 0.00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.33127 0.00000 
 \end_layout
 
 \begin_layout Plain Layout
