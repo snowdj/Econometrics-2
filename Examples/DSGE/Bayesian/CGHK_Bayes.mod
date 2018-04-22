@@ -49,7 +49,7 @@ end;
 
 estimated_params;
 alppha, uniform_pdf, , 0.33,  0.3,  0.4; 
-%betta, uniform_pdf, , 0.99,  0.95, 1.0; 
+%betta, uniform_pdf, , 0.99,  0.95, 0.9999; 
 %delta, uniform_pdf, , 0.024,  0.01, 0.1; 
 gam, uniform_pdf, , 2.0, 0.0,  5.0;
 rho1, uniform_pdf, , 0.9, 0.0,  1.0; 

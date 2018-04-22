@@ -36856,6 +36856,13 @@ The moment condition may be vector-valued, with dimension
 \end_inset
 
  say.
+\end_layout
+
+\begin_layout Itemize
+There are a couple of other details in the definition, which we'll get to.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -40016,18 +40023,30 @@ The average moment conditions are
 \begin_inset Newpage newpage
 \end_inset
 
+
+\end_layout
+
+\begin_layout Itemize
 The 
 \emph on
 generalized instrumental variables
 \emph default
  estimator is just the GMM estimator based upon these moment conditions.
- When 
+ 
+\end_layout
+
+\begin_layout Itemize
+When 
 \begin_inset Formula $G=K$
 \end_inset
 
 , we have exact identification, and it is referred to as the instrumental
  variables estimator.
- Given the form of the moment conditions, the general formulae for GMM lead
+ 
+\end_layout
+
+\begin_layout Itemize
+Given the form of the moment conditions, the general formulae for GMM lead
  to particular forms for the GIV estimator:
 \end_layout
 
@@ -40225,13 +40244,16 @@ reference "eq:GIV estimator"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
 
 \end_layout
 
-\begin_layout Exercise
+\begin_layout Standard
 With the definition of 
 \begin_inset Formula $P_{Z}$
 \end_inset
@@ -40540,7 +40562,7 @@ An important point is that the asymptotic distribution of
 The choice of instruments influences the efficiency of the estimator
 \emph default
 .
- This point was made above, when optimal instruments were discussed.
+ This point was made, above, when optimal instruments were discussed.
 \end_layout
 
 \begin_layout Itemize
@@ -41105,9 +41127,9 @@ Next, multiply by
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{align*}
-\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\hat{\theta}) & =\left(I_{g}-\hat{\Omega}^{-1/2}D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1/2}\right)\left(\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\theta^{0})\right)\equiv PX
-\end{align*}
+\begin{align}
+\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\hat{\theta}) & =\left(I_{g}-\hat{\Omega}^{-1/2}D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1/2}\right)\left(\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\theta^{0})\right)\equiv PX\label{eq:JtestIntermediate}
+\end{align}
 
 \end_inset
 
@@ -41208,7 +41230,39 @@ Thus,
 \begin_inset Formula $X^{\prime}PX\stackrel{d}{\rightarrow}\chi^{2}(d)$
 \end_inset
 
-, by the Continuous Mapping Theorem.
+, by the Continuous Mapping Theorem
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ (
+\begin_inset CommandInset citation
+LatexCommand citet
+key "gallant1997introduction"
+literal "true"
+
+\end_inset
+
+, Theorem 4.7) 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+.
  This is because, asymptotically, it is a quadratic form of standard normal
  variables, weighted by an idempotent matrix.
 \end_layout
@@ -41238,19 +41292,21 @@ S
 \uwave default
 \noun default
 \color inherit
-o, a quadratic form on the r.h.s.
- has an asymptotic chi-square distribution.
- The quadratic form made using the l.h.s.
- must also have the same distribution, so we finally get, by the Continuous
- Mapping Theorem (
-\begin_inset CommandInset citation
-LatexCommand citet
-key "gallant1997introduction"
-literal "true"
+o, the inner product of the r.h.s.
+ of eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:JtestIntermediate"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-, Theorem 4.7) 
+ has an asymptotic chi-square distribution.
+ The inner product using the l.h.s.
+ must also have the same distribution, so we finally get
 \begin_inset Formula 
 \[
 \left(\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\hat{\theta})\right)^{\prime}\left(\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\hat{\theta})\right)=n\bar{m}_{n}(\hat{\theta})^{\prime}\hat{\Omega}^{-1}\bar{m}_{n}(\hat{\theta})\stackrel{d}{\rightarrow}\chi^{2}(g-K)
@@ -41695,7 +41751,7 @@ lagged values of the dependent variable are used as regressors and
 \end_layout
 
 \begin_layout Standard
-To illustrate, the Octave program 
+To illustrate, the Julia program 
 \begin_inset ERT
 status open
 
@@ -43869,7 +43925,8 @@ literal "true"
 
 \begin_layout Itemize
 the difficulties with extremum estimation may motivate other computational
- methods, such as using a Bayesian approach to classical estimators: 
+ methods, such as using a Bayesian approach to compute classical estimators
+ as was proposed by 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ChernozhukovHong2003"
@@ -43877,7 +43934,18 @@ literal "true"
 
 \end_inset
 
+.
+ We will return to this idea in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Bayesian-methods"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -49099,6 +49167,12 @@ present estimation results using transformation(s) of y and/or x so that
 
 \end_deeper
 \begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Bayesian-methods"
+
+\end_inset
+
 Bayesian methods
 \end_layout
 

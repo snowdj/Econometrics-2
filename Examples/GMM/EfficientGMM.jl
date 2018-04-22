@@ -19,3 +19,5 @@ histogram(results[:,1],nbins=50)
 #savefig("Inefficient.svg")
 histogram(results[:,2],nbins=50)
 #savefig("Efficient.svg")
+println("Monte Carlo covariance: (1,1) is inefficient GMM, (2,2) is efficient")
+prettyprint(cov(results));

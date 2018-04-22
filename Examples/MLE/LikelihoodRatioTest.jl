@@ -18,7 +18,7 @@ thetahat, logL, junk = fminunc(obj, theta)
 logL = -logL
 # restricted ML
 R = [0 1 0 0]
-r = 0
+r = -1
 thetahatr, logLr, junk = fmincon(obj, theta, R, r)
 logLr = -logLr
 # LR rest
@@ -31,4 +31,3 @@ println("the LR test: ", LR);
 println("p-value of the LR test: ", 1.0-cdf(Chisq(1),LR))
 end
 main()
-
