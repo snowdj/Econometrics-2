@@ -19,10 +19,10 @@ sig = [
 truebeta = [1, 2] # true beta
 p = chol(sig);
 for i = 1:reps
-	x = randn(n,3)*p
-	e = x[:,3]
-	w = [ones(n,1)  x[:,2]]
-	x = [ones(n,1) x[:,1]]
+	XWE = randn(n,3)*p
+	e = XWE[:,3]
+	w = [ones(n,1)  XWE[:,2]]
+	x = [ones(n,1) XWE[:,1]]
 	y = x*truebeta + e
 	# OLS
 	betaols[i,:] = y\x
@@ -31,9 +31,9 @@ for i = 1:reps
 end
 
 histogram(betaols[:,2], nbins=50)
-savefig("ols.svg")
+#savefig("ols.svg")
 histogram(betaiv[:,2], nbins=50)
-savefig("iv.svg")
+#savefig("iv.svg")
 
 println("true betas are ", truebeta)
 println("OLS results")

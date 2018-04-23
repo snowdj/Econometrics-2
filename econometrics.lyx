@@ -205,22 +205,7 @@ About this document
 \end_layout
 
 \begin_layout Standard
-Note to self: 
-\end_layout
 
-\begin_layout Itemize
-For econometrics.pdf on the github page, save to econometrics.lyx, , replace
- all instances of 
-\family typewriter
-\color blue
-https://github.com/mcreel/Econometrics/blob/master
-\family default
-\color inherit
- with
-\family typewriter
- 
-\color blue
-https://github.com/mcreel/Econometrics/blob/master
 \end_layout
 
 \begin_layout Section
@@ -43051,11 +43036,21 @@ literal "true"
 \end_inset
 
 , as well as a constant.
- For a single lag the estimation results are 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+For a single lag the estimation results are 
 \begin_inset CommandInset include
 LatexCommand verbatiminput
 filename "Examples/GMM/portfolio1.out"
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 For two lags the estimation results are 
@@ -43063,6 +43058,10 @@ For two lags the estimation results are
 LatexCommand verbatiminput
 filename "Examples/GMM/portfolio2.out"
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 Pretty clearly, the results are sensitive to the choice of instruments.

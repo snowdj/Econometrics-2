@@ -43062,11 +43062,21 @@ literal "true"
 \end_inset
 
 , as well as a constant.
- For a single lag the estimation results are 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+For a single lag the estimation results are 
 \begin_inset CommandInset include
 LatexCommand verbatiminput
 filename "Examples/GMM/portfolio1.out"
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 For two lags the estimation results are 
@@ -43074,6 +43084,10 @@ For two lags the estimation results are
 LatexCommand verbatiminput
 filename "Examples/GMM/portfolio2.out"
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 Pretty clearly, the results are sensitive to the choice of instruments.
