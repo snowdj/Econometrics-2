@@ -41077,14 +41077,18 @@ D(\hat{\theta})\hat{\Omega}^{-1}\bar{m}_{n}(\theta^{0})=-\left[D(\hat{\theta})\h
 \end_layout
 
 \begin_layout Standard
-With this, and taking into account the original expansion (equation 
+Substitute the RHS into the last part of equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "TS expansion of moments"
 
 \end_inset
 
-), we get 
+), and multiply by 
+\begin_inset Formula $\sqrt{n}$
+\end_inset
+
+, to get 
 \begin_inset Formula 
 \[
 \sqrt{n}\bar{m}_{n}(\hat{\theta})=\sqrt{n}\bar{m}_{n}(\theta^{0})-\sqrt{n}D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1}\bar{m}_{n}(\theta^{0}).
@@ -42434,7 +42438,7 @@ reference "Standard Omnibus"
 Applied Economics
 \emph default
 , 2004, for more details, including simulation results.
- The Julia script 
+ The Octave script 
 \begin_inset ERT
 status open
 
@@ -42442,8 +42446,8 @@ status open
 
  
 \backslash
-htmladdnormallink{hausman.jl}{file:///home/michael/Mystuff/Econometrics/Examples/
-GMM/Hausman/hausman.jl} 
+htmladdnormallink{hausman.m}{file:///home/michael/Mystuff/Econometrics/Examples/G
+MM/Hausman/hausman.m} 
 \end_layout
 
 \end_inset
@@ -42457,7 +42461,8 @@ H2
 \begin_inset Quotes srd
 \end_inset
 
- test in my paper), for a simple linear model.
+ test in my paper), for a simple linear model, and compares to the standard
+ Hausman test.
 \begin_inset Newpage newpage
 \end_inset
 
