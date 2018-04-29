@@ -41051,14 +41051,18 @@ D(\hat{\theta})\hat{\Omega}^{-1}\bar{m}_{n}(\theta^{0})=-\left[D(\hat{\theta})\h
 \end_layout
 
 \begin_layout Standard
-With this, and taking into account the original expansion (equation 
+Substitute the RHS into the last part of equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "TS expansion of moments"
 
 \end_inset
 
-), we get 
+), and multiply by 
+\begin_inset Formula $\sqrt{n}$
+\end_inset
+
+, to get 
 \begin_inset Formula 
 \[
 \sqrt{n}\bar{m}_{n}(\hat{\theta})=\sqrt{n}\bar{m}_{n}(\theta^{0})-\sqrt{n}D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1}\bar{m}_{n}(\theta^{0}).
@@ -42408,7 +42412,7 @@ reference "Standard Omnibus"
 Applied Economics
 \emph default
 , 2004, for more details, including simulation results.
- The Julia script 
+ The Octave script 
 \begin_inset ERT
 status open
 
@@ -42416,8 +42420,8 @@ status open
 
  
 \backslash
-htmladdnormallink{hausman.jl}{https://github.com/mcreel/Econometrics/blob/master/E
-xamples/GMM/Hausman/hausman.jl} 
+htmladdnormallink{hausman.m}{https://github.com/mcreel/Econometrics/blob/master/Ex
+amples/GMM/Hausman/hausman.m} 
 \end_layout
 
 \end_inset
@@ -42431,7 +42435,8 @@ H2
 \begin_inset Quotes srd
 \end_inset
 
- test in my paper), for a simple linear model.
+ test in my paper), for a simple linear model, and compares to the standard
+ Hausman test.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -45525,7 +45530,11 @@ As we've seen, this implies that
 \begin_inset Formula $\left\{ Y_{t}\right\} $
 \end_inset
 
- doesn't depend on 
+, e.g., 
+\begin_inset Formula $(Y_{t-j},Y_{t-k},...,Y_{t},...,Y_{t+l},Y_{t+m}\}$
+\end_inset
+
+, doesn't depend on 
 \begin_inset Formula $t.$
 \end_inset
 
@@ -45544,11 +45553,12 @@ weak stationarity.
 \begin_inset Newpage newpage
 \end_inset
 
-What is the mean of 
+How can we estimate the mean of 
 \begin_inset Formula $Y_{t}?$
 \end_inset
 
- The time series is one sample from the stochastic process.
+ The time series is one sample from the stochastic process, and each of
+ the random variables over the sample interval is sampled only once.
  One could think of 
 \begin_inset Formula $M$
 \end_inset
@@ -45566,7 +45576,12 @@ What is the mean of
 
 \end_inset
 
-The problem is, we have only one sample to work with, since we can't go
+as 
+\begin_inset Formula $M$
+\end_inset
+
+ gets large.
+ The problem is, we have only one sample to work with, since we can't go
  back in time and collect another.
  How can 
 \begin_inset Formula $\mathcal{E}(Y_{t})$
@@ -45706,7 +45721,7 @@ http://wps.pearsoned.co.uk/ema_ge_stock_ieupdate_3/251/64413/16489878.cw/index.h
 .
  
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -45725,7 +45740,7 @@ _quarterly.gdt}
 , in GRETL format.
  
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -46655,13 +46670,13 @@ may
 Using GRETL, try out various models to explain the unemployment rate, using
  the 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{S&W us_macro_quarterly data.}{https://github.com/mcreel/Economet
+htmladdnormallink{S&W US quarterly macro data.}{https://github.com/mcreel/Economet
 rics/blob/master/Examples/Data/us
 \backslash
 _macro
@@ -47183,7 +47198,7 @@ status open
 
  
 \backslash
-htmladdnormallink{S&W us_macro_quarterly data.}{https://github.com/mcreel/Economet
+htmladdnormallink{S&W US quarterly macro data.}{https://github.com/mcreel/Economet
 rics/blob/master/Examples/Data/us
 \backslash
 _macro
@@ -47407,7 +47422,7 @@ log differences
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -47434,13 +47449,10 @@ Time series plot
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard

@@ -45556,7 +45556,11 @@ As we've seen, this implies that
 \begin_inset Formula $\left\{ Y_{t}\right\} $
 \end_inset
 
- doesn't depend on 
+, e.g., 
+\begin_inset Formula $(Y_{t-j},Y_{t-k},...,Y_{t},...,Y_{t+l},Y_{t+m}\}$
+\end_inset
+
+, doesn't depend on 
 \begin_inset Formula $t.$
 \end_inset
 
@@ -45575,11 +45579,12 @@ weak stationarity.
 \begin_inset Newpage newpage
 \end_inset
 
-What is the mean of 
+How can we estimate the mean of 
 \begin_inset Formula $Y_{t}?$
 \end_inset
 
- The time series is one sample from the stochastic process.
+ The time series is one sample from the stochastic process, and each of
+ the random variables over the sample interval is sampled only once.
  One could think of 
 \begin_inset Formula $M$
 \end_inset
@@ -45597,7 +45602,12 @@ What is the mean of
 
 \end_inset
 
-The problem is, we have only one sample to work with, since we can't go
+as 
+\begin_inset Formula $M$
+\end_inset
+
+ gets large.
+ The problem is, we have only one sample to work with, since we can't go
  back in time and collect another.
  How can 
 \begin_inset Formula $\mathcal{E}(Y_{t})$
@@ -45737,7 +45747,7 @@ http://wps.pearsoned.co.uk/ema_ge_stock_ieupdate_3/251/64413/16489878.cw/index.h
 .
  
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -45756,7 +45766,7 @@ _quarterly.gdt}
 , in GRETL format.
  
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -46686,13 +46696,13 @@ may
 Using GRETL, try out various models to explain the unemployment rate, using
  the 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{S&W us_macro_quarterly data.}{file:///home/michael/Mystuff/Econ
+htmladdnormallink{S&W US quarterly macro data.}{file:///home/michael/Mystuff/Econ
 ometrics/Examples/Data/us
 \backslash
 _macro
@@ -47214,7 +47224,7 @@ status open
 
  
 \backslash
-htmladdnormallink{S&W us_macro_quarterly data.}{file:///home/michael/Mystuff/Econ
+htmladdnormallink{S&W US quarterly macro data.}{file:///home/michael/Mystuff/Econ
 ometrics/Examples/Data/us
 \backslash
 _macro
@@ -47438,7 +47448,7 @@ log differences
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -47465,13 +47475,10 @@ Time series plot
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
