@@ -205,7 +205,22 @@ About this document
 \end_layout
 
 \begin_layout Standard
+Note to self: 
+\end_layout
 
+\begin_layout Itemize
+For econometrics.pdf on the github page, save to econometrics.lyx, , replace
+ all instances of 
+\family typewriter
+\color blue
+https://github.com/mcreel/Econometrics/blob/master
+\family default
+\color inherit
+ with
+\family typewriter
+ 
+\color blue
+https://github.com/mcreel/Econometrics/blob/master
 \end_layout
 
 \begin_layout Section
@@ -47243,24 +47258,42 @@ See Stock and Watson, Ch.
 \end_layout
 
 \begin_layout Exercise
-Get the simulation data from the example DSGE model 
+Get the simulation data from the 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{here}{https://github.com/mcreel/Econometrics/blob/master/Exampl
-es/DSGE/GenData/dsgedata.txt} 
+htmladdnormallink{example DSGE model}{https://github.com/mcreel/Econometrics/blob
+/master/Examples/DSGE/GenData/dsgedata.gdt} 
 \end_layout
 
 \end_inset
 
- (variables are y, c, n, r, w).
+.
+ Recall that this simulated data intends to be representative of 40 years
+ of quarterly data.
+ 
+\begin_inset Newline newline
+\end_inset
+
+1.
  Estimate a VAR(1) model.
- Note that matching impulse response functions has sometimes been used for
- estimation of DSGE models.
+ Do an analysis of collinearity.
+ Compute impulse-response functions.
+\begin_inset Newline newline
+\end_inset
+
+2.
+ Estimate an AR(1) model for output.
+ Compare 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ to the AR(1) model.Note that matching impulse response functions has sometimes
+ been used for estimation of DSGE models.
  Perhaps we'll see this idea again.
 \end_layout
 
@@ -48190,7 +48223,7 @@ In this model, the log of the variance of the observed sequence follows
 
  Code to generate data from this model is here: 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
