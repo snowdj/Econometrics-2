@@ -8,7 +8,7 @@
 
 # explore different sample sizes, different true thetas
 using Distributions, Plots
-pyplot()
+#pyplot()
 
 function main()
     n = 50   # sample size
