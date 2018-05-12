@@ -37,7 +37,7 @@ end
 function likelihood(θ, y, x, z, τ, Σinv)
     m = moments(θ, y, x, z, τ)
     n = size(x,1)
-    lnL = (-0.5*n*m*Σinv*m')[1,1]
+    lnL = log(sqrt(det(Σinv))) + (-0.5*n*m*Σinv*m')[1,1]
 end
 
 function prior(theta)
