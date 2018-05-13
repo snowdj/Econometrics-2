@@ -88,6 +88,7 @@ theorems-ams-extended
 \pdf_colorlinks true
 \pdf_backref false
 \pdf_pdfusetitle true
+\pdf_quoted_options "colorlinks=true,citecolor=blue"
 \papersize a4paper
 \use_geometry true
 \use_package amsmath 2
@@ -102,7 +103,7 @@ theorems-ams-extended
 \use_package undertilde 1
 \cite_engine natbib
 \cite_engine_type authoryear
-\biblio_style \use_bibtopic false
+\biblio_style plainnat
 \use_bibtopic false
 \use_indices false
 \paperorientation landscape
@@ -27043,15 +27044,15 @@ Example: Linearization of a nonlinear model
 \end_layout
 
 \begin_layout Standard
-Ref.
- Gourieroux and Monfort, section 8.3.4.
- White, 
-\emph on
-Intn'l Econ.
- Rev.
+See 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white1980using"
+literal "false"
 
-\emph default
- 1980 is an earlier reference.
+\end_inset
+
+ and Gourieroux and Monfort, section 8.3.4.
 \end_layout
 
 \begin_layout Standard
@@ -27294,7 +27295,7 @@ reference "fig:Linear-Approximation"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -48814,7 +48815,12 @@ ce model, and to use Kalman filtering to compute the likelihood.
 \end_layout
 
 \begin_layout Standard
-For Kalman filtering, see 
+For Kalman filtering, see Hamilton, 
+\emph on
+Time Series Analysis, 
+\emph default
+Chapter 13.
+ Also, see 
 \bar under
 
 \begin_inset CommandInset href
@@ -50195,6 +50201,27 @@ the place where artistry comes to bear is the choice of the proposal density
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+when the proposal density is 
+\emph on
+symmetric, 
+\emph default
+so that 
+\begin_inset Formula $g(\theta^{s};\theta^{*})=g(\theta^{*};\theta^{s})$
+\end_inset
+
+, the acceptance criterion simplifies to 
+\begin_inset Formula 
+\[
+\frac{f(y|\theta^{*})}{f(y|\theta^{s})}\frac{\pi(\theta^{*})}{\pi(\theta^{s})}>\alpha
+\]
+
+\end_inset
+
+A random walk proposal, where the trial value is the current value plus
+ a shock that doesn't depend on the current value, satisfies symmetry.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
@@ -50500,7 +50527,7 @@ reference "subsec:DSGE-ML"
 , a simple DSGE model was estimated by ML.
  
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -50560,7 +50587,7 @@ name "fig:MCMC-results-for"
 
 \end_inset
 
-MCMC results for simple DSGE example model
+MCMC results for simple DSGE example model (two different runs)
 \end_layout
 
 \end_inset
@@ -50571,6 +50598,16 @@ MCMC results for simple DSGE example model
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename Examples/DSGE/Bayesian/MCMC.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Examples/DSGE/Bayesian/MCMC2.png
+	width 15cm
 
 \end_inset
 
@@ -50667,6 +50704,9 @@ literal "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -50674,12 +50714,80 @@ literal "false"
 \end_layout
 
 \begin_layout Subsection
-An example of Bayesian GMM for quantile instrumental variables estimation
+Bayesian GMM for the DSGE model
 \end_layout
 
-\begin_layout Itemize
-there is a more interesting example of MCMC in the quantile regression chapter,
- we'll get to it....
+\begin_layout Standard
+A script which show how to do Bayesian GMM as proposed by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "ChernozhukovHong2003"
+literal "false"
+
+\end_inset
+
+ is 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{DoMCMC.jl}{file:///home/michael/Mystuff/Econometrics/Examples/D
+SGE/MCMC/DoMCMC.jl} 
+\end_layout
+
+\end_inset
+
+.
+ This can be used to compute posterior densities for the parameters, for
+ example, the estimated posterior for 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ follows.
+ Recall that the true value that generated the sample is 
+\begin_inset Formula $\gamma=2$
+\end_inset
+
+, so, for this sample, the method worked quite well.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Examples/DSGE/MCMC/gamma.svg
+	width 15cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The results for all parameters are
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Examples/DSGE/MCMC/results.png
+	width 25cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The final line are statistics for the acceptance rate.
 \end_layout
 
 \begin_layout Standard
@@ -50727,7 +50835,7 @@ literal "true"
 
 , Part V, Chapters 21 and 22 (plus 23 if you have special interest in the
  topic).
- The GRETL manual, chapters 16 and 17 is also a nice reference.
+ The GRETL manual also has two chapters, which are a nice reference.
 \end_layout
 
 \begin_layout Standard
@@ -51108,7 +51216,7 @@ does the presence of
 
 \begin_layout Standard
 what about the covariance structure? We're likely to have HET and AUT, so
- GLS issue will probably be relevant.
+ GLS issues will probably be relevant.
  Potential for efficiency gains.
 \begin_inset Newpage newpage
 \end_inset
@@ -51249,7 +51357,7 @@ For example, if
 \begin_inset Formula $y$
 \end_inset
 
- is a quantity demanded of a luxury good, then a high value of 
+ is the quantity demanded of a luxury good, then a high value of 
 \begin_inset Formula $\alpha_{i}$
 \end_inset
 
@@ -51292,10 +51400,10 @@ Another example: consider returns to education, modeling wage as a function
 \end_inset
 
  could be an individual specific measure of ability.
- Ability could affect wages, but it could also affect the number of year
+ Ability could affect wages, but it could also affect the number of years
  of education.
  When education is a regressor and ability is a component of the error,
- we expect an endogeneity problem.
+ we may expect an endogeneity problem.
 \end_layout
 
 \begin_layout Itemize
@@ -52883,8 +52991,8 @@ if we are confident that they are at least approximately true
 \end_layout
 
 \begin_layout Itemize
-If we impose parametric restrictions for which we have justification, we
- may provoke serious biases which can lead to incorrect conclusions.
+If we impose parametric restrictions for which we have little or no justificatio
+n, we may provoke serious biases which can lead to incorrect conclusions.
 \end_layout
 
 \begin_layout Standard
@@ -52899,21 +53007,16 @@ If we impose parametric restrictions for which we have justification, we
 \series bold
 Motivation 
 \series default
-(see H.
- White (1980) 
-\begin_inset Quotes eld
+(see 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white1980using"
+literal "false"
+
 \end_inset
 
-Using Least Squares to Approximate Unknown Regression Functions,
-\begin_inset Quotes erd
-\end_inset
-
+).
  
-\shape italic
-International Economic Review
-\shape default
-, pp.
- 149-70).
 \end_layout
 
 \begin_layout Standard
@@ -53137,7 +53240,17 @@ literal "false"
 
 .
  Unfortunately, I have lost the source code to get the results.
- It's not hard to do, though.
+ It's not hard to do, though: see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Consistency-of-OLS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -53240,7 +53353,7 @@ True and simple approximating functions
 
 \begin_layout Itemize
 The approximating model seems to fit the true model fairly well, asymptotically,
- so maybe the appromixation problem is not too important? 
+ so maybe the approximation problem is not too important? 
 \end_layout
 
 \begin_layout Itemize
@@ -53353,7 +53466,7 @@ The true elasticity is the line that has negative slope for large
  Root mean squared error in the approximation of the elasticity is 
 \begin_inset Formula 
 \[
-\left(\int_{0}^{2\pi}\left(\varepsilon(x)-\eta(x)\right)^{2}dx\right)^{1/2}=\allowbreak.\,31546
+\left(\int_{0}^{2\pi}\left(\varepsilon(x)-\eta(x)\right)^{2}dx\right)^{1/2}=0.31546
 \]
 
 \end_inset
@@ -53526,7 +53639,7 @@ On average, the fit is better, though there is some implausible waviness
 Root mean squared error in the approximation of the elasticity is 
 \begin_inset Formula 
 \[
-\left(\int_{0}^{2\pi}\left(\varepsilon(x)-\frac{g_{\infty}^{\prime}(x)x}{g_{\infty}(x)}\right)^{2}dx\right)^{1/2}=\allowbreak.\,16213,
+\left(\int_{0}^{2\pi}\left(\varepsilon(x)-\frac{g_{\infty}^{\prime}(x)x}{g_{\infty}(x)}\right)^{2}dx\right)^{1/2}=0.16213,
 \]
 
 \end_inset
@@ -54017,7 +54130,7 @@ n\gamma_{n}^{k}V\left[\hat{h}(x)\right] & = & \gamma_{n}^{-k}E\left\{ \left(K\le
 \begin_inset Formula $h(x)$
 \end_inset
 
- are bounded, this is bounded, and since 
+ are bounded, the RHS is bounded, and since 
 \begin_inset Formula $n\gamma_{n}^{k}\rightarrow\infty$
 \end_inset
 

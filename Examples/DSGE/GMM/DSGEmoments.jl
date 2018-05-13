@@ -28,7 +28,7 @@ function DSGEmoments(thetas, data)
         e = log.(w) - gam*log.(c) -log.(psi)
         X = lag(e,1)
         u = e-X*rho_eta
-        e1 = X.*u
+        e1 = X.*u/sig_eta
         e2 = u.^2.0 - sig_eta^2.0
         shock1 = copy(u/sig_eta)
         # now the Euler eqn
@@ -47,12 +47,12 @@ function DSGEmoments(thetas, data)
         e = log.(w) + alpha*(log.(n)-log.(lagk)) - log.(1.0-alpha)
         X = lag(e,1)
         u = e-X*rho_z
-        e6 = X.*u
+        e6 = X.*u/sig_z
         e7 = u.^2.0 - sig_z^2.0
         shock3 = copy(u/sig_z)
         # law of motion k: good for delta
         invest = y - c
-        e8 = lag(invest,1) + (1 - delta)*lag(lagk,1) - lagk
+        e8 = lag(invest,1) + (1.0 - delta)*lag(lagk,1) - lagk
         # shock2 and shock 3 are two alternative ways of recovering the technology shock.
         # They are very highly correlated for all parameter values, though their levels may
         # be different for some parameter values. Thus, use only the difference.
@@ -60,8 +60,8 @@ function DSGEmoments(thetas, data)
         P = inv(chol(cov(data)))
         P[:,3:5] = 0.0
         data = (data*P)[:,1:2]
-        errors = [e1 e2 e3 e6 e7 e8 shock1.*shock3 shock2-shock3 lag(data,1).*(shock1+shock2+shock3)]# lag(data,1).*shock2]
-        errors = errors[3:end,:] # need to drop 2, because lagk uses a lag, and we use lagged k
+        errors = [e1 e2 e3 e6 e7 e8 shock1.*shock3 shock2-shock3 lag(data,1).*[shock1 shock2]]
+        errors = errors[3:end,:] # need to drop 2, because lagk uses a lag, and we use lagged lagk
         return errors
 end
 

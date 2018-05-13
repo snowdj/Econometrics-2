@@ -76,20 +76,4 @@ function posterior(y, theta)
 end
 
 main()
-#=
 
-    # get posterior mean by another crude numeric integration
-    posteriormean = sum(thetas.*post*delta,2);
-    priormean = exp(1.5); # this is the mean of lognormal exp(mu+sig^2/2)
-    fprintf('Posterior mean: #f\n', posteriormean);
-    h = 1.1*max(post); # height of lines, a little more than height of posterior
-    plot([theta; theta], [0; h], 'r');
-    plot([priormean; priormean], [0; h], 'g');
-    plot([posteriormean; posteriormean], [0; h], 'c');
-    legend('prior', 'posterior', 'true theta', 'prior mean', 'posterior mean');
-    #print -dpng BayesExampleN10.png;
-end
-
-
-
-=#
