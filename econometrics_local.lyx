@@ -40683,14 +40683,10 @@ reference "exa:Measurement-error-in"
 \end_inset
 
  as long as 
-\begin_inset Formula $\rho$
-\end_inset
-
- and 
 \begin_inset Formula $\beta$
 \end_inset
 
- are different from zero, and by assumption 
+ is different from zero, and by assumption 
 \begin_inset Formula $x_{t}$
 \end_inset
 
@@ -41956,7 +41952,7 @@ reference "information matrix equality"
  Combining these two equations, we get
 \begin_inset Formula 
 \[
-\sqrt{n}\left(\hat{\theta}-\theta_{0}\right)\overset{a.s.}{\rightarrow}\mathcal{I}_{\infty}(\theta_{0})^{-1}\sqrt{n}g(\theta_{0}).
+\sqrt{n}\left(\hat{\theta}-\theta_{0}\right)\overset{d}{\rightarrow}\mathcal{I}_{\infty}(\theta_{0})^{-1}\sqrt{n}g(\theta_{0}).
 \]
 
 \end_inset
@@ -41990,7 +41986,7 @@ I_{K} & \mathcal{I}_{\infty}(\theta)
 
 \end_inset
 
-Now, consider 
+These results imply that 
 \begin_inset Formula 
 \[
 \begin{bmatrix}I_{K} & 0_{K}\\
@@ -41998,10 +41994,18 @@ Now, consider
 \end{bmatrix}\left[\begin{array}{c}
 \sqrt{n}\left(\tilde{\theta}-\theta\right)\\
 \sqrt{n}g(\theta)
-\end{array}\right]\overset{a.s.}{\rightarrow}\left[\begin{array}{c}
+\end{array}\right]\rightarrow^{d}\left[\begin{array}{c}
 \sqrt{n}\left(\tilde{\theta}-\theta\right)\\
 \sqrt{n}\left(\hat{\theta}-\theta\right)
 \end{array}\right].
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+.
 \]
 
 \end_inset
@@ -44193,26 +44197,6 @@ es/GMM/chi2gmm.jl}
  with several sample sizes.
  Do the results you obtain seem to agree with the consistency of the GMM
  estimator? Explain.
-\end_layout
-
-\begin_layout Enumerate
-The GMM estimator with an arbitrary weight matrix has the asymptotic distributio
-n
-\begin_inset Formula 
-\[
-\sqrt{n}\left(\hat{\theta}-\theta^{0}\right)\stackrel{d}{\rightarrow}N\left[0,\left(D_{\infty}W_{\infty}D_{\infty}^{\prime}\right)^{-1}D_{\infty}W_{\infty}\Omega_{\infty}W_{\infty}D_{\infty}^{\prime}\left(D_{\infty}W_{\infty}D_{\infty}^{\prime}\right)^{-1}\right]
-\]
-
-\end_inset
-
-We know that an exactly identified GMM estimator does not depend on the
- weight matrix.
- Show that the above expression may be simplified when we are dealing with
- an exactly identified estimator, in a manner such that 
-\begin_inset Formula $W_{\infty}$
-\end_inset
-
- disappears.
  
 \end_layout
 
@@ -53673,7 +53657,7 @@ more regressors-> more variance
 \begin_layout Itemize
 It can be shown that if we introduce regressors at a slow rate, it is possible
  to drive the RMSE of the approximation to the regression function and to
- the elasticity to zero.
+ the elasticity to zero, as the sample size grows.
  
 \end_layout
 
@@ -53734,23 +53718,15 @@ literal "true"
 \end_inset
 
 , Ch.
- 9; Bierens, 1987, 
-\begin_inset Quotes eld
+ 9; 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "bierens1987kernel"
+literal "false"
+
 \end_inset
 
-Kernel estimators of regression functions,
-\begin_inset Quotes erd
-\end_inset
-
- in 
-\emph on
-Advances in Econometrics, Fifth World Congress
-\shape italic
-\emph default
-,
-\shape default
- V.
- 1, Truman Bewley, ed., Cambridge.
+.
 \end_layout
 
 \begin_layout Standard
@@ -54268,7 +54244,7 @@ a weighted average of the
 \begin_inset CommandInset href
 LatexCommand href
 name "link for a graphic interpretation."
-target "http://en.wikipedia.org/wiki/File:NonparRegrGaussianKernel.png"
+target "https://en.wikipedia.org/wiki/Kernel_smoother"
 literal "false"
 
 \end_inset

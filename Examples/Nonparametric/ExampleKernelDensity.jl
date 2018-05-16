@@ -1,4 +1,4 @@
-n = 100 # sample size
+n = 30000 # sample size
 x = sum(randn(n,3).^2,2) # generates 10000 draws from χ²(3)
 using StatPlots, Distributions
 density(x, label="nonparametric density") # creates a nonparametric density plot from the sample

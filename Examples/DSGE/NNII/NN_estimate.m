@@ -16,8 +16,8 @@ Set the true parameters within these bounds
 alpha  = 0.3;
 beta   = 0.99;
 delta  = 0.025;
-gam    = 2.0;
-rho1   = 0.9;
+gam    = 3.5;
+rho1   = 0.5;
 sigma1 = 0.03;
 rho2   = 0.3;
 sigma2 = 0.01;

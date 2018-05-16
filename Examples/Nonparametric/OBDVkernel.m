@@ -32,7 +32,9 @@ x = data(:,7:12);
 n = rows(x);
 
 # evaluation points for plot: vbls at means, except AGE goes from 18 - 65
+figure()
 evalp = mean(x);
+evalp(:,3) = 0; # 1 = woman, 0 = man
 evalp = repmat(evalp, 48,1);
 evalp(:,4) = (18:65)';
 ww = "";
@@ -48,6 +50,7 @@ axis([18 65]);
 # evaluation points for plot: vbls at means, except INCOME goes from 0 - 17
 figure();
 evalp = mean(x);
+evalp(:,3) = 0; # 1 = woman, 0 = man
 evalp = repmat(evalp, 18,1);
 evalp(:,5) = (0:17)';
 ww = "";
