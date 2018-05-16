@@ -37,7 +37,7 @@ end
 function likelihood(θ, y, x, z, τ, Σinv)
     m = moments(θ, y, x, z, τ)
     n = size(x,1)
-    lnL = (-0.5*n*m*Σinv*m')[1,1]
+    lnL = log(sqrt(det(Σinv))) + (-0.5*n*m*Σinv*m')[1,1]
 end
 
 function prior(theta)
@@ -59,7 +59,6 @@ function proposal(current, tuning)
 end
 
 function proposal2(current, cholV)
-    i = rand(1:size(current,1))
     trial = copy(current)
     trial = trial + cholV'*randn(size(trial))
     return trial

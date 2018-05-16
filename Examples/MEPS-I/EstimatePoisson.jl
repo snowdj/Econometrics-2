@@ -1,9 +1,9 @@
-# This does simple Poisson estimation using the meps1996.data 
+# This does simple Poisson estimation using the meps1996.data
 
 # The MEPS data
 
 # Define dep and expl vbls
-# 
+#
 # 	The dep. vbls, in corresponding column
 # 	Office based doctor visits	1
 # 	Outpatient doctor visits	2
@@ -11,7 +11,7 @@
 # 	Inpatient visits		4
 # 	Dental visits			5
 # 	Prescriptions			6
-# 	
+#
 
 which_dep = 1
 if (which_dep == 1) dep = "OBDV"   end
@@ -31,5 +31,5 @@ names = ["constant", "pub. ins.","priv. ins.", "sex", "age","edu","inc"]
 title = "Poisson model, "*dep* ",  MEPS 1996 full data set"
 model = theta -> poisson(theta, y, x)
 theta = zeros(size(x,2)) # start values for estimation
-thetahat, objvalue, V, converged = mleresults(model, theta, title, names);
-
+# try adding the option vc=2 for "Hessian" or vc=3 for OPG
+thetahat, objvalue, V, converged = mleresults(model, theta, title, names, vc=1);

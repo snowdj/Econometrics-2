@@ -1,4 +1,4 @@
-# 
+#
 # This is an example of estimation of a portfolio model
 # as in Hansen and Singleton, 1982. The data comes from
 # Tauchen, JBES, 1986 (available by ftp).
@@ -6,7 +6,7 @@
 # gamma is the coefficient of RRA. Try out different sets
 # of intruments and different lag lengths. You will see
 # that beta is stable across  models, but that gamma is not.
-# 
+#
 # Michael Creel, Oct. 24, 2000
 # revised 7 Nov. 2002
 # translated to Octave 9/9/2003
@@ -15,7 +15,7 @@
 
 
 # The main thing you have to to is define the moments for estimation,
-# as in the function that follows immediately, and ensure that the 
+# as in the function that follows immediately, and ensure that the
 # efficient weight matrix is estimated appropriately. The rest
 # is already programmed.
 
@@ -34,7 +34,7 @@ function portfolio_moments(theta, data)
     inst = data[:,3:end]
 	#  form error function
 	# note that c = c_t / c_t-1 (for stationarity) was done in data preparation
-	e = 1.0 .- beta*(1.0 + r) .* (c .^ (-gam)) 
+	e = 1.0 .- beta*(1.0 + r) .* (c .^ (-gam))
 	# cross with instruments
 	m = e.*inst
 end
@@ -46,7 +46,7 @@ d = data[:,3]
 r = (p + d) ./ lag(p,1) - 1.0
 c = c ./ lag(c,1); # ensure stationarity
 # choose maximal lag of instruments.
-max_lag = 2
+max_lag = 1
 inst = [c r d p]
 inst = lags(inst, max_lag)
 inst, junk, junk = stnorm(inst)
@@ -56,7 +56,7 @@ data = [c r inst]
 data = data[max_lag+1:end,:]
 # do estimation
 theta = zeros(2)
-moments = theta -> portfolio_moments(theta, data)	
+moments = theta -> portfolio_moments(theta, data)
 weight = eye(size(inst,2))
 names = ["beta","gamma"]
 # initial consistent estimate
@@ -70,8 +70,3 @@ results = gmmresults(moments, thetahat, weight, title, names)
 # CUE GMM
 title = "CUE GMM estimation of portfolio model"
 gmmresults(moments, theta, "", title, names)
-
-
-
-
-

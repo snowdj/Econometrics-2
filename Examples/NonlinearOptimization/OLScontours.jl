@@ -1,3 +1,4 @@
+using Plots
 # plots the contours of the OLS objective function,
 # with the true and estimated coefficients
 # generate data

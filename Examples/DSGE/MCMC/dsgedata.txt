@@ -1,0 +1,1 @@
+/home/michael/Mystuff/Econometrics/Examples/DSGE/GenData/dsgedata.txt

@@ -44,7 +44,6 @@ end
 # of realized volatility." Journal of Financial Econometrics 7,
 # no. 2 (2009): 174-196.
 function HAR(y,p)
-    #RV = log.(0.00001 .+ y.^2.0)
     RV = abs.(y)
     RVlags = lags(RV,p)
     X = [ones(size(y,1)) RVlags]
@@ -65,7 +64,7 @@ end
 function II_moments(θ, y, randdraws)
     S = size(randdraws,1)
     n = size(y,1)
-    p = 8 # number of lags for HAR model
+    p = 4 # number of lags for HAR model
     ϕhat = HAR(y,p) # this is being re-computed many times, needlessly, but I'm lazy
     ϕhatS = zeros(S, size(ϕhat,1))
     @inbounds Threads.@threads for s = 1:S
@@ -73,14 +72,10 @@ function II_moments(θ, y, randdraws)
         ϕhatS[s,:] = HAR(yₛ,p)
     end
     ms = sqrt(n)*(ϕhat' .- ϕhatS)
-    W = inv(cov(ms))
-    m = mean(ms,1)
-    return  m, W # the moments, in a SxG matrix
-end
-
-function II_obj(θ, y, randdraws)
-    m, W = II_moments(θ, y, randdraws)
-    return ((m*W*m')[1,1])
+    #W = inv(cov(ms))
+    #m = mean(ms,1)
+    #return  m, W # the moments, in a SxG matrix
+    return  ms # the moments, in a SxG matrix
 end
 
 function MSM_moments(θ, y, randdraws)
@@ -105,26 +100,18 @@ junk, y, σ = SVmodel(n, θₒ) # generate the sample
 plot(y)
 density(y)
 # now to estimation by MSM
-S = 100 # number of simulation reps
+S = 10 # number of simulation reps
 randdraws = randn(S,n+1000,2) # fix the shocks to control "chatter" (includes the burnin period)
 
 # Estimation by indirect inference
-# the auxiliary model is known to be reasonable for
-# this sort of data, and thus, should identify the parameters
-obj = θ -> II_obj(θ, y, randdraws)
-lb = [0.01, 0.0, 0.01]
-ub = [1.0, 0.99, 1.0]
-# impose the parameter space bounds for positive variance and stationarity
-θhat, objvalue, convergence = fmincon(obj, θₒ, [],[],lb, ub)
-println("Indirect Inference results")
-prettyprint([θₒ θhat], ["true" "estimated"])
-println("obj. value: ", objvalue)
+moments = θ -> II_moments(θ, y, randdraws)
+gmmresults(moments, θₒ, "", "Estimate SV by II-CUE");
 
 # Estimation by MSM (CUE) using ad hoc moments
 # these moments were chosen without too much thought, and may not identify
 # the parameters. This illustrates the danger of simply plugging in some
 # simple sample moments and hoping for the best
 moments = θ -> MSM_moments(θ, y, randdraws)
-gmmresults(moments, θhat, "", "GMM example, CUE");
+gmmresults(moments, θₒ, "", "Estimate SV by MSM-CUE, ad hoc moments");
 end
 main()

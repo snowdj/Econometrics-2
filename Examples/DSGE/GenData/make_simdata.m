@@ -30,13 +30,18 @@ psi = (1-alpha)*((c1/c2)^(-alpha));
 
 save parameterfile  alpha beta delta gam rho1 sigma1 rho2 sigma2 nss;
 
-% get the RNG state on this node, to re-establish separate
-% states on nodes after running Dynare, which synchronizes them
-%RNGstate = rand('state');
-
+RNGstate = rand('state');   % this is used to get different random draws
+                            % each time, otherwise, Dynare fixes the state
+                            % so the results are the same each time this is run
 dynare CGHK.mod noclearall;
+% set a new state in case this is run again
+ss = round(RNGstate(1)/RNGstate(2)*sum(RNGstate));
+set_dynare_seed(ss);
+
 % get a simulation of length 160 and compute aux. statistic
+info = stoch_simul(var_list_);
 data = [y c n MPK MPL];
 data = data(101:260,:);
+plot(data);
 # save -ascii dsgedata data;
 system("./cleanup"); % remove Dynare leftovers

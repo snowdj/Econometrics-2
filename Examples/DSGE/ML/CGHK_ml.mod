@@ -64,7 +64,8 @@ sigma2, 0.01;   // 0.01
 nss, .33;       // 1/3
 end;
 
-varobs c n;  // experiment choosing one or two from y c n MPK MPL
+# using c and n gives good results, c and MPL, not so good
+varobs MPL c;  // experiment choosing one or two from y c n MPK MPL
 
 // computes only the posterior mode for demonstration. 
 estimation(datafile=dsgedata, nobs=160, order=1);

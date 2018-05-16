@@ -10,7 +10,7 @@
 # error message if you set them too high.
 
 n = 200; # sample size
-good_inst = 0.3; # correlation btw. regressor and instrument
+good_inst = 0.5; # correlation btw. regressor and instrument
 rho = 0.0; # correlation btw. error and regressor
 # when rho is not zero, the test should start to show power. When rho=0, the percentage
 # of times that the p-value is less than a given significance level should be equal to

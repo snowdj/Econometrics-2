@@ -88,6 +88,7 @@ theorems-ams-extended
 \pdf_colorlinks true
 \pdf_backref false
 \pdf_pdfusetitle true
+\pdf_quoted_options "colorlinks=true,citecolor=blue"
 \papersize a4paper
 \use_geometry true
 \use_package amsmath 2
@@ -102,7 +103,7 @@ theorems-ams-extended
 \use_package undertilde 1
 \cite_engine natbib
 \cite_engine_type authoryear
-\biblio_style \use_bibtopic false
+\biblio_style plainnat
 \use_bibtopic false
 \use_indices false
 \paperorientation landscape
@@ -223,20 +224,6 @@ file:///home/michael/Mystuff/Econometrics
 https://github.com/mcreel/Econometrics/blob/master
 \end_layout
 
-\begin_layout Itemize
-to do: 
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Julia examples for nonparametric chapter
-\end_layout
-
-\begin_layout Itemize
-renew the simulation based chapter
-\end_layout
-
-\end_deeper
 \begin_layout Section
 Prerequisites
 \end_layout
@@ -23995,7 +23982,7 @@ Switching between algorithms during iterations is sometimes useful.
 The Nerlove model via numeric minimization.
  The example code 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -24047,32 +24034,26 @@ Simulated annealing is an algorithm which can find an optimum in the presence
  respect to the search method.
  It does not require derivatives to be evaluated.
  Run 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-htmladdnormallink{samin
-\backslash
-_example.jl}{file:///home/michael/Mystuff/Econometrics/Examples/NonlinearOptimiza
-tion/samin
-\backslash
-_example.jl} 
-\end_layout
-
-\end_inset
-
- to see and example, and see the 
+\family typewriter
+samin()
+\family default
+ (with the 
+\family typewriter
+Econometrics.jl
+\family default
+ package installed) to see an example, and see the 
 \begin_inset CommandInset href
 LatexCommand href
 name "source code for samin.jl"
-target "https://github.com/mcreel/Econometrics.jl/blob/master/src/samin.jl"
+target "https://github.com/mcreel/Econometrics.jl/blob/master/src/Optimization/samin.jl"
 literal "false"
 
 \end_inset
 
+, or run 
+\family typewriter
+edit(samin,())
+\family default
  to get an idea of how the algorithm works.
 \end_layout
 
@@ -24156,6 +24137,90 @@ status open
 
 \end_layout
 
+\begin_layout Standard
+An additional example is 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+htmladdnormallink{OLSviaSA.jl}{file:///home/michael/Mystuff/Econometrics/Examples
+/NonlinearOptimization/OLSviaSA.jl} 
+\end_layout
+
+\end_inset
+
+, which uses SA to compute the OLS estimator, and plots the trace of the
+ improvements as they are found.
+ You can see how SA narrows in on the solution, in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Trace-of-SA"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Trace-of-SA"
+
+\end_inset
+
+Trace of SA path to minimize sum of squared errors
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Examples/NonlinearOptimization/OLSviaSA.svg
+	width 15cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -24174,6 +24239,10 @@ To show optimization methods in practice, using real economic data, this
  The focus at present is simply on numeric optimization.
  Later, after studying maximum likelihood estimation, this section can be
  read again.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -24188,9 +24257,17 @@ Demand for health care is usually thought of a a derived demand: health
  to the stock in the form of accidents or illnesses.
  As such, individual demand will be a function of the parameters of the
  individuals' utility functions.
+ 
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
 \begin_inset CommandInset label
 LatexCommand label
 name "The-,-meps1996.data,"
@@ -24217,7 +24294,8 @@ meps1996.data,
 \family default
  contains 4564 observations on six measures of health care usage.
  The data is from the 1996 Medical Expenditure Panel Survey (MEPS).
- You can get more information at 
+ There are now more than 20 years of data! You can get more information
+ at 
 \begin_inset Flex URL
 status collapsed
 
@@ -24229,15 +24307,23 @@ http://www.meps.ahrq.gov/
 \end_inset
 
 .
- The six measures of use are are office-based visits (OBDV), outpatient
- visits (OPV), inpatient visits (IPV), emergency room visits (ERV), dental
- visits (VDV), and number of prescription drugs taken (PRESCR).
+ 
+\end_layout
+
+\begin_layout Itemize
+The six measures of use are are office-based visits (OBDV), outpatient visits
+ (OPV), inpatient visits (IPV), emergency room visits (ERV), dental visits
+ (VDV), and number of prescription drugs taken (PRESCR).
  These form columns 1 - 6 of 
 \family typewriter
 meps1996.data
 \family default
 .
- The conditioning variables are public insurance (PUBLIC), private insurance
+ 
+\end_layout
+
+\begin_layout Standard
+The conditioning variables are public insurance (PUBLIC), private insurance
  (PRIV), sex (SEX), age (AGE), years of education (EDUC), and income (INCOME).
  These form columns 7 - 12 of the file
 \family typewriter
@@ -24247,7 +24333,11 @@ meps1996.data
  PRIV and PUBLIC are 0/1 binary variables, where a 1 indicates that the
  person has access to public or private insurance coverage.
  SEX is also 0/1, where 1 indicates that the person is female.
- This data will be used in examples fairly extensively in what follows.
+ This data will be used in several examples in what follows.
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -24267,10 +24357,105 @@ les/MEPS-I/ExploreMEPS.jl}
 
  shows how the data may be read in, and gives some descriptive information
  about variables, which follows:
-\begin_inset CommandInset include
-LatexCommand verbatiminput
-filename "MEPS-I/MepsStats.out"
+\end_layout
 
+\begin_layout Standard
+\begin_inset listings
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+MEPS data, 1996, complete data set statistics
+\end_layout
+
+\begin_layout Plain Layout
+
+4564 observations
+\end_layout
+
+\begin_layout Plain Layout
+
+            mean    st.
+ dev.
+         min         max  
+\end_layout
+
+\begin_layout Plain Layout
+
+OBDV       3.279       6.171       0.000     133.000
+\end_layout
+
+\begin_layout Plain Layout
+
+OPV        0.260       1.962       0.000      78.000
+\end_layout
+
+\begin_layout Plain Layout
+
+IPV        0.194       0.637       0.000      17.000
+\end_layout
+
+\begin_layout Plain Layout
+
+ERV        0.086       0.389       0.000       5.000
+\end_layout
+
+\begin_layout Plain Layout
+
+DV         1.054       1.875       0.000      32.000
+\end_layout
+
+\begin_layout Plain Layout
+
+RX         8.384      18.852       0.000     316.000
+\end_layout
+
+\begin_layout Plain Layout
+
+PUB        0.141       0.334       0.000       1.000
+\end_layout
+
+\begin_layout Plain Layout
+
+PRIV       0.674       0.449       0.000       1.000
+\end_layout
+
+\begin_layout Plain Layout
+
+SEX        0.517       0.500       0.000       1.000
+\end_layout
+
+\begin_layout Plain Layout
+
+AGE       39.354      12.198      18.000      65.000
+\end_layout
+
+\begin_layout Plain Layout
+
+EDUC      12.652       2.896       0.000      17.000
+\end_layout
+
+\begin_layout Plain Layout
+
+INC    42803.630   34108.362       0.000  250463.330
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -24346,6 +24531,13 @@ the elasticity of the conditional mean of
 \end_inset
 
  conditioning variable.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -24582,6 +24774,8 @@ filename "Examples/NonlinearOptimization/FoggyMountain.out"
 
 In that run, the single BFGS run with bad start values converged to a point
  far from the true minimizer, while simulated annealing found the true minimizer.
+ BFGS using multiple start values also gets the correct solution, and if
+ you check, you'll find that it's faster than SA.
  The moral of the story is to be cautious and don't publish your results
  too quickly.
 \end_layout
@@ -25692,7 +25886,6 @@ Select a
 \begin_inset Formula $s_{\infty}(\theta).$
 \end_inset
 
- This happens with probability one by assumption (b).
  
 \end_layout
 
@@ -25719,7 +25912,7 @@ eierstrass), say that
 \begin_inset Formula $\{\hat{\theta}_{n}\}.$
 \end_inset
 
- There is a subsequence 
+ As such, there is a subsequence 
 \begin_inset Formula $\{\hat{\theta}_{n_{m}}\}$
 \end_inset
 
@@ -25740,7 +25933,8 @@ eierstrass), say that
 \end_layout
 
 \begin_layout Itemize
-By uniform convergence and continuity, 
+By uniform convergence and continuity of the limiting objective function,
+ 
 \begin_inset Formula 
 \[
 \lim_{m\rightarrow\infty}s_{n_{m}}(\hat{\theta}_{n_{m}})=s_{\infty}(\hat{\theta}).
@@ -25950,6 +26144,23 @@ reference "fig:Why-uniform-convergence"
 \end_inset
 
 .
+ If the objective function is not converging at 
+\begin_inset Formula $\theta_{*},$
+\end_inset
+
+ there's no guarantee that 
+\begin_inset Formula $s_{n}(\theta_{*})$
+\end_inset
+
+ will be lower than 
+\begin_inset Formula $s_{\infty}(\theta_{0})$
+\end_inset
+
+ as 
+\begin_inset Formula $n$
+\end_inset
+
+ gets large.
  
 \emph on
 
@@ -26159,6 +26370,16 @@ name "eeolsexample"
 \end_inset
 
 Consistency of Least Squares
+\end_layout
+
+\begin_layout Standard
+Thus example shows how the above theorem can be used to show that the OLS
+ estimator under the classical assumptions is consistent.
+ Of course, this is not the easiest way to show that.
+ The purpose is to show that the theorem gives us a result that we already
+ know to be true.
+ This may help you to believe it in the cases where we do not have external
+ confirmation.
 \end_layout
 
 \begin_layout Standard
@@ -26761,7 +26982,20 @@ s_{\infty}(\gamma)=\gamma^{2}E\left(W^{2}\right)-2\beta_{0}\gamma E(WX)+C
 
 \end_inset
 
- So, 
+where 
+\begin_inset Formula $C$
+\end_inset
+
+ holds all terms that do not depend on 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+ So, finding the minimizer with respect to 
+\begin_inset Formula $\gamma$
+\end_inset
+
+, we get 
 \begin_inset Formula $\gamma_{0}=\frac{\beta_{0}E(WX)}{E(W^{2})}$
 \end_inset
 
@@ -26810,15 +27044,15 @@ Example: Linearization of a nonlinear model
 \end_layout
 
 \begin_layout Standard
-Ref.
- Gourieroux and Monfort, section 8.3.4.
- White, 
-\emph on
-Intn'l Econ.
- Rev.
+See 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white1980using"
+literal "false"
 
-\emph default
- 1980 is an earlier reference.
+\end_inset
+
+ and Gourieroux and Monfort, section 8.3.4.
 \end_layout
 
 \begin_layout Standard
@@ -26882,7 +27116,11 @@ y_{i}=h(x^{0},\theta^{0})+\left(x_{i}-x_{0}\right)^{\prime}\frac{\partial h(x_{0
 \end_inset
 
  and the Taylor's series remainder.
- Note that 
+ 
+\end_layout
+
+\begin_layout Itemize
+Note that 
 \begin_inset Formula $\nu_{i}$
 \end_inset
 
@@ -26890,7 +27128,7 @@ y_{i}=h(x^{0},\theta^{0})+\left(x_{i}-x_{0}\right)^{\prime}\frac{\partial h(x_{0
  We should expect problems.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Define 
 \begin_inset Formula 
 \begin{eqnarray*}
@@ -26900,10 +27138,11 @@ Define
 
 \end_inset
 
+as the intercept and slope of the Taylor's series tangent line.
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Given this, one might try to estimate 
 \begin_inset Formula $\alpha^{*}$
 \end_inset
@@ -27056,7 +27295,7 @@ reference "fig:Linear-Approximation"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -27576,7 +27815,11 @@ to keep this from happening, we can multiply by something that is converging
 \end_layout
 
 \begin_layout Standard
-Considering 
+Now, let's get the form of 
+\begin_inset Formula $\mathcal{I}_{\infty}$
+\end_inset
+
+ of Assumption (c): Considering 
 \begin_inset Formula $\sqrt{n}D_{\beta}s_{n}(\beta^{0})$
 \end_inset
 
@@ -27606,7 +27849,7 @@ where
 \end_inset
 
  is a finite p.d.
- matrix.
+ matrix (by the classical assumption of no perfect collinearity).
  
 \begin_inset Newpage newpage
 \end_inset
@@ -27825,11 +28068,33 @@ name "chap:Application:-a-simple"
 \begin_layout Standard
 This short chapter presents a simple DSGE model, which will be used to illustrat
 e several estimators: ML, GMM, VARs, and Bayesian methods.
- We will investigate structural estimation methods, which attempt to estimate
+ DSGE models are quite widely used by central banks, etc., but they are not
+ without their critics: see 
+\begin_inset CommandInset href
+LatexCommand href
+name "Paul Romer's WP \"The Trouble with Macroeconomics\""
+target "https://paulromer.net/trouble-with-macroeconomics-update/"
+literal "false"
+
+\end_inset
+
+, for example.
+ I like the DSGE model as an example because it allow illustrating a variety
+ of econometric techniques and methods.
+ Any other structural nonlinear model could serve the same purpose.
+ 
+\end_layout
+
+\begin_layout Itemize
+We will investigate structural estimation methods, which attempt to estimate
  the actual parameters of the data generating process, and reduced form
  methods, which characterize the data, but which do not recover the parameters
  of the data generating process.
- Knowing the true DGP will allow us to measure sensibly how well the different
+ 
+\end_layout
+
+\begin_layout Itemize
+Knowing the true DGP will allow us to measure sensibly how well the different
  methods work.
 \begin_inset Newpage newpage
 \end_inset
@@ -27840,16 +28105,23 @@ e several estimators: ML, GMM, VARs, and Bayesian methods.
 \begin_layout Standard
 
 \series bold
-The model
+The model is as follows: 
 \end_layout
 
-\begin_layout Standard
-The model is as follows: The consumer chooses consumption, hours of work,
- and investment to maximize expected discounted utility.
- Using capital and labor provided by the consumer, a competitive firm produces
+\begin_layout Itemize
+The consumer chooses consumption, hours of work, and investment to maximize
+ expected discounted utility.
+\end_layout
+
+\begin_layout Itemize
+Using capital and labor provided by the consumer, a competitive firm produces
  an output to maximize profits, and pays the consumer according to the marginal
  productivity of the inputs.
- The price of the consumption good is normalized to one.
+ 
+\end_layout
+
+\begin_layout Itemize
+The price of the consumption good is normalized to one.
  
 \begin_inset Newpage newpage
 \end_inset
@@ -28461,8 +28733,7 @@ There is a shock,
 \begin_inset Formula $\eta_{t}$
 \end_inset
 
-, that affects the desirability of leisure.
- 
+, that affects the desirability of leisure relative to consumption 
 \end_layout
 
 \begin_deeper
@@ -28594,6 +28865,26 @@ The representative agent chooses actions in period
 \end_inset
 
  and earlier.
+\end_layout
+
+\begin_layout Itemize
+In real data sets, the capital stock is not observed.
+ The variables available for estimation are 
+\begin_inset Formula $y,c,n,w,$
+\end_inset
+
+ and 
+\begin_inset Formula $r.$
+\end_inset
+
+ Because capital is not observed, we can't estimate the production function
+ directly, even using IV to account for endogeneity of hours worked.
+\end_layout
+
+\begin_layout Itemize
+the model is nonlinear in the parameters, equations depend on multiple endogenou
+s variables, and 4 of the endogenous variables are not observed by the econometr
+ician (the two shocks, capital and investment).
 \end_layout
 
 \begin_layout Standard
@@ -30849,7 +31140,15 @@ Exogenous variables
 \end_layout
 
 \begin_layout Standard
-The likelihood function can be factored as 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "engle1983exogeneity"
+literal "false"
+
+\end_inset
+
+ is a good reference for this part.
+ The likelihood function can be factored as 
 \begin_inset Formula 
 \[
 f_{YZ}(Y,Z,\psi)=f_{Y|Z}(Y|Z,\theta)f_{Z}(Z,\rho)
@@ -31313,7 +31612,7 @@ A LLN tells us that, for a given
 \begin_inset Formula $p,$
 \end_inset
 
- 
+ the objective function converges to the limit of its expectation:
 \begin_inset Formula 
 \[
 s_{n}(p)=\frac{1}{n}\sum_{t=1}^{n}y_{t}\ln p+\left(1-y_{t}\right)\ln\left(1-p\right)\rightarrow^{a.s.}p_{0}\ln p+(1-p_{0})\ln(1-p).
@@ -31365,7 +31664,7 @@ The consistency theorem for extremum estimators tells us that the ML estimator
 \begin_inset Formula $s_{\infty}(p)=p_{0}\ln p+(1-p_{0})\ln(1-p)$
 \end_inset
 
-, we can easily check that the maximizer is 
+, we can easily check that the unique maximizer is 
 \begin_inset Formula $p_{0}$
 \end_inset
 
@@ -31374,9 +31673,8 @@ The consistency theorem for extremum estimators tells us that the ML estimator
 \end_layout
 
 \begin_layout Itemize
-So, the ML estimator is consistent for the true probability, according to
- the consistency theorem for extremum estimators.
- 
+So, the three assumptions of the consistency theorem hold, and thus the
+ ML estimator is consistent for the true probability.
 \end_layout
 
 \begin_layout Standard
@@ -31398,7 +31696,7 @@ name "exa:Likelihood-function-of"
 Likelihood function and MLE of classical linear regression model
 \emph default
 .
- Let's suppose that a dependent variable is normally distributed:
+ Let's suppose that a dependent variable is normally distributed: 
 \begin_inset Formula $y\sim N(\mu_{0},\sigma_{0}^{2})$
 \end_inset
 
@@ -31545,7 +31843,7 @@ mples/MLE/NormalExample.jl}
 Consistency of MLE
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 The MLE is an extremum estimator, given basic assumptions it is consistent
  for the value that maximizes the limiting objective function, following
  Theorem 
@@ -31556,14 +31854,28 @@ reference "Consistency of ee"
 \end_inset
 
 .
- The question is: what is the value that maximizes 
+ 
+\end_layout
+
+\begin_layout Itemize
+The question is: what is the value that maximizes 
 \begin_inset Formula $s_{\infty}(\theta)?$
 \end_inset
 
- For two cases (Bernoulli trial and ML of the linear model with normality)
+ 
+\end_layout
+
+\begin_layout Itemize
+For two cases (Bernoulli trial and ML of the linear model with normality)
  we have seen that the ML estimator converges to the true parameter of the
  d.g.p.
- Is this a general result?
+\end_layout
+
+\begin_layout Itemize
+Is this a general result?
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -32106,7 +32418,7 @@ Also, since we know that
 \begin_inset Formula $\mathcal{J}(\theta^{*})$
 \end_inset
 
- converges to the limit of it's expectation: 
+ converges to the limit of its expectation: 
 \begin_inset Formula 
 \[
 \mathcal{J}(\theta^{*})\overset{a.s.}{\rightarrow}\lim_{n\rightarrow\infty}\mathcal{E}\left(D_{\theta}^{2}s_{n}(\theta_{0})\right)=\mathcal{J}_{\infty}(\theta_{0})<\infty
@@ -32315,14 +32627,19 @@ From the previous expression
 \begin_inset Formula $\mathcal{J}(\theta^{*})\overset{a.s.}{\rightarrow}\mathcal{J}_{\infty}(\theta_{0})$
 \end_inset
 
-, we see that 
-\begin_inset Formula $\sqrt{n}\left(\hat{\theta}-\theta_{0}\right)$
+, we see that, following the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Slutsky theorem"
+target "https://en.wikipedia.org/wiki/Slutsky%27s_theorem"
+literal "false"
+
 \end_inset
 
- is a 
+
 \begin_inset Formula 
 \[
-\sqrt{n}\left(\hat{\theta}-\theta_{0}\right)\overset{a}{\sim}N\left[0,\mathcal{J}_{\infty}(\theta_{0})^{-1}\mathcal{I}_{\infty}(\theta_{0})\mathcal{J}_{\infty}(\theta_{0})^{-1}\right].
+\sqrt{n}\left(\hat{\theta}-\theta_{0}\right)\rightarrow^{d}N\left[0,\mathcal{J}_{\infty}(\theta_{0})^{-1}\mathcal{I}_{\infty}(\theta_{0})\mathcal{J}_{\infty}(\theta_{0})^{-1}\right].
 \]
 
 \end_inset
@@ -32361,10 +32678,14 @@ The information matrix equality
 
 \begin_layout Standard
 We will show that 
-\begin_inset Formula $\mathcal{J}_{\infty}(\theta)=-I_{\infty}(\theta).$
+\begin_inset Formula $\mathcal{J}_{\infty}(\theta)=-\mathcal{I}_{\infty}(\theta).$
 \end_inset
 
- Let 
+ 
+\end_layout
+
+\begin_layout Standard
+Let 
 \begin_inset Formula $f_{t}(\theta)$
 \end_inset
 
@@ -32713,10 +33034,77 @@ xamples/MEPS-I/EstimatePoisson.jl}
 \end_inset
 
  to figure out how the variance-covariance of the parameters has been estimated.
- Change the code that computes the covariance matrix to try the three options
- given above, and note the important changes in the estimated standard errors
- and t statistics.
- Interpret these findings: do you believe that the Poisson model is adequate?
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Alternative-variance-computation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ show the results using the sandwich and OPG forms.
+ Note the radical changes in the t-statistics.
+ This probably indicates that the Poisson model is not well-specified, following
+ the logic of the information matrix test.
+ When the t-statistics change so much, it means that the estimates of 
+\begin_inset Formula $I_{\infty}$
+\end_inset
+
+ and 
+\begin_inset Formula $-J_{\infty}$
+\end_inset
+
+ are far from one another.
+\end_layout
+
+\begin_layout Exercise
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Alternative-variance-computation"
+
+\end_inset
+
+Alternative variance computations for the OBDV Poisson model
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Examples/MLE/AlternativeVariances.svg
+	width 15cm
+	height 15cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -32818,17 +33206,12 @@ s_{\infty}(p)=p^{0}\ln p+\left(1-p^{0}\right)\ln\left(1-p\right).
  A bit of calculation shows that
 \begin_inset Formula 
 \[
-\left.D_{\theta}^{2}s_{n}(p)\right|_{p=p^{0}}\equiv\mathcal{J}_{n}(\theta)=\frac{-1}{p^{0}\left(1-p^{0}\right)},
+\left.D_{\theta}^{2}s_{\infty}(p)\right|_{p=p^{0}}\equiv\mathcal{J}_{\infty}(p^{0})=\frac{-1}{p^{0}\left(1-p^{0}\right)}.
 \]
 
 \end_inset
 
-which doesn't depend upon 
-\begin_inset Formula $n$
-\end_inset
-
-.
- By results we've seen on MLE, 
+By results we've seen on MLE, 
 \begin_inset Formula $\lim Var\sqrt{n}\left(\hat{p}-p^{0}\right)=-\mathcal{J}_{\infty}^{-1}(p^{0}).$
 \end_inset
 
@@ -33648,14 +34031,14 @@ filename "Examples/MLE/NerloveMLE.out"
 
 Compare the output to that of 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{Nerlove.m}{file:///home/michael/Mystuff/Econometrics/Examples/O
-LS/Nerlove.m} 
+htmladdnormallink{Nerlove.jl}{file:///home/michael/Mystuff/Econometrics/Examples/
+OLS/Nerlove.jl} 
 \end_layout
 
 \end_inset
@@ -33726,7 +34109,7 @@ model results, where
 , where 
 \begin_inset Formula 
 \[
-\Phi(\bullet)=\int_{-\infty}^{x\beta}(2\pi)^{-1/2}\exp(-\frac{\varepsilon^{2}}{2})d\varepsilon
+\Phi(\cdot)=\int_{-\infty}^{x\beta}(2\pi)^{-1/2}\exp(-\frac{\varepsilon^{2}}{2})d\varepsilon
 \]
 
 \end_inset
@@ -33749,7 +34132,7 @@ model results if the errors
 
  are not normal, but rather have a logistic distribution.
  This distribution is similar to the standard normal, but has fatter tails.
- The probability has the following parameterization
+ The probability, in this case, has the following parameterization
 \end_layout
 
 \begin_layout Standard
@@ -34304,7 +34687,7 @@ mleresults
 \begin_inset CommandInset href
 LatexCommand href
 name "source code"
-target "https://github.com/mcreel/Econometrics.jl/blob/master/src/mleresults.jl"
+target "https://github.com/mcreel/Econometrics.jl/blob/master/src/ML/mleresults.jl"
 literal "false"
 
 \end_inset
@@ -34520,32 +34903,50 @@ The two measures seem to exhibit extra-Poisson variation.
 random parameters
 \emph default
  approach.
- Consider the possibility that the constant term in a Poisson model were
- random:
+ Consider the possibility that the parameter in a Poisson model were random:
 \begin_inset Formula 
 \begin{eqnarray*}
-f_{Y}(y|\mathbf{x},\varepsilon) & = & \frac{\exp(-\theta)\theta^{y}}{y!}\\
-\theta & = & \exp(\mathbf{x}\prime\beta+\varepsilon)\\
- & = & \exp(\mathbf{x}\prime\beta)\exp(\varepsilon)\\
- & = & \lambda\nu
+f_{Y}(y|\lambda,v) & = & \frac{\exp(-\theta)\theta^{y}}{y!}
 \end{eqnarray*}
 
 \end_inset
 
 where 
-\begin_inset Formula $\lambda=\exp(\mathbf{x}\prime\beta$
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\theta=\lambda v$
 \end_inset
 
-) and 
-\begin_inset Formula $\nu=\exp(\varepsilon)$
-\end_inset
 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
 .
  Now 
 \begin_inset Formula $\nu$
 \end_inset
 
- captures the randomness in the constant.
+ is a multiplicative random term.
  The problem is that we don't observe 
 \begin_inset Formula $\nu$
 \end_inset
@@ -34553,7 +34954,7 @@ where
 , so we will need to marginalize it to get a usable density
 \begin_inset Formula 
 \[
-f_{Y}(y|\mathbf{x})=\int_{-\infty}^{\infty}\frac{\exp[-\theta]\theta^{y}}{y!}f_{v}(z)dz
+f_{Y}(y|\lambda,\psi)=\int_{-\infty}^{\infty}\frac{\exp[-\lambda z]\left[\lambda z\right]^{y}}{y!}f_{v}(z;\psi)dz
 \]
 
 \end_inset
@@ -34572,7 +34973,7 @@ d function.
  follows a certain one parameter gamma density, then 
 \begin_inset Formula 
 \begin{equation}
-f_{Y}(y|\mathbf{x},\phi)=\frac{\Gamma(y+\psi)}{\Gamma(y+1)\Gamma(\psi)}\left(\frac{\psi}{\psi+\lambda}\right)^{\psi}\left(\frac{\lambda}{\psi+\lambda}\right)^{y}\label{eq:negbindensity}
+f_{Y}(y|\lambda,\phi)=\frac{\Gamma(y+\psi)}{\Gamma(y+1)\Gamma(\psi)}\left(\frac{\psi}{\psi+\lambda}\right)^{\psi}\left(\frac{\lambda}{\psi+\lambda}\right)^{y}\label{eq:negbindensity}
 \end{equation}
 
 \end_inset
@@ -34591,15 +34992,11 @@ where
 \end_layout
 
 \begin_layout Itemize
-For this density, 
-\begin_inset Formula $E(y|\mathbf{x})=\lambda$
-\end_inset
-
-, which we have parameterized 
+We usually parameterize 
 \begin_inset Formula $\lambda=\exp(\mathbf{x}'\beta)$
 \end_inset
 
-
+, as before.
 \end_layout
 
 \begin_layout Itemize
@@ -35400,12 +35797,28 @@ literal "false"
 \end_inset
 
  package.
+ Some output that can be obtained is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Examples/DSGE/ML/dsgeml.svg
+	width 15cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+this is pretty good! However...
 \end_layout
 
 \begin_layout Itemize
 Estimation works (taking delta as known) when the parameters start values
  are close enough to their true values, but it doesn't work when less informativ
-e start values are tried: nonconcave objective function.
+e start values are tried: probably the objective function is nonconcave,
+ so care must be taken to try enough start values.
  If you try to estimate delta, it doesn't work even using true values as
  start values for all parameters.
 \end_layout
@@ -35467,7 +35880,14 @@ stochastic singularity
 Not using all of the observed variables for estimation is very likely to
  cause problems of lack of identification and inefficiency.
  This can be confirmed if you experiment with the estimation script.
- This is not a problem of the ML method, it is a problem due to the fact
+ Using c and n, we get the above results.
+ Using other variables, we get results that aren't so good.
+ When you don't know the true parameters, how will you choose which results
+ to believe?
+\end_layout
+
+\begin_layout Itemize
+This is not a problem of the ML method, it is a problem due to the fact
  that we are not really estimating the true model, we're working with a
  linear approximation.
  Often, people artificially add measurement error to the variables, which
@@ -35484,8 +35904,8 @@ The intention of presenting this example is to show that ML may be used
  linearization throws away so much information so that estimation becomes
  impossible.
  A better solution is to try to actually do ML estimation for the true nonlinear
- model: see papers by Fernandez-Villaverde and Rubio-Ramirez which use particle
- filtering.
+ model: see papers by Fernández-Villaverde and Rubio-Ramírez, which use
+ particle filtering.
  You can also modify the script to do this, by setting order=2 in the code,
  as Dynare supports the particle filter option.
  This is very time-consuming, though.
@@ -36423,6 +36843,13 @@ The moment condition may be vector-valued, with dimension
 \end_inset
 
  say.
+\end_layout
+
+\begin_layout Itemize
+There are a couple of other details in the definition, which we'll get to.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -36725,6 +37152,31 @@ m_{t}(\theta) & =\frac{n}{n-1}\left(y_{t}-\bar{y}\right)^{2}-2\theta
 \end_inset
 
 
+\end_layout
+
+\begin_layout Example
+Then
+\begin_inset Formula 
+\[
+\bar{m}_{n}(\theta)=\frac{\sum_{t=1}^{n}\left(y_{t}-\bar{y}\right)^{2}}{n-1}-2\theta.
+\]
+
+\end_inset
+
+The first term is the unbiased formula for the sample variance, and thus
+ has expectation equal to 
+\begin_inset Formula $2\theta_{0}.$
+\end_inset
+
+ So if we evaluate 
+\begin_inset Formula $\bar{m}_{n}(\theta)$
+\end_inset
+
+ at 
+\begin_inset Formula $\theta_{0},$
+\end_inset
+
+ the expectation is zero.
 \end_layout
 
 \begin_layout Example
@@ -37186,9 +37638,9 @@ Increase
 \begin_inset Formula $n$
 \end_inset
 
- in the Octave script 
+ in the Julia script 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -39558,18 +40010,30 @@ The average moment conditions are
 \begin_inset Newpage newpage
 \end_inset
 
+
+\end_layout
+
+\begin_layout Itemize
 The 
 \emph on
 generalized instrumental variables
 \emph default
  estimator is just the GMM estimator based upon these moment conditions.
- When 
+ 
+\end_layout
+
+\begin_layout Itemize
+When 
 \begin_inset Formula $G=K$
 \end_inset
 
 , we have exact identification, and it is referred to as the instrumental
  variables estimator.
- Given the form of the moment conditions, the general formulae for GMM lead
+ 
+\end_layout
+
+\begin_layout Itemize
+Given the form of the moment conditions, the general formulae for GMM lead
  to particular forms for the GIV estimator:
 \end_layout
 
@@ -39767,13 +40231,16 @@ reference "eq:GIV estimator"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
 
 \end_layout
 
-\begin_layout Exercise
+\begin_layout Standard
 With the definition of 
 \begin_inset Formula $P_{Z}$
 \end_inset
@@ -40082,7 +40549,7 @@ An important point is that the asymptotic distribution of
 The choice of instruments influences the efficiency of the estimator
 \emph default
 .
- This point was made above, when optimal instruments were discussed.
+ This point was made, above, when optimal instruments were discussed.
 \end_layout
 
 \begin_layout Itemize
@@ -40216,14 +40683,10 @@ reference "exa:Measurement-error-in"
 \end_inset
 
  as long as 
-\begin_inset Formula $\rho$
-\end_inset
-
- and 
 \begin_inset Formula $\beta$
 \end_inset
 
- are different from zero, and by assumption 
+ is different from zero, and by assumption 
 \begin_inset Formula $x_{t}$
 \end_inset
 
@@ -40597,14 +41060,18 @@ D(\hat{\theta})\hat{\Omega}^{-1}\bar{m}_{n}(\theta^{0})=-\left[D(\hat{\theta})\h
 \end_layout
 
 \begin_layout Standard
-With this, and taking into account the original expansion (equation 
+Substitute the RHS into the last part of equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "TS expansion of moments"
 
 \end_inset
 
-), we get 
+), and multiply by 
+\begin_inset Formula $\sqrt{n}$
+\end_inset
+
+, to get 
 \begin_inset Formula 
 \[
 \sqrt{n}\bar{m}_{n}(\hat{\theta})=\sqrt{n}\bar{m}_{n}(\theta^{0})-\sqrt{n}D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1}\bar{m}_{n}(\theta^{0}).
@@ -40647,9 +41114,9 @@ Next, multiply by
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{align*}
-\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\hat{\theta}) & =\left(I_{g}-\hat{\Omega}^{-1/2}D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1/2}\right)\left(\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\theta^{0})\right)\equiv PX
-\end{align*}
+\begin{align}
+\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\hat{\theta}) & =\left(I_{g}-\hat{\Omega}^{-1/2}D_{n}^{\prime}(\theta^{*})\left(D(\hat{\theta})\hat{\Omega}^{-1}D(\theta^{*})^{\prime}\right)^{-1}D(\hat{\theta})\hat{\Omega}^{-1/2}\right)\left(\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\theta^{0})\right)\equiv PX\label{eq:JtestIntermediate}
+\end{align}
 
 \end_inset
 
@@ -40750,7 +41217,39 @@ Thus,
 \begin_inset Formula $X^{\prime}PX\stackrel{d}{\rightarrow}\chi^{2}(d)$
 \end_inset
 
-, by the Continuous Mapping Theorem.
+, by the Continuous Mapping Theorem
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ (
+\begin_inset CommandInset citation
+LatexCommand citet
+key "gallant1997introduction"
+literal "true"
+
+\end_inset
+
+, Theorem 4.7) 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+.
  This is because, asymptotically, it is a quadratic form of standard normal
  variables, weighted by an idempotent matrix.
 \end_layout
@@ -40780,19 +41279,21 @@ S
 \uwave default
 \noun default
 \color inherit
-o, a quadratic form on the r.h.s.
- has an asymptotic chi-square distribution.
- The quadratic form made using the l.h.s.
- must also have the same distribution, so we finally get, by the Continuous
- Mapping Theorem (
-\begin_inset CommandInset citation
-LatexCommand citet
-key "gallant1997introduction"
-literal "true"
+o, the inner product of the r.h.s.
+ of eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:JtestIntermediate"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-, Theorem 4.7) 
+ has an asymptotic chi-square distribution.
+ The inner product using the l.h.s.
+ must also have the same distribution, so we finally get
 \begin_inset Formula 
 \[
 \left(\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\hat{\theta})\right)^{\prime}\left(\sqrt{n}\hat{\Omega}^{-1/2}\bar{m}_{n}(\hat{\theta})\right)=n\bar{m}_{n}(\hat{\theta})^{\prime}\hat{\Omega}^{-1}\bar{m}_{n}(\hat{\theta})\stackrel{d}{\rightarrow}\chi^{2}(g-K)
@@ -41237,7 +41738,7 @@ lagged values of the dependent variable are used as regressors and
 \end_layout
 
 \begin_layout Standard
-To illustrate, the Octave program 
+To illustrate, the Julia program 
 \begin_inset ERT
 status open
 
@@ -41451,7 +41952,7 @@ reference "information matrix equality"
  Combining these two equations, we get
 \begin_inset Formula 
 \[
-\sqrt{n}\left(\hat{\theta}-\theta_{0}\right)\overset{a.s.}{\rightarrow}\mathcal{I}_{\infty}(\theta_{0})^{-1}\sqrt{n}g(\theta_{0}).
+\sqrt{n}\left(\hat{\theta}-\theta_{0}\right)\overset{d}{\rightarrow}\mathcal{I}_{\infty}(\theta_{0})^{-1}\sqrt{n}g(\theta_{0}).
 \]
 
 \end_inset
@@ -41485,7 +41986,7 @@ I_{K} & \mathcal{I}_{\infty}(\theta)
 
 \end_inset
 
-Now, consider 
+These results imply that 
 \begin_inset Formula 
 \[
 \begin{bmatrix}I_{K} & 0_{K}\\
@@ -41493,10 +41994,18 @@ Now, consider
 \end{bmatrix}\left[\begin{array}{c}
 \sqrt{n}\left(\tilde{\theta}-\theta\right)\\
 \sqrt{n}g(\theta)
-\end{array}\right]\overset{a.s.}{\rightarrow}\left[\begin{array}{c}
+\end{array}\right]\rightarrow^{d}\left[\begin{array}{c}
 \sqrt{n}\left(\tilde{\theta}-\theta\right)\\
 \sqrt{n}\left(\hat{\theta}-\theta\right)
 \end{array}\right].
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+.
 \]
 
 \end_inset
@@ -41920,7 +42429,7 @@ reference "Standard Omnibus"
 Applied Economics
 \emph default
 , 2004, for more details, including simulation results.
- The Julia script 
+ The Octave script 
 \begin_inset ERT
 status open
 
@@ -41928,8 +42437,8 @@ status open
 
  
 \backslash
-htmladdnormallink{hausman.jl}{file:///home/michael/Mystuff/Econometrics/Examples/
-GMM/Hausman/hausman.jl} 
+htmladdnormallink{hausman.m}{file:///home/michael/Mystuff/Econometrics/Examples/G
+MM/Hausman/hausman.m} 
 \end_layout
 
 \end_inset
@@ -41943,7 +42452,8 @@ H2
 \begin_inset Quotes srd
 \end_inset
 
- test in my paper), for a simple linear model.
+ test in my paper), for a simple linear model, and compares to the standard
+ Hausman test.
 \begin_inset Newpage newpage
 \end_inset
 
@@ -42548,11 +43058,21 @@ literal "true"
 \end_inset
 
 , as well as a constant.
- For a single lag the estimation results are 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+For a single lag the estimation results are 
 \begin_inset CommandInset include
 LatexCommand verbatiminput
 filename "Examples/GMM/portfolio1.out"
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 For two lags the estimation results are 
@@ -42560,6 +43080,10 @@ For two lags the estimation results are
 LatexCommand verbatiminput
 filename "Examples/GMM/portfolio2.out"
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 Pretty clearly, the results are sensitive to the choice of instruments.
@@ -43123,67 +43647,7 @@ separation "3pt"
 shadowsize "4pt"
 framecolor "black"
 backgroundcolor "none"
-status collapsed
-
-\begin_layout Plain Layout
-
-\family typewriter
-samin: intermediate results before next temperature change
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-temperature: 0.0
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-current best function value: 0.06997
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-total evaluations so far: 369900
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-total moves since last temperature reduction: 900
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-downhill: 218
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-accepted uphill: 231
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-rejected uphill: 451
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-out of bounds trials: 0
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-new minima this temperature: 0
-\end_layout
+status open
 
 \begin_layout Plain Layout
 
@@ -43214,66 +43678,6 @@ total number of objective function evaluations: 369900
 \family typewriter
 Obj.
  value: 0.0699670387
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-parameter search width
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.33000 0.00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.98936 0.00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.02461 0.00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-1.92554 0.00001 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.79608 0.00001 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.01882 0.00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.65912 0.00001 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.00874 0.00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.33127 0.00000 
 \end_layout
 
 \begin_layout Plain Layout
@@ -43411,7 +43815,8 @@ literal "true"
 
 \begin_layout Itemize
 the difficulties with extremum estimation may motivate other computational
- methods, such as using a Bayesian approach to classical estimators: 
+ methods, such as using a Bayesian approach to compute classical estimators
+ as was proposed by 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ChernozhukovHong2003"
@@ -43419,7 +43824,18 @@ literal "true"
 
 \end_inset
 
+.
+ We will return to this idea in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Bayesian-methods"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -43781,26 +44197,6 @@ es/GMM/chi2gmm.jl}
  with several sample sizes.
  Do the results you obtain seem to agree with the consistency of the GMM
  estimator? Explain.
-\end_layout
-
-\begin_layout Enumerate
-The GMM estimator with an arbitrary weight matrix has the asymptotic distributio
-n
-\begin_inset Formula 
-\[
-\sqrt{n}\left(\hat{\theta}-\theta^{0}\right)\stackrel{d}{\rightarrow}N\left[0,\left(D_{\infty}W_{\infty}D_{\infty}^{\prime}\right)^{-1}D_{\infty}W_{\infty}\Omega_{\infty}W_{\infty}D_{\infty}^{\prime}\left(D_{\infty}W_{\infty}D_{\infty}^{\prime}\right)^{-1}\right]
-\]
-
-\end_inset
-
-We know that an exactly identified GMM estimator does not depend on the
- weight matrix.
- Show that the above expression may be simplified when we are dealing with
- an exactly identified estimator, in a manner such that 
-\begin_inset Formula $W_{\infty}$
-\end_inset
-
- disappears.
  
 \end_layout
 
@@ -45131,7 +45527,11 @@ As we've seen, this implies that
 \begin_inset Formula $\left\{ Y_{t}\right\} $
 \end_inset
 
- doesn't depend on 
+, e.g., 
+\begin_inset Formula $(Y_{t-j},Y_{t-k},...,Y_{t},...,Y_{t+l},Y_{t+m}\}$
+\end_inset
+
+, doesn't depend on 
 \begin_inset Formula $t.$
 \end_inset
 
@@ -45150,11 +45550,12 @@ weak stationarity.
 \begin_inset Newpage newpage
 \end_inset
 
-What is the mean of 
+How can we estimate the mean of 
 \begin_inset Formula $Y_{t}?$
 \end_inset
 
- The time series is one sample from the stochastic process.
+ The time series is one sample from the stochastic process, and each of
+ the random variables over the sample interval is sampled only once.
  One could think of 
 \begin_inset Formula $M$
 \end_inset
@@ -45172,7 +45573,12 @@ What is the mean of
 
 \end_inset
 
-The problem is, we have only one sample to work with, since we can't go
+as 
+\begin_inset Formula $M$
+\end_inset
+
+ gets large.
+ The problem is, we have only one sample to work with, since we can't go
  back in time and collect another.
  How can 
 \begin_inset Formula $\mathcal{E}(Y_{t})$
@@ -45312,7 +45718,7 @@ http://wps.pearsoned.co.uk/ema_ge_stock_ieupdate_3/251/64413/16489878.cw/index.h
 .
  
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -45331,7 +45737,7 @@ _quarterly.gdt}
 , in GRETL format.
  
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -46261,13 +46667,13 @@ may
 Using GRETL, try out various models to explain the unemployment rate, using
  the 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{S&W us_macro_quarterly data.}{file:///home/michael/Mystuff/Econ
+htmladdnormallink{S&W US quarterly macro data.}{file:///home/michael/Mystuff/Econ
 ometrics/Examples/Data/us
 \backslash
 _macro
@@ -46789,7 +47195,7 @@ status open
 
  
 \backslash
-htmladdnormallink{S&W us_macro_quarterly data.}{file:///home/michael/Mystuff/Econ
+htmladdnormallink{S&W US quarterly macro data.}{file:///home/michael/Mystuff/Econ
 ometrics/Examples/Data/us
 \backslash
 _macro
@@ -46834,24 +47240,42 @@ See Stock and Watson, Ch.
 \end_layout
 
 \begin_layout Exercise
-Get the simulation data from the example DSGE model 
+Get the simulation data from the 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{here}{file:///home/michael/Mystuff/Econometrics/Examples/DSGE/
-GenData/dsgedata.txt} 
+htmladdnormallink{example DSGE model}{file:///home/michael/Mystuff/Econometrics/
+Examples/DSGE/GenData/dsgedata.gdt} 
 \end_layout
 
 \end_inset
 
- (variables are y, c, n, r, w).
+.
+ Recall that this simulated data intends to be representative of 40 years
+ of quarterly data.
+ 
+\begin_inset Newline newline
+\end_inset
+
+1.
  Estimate a VAR(1) model.
- Note that matching impulse response functions has sometimes been used for
- estimation of DSGE models.
+ Do an analysis of collinearity.
+ Compute impulse-response functions.
+\begin_inset Newline newline
+\end_inset
+
+2.
+ Estimate an AR(1) model for output.
+ Compare 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ to the AR(1) model.Note that matching impulse response functions has sometimes
+ been used for estimation of DSGE models.
  Perhaps we'll see this idea again.
 \end_layout
 
@@ -47013,7 +47437,7 @@ log differences
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -47040,13 +47464,10 @@ Time series plot
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -47784,7 +48205,7 @@ In this model, the log of the variance of the observed sequence follows
 
  Code to generate data from this model is here: 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -48378,7 +48799,12 @@ ce model, and to use Kalman filtering to compute the likelihood.
 \end_layout
 
 \begin_layout Standard
-For Kalman filtering, see 
+For Kalman filtering, see Hamilton, 
+\emph on
+Time Series Analysis, 
+\emph default
+Chapter 13.
+ Also, see 
 \bar under
 
 \begin_inset CommandInset href
@@ -48641,6 +49067,12 @@ present estimation results using transformation(s) of y and/or x so that
 
 \end_deeper
 \begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Bayesian-methods"
+
+\end_inset
+
 Bayesian methods
 \end_layout
 
@@ -49753,6 +50185,27 @@ the place where artistry comes to bear is the choice of the proposal density
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+when the proposal density is 
+\emph on
+symmetric, 
+\emph default
+so that 
+\begin_inset Formula $g(\theta^{s};\theta^{*})=g(\theta^{*};\theta^{s})$
+\end_inset
+
+, the acceptance criterion simplifies to 
+\begin_inset Formula 
+\[
+\frac{f(y|\theta^{*})}{f(y|\theta^{s})}\frac{\pi(\theta^{*})}{\pi(\theta^{s})}>\alpha
+\]
+
+\end_inset
+
+A random walk proposal, where the trial value is the current value plus
+ a shock that doesn't depend on the current value, satisfies symmetry.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
@@ -50058,7 +50511,7 @@ reference "subsec:DSGE-ML"
 , a simple DSGE model was estimated by ML.
  
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -50118,7 +50571,7 @@ name "fig:MCMC-results-for"
 
 \end_inset
 
-MCMC results for simple DSGE example model
+MCMC results for simple DSGE example model (two different runs)
 \end_layout
 
 \end_inset
@@ -50129,6 +50582,16 @@ MCMC results for simple DSGE example model
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename Examples/DSGE/Bayesian/MCMC.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Examples/DSGE/Bayesian/MCMC2.png
+	width 15cm
 
 \end_inset
 
@@ -50225,6 +50688,9 @@ literal "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -50232,12 +50698,80 @@ literal "false"
 \end_layout
 
 \begin_layout Subsection
-An example of Bayesian GMM for quantile instrumental variables estimation
+Bayesian GMM for the DSGE model
 \end_layout
 
-\begin_layout Itemize
-there is a more interesting example of MCMC in the quantile regression chapter,
- we'll get to it....
+\begin_layout Standard
+A script which show how to do Bayesian GMM as proposed by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "ChernozhukovHong2003"
+literal "false"
+
+\end_inset
+
+ is 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+htmladdnormallink{DoMCMC.jl}{file:///home/michael/Mystuff/Econometrics/Examples/D
+SGE/MCMC/DoMCMC.jl} 
+\end_layout
+
+\end_inset
+
+.
+ This can be used to compute posterior densities for the parameters, for
+ example, the estimated posterior for 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ follows.
+ Recall that the true value that generated the sample is 
+\begin_inset Formula $\gamma=2$
+\end_inset
+
+, so, for this sample, the method worked quite well.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Examples/DSGE/MCMC/gamma.svg
+	width 15cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The results for all parameters are
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Examples/DSGE/MCMC/results.png
+	width 25cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The final line are statistics for the acceptance rate.
 \end_layout
 
 \begin_layout Standard
@@ -50285,7 +50819,7 @@ literal "true"
 
 , Part V, Chapters 21 and 22 (plus 23 if you have special interest in the
  topic).
- The GRETL manual, chapters 16 and 17 is also a nice reference.
+ The GRETL manual also has two chapters, which are a nice reference.
 \end_layout
 
 \begin_layout Standard
@@ -50666,7 +51200,7 @@ does the presence of
 
 \begin_layout Standard
 what about the covariance structure? We're likely to have HET and AUT, so
- GLS issue will probably be relevant.
+ GLS issues will probably be relevant.
  Potential for efficiency gains.
 \begin_inset Newpage newpage
 \end_inset
@@ -50807,7 +51341,7 @@ For example, if
 \begin_inset Formula $y$
 \end_inset
 
- is a quantity demanded of a luxury good, then a high value of 
+ is the quantity demanded of a luxury good, then a high value of 
 \begin_inset Formula $\alpha_{i}$
 \end_inset
 
@@ -50850,10 +51384,10 @@ Another example: consider returns to education, modeling wage as a function
 \end_inset
 
  could be an individual specific measure of ability.
- Ability could affect wages, but it could also affect the number of year
+ Ability could affect wages, but it could also affect the number of years
  of education.
  When education is a regressor and ability is a component of the error,
- we expect an endogeneity problem.
+ we may expect an endogeneity problem.
 \end_layout
 
 \begin_layout Itemize
@@ -52441,8 +52975,8 @@ if we are confident that they are at least approximately true
 \end_layout
 
 \begin_layout Itemize
-If we impose parametric restrictions for which we have justification, we
- may provoke serious biases which can lead to incorrect conclusions.
+If we impose parametric restrictions for which we have little or no justificatio
+n, we may provoke serious biases which can lead to incorrect conclusions.
 \end_layout
 
 \begin_layout Standard
@@ -52457,21 +52991,16 @@ If we impose parametric restrictions for which we have justification, we
 \series bold
 Motivation 
 \series default
-(see H.
- White (1980) 
-\begin_inset Quotes eld
+(see 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "white1980using"
+literal "false"
+
 \end_inset
 
-Using Least Squares to Approximate Unknown Regression Functions,
-\begin_inset Quotes erd
-\end_inset
-
+).
  
-\shape italic
-International Economic Review
-\shape default
-, pp.
- 149-70).
 \end_layout
 
 \begin_layout Standard
@@ -52695,7 +53224,17 @@ literal "false"
 
 .
  Unfortunately, I have lost the source code to get the results.
- It's not hard to do, though.
+ It's not hard to do, though: see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Consistency-of-OLS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -52798,7 +53337,7 @@ True and simple approximating functions
 
 \begin_layout Itemize
 The approximating model seems to fit the true model fairly well, asymptotically,
- so maybe the appromixation problem is not too important? 
+ so maybe the approximation problem is not too important? 
 \end_layout
 
 \begin_layout Itemize
@@ -52911,7 +53450,7 @@ The true elasticity is the line that has negative slope for large
  Root mean squared error in the approximation of the elasticity is 
 \begin_inset Formula 
 \[
-\left(\int_{0}^{2\pi}\left(\varepsilon(x)-\eta(x)\right)^{2}dx\right)^{1/2}=\allowbreak.\,31546
+\left(\int_{0}^{2\pi}\left(\varepsilon(x)-\eta(x)\right)^{2}dx\right)^{1/2}=0.31546
 \]
 
 \end_inset
@@ -53084,7 +53623,7 @@ On average, the fit is better, though there is some implausible waviness
 Root mean squared error in the approximation of the elasticity is 
 \begin_inset Formula 
 \[
-\left(\int_{0}^{2\pi}\left(\varepsilon(x)-\frac{g_{\infty}^{\prime}(x)x}{g_{\infty}(x)}\right)^{2}dx\right)^{1/2}=\allowbreak.\,16213,
+\left(\int_{0}^{2\pi}\left(\varepsilon(x)-\frac{g_{\infty}^{\prime}(x)x}{g_{\infty}(x)}\right)^{2}dx\right)^{1/2}=0.16213,
 \]
 
 \end_inset
@@ -53118,7 +53657,7 @@ more regressors-> more variance
 \begin_layout Itemize
 It can be shown that if we introduce regressors at a slow rate, it is possible
  to drive the RMSE of the approximation to the regression function and to
- the elasticity to zero.
+ the elasticity to zero, as the sample size grows.
  
 \end_layout
 
@@ -53179,23 +53718,15 @@ literal "true"
 \end_inset
 
 , Ch.
- 9; Bierens, 1987, 
-\begin_inset Quotes eld
+ 9; 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "bierens1987kernel"
+literal "false"
+
 \end_inset
 
-Kernel estimators of regression functions,
-\begin_inset Quotes erd
-\end_inset
-
- in 
-\emph on
-Advances in Econometrics, Fifth World Congress
-\shape italic
-\emph default
-,
-\shape default
- V.
- 1, Truman Bewley, ed., Cambridge.
+.
 \end_layout
 
 \begin_layout Standard
@@ -53575,7 +54106,7 @@ n\gamma_{n}^{k}V\left[\hat{h}(x)\right] & = & \gamma_{n}^{-k}E\left\{ \left(K\le
 \begin_inset Formula $h(x)$
 \end_inset
 
- are bounded, this is bounded, and since 
+ are bounded, the RHS is bounded, and since 
 \begin_inset Formula $n\gamma_{n}^{k}\rightarrow\infty$
 \end_inset
 
@@ -53713,7 +54244,7 @@ a weighted average of the
 \begin_inset CommandInset href
 LatexCommand href
 name "link for a graphic interpretation."
-target "http://en.wikipedia.org/wiki/File:NonparRegrGaussianKernel.png"
+target "https://en.wikipedia.org/wiki/Kernel_smoother"
 literal "false"
 
 \end_inset
