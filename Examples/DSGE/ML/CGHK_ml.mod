@@ -44,7 +44,7 @@ var e2 = 1;
 end;
 
 // generate data
-stoch_simul(nograph, noprint, nomoments, order=3, periods=260, irf=0) y c n MPK MPL;
+%stoch_simul(nograph, noprint, nomoments, order=3, periods=260, irf=0) y c n MPK MPL;
 
 % note: estimating alpha, beta, gam,  rho1, sig1, rho2, sig2 and nss works
 % if obs. vars. are c and n
@@ -52,20 +52,18 @@ stoch_simul(nograph, noprint, nomoments, order=3, periods=260, irf=0) y c n MPK 
 
 estimated_params;
 // the numbers after the comment are the true 
-// values used to generate the data
-alppha, 0.33;   // 0.33 
+// values used to generate the data. Try setting nss=0.2, gam=1, and rho1=0.5
 betta, 0.99;    // 0.99
-//delta, 0.025;   // 0.025
 gam, 2.0;       // 2.0
 rho1, 0.9;      // 0.9
 sigma1, 0.02;   // 0.02
 rho2, 0.7;      // 0.7
 sigma2, 0.01;   // 0.01
-nss, .33;       // 1/3
+nss, .333;       // 1/3
 end;
 
 # using c and n gives good results, c and MPL, not so good
-varobs MPL c;  // experiment choosing one or two from y c n MPK MPL
+varobs n c;  // experiment choosing one or two from y c n MPK MPL
 
 // computes only the posterior mode for demonstration. 
 estimation(datafile=dsgedata, nobs=160, order=1);

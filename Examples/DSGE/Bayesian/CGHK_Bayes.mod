@@ -48,9 +48,7 @@ end;
 % trying to estimate other parameters (e.g., beta, delta) shows problems
 
 estimated_params;
-alppha, uniform_pdf, , 0.33,  0.3,  0.4; 
-%betta, uniform_pdf, , 0.99,  0.95, 0.9999; 
-%delta, uniform_pdf, , 0.024,  0.01, 0.1; 
+betta, uniform_pdf, , 0.99,  0.95, 0.9999; 
 gam, uniform_pdf, , 2.0, 0.0,  5.0;
 rho1, uniform_pdf, , 0.9, 0.0,  1.0; 
 sigma1, uniform_pdf, , 0.02, 0.0,  0.1;
@@ -63,7 +61,7 @@ varobs c n;  // experiment choosing one or two from y c n MPK MPL (c and n work 
 
 // short MCMC for illustration only 
 // set order=2 to see particle filter option
-estimation(datafile=dsgedata, nobs=160, order=1, mh_replic=10000, mh_nblocks=5, mh_jscale=0.8, mh_init_scale=5, irf=40) y c n MPK MPL;
+estimation(datafile=dsgedata, nobs=160, order=1, mh_replic=10000, mh_nblocks=1, mh_jscale=0.8, mh_init_scale=5, irf=40) y c n MPK MPL;
 
 
 

@@ -30,6 +30,5 @@ V = inv(D'*W*D)/(size(data,1)-2.0)
 se = sqrt.(diag(V))
 println("estimates, st. error, and limits of 95% CI")
 prettyprint([thetahat se thetahat-1.96*se thetahat+1.96*se])
-
 end
 main()

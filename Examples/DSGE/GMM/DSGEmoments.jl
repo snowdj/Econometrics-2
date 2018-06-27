@@ -8,15 +8,15 @@ function DSGEmoments(thetas, data)
         r = data[:,4]
         w = data[:,5]
         # break out params    
-        alpha = thetas[1]
-        beta = thetas[2]
-        delta = thetas[3]
-        gam = thetas[4]
-        rho_z = thetas[5]
-        sig_z = thetas[6]
-        rho_eta = thetas[7]
-        sig_eta = thetas[8]
-        nss = thetas[9]
+        alpha = 0.33
+        delta = 0.025
+        beta = thetas[1]
+        gam = thetas[2]
+        rho_z = thetas[3]
+        sig_z = thetas[4]
+        rho_eta = thetas[5]
+        sig_eta = thetas[6]
+        nss = thetas[7]
         # recover psi
         c1 = ((1.0/beta + delta - 1.0)/alpha)^(1.0/(1.0-alpha))
         kss = nss/c1
@@ -24,44 +24,30 @@ function DSGEmoments(thetas, data)
         yss = kss^alpha * nss^(1-alpha)
         css = yss - iss
         psi =  (css^(-gam)) * (1-alpha) * (kss^alpha) * (nss^(-alpha))
-        # use MPL-MRS
-        e = log.(w) - gam*log.(c) -log.(psi)
-        X = lag(e,1)
-        u = e-X*rho_eta
-        e1 = X.*u/sig_eta
-        e2 = u.^2.0 - sig_eta^2.0
-        shock1 = copy(u/sig_eta)
+        # use MPL-MRS to get eta, the preference shock
+        eta = log.(w) - gam*log.(c) - log.(psi)
+        X = lag(eta,1)
+        u = (eta-X*rho_eta)/sig_eta
+        e1 = X.*u
+        e2 = u.^2.0 - 1.0
+        pref_shock = copy(u)
         # now the Euler eqn
-        e3 = (1 + r - delta).*beta.*(c.^(-gam)) - lag(c,1).^(-gam) 
-        # get K from MPK/MPL eqn: the following is not real capital, it is capital computed
-        # assuming the trial values of the parameters
+        e3 = (1.0 + r - delta).*beta.*(c.^(-gam)) - lag(c,1).^(-gam) 
+        e3 = 100.0*e3
+        # recover K from MPK/MPL
         lagk = (alpha/(1.0-alpha))*lag(n.*w./r,1)
-        # production function
-        e = log.(y) - alpha*log.(lagk) - (1.0-alpha)*log.(n)
-        X = lag(e,1)
-        u = e-X*rho_z
+        # get z, the production shock, from the production function
+        z = log.(y) - alpha*log.(lagk) - (1.0-alpha)*log.(n)
+        X = lag(z,1)
+        u = (z-X*rho_z)/sig_z
         e4 = X.*u
-        e5 = u.^2.0 - sig_z^2.0
-        shock2 = copy(u/sig_z)
-        # MPL
-        e = log.(w) + alpha*(log.(n)-log.(lagk)) - log.(1.0-alpha)
-        X = lag(e,1)
-        u = e-X*rho_z
-        e6 = X.*u/sig_z
-        e7 = u.^2.0 - sig_z^2.0
-        shock3 = copy(u/sig_z)
-        # law of motion k: good for delta
-        invest = y - c
-        e8 = lag(invest,1) + (1.0 - delta)*lag(lagk,1) - lagk
-        # shock2 and shock 3 are two alternative ways of recovering the technology shock.
-        # They are very highly correlated for all parameter values, though their levels may
-        # be different for some parameter values. Thus, use only the difference.
-        # Also, don't use e4 and e5, as they are essentially copies of e6 and e7.
-        P = inv(chol(cov(data)))
-        P[:,3:5] = 0.0
-        data = (data*P)[:,1:2]
-        errors = [e1 e2 e3 e6 e7 e8 shock1.*shock3 shock2-shock3 lag(data,1).*[shock1 shock2]]
-        errors = errors[3:end,:] # need to drop 2, because lagk uses a lag, and we use lagged lagk
+        e5 = u.^2.0 - 1.0
+        tech_shock = copy(u)
+        # make moment conditions
+        data = lag(data,1)
+        errors = [e1 e2 e3 e4 e5 pref_shock.*data tech_shock.*data data.*e3]
+        errors = errors[2:end,:] # need to drop 2, because lagk uses a lag, and we use lagged lagk
+        #dstats(errors);
         return errors
 end
 

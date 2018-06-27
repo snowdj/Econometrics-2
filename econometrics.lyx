@@ -28854,8 +28854,7 @@ The representative agent chooses actions in period
 \end_layout
 
 \begin_layout Itemize
-In real data sets, the capital stock is not observed.
- The variables available for estimation are 
+The variables available for estimation are 
 \begin_inset Formula $y,c,n,w,$
 \end_inset
 
@@ -28863,8 +28862,7 @@ In real data sets, the capital stock is not observed.
 \begin_inset Formula $r.$
 \end_inset
 
- Because capital is not observed, we can't estimate the production function
- directly, even using IV to account for endogeneity of hours worked.
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -29546,6 +29544,50 @@ True parameter values and priors
 \end_layout
 
 \begin_layout Standard
+For this model, given the observable variables, we can recover 
+\begin_inset Formula $\alpha=1-\frac{wn}{y}$
+\end_inset
+
+, by substituting the production function into the MPL or MPK.
+ Once we have 
+\begin_inset Formula $\alpha,$
+\end_inset
+
+ we can solve for 
+\begin_inset Formula $k,$
+\end_inset
+
+ and with 
+\begin_inset Formula $k,$
+\end_inset
+
+ we can recover 
+\begin_inset Formula $\delta$
+\end_inset
+
+ from the law of motion of capital.
+ So, we will take 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ and 
+\begin_inset Formula $\delta$
+\end_inset
+
+ as known parameters, as they can be recovered exactly from the observable
+ data.
+ Henceforth, we set 
+\begin_inset Formula $\alpha=0.33$
+\end_inset
+
+ and 
+\begin_inset Formula $\delta=0.025$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 Estimation by GMM does not require specifying a prior distribution for the
  parameters, but Bayesian methods do, so here, I discuss the true parameter
  values used for the simulations, as well as priors.
@@ -29688,7 +29730,7 @@ True parameters and support of uniform priors.
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="10" columns="6">
+<lyxtabular version="3" rows="8" columns="6">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -29757,65 +29799,6 @@ Prior RMSE
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\alpha$
-\end_inset
-
- 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.2 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.4 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.330 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--0.030 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.065
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 \begin_inset Formula $\beta$
 \end_inset
 
@@ -29865,65 +29848,6 @@ Prior RMSE
 
 \begin_layout Plain Layout
 0.021
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\delta$
-\end_inset
-
- 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.01 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.1 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.025 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.030 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.040
 \end_layout
 
 \end_inset
@@ -30378,7 +30302,7 @@ status open
 
 \begin_layout Plain Layout
 
-// The two shock model of the paper
+// The two shock model
 \end_layout
 
 \begin_layout Plain Layout
@@ -30407,7 +30331,7 @@ close all;
 
 \begin_layout Plain Layout
 
-var y c k n i z1 z2 MUC MUL MPK MPL;
+var y c k n invest z1 z2 MUC MUL r w;
 \end_layout
 
 \begin_layout Plain Layout
@@ -30426,28 +30350,28 @@ varexo e1 e2;
 
 \begin_layout Plain Layout
 
-parameters alpha beta delta gam  nss rho1 sigma1 rho2 sigma2 psi c1 iss
+parameters alppha betta delta gam  nss rho1 sigma1 rho2 sigma2 psi c1 iss
  yss kss css;
 \end_layout
 
 \begin_layout Plain Layout
 
-load parameterfile1;
+load parameterfile;
 \end_layout
 
 \begin_layout Plain Layout
 
-set_param_value('alpha',alpha)
+set_param_value('alppha',0.33)
 \end_layout
 
 \begin_layout Plain Layout
 
-set_param_value('beta',beta)
+set_param_value('betta',beta)
 \end_layout
 
 \begin_layout Plain Layout
 
-set_param_value('delta',delta)
+set_param_value('delta',0.025)
 \end_layout
 
 \begin_layout Plain Layout
@@ -30486,52 +30410,12 @@ set_param_value('nss',nss)
 
 \begin_layout Plain Layout
 
-// find the psi that makes steady state labor (nss) equal to the specified
- value
-\end_layout
-
-\begin_layout Plain Layout
-
-c1 = ((1/beta + delta - 1)/alpha)^(1/(1-alpha));
-\end_layout
-
-\begin_layout Plain Layout
-
-kss = nss/c1;
-\end_layout
-
-\begin_layout Plain Layout
-
-iss = delta*kss;
-\end_layout
-
-\begin_layout Plain Layout
-
-yss = kss^alpha * nss^(1-alpha);
-\end_layout
-
-\begin_layout Plain Layout
-
-css = yss - iss;
-\end_layout
-
-\begin_layout Plain Layout
-
-psi =  (css^(-gam)) * (1-alpha) * (kss^alpha) * (nss^(-alpha));
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 // Model
 \end_layout
 
 \begin_layout Plain Layout
 
-model(use_dll);
+model;
 \end_layout
 
 \begin_layout Plain Layout
@@ -30546,22 +30430,22 @@ model(use_dll);
 
 \begin_layout Plain Layout
 
-  MPK = alpha * exp(z1) * (k(-1))^(alpha-1) * n^(1-alpha);
+  r = alppha * exp(z1) * (k(-1))^(alppha-1) * n^(1-alppha);
 \end_layout
 
 \begin_layout Plain Layout
 
-  MPL = (1-alpha)*exp(z1)* (k(-1))^alpha * n^(-alpha);
+  w = (1-alppha)*exp(z1)* (k(-1))^alppha * n^(-alppha);
 \end_layout
 
 \begin_layout Plain Layout
 
-  MUC = beta*MUC(+1) * (1 + MPK(+1) - delta);
+  MUC = betta*MUC(+1) * (1 + r(+1) - delta);
 \end_layout
 
 \begin_layout Plain Layout
 
-  MUL/MUC = MPL;
+  MUL/MUC = w;
 \end_layout
 
 \begin_layout Plain Layout
@@ -30576,96 +30460,26 @@ model(use_dll);
 
 \begin_layout Plain Layout
 
-  y = exp(z1) * ((k(-1))^alpha) * (n^(1-alpha));
+  y = exp(z1) * ((k(-1))^alppha) * (n^(1-alppha));
 \end_layout
 
 \begin_layout Plain Layout
 
-  i = y - c;
+  invest = y - c;
 \end_layout
 
 \begin_layout Plain Layout
 
-  k = i + (1-delta)*k(-1);
-\end_layout
-
-\begin_layout Plain Layout
-
-end;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-// Initial values
-\end_layout
-
-\begin_layout Plain Layout
-
-initval;
-\end_layout
-
-\begin_layout Plain Layout
-
-k = kss;
-\end_layout
-
-\begin_layout Plain Layout
-
-n = nss;
-\end_layout
-
-\begin_layout Plain Layout
-
-c = css;
-\end_layout
-
-\begin_layout Plain Layout
-
-y = yss;
-\end_layout
-
-\begin_layout Plain Layout
-
-i = iss;
-\end_layout
-
-\begin_layout Plain Layout
-
-MUC = c^(-gam);
-\end_layout
-
-\begin_layout Plain Layout
-
-MPK = alpha  * k^(alpha-1) * n^(1-alpha);
-\end_layout
-
-\begin_layout Plain Layout
-
-MPL = (1-alpha)* (k)^alpha * n^(-alpha);
-\end_layout
-
-\begin_layout Plain Layout
-
-MUL = MPL*MUC;
-\end_layout
-
-\begin_layout Plain Layout
-
-z1 = 0;
-\end_layout
-
-\begin_layout Plain Layout
-
-z2 = 0;
+  k = invest + (1-delta)*k(-1);
 \end_layout
 
 \begin_layout Plain Layout
 
 end;
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -30703,46 +30517,13 @@ end;
 
 \begin_layout Plain Layout
 
-steady(maxit=1000, solve_algo=0);
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-// keep rng sequences in order on each node
-\end_layout
-
-\begin_layout Plain Layout
-
-load state1;
-\end_layout
-
-\begin_layout Plain Layout
-
-ss = round(s(1)/s(2)*sum(s));
-\end_layout
-
-\begin_layout Plain Layout
-
-set_dynare_seed(ss);
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 // generate data
 \end_layout
 
 \begin_layout Plain Layout
 
-stoch_simul(nograph, noprint, order=3, drop=100, periods=260) y c n MPK
- MPL;
+stoch_simul(nograph, noprint, nomoments, order=3, periods=260, irf=0) y
+ c n r w;
 \end_layout
 
 \end_inset
@@ -35803,12 +35584,11 @@ this is pretty good! However...
 \end_layout
 
 \begin_layout Itemize
-Estimation works (taking delta as known) when the parameters start values
- are close enough to their true values, but it doesn't work when less informativ
-e start values are tried: probably the objective function is nonconcave,
- so care must be taken to try enough start values.
- If you try to estimate delta, it doesn't work even using true values as
- start values for all parameters.
+Estimation works when the parameters start values are close enough to their
+ true values, but it doesn't work when less informative start values are
+ tried: probably the objective function is nonconcave, so care must be taken
+ to try enough start values.
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -35860,6 +35640,9 @@ stochastic singularity
 , which means that at most two observed variables may be used to compute
  the likelihood function.
  The code lets you explore the choice.
+ It seems to work best using c and n.
+ For some choices, the true parameter values will be outside the confidence
+ intervals.
  If interested, do a Google search for this term, along with DSGE, and you'll
  find more information.
 \end_layout
@@ -43334,218 +43117,6 @@ has mean zero, conditional on information available in period
 
 
 \series bold
-Production function
-\end_layout
-
-\begin_layout Standard
-Capital is not observed, but we can come up with a value for it, given a
- guess on the parameters.
- Dividing MPL by MPK, we eliminate the unobserved shock:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\frac{w}{r} & = & \frac{\left(1-\alpha\right)z_{t}k_{t-1}^{\alpha}n_{t}^{-\alpha}}{\alpha z_{t}k_{t-1}^{\alpha-1}n_{t}^{1-\alpha}}\\
- & = & \frac{\left(1-\alpha\right)k_{t-1}}{\alpha n_{t}}
-\end{eqnarray*}
-
-\end_inset
-
-so
-\begin_inset Formula 
-\[
-k_{t-1}=\frac{\alpha n_{t}w_{t}}{(1-\alpha)r_{t}}
-\]
-
-\end_inset
-
-Next, from the production function, use the above expression for 
-\begin_inset Formula $k$
-\end_inset
-
- (dropping subscripts for a moment)
-\begin_inset Formula 
-\begin{eqnarray*}
-z & = & \frac{y}{k^{\alpha}n^{(1-\alpha)}}\\
-\ln z & = & \ln y-\alpha\ln k-(1-\alpha)\ln n
-\end{eqnarray*}
-
-\end_inset
-
-We can generate two more moment conditions using this, in the same way as
- was done in for MRS and wages.
- These moment conditions should be informative for 
-\begin_inset Formula $\alpha,\rho_{z}$
-\end_inset
-
-, 
-\begin_inset Formula $\psi$
-\end_inset
-
- and 
-\begin_inset Formula $\sigma_{z}.$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\series bold
-Law of motion for 
-\begin_inset Formula $k$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Given the previous expression for 
-\begin_inset Formula $k$
-\end_inset
-
-:
-\begin_inset Formula 
-\[
-k_{t-1}=\frac{\alpha n_{t}w_{t}}{(1-\alpha)r_{t}}
-\]
-
-\end_inset
-
-we can put this into the law of motion for capital, to get 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-u_{t}=i_{t}+(1-\delta)k_{t-i}-k_{t}
-\]
-
-\end_inset
-
-This error should be zero, so it's expectation is zero at the true parameters.
- It should serve to identify 
-\begin_inset Formula $\delta$
-\end_inset
-
- very well.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-MPL
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-w & = & \left(1-\alpha\right)z_{t}k_{t-1}^{\alpha}n_{t}^{-\alpha}\\
-z & = & \frac{wk_{t-1}^{-\alpha}n_{t}^{\alpha}}{1-\alpha}\\
-\ln z_{t} & = & \ln w_{t}+\alpha(\ln n_{t}-\ln k_{t-1})-\ln(1-\alpha)
-\end{eqnarray*}
-
-\end_inset
-
-We can generate two more moment conditions using this, in the same way as
- was done with MRS and wages.
- These moment conditions should be informative for 
-\begin_inset Formula $\alpha,\rho_{z}$
-\end_inset
-
-, and 
-\begin_inset Formula $\sigma_{z}.$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\series bold
-MPK
-\end_layout
-
-\begin_layout Standard
-The result is the same as for MPL, because both use the same expression
- for 
-\begin_inset Formula $k,$
-\end_inset
-
- which was derived from the ratio of the two eqns.
- So, MPK adds nothing to what MPL already gives.
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Collecting the moment conditions
-\end_layout
-
-\begin_layout Itemize
-We have a number of error functions, each of which has expectation zero,
- and thus can serve as a moment condition.
-\end_layout
-
-\begin_layout Itemize
-All of these errors have conditional expectation zero, at the true parameter
- values.
- Also, we can cross any of the errors with variables known in period 
-\begin_inset Formula $t,$
-\end_inset
-
- which include all observed variables indexed 
-\begin_inset Formula $t-1$
-\end_inset
-
- or before, following the ideas of Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Estimation-using-conditional"
-
-\end_inset
-
-.
- Thus, we can generate quite a few moment conditions.
- 
-\end_layout
-
-\begin_layout Itemize
-The question is, Which Moments to Match? (nod to 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "emm"
-literal "true"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\series bold
 Estimation by GMM
 \end_layout
 
@@ -43571,8 +43142,8 @@ htmladdnormallink{dsgedata.txt}{https://github.com/mcreel/Econometrics/blob/mast
 \end_layout
 
 \begin_layout Standard
-A Julia function to compute the moment conditions discussed above is at
- 
+A Julia function to compute the moment conditions discussed above, and others
+ is at 
 \begin_inset ERT
 status open
 
@@ -43658,14 +43229,62 @@ SAMIN results
 \begin_layout Plain Layout
 
 \family typewriter
-total number of objective function evaluations: 369900
+total number of objective function evaluations: 37100
 \end_layout
 
 \begin_layout Plain Layout
 
 \family typewriter
 Obj.
- value: 0.0699670387
+ value: 0.1883052104
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+parameter search width
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0.98855 0.00000 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+2.09399 0.00000 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0.95242 0.00000 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0.01911 0.00000 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0.62351 0.00000 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0.00948 0.00000 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+0.33169 0.00000 
 \end_layout
 
 \begin_layout Plain Layout
@@ -43684,55 +43303,43 @@ estimates, st.
 \begin_layout Plain Layout
 
 \family typewriter
-0.33000 0.00000 0.33000 0.33001
+0.98855 0.00018 0.98820 0.98890
 \end_layout
 
 \begin_layout Plain Layout
 
 \family typewriter
-0.98936 0.00035 0.98867 0.99005
+2.09399 0.02677 2.04152 2.14647
 \end_layout
 
 \begin_layout Plain Layout
 
 \family typewriter
-0.02461 0.00021 0.02420 0.02502
+0.95242 0.00639 0.93989 0.96495
 \end_layout
 
 \begin_layout Plain Layout
 
 \family typewriter
-1.92554 0.04008 1.84697 2.00410
+0.01911 0.00014 0.01884 0.01939
 \end_layout
 
 \begin_layout Plain Layout
 
 \family typewriter
-0.79608 0.04055 0.71661 0.87556
+0.62351 0.02425 0.57598 0.67104
 \end_layout
 
 \begin_layout Plain Layout
 
 \family typewriter
-0.01882 0.00107 0.01672 0.02092
+0.00948 0.00039 0.00873 0.01024
 \end_layout
 
 \begin_layout Plain Layout
 
 \family typewriter
-0.65912 0.05844 0.54458 0.77365
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.00874 0.00043 0.00790 0.00958
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.33127 0.00105 0.32921 0.33334
+0.33169 0.00015 0.33140 0.33199
 \end_layout
 
 \end_inset
@@ -43748,13 +43355,13 @@ estimates, st.
 care is needed to obtain a real global minimum.
  If the estimation is run several times (warning, takes some time), you
  will observe that it sometimes does not converge to the global minimum
- (function value 0.06997), even when using simulated annealing with a conservativ
-e cooling schedule (ns = 20, rt = 0.9).
+ (function value 0.18830, I think...), even when using simulated annealing with
+ a conservative cooling schedule (ns = 20, rt = 0.9).
 \end_layout
 
 \begin_layout Itemize
-using this conservative cooling schedule is time consuming, requiring hundreds
- of thousands of function evaluations.
+using this conservative cooling schedule is time consuming, requiring many
+ function evaluations.
 \end_layout
 
 \begin_layout Itemize
@@ -43766,9 +43373,9 @@ reference "tab:True-parameters-and"
 
 \end_inset
 
-), estimated standard errors are small, and the 95% confidence intervals
- contain the true parameters in most cases.
- 
+), and estimated standard errors are small.
+ However, for the results above, the true parameter values are not in the
+ 95% confidence intervals for 6 of the seven parameters! 
 \end_layout
 
 \begin_layout Itemize
@@ -50525,13 +50132,12 @@ Some results one can obtain by playing with this:
 \end_layout
 
 \begin_layout Itemize
-We cannot estimate beta and delta successfully, as you can verify by attempting
- to do so.
+MCMC is a bit time consuming...
 \end_layout
 
 \begin_layout Itemize
-Estimation of the other parameters is quite good, when order=1 (linearized,
- which allows for Kalman filtering), giving the results in Figure 
+Estimation of the parameters is quite good, when order=1 (linearized, which
+ allows for Kalman filtering), giving the results in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:MCMC-results-for"
@@ -50539,11 +50145,48 @@ reference "fig:MCMC-results-for"
 \end_inset
 
 .
- The true parameter values are inside the 90% HPD intervals, for all of
- the estimated parameters.
- Note, though, that these results assume that the true values of the other
- parameters (beta and delta) are known.
- 
+ Most of the true parameter values are inside the 90% HPD intervals, though
+ this is not the case for 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $\beta,$
+\end_inset
+
+
+\begin_inset Formula $\rho_{2},$
+\end_inset
+
+and 
+\begin_inset Formula $\sigma_{2}$
+\end_inset
+
+.
+ Perhaps this is in part due to the linearized model being used to specify
+ the 
+\begin_inset Quotes sld
+\end_inset
+
+likelihood
+\begin_inset Quotes srd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Estimation by particle filtering (set order=2) will take a looong time...
+\end_layout
+
+\begin_layout Itemize
+It seems that the Bayesian estimation has given us better results than ML
+ and GMM However, one still has the stochastic singularity problem, and
+ the results that are obtained will depend on which variables are selected
+ for estimation.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -50700,7 +50343,7 @@ literal "false"
 
  is 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -50723,8 +50366,14 @@ amples/DSGE/MCMC/DoMCMC.jl}
 \begin_inset Formula $\gamma=2$
 \end_inset
 
-, so, for this sample, the method worked quite well.
- 
+, so, for this sample, the method worked fairly well.
+ However, the true values of 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ and two of the other parameters are still outside of the 90% HPD intervals.
+ The point estimation is working pretty well, but inference still has some
+ weaknesses.
 \end_layout
 
 \begin_layout Standard
@@ -50751,7 +50400,8 @@ The results for all parameters are
 \begin_layout Standard
 \begin_inset Graphics
 	filename Examples/DSGE/MCMC/results.png
-	width 25cm
+	lyxscale 75
+	width 20cm
 
 \end_inset
 
