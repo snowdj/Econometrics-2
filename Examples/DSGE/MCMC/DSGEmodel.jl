@@ -67,7 +67,7 @@ function logL(theta, data)
     gs = DSGEmoments(theta, data)
     sigma = cov(gs)
     siginv = inv(sigma)
-    ghat = mean(gs,1)
+    ghat = mean(gs,dims=1)
     #lnL = - 0.5*(ghat*siginv*ghat')[1,1]
     lnL = log(sqrt(det(siginv))) - 0.5*n*(ghat*siginv*ghat')[1,1]
 end

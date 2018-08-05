@@ -1,10 +1,12 @@
 include("FoggyMountainObj.jl")
+
+function main()
 # One BFGS run with poor starting values
 theta = [8.0, -8.0]
 thetahat, obj_value, converged = fminunc(FoggyMountainObj, theta)
 println()
 println("The result with poor start values")
-println("objective function value: ", round(obj_value,5))
+println("objective function value: ", round(obj_value,digits=5))
 println("local minimizer: ", thetahat)
 println()
 
@@ -26,3 +28,5 @@ for i = 1:50
 end
 println("the estimate using BFGS with multiple start values: ", thetahat)
 println("the best objective function value: ", bestobj)
+end
+main()

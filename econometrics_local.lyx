@@ -209,6 +209,20 @@ About this document
 Note to self: 
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+Adapting examples to Julia 0.7
+\end_layout
+
+\begin_layout Itemize
+MLE chapter done
+\end_layout
+
+\begin_layout Itemize
+Nonlinear Opt done
+\end_layout
+
 \begin_layout Itemize
 For econometrics.pdf on the github page, save to econometrics.lyx, , replace
  all instances of 
@@ -33779,14 +33793,14 @@ reference "sec:Asymptotic-efficiency"
  normally distributed.
  The Julia script 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{NerloveMLE.m}{file:///home/michael/Mystuff/Econometrics/Example
-s/MLE/NerloveMLE.jl} 
+htmladdnormallink{NerloveMLE.jl}{file:///home/michael/Mystuff/Econometrics/Exampl
+es/MLE/NerloveMLE.jl} 
 \end_layout
 
 \end_inset

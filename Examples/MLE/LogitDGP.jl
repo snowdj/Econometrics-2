@@ -8,7 +8,7 @@ function LogitDGP(n, theta)
 	if k>1 
 		x = [x  randn(n,k-1)]
 	end
-	y = Float64.((1.0 ./ (1.0 + exp.(-x*theta)) .> rand(n,1)))
+	y = Float64.((1.0 ./ (1.0 .+ exp.(-x*theta)) .> rand(n,1)))
     return y, x
 end
 
