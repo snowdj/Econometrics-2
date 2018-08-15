@@ -3,6 +3,7 @@
 # to an estimator that is the average of the OLS estimators using 
 # 3 subsamples
 using Plots
+function main()
 reps = 10000 # number of Monte Carlo reps.
 n = 21 # sample size
 sig = 2.0  # st. dev. of errors
@@ -34,9 +35,12 @@ for i = 1:reps
 end
 
 histogram(betas[:,1], label="", nbins=30)
+gui()
 #savefig("efficiency-1.svg")
 histogram(betas[:,2], label="", nbins=30)
+gui()
 #savefig("efficiency-2.svg")
-
-
+return
+end
+main()
 	

@@ -1,4 +1,6 @@
 # Estimates the basic Nerlove Cobb-Douglas model
+using DelimitedFiles
+function main()
 data = readdlm("nerlove.data")
 data = data[:,2:6]
 data = log.(data)
@@ -24,3 +26,6 @@ println()
 println("Imposing and testing CRTS")
 ols(y, x, R=R, r=r, names=names)
 TestStatistics(y, x, R, r)
+return
+end
+main()

@@ -1,6 +1,5 @@
 # computes the errors as outlined in the notes. Use these to generate
 # moment conditions for estimation
-using StatsBase
 function DSGEmoments(thetas, data)
         # break out variables
         y = data[:,1]

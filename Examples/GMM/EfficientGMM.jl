@@ -1,9 +1,9 @@
 # GMM estimation for a sample from Chi^2(theta)
 # compare to two method of moments estimators (see chi2mm.m)
 using Distributions, Plots
-pyplot()
+function main()
 n = 30
-theta = 3
+theta = 3.0
 reps = 1000
 results = zeros(reps,2)
 for i = 1:1000
@@ -15,9 +15,17 @@ for i = 1:1000
     thetahat, junk, ms, junk = gmm(moments, thetahat, W)
     results[i,2] = sqrt(n)*(thetahat[1]-theta)
 end    
-histogram(results[:,1],nbins=50)
-#savefig("Inefficient.svg")
-histogram(results[:,2],nbins=50)
-#savefig("Efficient.svg")
+p1 = npdensity(results[:,1])
+plot!(p1, title="Inefficient")
+p2 = npdensity(results[:,2])
+plot!(p2, title="Efficient")
+plot(p1,p2,layout=(2,1),xlims=(-10,20))
+savefig("Efficient.svg")
+gui()
 println("Monte Carlo covariance: (1,1) is inefficient GMM, (2,2) is efficient")
-prettyprint(cov(results));
+
+prettyprint(cov(results))
+return
+end
+main()
+

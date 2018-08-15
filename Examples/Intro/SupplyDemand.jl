@@ -1,7 +1,7 @@
 # this generates data from the simple supply-demand model
 # q = α1 + α2*p + α3*m + e1
 # q = β1 + β2*p +        e2
-using Econometrics, Plots
+using Econometrics, Plots, DelimitedFiles
 function main()
     # number of obsn
     n = 500

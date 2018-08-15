@@ -23,7 +23,7 @@
 # the following function defines the moment conditions, given the parameter
 # vector and the instruments. It returns the individual contributions
 # to allow estimation of the covariance matrix of the moments.
-
+using DelimitedFiles, Statistics, Econometrics
 function portfolio_moments(theta, data)
 	# parameters
 	beta = theta[1]
@@ -34,16 +34,18 @@ function portfolio_moments(theta, data)
     inst = data[:,3:end]
 	#  form error function
 	# note that c = c_t / c_t-1 (for stationarity) was done in data preparation
-	e = 1.0 .- beta*(1.0 + r) .* (c .^ (-gam))
+	e = 1.0 .- beta*(1.0 .+ r) .* (c .^ (-gam))
 	# cross with instruments
 	m = e.*inst
 end
+
+function main()
 data = readdlm("tauchen.data")
 c = data[:,1]
 p = data[:,2]
 d = data[:,3]
 # form net return and stationary consumption
-r = (p + d) ./ lag(p,1) - 1.0
+r = (p + d) ./ lag(p,1) .- 1.0
 c = c ./ lag(c,1); # ensure stationarity
 # choose maximal lag of instruments.
 max_lag = 1
@@ -55,18 +57,20 @@ inst = [ones(size(inst,1),1) inst]
 data = [c r inst]
 data = data[max_lag+1:end,:]
 # do estimation
-theta = zeros(2)
-moments = theta -> portfolio_moments(theta, data)
-weight = eye(size(inst,2))
+moments = θ -> portfolio_moments(θ, data)
+weight = 1.0
 names = ["beta","gamma"]
 # initial consistent estimate
 theta = [0.9, 1]
 thetahat, obj_value, D, ms, convergence = gmm(moments, theta, weight)
 # second step with efficient weight matrix
-omega = cov(ms)
+omega = 50.0*cov(ms)
 weight = inv(omega)
 title = "Two step GMM estimation of portfolio model"
 results = gmmresults(moments, thetahat, weight, title, names)
 # CUE GMM
 title = "CUE GMM estimation of portfolio model"
-gmmresults(moments, theta, "", title, names)
+gmmresults(moments, results[1], "", title, names)
+return
+end
+main()
