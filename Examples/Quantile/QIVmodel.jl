@@ -1,3 +1,4 @@
+using DelimitedFiles, Statistics
 #=
  variables in card.data are
  log_wage
@@ -13,9 +14,9 @@ function getdata()
     data = readdlm("card.data")
     LNW = data[:,1]
     EDUC = data[:,2]
-    EDUC = EDUC - mean(EDUC)
+    EDUC = EDUC .- mean(EDUC)
     EXPER = data[:,3]
-    EXPER = EXPER - mean(EXPER)
+    EXPER = EXPER .- mean(EXPER)
     BLACK = data[:,4]
     SMSA = data[:,5]
     SOUTH = data[:,6]
@@ -31,13 +32,13 @@ end
 # the moments
 function moments(beta::Array{Float64,1}, y::Array{Float64,1}, x::Array{Float64,2},
     z::Array{Float64,2}, tau::Float64)
-    m = mean(z.*(tau .- (y .<= x*beta)),1)
+    m = mean(z.*(tau .- (y .<= x*beta)),dims=1)
 end
 
 function likelihood(θ, y, x, z, τ, Σinv)
     m = moments(θ, y, x, z, τ)
     n = size(x,1)
-    lnL = log(sqrt(det(Σinv))) + (-0.5*n*m*Σinv*m')[1,1]
+    lnL = log(sqrt(det(Σinv))) + (-0.5*n*m*Σinv*m')[1]
 end
 
 function prior(theta)

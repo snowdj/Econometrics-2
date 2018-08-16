@@ -5,7 +5,9 @@ where X is the desired number of threads. On
 my 32 core system, 10 is good (cache contention issues)
 Remember to re-set threads to 1 before using MPI
 =#
+using Statistics, Econometrics, LinearAlgebra, Plots
 include("QIVmodel.jl")
+function main()
 LNW, X, Z = getdata()
 n = size(LNW,1)
 mcmcreps = 100000
@@ -18,7 +20,7 @@ tuning = scale*basetuning
 EducEffect = zeros(9,3)
 Constant = zeros(9,3)
 for i = 1:9
-    τ = round(i/10,1)
+    τ = round(i/10,digits=1)
     Σ = τ*(1.0-τ)*Z'Z/n
     Σinv = inv(Σ)
     θ = X\LNW  # OLS start values
@@ -53,4 +55,6 @@ ub = Constant[:,3]
 plot!(τ, [c c], fillrange=[lb ub], fillalpha=0.3, c=:green, legend=:none)
 xticks!((1:9)/10)
 #savefig("ConstantJUNK.svg")
-
+return
+end
+main()

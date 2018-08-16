@@ -206,7 +206,22 @@ About this document
 \end_layout
 
 \begin_layout Standard
+Note to self: 
+\end_layout
 
+\begin_layout Itemize
+For econometrics.pdf on the github page, save to econometrics.lyx, , replace
+ all instances of 
+\family typewriter
+\color blue
+https://github.com/mcreel/Econometrics/blob/master
+\family default
+\color inherit
+ with
+\family typewriter
+ 
+\color blue
+https://github.com/mcreel/Econometrics/blob/master
 \end_layout
 
 \begin_layout Section
@@ -10536,56 +10551,9 @@ Collinearity: Monte Carlo results
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-OLS,
-\begin_inset Formula $\hat{\beta_{2}}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/DataProblems/collin_ols.svg
-	lyxscale 20
-	width 10cm
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-OLS,
-\begin_inset Formula $\hat{\beta_{2}}$
-\end_inset
-
-, dropping x3
-\end_layout
+	filename Examples/DataProblems/collin.svg
+	width 15cm
 
 \end_inset
 
@@ -10593,60 +10561,6 @@ OLS,
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Graphics
-	filename Examples/DataProblems/collin_drop.svg
-	lyxscale 20
-	width 10cm
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Restricted LS,
-\begin_inset Formula $\hat{\beta_{2}}$
-\end_inset
-
-, with true restriction
-\begin_inset Formula $\beta_{2}=\beta_{3}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Examples/DataProblems/collin_rls.svg
-	lyxscale 20
-	width 10cm
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
@@ -11212,68 +11126,9 @@ OLS and Ridge regression
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-OLS
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/DataProblems/ridge_example_ols.svg
-	lyxscale 25
-	width 10cm
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Ridge
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Examples/DataProblems/ridge_example_ridge.svg
-	lyxscale 25
-	width 10cm
-
-\end_inset
-
-
-\end_layout
+	filename Examples/DataProblems/RidgeExample.svg
+	width 15cm
 
 \end_inset
 
@@ -15415,7 +15270,7 @@ Correcting for heteroscedasticity requires that a parametric form for
 \begin_layout Example
 The GRETL script 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -15947,7 +15802,7 @@ Example: the Nerlove model
 \begin_layout Itemize
 Here's the data in Gretl format: 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -16052,7 +15907,7 @@ THE DATA FILE PRESENTED IN THIS SUBDIRECTORY CONTAINS MONTHLY AND ANNUAL
 \begin_layout Standard
 The data is available in Octave format at 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -16997,6 +16852,10 @@ Monte Carlo example: AR1
 \end_layout
 
 \begin_layout Standard
+(too lazy to convert the code to Julia)
+\end_layout
+
+\begin_layout Standard
 Let's look at a Monte Carlo study that compares OLS and GLS when we have
  AR1 errors.
  The model is 
@@ -17020,7 +16879,7 @@ with
  and 1000 Monte Carlo replications are done.
  The Octave script is 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -18288,7 +18147,7 @@ Define the
 \begin_layout Enumerate
 Perhaps we can be a little more parsimonious with the Nerlove data (
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -33766,14 +33625,14 @@ reference "sec:Asymptotic-efficiency"
  normally distributed.
  The Julia script 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
  
 \backslash
-htmladdnormallink{NerloveMLE.m}{https://github.com/mcreel/Econometrics/blob/master
-/Examples/MLE/NerloveMLE.jl} 
+htmladdnormallink{NerloveMLE.jl}{https://github.com/mcreel/Econometrics/blob/maste
+r/Examples/MLE/NerloveMLE.jl} 
 \end_layout
 
 \end_inset
@@ -38523,7 +38382,7 @@ reference "fig:Inefficient-and-Efficient"
 
 \end_inset
 
- shows the results, plotting histograms for 1000 replications of 
+ shows the results, plotting densities for 1000 replications of 
 \begin_inset Formula $\sqrt{n}\left(\hat{\theta}-\theta^{0}\right)$
 \end_inset
 
@@ -38564,60 +38423,8 @@ Inefficient and Efficient GMM estimators,
 \begin_inset Formula $n=30$
 \end_inset
 
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-inefficient
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Examples/GMM/Inefficient.svg
-	lyxscale 50
-	width 10cm
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-efficient
+.
+ 
 \end_layout
 
 \end_inset
@@ -38633,15 +38440,6 @@ efficient
 
 \end_inset
 
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -41532,18 +41330,15 @@ xamples/GMM/Hausman/OLSvsIV.jl}
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "cap:OLS"
+reference "fig:OLS-and-IV"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
- shows that the OLS estimator is quite biased, while Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cap:IV"
-
-\end_inset
-
- shows that the IV estimator is on average much closer to the true value.
+ shows that the OLS estimator is quite biased and that the IV estimator
+ is on average much closer to the true value.
  If you play with the program, increasing the sample size, you can see evidence
  that the OLS estimator is asymptotically biased, while the IV estimator
  is consistent.
@@ -41561,11 +41356,11 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "cap:OLS"
+name "fig:OLS-and-IV"
 
 \end_inset
 
-OLS
+OLS and IV
 \end_layout
 
 \end_inset
@@ -41575,7 +41370,7 @@ OLS
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename Examples/GMM/Hausman/ols.svg
+	filename Examples/GMM/Hausman/olsiv.svg
 	width 12cm
 
 \end_inset
@@ -41589,42 +41384,6 @@ OLS
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "cap:IV"
-
-\end_inset
-
-IV
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Examples/GMM/Hausman/iv.svg
-	width 12cm
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \begin_inset Newpage newpage
 \end_inset
 
@@ -43211,93 +42970,16 @@ status open
 \begin_layout Plain Layout
 
 \family typewriter
-================================================
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-SAMIN results
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-==> Normal convergence <==
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-total number of objective function evaluations: 37100
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-Obj.
- value: 0.1883052104
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-parameter search width
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.98855 0.00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-2.09399 0.00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.95242 0.00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.01911 0.00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.62351 0.00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.00948 0.00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-0.33169 0.00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
-================================================
-\end_layout
-
-\begin_layout Plain Layout
-
-\family typewriter
 estimates, st.
  error, and limits of 95% CI
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+estimate std.
+ err.
+ CI lower CI upper
 \end_layout
 
 \begin_layout Plain Layout
@@ -43309,13 +42991,13 @@ estimates, st.
 \begin_layout Plain Layout
 
 \family typewriter
-2.09399 0.02677 2.04152 2.14647
+2.09399 0.02677 2.04152 2.14645
 \end_layout
 
 \begin_layout Plain Layout
 
 \family typewriter
-0.95242 0.00639 0.93989 0.96495
+0.95240 0.00639 0.93987 0.96493
 \end_layout
 
 \begin_layout Plain Layout
@@ -46962,7 +46644,7 @@ reference "fig:Dow-Jones-close,"
 
  (Julia code for this is 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -47029,24 +46711,6 @@ log differences
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Time series plot
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Graphics
 	filename Examples/TimeSeries/nyse.svg
 	width 12cm
@@ -47056,71 +46720,7 @@ Time series plot
 
 \end_layout
 
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
 \begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Frequency distribution, with normal density for reference
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Examples/TimeSeries/nysefreq.svg
-	width 12cm
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Nonparametric density plot
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Examples/TimeSeries/density.svg
-	width 12cm
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
@@ -58403,7 +58003,7 @@ The probit function
 
  is tabulated (or can be found in Julia using 
 \family typewriter
-using Distributions; y = quantile.(Normal(),linspace(0.001,0.999,200))
+using Distributions; y = quantile.(Normal(),range(0.001,stop=0.999,length=200))
 \family default
 .
  It is plotted in Figure 

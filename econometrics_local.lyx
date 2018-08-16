@@ -209,60 +209,6 @@ About this document
 Note to self: 
 \end_layout
 
-\begin_layout Standard
-
-\series bold
-Adapting examples to Julia 0.7
-\end_layout
-
-\begin_layout Itemize
-ch2 Intro done
-\end_layout
-
-\begin_layout Itemize
-ch3 OLS done
-\end_layout
-
-\begin_layout Itemize
-ch4 nothing to do
-\end_layout
-
-\begin_layout Itemize
-ch5 restrictions done
-\end_layout
-
-\begin_layout Itemize
-ch 6 nothing to do
-\end_layout
-
-\begin_layout Itemize
-ch 7 data problems done
-\end_layout
-
-\begin_layout Itemize
-ch 8 nothing to do
-\end_layout
-
-\begin_layout Itemize
-ch 9 GLS: partially done, not bothering with some octave code
-\end_layout
-
-\begin_layout Itemize
-ch 10 simeq: not bothering
-\end_layout
-
-\begin_layout Itemize
-ch 11 Nonlinear Opt done
-\end_layout
-
-\begin_layout Itemize
-ch 14 MLE chapter done
-\end_layout
-
-\begin_layout Itemize
-ch 15 gmm done
-\end_layout
-
 \begin_layout Itemize
 For econometrics.pdf on the github page, save to econometrics.lyx, , replace
  all instances of 
@@ -46695,7 +46641,7 @@ reference "fig:Dow-Jones-close,"
 
  (Julia code for this is 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -46762,24 +46708,6 @@ log differences
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Time series plot
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Graphics
 	filename Examples/TimeSeries/nyse.svg
 	width 12cm
@@ -46789,71 +46717,7 @@ Time series plot
 
 \end_layout
 
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
 \begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Frequency distribution, with normal density for reference
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Examples/TimeSeries/nysefreq.svg
-	width 12cm
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Nonparametric density plot
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Examples/TimeSeries/density.svg
-	width 12cm
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
@@ -58136,7 +58000,7 @@ The probit function
 
  is tabulated (or can be found in Julia using 
 \family typewriter
-using Distributions; y = quantile.(Normal(),linspace(0.001,0.999,200))
+using Distributions; y = quantile.(Normal(),range(0.001,stop=0.999,length=200))
 \family default
 .
  It is plotted in Figure 
