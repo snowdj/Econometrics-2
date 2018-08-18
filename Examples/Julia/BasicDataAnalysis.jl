@@ -7,8 +7,9 @@ See the github pages of the packages for documentation
 =#
 
 ##
-using DataFrames, DataFramesMeta
-card = readtable("../Data/card.csv") # how to read CSV data into DataFrame
+using CSV, DataFrames, DataFramesMeta, DelimitedFiles, StatPlots, Plots
+pyplot(reuse=false, show=true)
+card = CSV.read("../Data/card.csv") # how to read CSV data into DataFrame
 size(card)
 names(card)
 head(card)
@@ -18,7 +19,6 @@ describe(card)
 # select south and black (using DataFramesMeta)
 sb = @where(card, :south .== 1, :black .== 1)
 # make a scatter plot
-using StatPlots
 @df sb scatter(:educ, :wage, leg=false)
 # select north and white
 nw = @where(card, :south .== 0, :black .== 0)
