@@ -377,7 +377,7 @@ literal "false"
 ) are an important part of these notes.
  Julia 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -390,7 +390,8 @@ htmladdnormallink{(julialang.org)}{https://julialang.org}
 
  has been used for most of the example programs, which are scattered though
  the document.
- This choice is motivated by several factors.
+ The examples and code use the current stable version of Julia, version
+ 1.0.This choice is motivated by several factors.
  Julia runs on all of the popular operating systems, it is free, and it
  is fast, thanks to just-in-time compilation.
  It is a relatively new language, but is already quite stable.
@@ -628,13 +629,19 @@ literal "false"
 \end_inset
 
 .
- To use that code, from the Julia prompt, execute the following command:
- 
+ To use that code, from the Julia package prompt (type 
+\begin_inset Quotes sld
+\end_inset
+
+]
+\begin_inset Quotes srd
+\end_inset
+
+ to get to it)prompt, execute the following command:
 \family typewriter
-Pkg.clone("https://github.com/mcreel/Econometrics.jl.git")
+ add https://github.com/mcreel/Econometrics.jl.git
 \family default
 .
- This will install the code to your Julia home directory.
  Then, when running Julia, access the code by typing 
 \family typewriter
 using Econometrics.
@@ -61105,7 +61112,7 @@ MSM and II
 \begin_layout Standard
 The Julia script 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -61124,8 +61131,8 @@ reference "subsec:Stochastic-volatility"
 
 \end_inset
 
- by indirect inference and by MSM, using ad-hoc moments.
- It illustrates the fact that the choice of moments is important.
+ by indirect inference.
+ It is a bit of work in progress...
 \end_layout
 
 \begin_layout Standard
@@ -63147,7 +63154,9 @@ the ecosystem is still developing, some features like DataFrames and plotting
  are not as complete stable as in other languages.
  However, I have been using it happily since 2014, and have been getting
  work done.
- Once the 1.0 release is out, 
+ 
+\strikeout on
+Once the 1.0 release is out, 
 \begin_inset Quotes sld
 \end_inset
 
@@ -63155,7 +63164,10 @@ real soon now
 \begin_inset Quotes srd
 \end_inset
 
-, things will stabilize.
+, things will stabilize
+\strikeout default
+ Strike that! Julia 1.0 was released in August 2018.
+ 
 \end_layout
 
 \begin_layout Standard

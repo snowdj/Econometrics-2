@@ -1,25 +1,27 @@
-#=
-    Illustrates MSM (indirect inference version) by fitting a simple SV model
-    using a HAR auxiliary model
-=#
-
-# to run in parallel, do export JULIA_NUM_THREADS=x
-# where x is the number of cores you'd like to use
-
-using StatPlots
-
-# the d.g.p.
-function SVmodel(n, θ = 0.0, randdraws = 0.0)
-    # draw parameter from parameter space, if not provided
-    if θ==0.0
-        # sample from uniform over box
-        lb = [0.01, 0.0, 0.01]
-        ub = [1.0, 0.99, 1.0]
-        θ = (ub-lb).*rand(3) + lb
-    end
-    α = θ[1]
-    ρ = θ[2]
-    σᵤ = θ[3]
+using Plots, Statistics, StatPlots
+pyplot(show=true, reuse=false)
+# map R^3 to param space
+function θ2ϕ(θ)
+    ϕ = similar(θ)
+    ϕ[1] = exp(θ[1])
+    ϕ[2] = 1.0 / (1.0 + exp(-θ[2]))
+    ϕ[3] = exp(θ[3])
+    return ϕ
+end
+# map param space to R^3
+function ϕ2θ(ϕ)
+    θ = similar(ϕ)
+    θ[1] = log(ϕ[1])
+    θ[2] = -log(1.0/ϕ[2] - 1.0) 
+    θ[3] = log(ϕ[3])
+    return θ
+end
+# simple discrete time SV model
+function SVmodel(n, θ, randdraws = 0.0)
+    ϕ = θ2ϕ(θ)
+    α = ϕ[1] # mean of log variance: positive
+    ρ = ϕ[2] # AR of log variance: between 0 and 1
+    σᵤ = ϕ[3] # std. dev. of log variance: positive
     burnin = 1000
     ys = zeros(n)
     hlag = 0.0
@@ -28,15 +30,15 @@ function SVmodel(n, θ = 0.0, randdraws = 0.0)
         randdraws = randn(burnin+n,2)
     end
     @inbounds for t = 1:burnin+n
-        h = ρ*hlag + σᵤ*randdraws[t,1] # log variance follows AR(1)
-        y = α*exp(h/2.0)*randdraws[t,2]
+        h = α + ρ*(hlag-α) + σᵤ*randdraws[t,1] # log variance follows AR(1)
+        y = exp(h/2.0)*randdraws[t,2]
         if t > burnin
             ys[t-burnin] = y
         end
         hlag = h
     end
-    σ = α*exp(hlag/2.0)
-    return θ, ys, σ
+    σ = exp(hlag/2.0) # the latent volatility in last period
+    return ys, σ
 end
 
 # auxiliary model: HAR-RV(p)
@@ -44,6 +46,8 @@ end
 # of realized volatility." Journal of Financial Econometrics 7,
 # no. 2 (2009): 174-196.
 function HAR(y,p)
+    σhat = std(y)
+    y ./= σhat
     RV = abs.(y)
     RVlags = lags(RV,p)
     X = [ones(size(y,1)) RVlags]
@@ -51,67 +55,39 @@ function HAR(y,p)
     RV = RV[p+1:end]
     X = X[p+1:end,:]
     βhat = X\RV
-    uhat = RV-X*βhat
-    σhat = std(uhat)
-    b1 = βhat[1]
-    b2 = βhat[2]
-    b3 = mean(βhat[2:end])
-    # just keep the constant, first AR coef., and the
-    # average of the lag coeffients
-    return vcat(b1, b2, b3,σhat)
+    return vcat(βhat,σhat)
 end
 
-function II_moments(θ, y, randdraws)
+function II_moments(θ, ϕhat, n, randdraws)
     S = size(randdraws,1)
-    n = size(y,1)
-    p = 4 # number of lags for HAR model
-    ϕhat = HAR(y,p) # this is being re-computed many times, needlessly, but I'm lazy
-    ϕhatS = zeros(S, size(ϕhat,1))
-    @inbounds Threads.@threads for s = 1:S
-        junk, yₛ, junk = SVmodel(n, θ, randdraws[s,:,:])
+    n_auxparams = size(ϕhat,1)
+    p = n_auxparams - 2 # number of lags in HAR
+    ϕhatS = zeros(S, n_auxparams)
+    for s = 1:S
+        yₛ, junk = SVmodel(n, θ, randdraws[s,:,:])
         ϕhatS[s,:] = HAR(yₛ,p)
     end
-    ms = sqrt(n)*(ϕhat' .- ϕhatS)
-    #W = inv(cov(ms))
-    #m = mean(ms,1)
-    #return  m, W # the moments, in a SxG matrix
+    ms = ϕhat' .- ϕhatS
     return  ms # the moments, in a SxG matrix
-end
-
-function MSM_moments(θ, y, randdraws)
-    # define a few simple momments which hopefully will identify
-    # this is often standard practice when doing MSM
-    # note that there's nothing to identify ρ here
-    S = size(randdraws,1)
-    n = size(y,1)
-    m = [y y.^2 y.^3 y.^4]
-    @inbounds Threads.@threads for s = 1:S
-        junk, y, junk = SVmodel(n, θ, randdraws[s,:,:])
-        m -= [y y.^2.0 y.^3.0 y.^4.0]/S
-    end
-    return m
 end
 
 function main()
 # generate the sample
-θₒ  = [exp(-0.736/2.0), 0.95, 0.2] # true parameter values
+ϕ₀ = [0.7, 0.95, 0.2] # true param values, on param space
+θₒ  = ϕ2θ(ϕ₀) # true parameter values, on R^2
 n = 1000 # sample size
-junk, y, σ = SVmodel(n, θₒ) # generate the sample
+y, σ = SVmodel(n, θₒ) # generate the sample
 plot(y)
 density(y)
-# now to estimation by MSM
-S = 10 # number of simulation reps
-randdraws = randn(S,n+1000,2) # fix the shocks to control "chatter" (includes the burnin period)
 
 # Estimation by indirect inference
-moments = θ -> II_moments(θ, y, randdraws)
-gmmresults(moments, θₒ, "", "Estimate SV by II-CUE");
-
-# Estimation by MSM (CUE) using ad hoc moments
-# these moments were chosen without too much thought, and may not identify
-# the parameters. This illustrates the danger of simply plugging in some
-# simple sample moments and hoping for the best
-moments = θ -> MSM_moments(θ, y, randdraws)
-gmmresults(moments, θₒ, "", "Estimate SV by MSM-CUE, ad hoc moments");
+S = 20 # number of simulation reps
+randdraws = randn(S,n+1000,2) # fix the shocks to control "chatter" (includes the burnin period)
+p = 4
+ϕhat = HAR(y,p) # statistics using real sample
+moments = θ -> II_moments(θ, ϕhat, n, randdraws)
+thetahat, junk, junk, junk, junk = gmm(moments, θₒ, 1.0)
+gmmresults(moments, thetahat, "", "This minimizes m(θ)'inv[Ω(θ)]m(θ), but std errs, etc. are not correct")
+θ2ϕ(thetahat)
 end
 main()
