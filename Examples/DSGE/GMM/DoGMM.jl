@@ -1,5 +1,5 @@
 # this computes the GMM estimator by SA minimization, for
-# each of the 1000 data sets. Can be parallelized using
+# one of the 1000 data sets. Can be parallelized using
 # threads.
 using Econometrics, DelimitedFiles, Statistics, LinearAlgebra, Calculus
 include("DSGEmoments.jl")  # computes errors
