@@ -1,9 +1,9 @@
 # this computes the GMM estimator by SA minimization, for
 # each of the 1000 data sets. Can be parallelized using
 # threads.
-using DelimitedFiles, Statistics, LinearAlgebra, Calculus
-function main()
+using Econometrics, DelimitedFiles, Statistics, LinearAlgebra, Calculus
 include("DSGEmoments.jl")  # computes errors
+function main()
 include("parameters.jl") # load true parameter values
 data = readdlm("dsgedata.txt")
 # estimate by simulated annealing
