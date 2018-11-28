@@ -1,6 +1,5 @@
 # this illustrates effect and detection of influential observations
-using Plots
-pyplot()
+using Plots, LinearAlgebra
 n = 20
 x = (1:n-1)/(n-1)
 x = [x; 3] # the last observation is an outlying value of x
@@ -19,7 +18,7 @@ yhat = P*y
 # calculate leverage and influence
 leverage = diag(P)
 e = y - yhat
-influence = (leverage ./ (1-leverage)) .* e
+influence = (leverage ./ (1.0 .-leverage)) .* e
 
 xlabel = "X"
 x = x[:,2]
@@ -28,4 +27,4 @@ plot!(x, yhat, label = "fitted")
 plot!(x, leverage, label = "Leverage")
 plot!(x, influence, label = "Influence")
 gui()
-savefig("InfluentialObservation.svg")
+#savefig("InfluentialObservation.svg")

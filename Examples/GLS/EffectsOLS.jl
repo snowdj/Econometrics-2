@@ -1,7 +1,6 @@
 # this shows effects of het. on the OLS estimator
-using Plots, Distributions
-pyplot()
-
+using Plots, Distributions, Econometrics, LinearAlgebra, Statistics
+function main()
 het = true  # set this to true or false
 n = 50 # sample size
 
@@ -37,6 +36,9 @@ println("rejection frequency of nominal 10 percent test")
 println("intercept: ", sum(test[:,1]/reps))
 println("slope: ", sum(test[:,2]/reps))
 
-plot([0.0; 1.0],sum(test,1)'/1000, linetype=:bar, label="0 is intercept, 1 is slope")
-savefig("EffectsOLS.svg")
-
+plot([0.0; 1.0],sum(test,dims=1)'/1000, linetype=:bar, label="0 is intercept, 1 is slope")
+#savefig("EffectsOLS.svg")
+gui()
+return
+end
+main()

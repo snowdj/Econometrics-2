@@ -1,12 +1,13 @@
 # this script does a Monte Carlo that applies IV to solve inconsistency of OLS estimator
 # when there is measurement error of the regressors
-using Distributions
+using Distributions, LinearAlgebra
 
 function GIVmoments(theta, y, x, inst)
 	e = y - x*theta
 	ms = e.*inst
 end
 
+function main()
 # do the Monte Carlo
 n = 100
 sig = 1
@@ -39,11 +40,12 @@ for rep = 1:reps
 	junk, objvalue, junk, junk, junk = gmm(moments, thetahat, weight)
    	objvalue = size(y,1)*objvalue
 	df = size(ms,2) - size(thetahat,1)
-	reject = objvalue .> quantile(Chisq(df),[0.9 0.95 0.99]) # does the test reject at these signif levels?
+	reject = objvalue .> quantile.(Ref(Chisq(df)),[0.9 0.95 0.99]) # does the test reject at these signif levels?
     results[rep,:] = reject
 end
 cnames = ["10%", "5%", "1%"]
 println("rejection frequencies, nominal 10% 5% and 1%:")
-prettyprint(mean(results,1),cnames)
-
-
+prettyprint(mean(results,dims=1),cnames)
+return
+end
+main()

@@ -17,7 +17,7 @@ function GIVmoments(theta, data)
 	m = e.*Z
 end
 	
-
+function main()
 # do the Monte Carlo
 n = 100
 sig = 1
@@ -51,6 +51,8 @@ histogram(results[:,1],nbins = 30)
 #savefig("givconstant.svg")
 histogram(results[:,2],nbins = 30)
 #savefig("givrho.svg")
-dstats(results);		
-
+dstats(results)	
+return
+end
+main()
 

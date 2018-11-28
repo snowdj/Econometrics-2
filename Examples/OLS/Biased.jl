@@ -9,7 +9,6 @@ truebetas = [0, 0.9]
 for i = 1:reps
 	x = zeros(n+1)
 	x[1] = 0.0
-    x
 	# generate AR(1) data
 	for t = 2:n+1
 		x[t] = truebetas[1] + truebetas[2]*x[t-1] + randn()
@@ -23,5 +22,5 @@ end
 
 betas = betas .- truebetas[2]
 histogram(betas, label="")
-#gui()
+gui()
 #savefig("Biased.svg")

@@ -7,7 +7,8 @@
 # this script does a Monte Carlo that shows the inconsistency of OLS estimator
 # when there is measurement error of the regressors
 
-using Plots
+using Plots, LinearAlgebra, Econometrics
+function main()
 # the function to be Monte Carlo'ed
 function wrapper(n, sig)
 	x = randn(n) # an exogenous regressor
@@ -42,4 +43,8 @@ end
 # analyze results
 histogram(bs[:,2])
 sig != 0.0 ? savefig("ylag_n100.svg") : savefig("ylag_n100_no_error.svg")
+gui()
 dstats(bs);
+return
+end
+main()

@@ -1,7 +1,6 @@
 # this generates data according to classical model
 # and shows the OLS fit
 using Plots
-pyplot()
 n = 20
 x = 1:n
 

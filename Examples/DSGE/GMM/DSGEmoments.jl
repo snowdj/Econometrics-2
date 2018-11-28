@@ -25,14 +25,14 @@ function DSGEmoments(thetas, data)
         css = yss - iss
         psi =  (css^(-gam)) * (1-alpha) * (kss^alpha) * (nss^(-alpha))
         # use MPL-MRS to get eta, the preference shock
-        eta = log.(w) - gam*log.(c) - log.(psi)
+        eta = log.(w) .- gam*log.(c) .- log.(psi)
         X = lag(eta,1)
         u = (eta-X*rho_eta)/sig_eta
         e1 = X.*u
-        e2 = u.^2.0 - 1.0
+        e2 = u.^2.0 .- 1.0
         pref_shock = copy(u)
         # now the Euler eqn
-        e3 = (1.0 + r - delta).*beta.*(c.^(-gam)) - lag(c,1).^(-gam) 
+        e3 = (1.0 .+ r .- delta).*beta.*(c.^(-gam)) .- lag(c,1).^(-gam) 
         e3 = 100.0*e3
         # recover K from MPK/MPL
         lagk = (alpha/(1.0-alpha))*lag(n.*w./r,1)
@@ -41,7 +41,7 @@ function DSGEmoments(thetas, data)
         X = lag(z,1)
         u = (z-X*rho_z)/sig_z
         e4 = X.*u
-        e5 = u.^2.0 - 1.0
+        e5 = u.^2.0 .- 1.0
         tech_shock = copy(u)
         # make moment conditions
         data = lag(data,1)

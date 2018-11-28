@@ -1,3 +1,5 @@
+using DelimitedFiles, Econometrics
+function main()
 # Check the Nerlove data for collinearity
 data = readdlm("nerlove.data")
 data = data[:,3:6] # these are the regressors
@@ -16,3 +18,6 @@ for i = 1:4
 	x = [ones(n,1) data[:,k]]
 	ols(y, x, names=names)
 end
+return
+end
+main()

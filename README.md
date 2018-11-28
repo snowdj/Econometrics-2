@@ -1,9 +1,9 @@
 # Econometrics
 Graduate level econometrics notes with embedded examples using the Julia language.
 
-- master is now transitioning to Julia v0.7/1.0, and the code is likely to be broken for a while
+- master is now fully adapted to Julia v0.7/1.0
 - Release 2 is from June 2018, and uses Julia v0.6.x
-- Release 1 has an older version with the examples witten for Octave).
+- Release 1 has an older version with the examples witten for Octave.
 
 To get just the notes, click on econometrics.pdf, and then on Download, at the upper R of the page, which will download only the pdf. Links in the pdf point to files here on github, and will open in your browser.
 - to run the examples:

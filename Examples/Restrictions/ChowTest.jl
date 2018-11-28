@@ -1,7 +1,7 @@
 # Estimates 5 separate models for the Nerlove Cobb-Douglas model,
 # and does a Chow test for pooled coefficients
-using Plots
-pyplot()
+using Econometrics, Plots, DelimitedFiles, LinearAlgebra
+function main()
 data = readdlm("nerlove.data")
 data = data[:,2:6]
 data = log.(data)
@@ -29,19 +29,18 @@ names = [names; names; names; names; names] # copy 5 times
 println("Nerlove model: 5 separate regressions for different output levels")
 b, junk, junk, junk = ols(y, x, names=names)
 output = 1:5
-output = output*5+2-5
+output = output .*5 .+2 .- 5
 output = b[output,:]
 rts = 1 ./ output
 
 # gset term X11
 group = 1:5
 group = group
-plot(group, rts, label = "", yaxis="RTS", xaxis = "Output Group")
-gui()
-savefig("rts.svg")
+plot(group, rts, label = "", yaxis="RTS", xaxis = "Output Group", show=true)
+#savefig("rts.svg")
 
 # Chow test
-R = eye(5)
+R = Matrix{Float64}(I, 5, 5)
 Z = zeros(5,5)
 R = [
 	R -R Z Z Z;
@@ -54,5 +53,7 @@ println("Chow test: note that the restricted model")
 println("gives the same results as the original model")
 ols(y, x, R=R, r=r, names=names)
 TestStatistics(y, x, R, r)
-
+return
+end
+main()
 

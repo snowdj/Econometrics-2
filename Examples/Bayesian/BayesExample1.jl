@@ -8,14 +8,13 @@
 
 # explore different sample sizes, different true thetas
 using Distributions, Plots
-#pyplot()
 
 function main()
     n = 50   # sample size
     theta = 3 # true theta
     y = rand(Exponential(theta), n) # sample from exponential(theta)
     # make plots
-    thetas =linspace(0.01,10,1000)
+    thetas = range(0.01,stop=10,length=1000)
     delta = thetas[2]-thetas[1]
     p, priormean = prior(thetas)
     post, postmean = posterior(y, thetas)
@@ -28,7 +27,7 @@ end
 # the prior is lognormal(1,1)
 function prior(theta)
     d = LogNormal(1.0,1.0)
-    p = pdf.(d, theta)
+    p = pdf.(Ref(d), theta)
     pmean = exp(1.5) # mean of lognormal is exp(mu+sig/2)
     return p, pmean
 end
@@ -38,7 +37,7 @@ function likelihood(y, theta)
     dens = zeros(size(theta))
     for i = 1:size(theta,1)
         d = Exponential(theta[i])
-        dens[i] = prod(pdf.(d, y))
+        dens[i] = prod(pdf.(Ref(d), y))
     end
     return dens
 end
@@ -70,7 +69,7 @@ function posterior(y, theta)
     m = marginal(y)
     j = joint(y, theta)
     dens = j ./ m
-    thetas = linspace(0.01,10,1000)
+    thetas = range(0.01,stop=10,length=1000)
     pmean = sum(dens.*thetas.*0.01)
     return dens, pmean
 end
